@@ -1,0 +1,69 @@
+<!DOCTYPE html> <!-- Tells the browser "this is an HTML5 document." Just a required declaration, always the first line. -->
+<html lang="en">
+    <head> <!-- A container for metadata; instructions for the browser. -->
+        <meta charset="UTF-8" /> <!-- UTF-8 encoding -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Makes the site behave correctly on mobile screens. -->
+        <title>Morgan Olivia Evans</title> <!-- The text that appears in the browser tab. -->
+        <link rel="stylesheet" href="style.css" /> <!-- Loading CSS file. -->
+    </head>
+
+    <body> <!-- Everything visible on the page goes here. -->
+
+    <!-- ===== NAV ===== -->
+    <header>
+        <nav>
+            <a href="/" class="nav-name">Morgan Olivia Evans</a>
+            <ul>
+                <li><a href="/experience/">Experience</a></li>
+                <li><a href="/projects/">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+        <img src="media/grad.jpg" alt="Morgan Olivia Evans at UCI ICS" />
+        <div class="hero-overlay">
+            <h1>Morgan Olivia Evans</h1>
+            <p>Software Engineer — HPC & Embedded Systems</p>
+        </div>
+    </section>
+
+    <!-- ===== BIO ===== -->
+    <section id="bio">
+        <div class="bio-container">
+            <img src="media/nccs-bw.jpg" alt="Morgan Olivia Evans at NASA Goddard" class="bio-photo" />
+            <div class="bio-text">
+                <h2>About</h2>
+                <p>Your bio goes here.</p>
+                <a href="https://drive.google.com/file/d/197jzIhMwKH6mfxXvNBxno3roQA9zJFe5/view?usp=sharing" target="_blank" class="resume-link">Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== AFFILIATIONS ===== -->
+    <section id="affiliations">
+        <h2>Affiliations</h2>
+        <div class="affiliations-row">
+            <img src="media/affiliations/nasa-logo.png" alt="NASA" />
+            <img src="media/affiliations/goddard-logo.png" alt="GODDARD" />
+            <img src="media/affiliations/nccs-logo.png" alt="NCCS" />
+            <img src="media/affiliations/uci-logo.png" alt="UC Irvine" />
+            <img src="media/affiliations/access-logo.svg" alt="ACCESS" />
+            <img src="media/affiliations/scec-logo.jpg" alt="SCEC" />
+        </div>
+    </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <ul class="contact-list">
+                <li><a href="mailto:morganoliviaevans@gmail.com">morganoliviaevans@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.github.com/morganoliviaevans" target="_blank">GitHub</a></li>
+            </ul>
+        </footer>
+
+        <script src="script.js"></script> <!-- Attachs JS file. Always at the bottom, so the HTML loads before the JS tries to interact with it. -->
+    </body>
+
+</html>
