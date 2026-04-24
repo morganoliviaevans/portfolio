@@ -1,13 +1,13 @@
-<!DOCTYPE html> <!-- Tells the browser "this is an HTML5 document." Just a required declaration, always the first line. -->
+<!DOCTYPE html> <!-- Tells the browser "this is an HTML5 document." Just a required declaration, always the first line -->
 <html lang="en">
-    <head> <!-- A container for metadata; instructions for the browser. -->
+    <head> <!-- A container for metadata; instructions for the browser -->
         <meta charset="UTF-8" /> <!-- UTF-8 encoding -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Makes the site behave correctly on mobile screens. -->
-        <title>Morgan Olivia Evans</title> <!-- The text that appears in the browser tab. -->
-        <link rel="stylesheet" href="style.css" /> <!-- Loading CSS file. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Makes the site behave correctly on mobile screens -->
+        <title>Morgan Olivia Evans</title> <!-- The text that appears in the browser tab -->
+        <link rel="stylesheet" href="style.css" /> <!-- Loading CSS file -->
     </head>
 
-    <body> <!-- Everything visible on the page goes here. -->
+    <body> <!-- Everything visible on the page goes here -->
 
     <!-- ===== NAV ===== -->
     <header>
@@ -17,12 +17,15 @@
                 <li><a href="/experience/">Experience</a></li>
                 <li><a href="/projects/">Projects</a></li>
             </ul>
+            <button class="theme-toggle" onclick="toggleTheme()">Light</button> <!-- Dark mode toggle -->
         </nav>
     </header>
 
     <!-- ===== HERO ===== -->
     <section id="hero">
-        <img src="media/grad.jpg" alt="Morgan Olivia Evans at UCI ICS" />
+        <!-- <img src="media/jakobshavn-isbræ-glacier.jpg" alt="Jakobshavn Isbræ Glacier" /> -->
+        <!-- <img src="media/geos-co2-model.jpeg" alt="NASA GEOS CO2" /> -->
+        <img src="media/grad.jpg" alt="UCI ICS" />
         <div class="hero-overlay">
             <h1>Morgan Olivia Evans</h1>
             <p>Software Engineer — HPC & Embedded Systems</p>
@@ -35,22 +38,31 @@
             <img src="media/nccs-bw.jpg" alt="Morgan Olivia Evans at NASA Goddard" class="bio-photo" />
             <div class="bio-text">
                 <h2>About</h2>
-                <p>Your bio goes here.</p>
+                <p>Morgan is a recent Computer Science graduate from UC Irvine, specializing in high-performance computing, 
+                scientific research, and embedded systems. She is a seasoned technical leader with a proven track record of managing 
+                end-to-end development and research projects, particularly within the realm of earth system science.
+
+                She thrives at the intersection of industry and academia, a passion fueled by opportunities to contribute to projects with 
+                NASA Center for Climate Simulation (NCCS), KPFF, Statewide Califrornia Earthquake Center (SCEC), 
+                and Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS).
+
+                Morgan is driven by a commitment to understanding our planet and excels at collaborating with educators and industry leaders to build 
+                impactful real-world systems. She is eager to continue learning and contributing to the field through creative, purpose-led innovation.</p>
                 <a href="https://drive.google.com/file/d/197jzIhMwKH6mfxXvNBxno3roQA9zJFe5/view?usp=sharing" target="_blank" class="resume-link">Resume</a>
             </div>
         </div>
     </section>
 
     <!-- ===== AFFILIATIONS ===== -->
-    <section id="affiliations">
+    <section id="affiliations" class="affiliations-light">
         <h2>Affiliations</h2>
         <div class="affiliations-row">
             <img src="media/affiliations/nasa-logo.png" alt="NASA" />
             <img src="media/affiliations/goddard-logo.png" alt="GODDARD" />
-            <img src="media/affiliations/nccs-logo.png" alt="NCCS" />
             <img src="media/affiliations/uci-logo.png" alt="UC Irvine" />
-            <img src="media/affiliations/access-logo.svg" alt="ACCESS" />
-            <img src="media/affiliations/scec-logo.jpg" alt="SCEC" />
+            <img src="media/affiliations/nccs-logo.png" alt="NCCS" />
+            <img src="media/affiliations/scec-logo-2.jpg" alt="SCEC" />
+            <img src="media/affiliations/access-logo.png" alt="ACCESS" />
         </div>
     </section>
 
@@ -63,7 +75,7 @@
             </ul>
         </footer>
 
-        <script src="script.js"></script> <!-- Attachs JS file. Always at the bottom, so the HTML loads before the JS tries to interact with it. -->
+        <script src="script.js"></script> <!-- Attaches our JS file. Always at the bottom, so the HTML loads before the JS tries to interact with it -->
     </body>
 
 </html>

@@ -1,0 +1,346 @@
+/* ============================================================
+IMPORTS
+============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+/* ============================================================
+CSS VARIABLES — DESIGN TOKENS
+============================================================ */
+:root {
+    /* Colors — Dark Mode (default) */
+    --bg-primary:     #0d1117;
+    --bg-secondary:   #161b22;
+    --bg-surface:     #625F5B;
+    --text-primary:   #FFFFFF;
+    --text-secondary: #78746D;
+    --text-muted:     #8FA6AC;
+    --accent:         #6D8087;
+    --accent-light:   #8FA6AC;
+    --border:         #21262d;
+
+    /* Typography */
+    --font:           'Plus Jakarta Sans', sans-serif;
+    --weight-thin:    300;
+    --weight-regular: 400;
+    --weight-medium:  500;
+    --weight-bold:    600;
+
+    /* Spacing */
+    --nav-height:     80px;
+    --max-width:      1100px;
+    --section-gap:    5rem;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+    --bg-primary:     #FFFFFF;
+    --bg-secondary:   #f5f5f4;
+    --bg-surface:     #e8e6e3;
+    --text-primary:   #1a1a1a;
+    --text-secondary: #625F5B;
+    --text-muted:     #78746D;
+    --accent:         #6D8087;
+    --accent-light:   #8FA6AC;
+    --border:         #e0ddd9;
+}
+
+/* ============================================================
+RESET & BASE
+============================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin:     0;
+    padding:    0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:      var(--font);
+    font-weight:      var(--weight-thin);
+    background-color: var(--bg-primary);
+    color:            var(--text-primary);
+    font-size:        16px;
+    line-height:      1.7;
+    transition:       background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+    color:           inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display:   block;
+    max-width: 100%;
+}
+
+/* ============================================================
+TYPOGRAPHY
+============================================================ */
+h1 {
+    font-weight: var(--weight-bold);
+    font-size:   2.25rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-weight: var(--weight-medium);
+    font-size:   1.5rem;
+    line-height: 1.3;
+}
+
+h3 {
+    font-weight: var(--weight-medium);
+    font-size:   1.1rem;
+}
+
+.card-meta {
+    font-size:      0.8rem;
+    font-weight:    var(--weight-thin);
+    color:          var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin:         0.35rem 0 0.75rem;
+}
+
+/* ============================================================
+LAYOUT
+============================================================ */
+main {
+    max-width: var(--max-width);
+    margin:    0 auto;
+    padding:   calc(var(--nav-height) + 3rem) 2rem var(--section-gap);
+}
+
+section {
+    margin-bottom: var(--section-gap);
+}
+
+/* ============================================================
+NAV
+============================================================ */
+header {
+    position:         fixed;
+    top:              0;
+    left:             0;
+    right:            0;
+    height:           var(--nav-height);
+    background-color: var(--bg-primary);
+    border-bottom:    1px solid var(--border);
+    z-index:          100;
+    transition:       background-color 0.3s ease;
+}
+
+nav {
+    max-width:   var(--max-width);
+    margin:      0 auto;
+    height:      100%;
+    display:     flex;
+    align-items: center;
+    padding:     0 2rem;
+    gap:         2rem;
+}
+
+.nav-name {
+    font-weight:    var(--weight-medium);
+    font-size:      1.5rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color:          var(--text-primary);
+    margin-right:   auto;
+}
+
+nav ul {
+    display:     flex;
+    align-items: center;
+    gap:         2rem;
+}
+
+nav ul li a {
+    font-size:      1rem;
+    font-weight:    var(--weight-regular);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color:          var(--accent-light);
+    transition:     color 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: var(--text-primary);
+}
+
+/* Theme toggle */
+.theme-toggle {
+    background:    none;
+    border:        1px solid var(--border);
+    color:         var(--text-secondary);
+    font-family:   var(--font);
+    font-size:     0.75rem;
+    font-weight:   var(--weight-regular);
+    padding:       0.3rem 0.75rem;
+    border-radius: 20px;
+    cursor:        pointer;
+    transition:    all 0.2s ease;
+    white-space:   nowrap;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent);
+    color:        var(--text-primary);
+}
+
+/* ============================================================
+HERO
+============================================================ */
+#hero {
+    position:   relative;
+    width:      100%;
+    height:     90vh;
+    overflow:   hidden;
+    margin-top: var(--nav-height);
+}
+
+#hero img {
+    width:           100%;
+    height:          100%;
+    object-fit:      cover;
+    object-position: center 100%;
+    display:         block;
+}
+
+/* .hero-overlay {
+    position:        absolute;
+    bottom:          3rem;
+    left:            3rem;
+    padding:         1.25rem 1.75rem;
+    border-left:     3px solid var(--accent);
+    background:    rgba(13, 17, 23, 0.65);
+    backdrop-filter: blur(4px);
+}
+
+.hero-overlay h1 {
+    font-weight:    var(--weight-bold);
+    font-size:      2.5rem;
+    color:          #FFFFFF;
+    letter-spacing: 0.02em;
+}
+
+.hero-overlay p {
+    font-size:      0.85rem;
+    font-weight:    var(--weight-thin);
+    color:          var(--accent-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top:     0.4rem;
+} */
+
+/* ============================================================
+BIO
+============================================================ */
+#bio {
+    padding:   var(--section-gap) 1rem;
+    max-width: var(--max-width);
+    margin:    0 auto;
+}
+
+.bio-container {
+    display:     flex;
+    align-items: flex-start;
+    gap:         6rem; /* Space in between photo and text profile */
+}
+
+.bio-photo {
+    width:           400px;
+    flex-shrink:     0;
+    border-radius:   4px;
+    object-fit:      cover;
+    object-position: center top;
+    filter:          grayscale(100%);
+}
+
+.bio-text h2 {
+    font-size:      1rem;
+    font-weight:    var(--weight-regular);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color:          var(--accent-light);
+    margin-bottom:  1.25rem;
+}
+
+.bio-text p {
+    font-size:   1rem;
+    font-weight: var(--weight-thin);
+    color:       var(--text-primary);
+    line-height: 1.8;
+    max-width:   60ch;
+}
+
+.cv-link {
+    display:        inline-block;
+    margin-top:     1.5rem;
+    font-size:      0.75rem;
+    font-weight:    var(--weight-regular);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color:          var(--accent);
+    border:         1px solid var(--accent); /* or --text-muted? */
+    padding:        0.4rem 1.25rem;
+    border-radius:  2px;
+    transition:     all 0.2s ease;
+}
+
+.cv-link:hover {
+    background-color: var(--accent);
+    color:            #FFFFFF;
+}
+
+/* ============================================================
+AFFILIATIONS
+============================================================ */
+.affiliations-light {
+    background-color: #FFFFFF;
+    padding:          1.5rem 1.5rem; /* original: 2.5rem 2rem */
+}
+
+.affiliations-light h2 {
+    color:          #625F5B;
+    font-size:      1.5rem;
+    font-weight:    var(--weight-regular);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom:  1.5rem;
+    text-align:     center;
+}
+
+.affiliations-row {
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             1.5rem;
+    flex-wrap:       wrap;
+    max-width:       var(--max-width);
+    margin:          0 auto;
+} 
+
+.affiliations-row img {
+    height:     100px;
+    width:      auto;
+    max-width:  180px;
+    object-fit: contain;
+    filter:     grayscale(100%);
+    opacity:    0.75;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+/* Full color on hover */
+.affiliations-row img:hover {
+    filter:  grayscale(0%);
+    opacity: 1;
+}
