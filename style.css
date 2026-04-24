@@ -1,16 +1,20 @@
-/* =========================================================
+/* 
+=========================================================
 IMPORTS
-============================================================ */
+=========================================================
+ */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
-/* =========================================================
+/* 
+=========================================================
 CSS VARIABLES — DESIGN TOKENS
-============================================================ */
+=========================================================
+ */
 
 :root {
-    /* Colors — Dark Mode (default) */
+    /* Colors */
     --bg-primary:     #0a0906;
     --bg-secondary:   #363020;
     --bg-surface:     #625F5B;
@@ -34,22 +38,11 @@ CSS VARIABLES — DESIGN TOKENS
     --section-gap:    5rem;
 }
 
-/* Light Mode
-[data-theme="light"] {
-    --bg-primary:     #FFFFFF;
-    --bg-secondary:   #ECE5E3;
-    --bg-surface:     #D5CECC;
-    --text-primary:   #1a1a1a;
-    --text-secondary: #625F5B;
-    --text-muted:     #78746D;
-    --accent:         #6D8087;
-    --accent-light:   #8FA6AC;
-    --border:         #e0ddd9;
-} */
-
-/* =========================================================
+/* 
+=========================================================
 RESET & BASE
-============================================================ */
+=========================================================
+*/
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -85,9 +78,11 @@ img {
     max-width: 100%;
 }
 
-/* =========================================================
+/* 
+=========================================================
 TYPOGRAPHY
-============================================================ */
+=========================================================
+*/
 
 h1 {
     font-weight: var(--weight-bold);
@@ -115,9 +110,11 @@ h3 {
     margin:         0.35rem 0 0.75rem;
 }
 
-/* =========================================================
+/* 
+=========================================================
 LAYOUT
-============================================================ */
+=========================================================
+*/
 
 main {
     max-width: var(--max-width);
@@ -129,9 +126,11 @@ section {
     margin-bottom: var(--section-gap);
 }
 
-/* =========================================================
+/* 
+=========================================================
 NAV
-============================================================ */
+=========================================================
+*/
 
 header {
     position:         fixed;
@@ -184,33 +183,16 @@ nav ul li a:hover {
     color: var(--text-primary);
 }
 
-/* Theme toggle
-.theme-toggle {
-    background:    none;
-    border:        1px solid var(--border);
-    color:         var(--text-secondary);
-    font-family:   var(--font);
-    font-size:     0.75rem;
-    font-weight:   var(--weight-regular);
-    padding:       0.3rem 0.75rem;
-    border-radius: 20px;
-    cursor:        pointer;
-    transition:    all 0.2s ease;
-    white-space:   nowrap;
-}
-
-.theme-toggle:hover {
-    border-color: var(--accent);
-    color:        var(--text-primary);
-} */
-
-/* =========================================================
+/* 
+=========================================================
 HERO
-============================================================ */
+=========================================================
+*/
 
 #hero {
     position:   relative;
     width:      100%;
+    /* e.g. 70% of the screen height */
     height:     70vh;
     overflow:   hidden;
     margin-top: var(--nav-height);
@@ -224,39 +206,15 @@ HERO
     display:         block;
 }
 
-/* .hero-overlay {
-    position:        absolute;
-    bottom:          3rem;
-    left:            3rem;
-    padding:         1.25rem 1.75rem;
-    border-left:     3px solid var(--accent);
-    background:    rgba(13, 17, 23, 0.65);
-    backdrop-filter: blur(4px);
-}
-
-.hero-overlay h1 {
-    font-weight:    var(--weight-bold);
-    font-size:      2.5rem;
-    color:          #FFFFFF;
-    letter-spacing: 0.02em;
-}
-
-.hero-overlay p {
-    font-size:      0.85rem;
-    font-weight:    var(--weight-thin);
-    color:          var(--accent-light);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top:     0.4rem;
-} */
-
-/* =========================================================
+/* 
+=========================================================
 BIO
-============================================================ */
+=========================================================
+*/
 
 #bio {
-    /* padding: top, sides, bottom */
-    padding:   1rem 1rem 6rem; /* original: var(--section-gap) 1rem; */
+    /* Padding: top, sides, bottom */
+    padding:   0rem 1rem 5rem; 
     max-width: var(--max-width);
     margin:    0 auto;
 }
@@ -264,13 +222,14 @@ BIO
 .bio-container {
     display:     flex;
     align-items: flex-start;
-    gap:         3.5rem; /* Space in between photo and text profile */
+    /* Space in between photo and text profile */
+    gap:         3.5rem;
 }
 
 .bio-photo {
     width:           335px;
     flex-shrink:     0;
-    border-radius:   2px;
+    border-radius:   0px;
     object-fit:      cover;
     object-position: center top;
     filter:          grayscale(100%);
@@ -290,21 +249,22 @@ BIO
     font-weight: var(--weight-thin);
     letter-spacing: 0.03em;
     color:       var(--text-primary);
-    margin-bottom: 16px;              /* Adjust to shrink/grow the gap */
+    /* Adjust to shrink/grow the gap */
+    margin-bottom: 16px;
     line-height: 1.4;
     max-width:   58ch;
 }
 
-/* Target only the list in bio*/
+/* Target only the list in bio */
 .bio-list {
     list-style-type: disc !important; /* Force bullets to show */
     list-style-position: inside;      /* Keeps bullets aligned with text */
     padding-left: 20px;               /* Indents the list */
-    margin: 8px 0;                   /* Space above/below the whole list */
+    margin: 8px 0;                    /* Space above/below the whole list */
 }
 
 .bio-list li {
-    font-size: 1rem;                  /* Set this to match your paragraph size */
+    font-size: 1rem;        /* Set this to match paragraph size */
     letter-spacing: 0.03em;
 }
 
@@ -316,23 +276,23 @@ BIO
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color:          var(--accent-light);
-    /* padding:        0.4rem 1.25rem; */
     transition:     all 0.2s ease;
 }
 
 .cv-link:hover {
-    /* border-radius:  1px; */ /* On hover, square or rounded */
-    /* background-color: var(--accent); */
     color:            #FFFFFF;
 }
 
-/* =========================================================
+/* 
+=========================================================
 AFFILIATIONS
-============================================================ */
+=========================================================
+*/
 
 .affiliations-light {
+    /* Important: Keep at #FFFFFF because some png's have white backgrounds */
     background-color: #FFFFFF;
-    padding:          2rem 2rem; /* original: 2.5rem 2rem */
+    padding:          2rem 2rem;
 }
 
 .affiliations-light h2 {
