@@ -1,17 +1,20 @@
-/* ============================================================
+/* =========================================================
 IMPORTS
 ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 
-/* ============================================================
+/* @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* =========================================================
 CSS VARIABLES — DESIGN TOKENS
 ============================================================ */
+
 :root {
     /* Colors — Dark Mode (default) */
-    --bg-primary:     #0d1117;
-    --bg-secondary:   #161b22;
+    --bg-primary:     #0a0906;
+    --bg-secondary:   #363020;
     --bg-surface:     #625F5B;
-    --text-primary:   #FFFFFF;
+    --text-primary:   #ECE5E3;
     --text-secondary: #78746D;
     --text-muted:     #8FA6AC;
     --accent:         #6D8087;
@@ -19,7 +22,7 @@ CSS VARIABLES — DESIGN TOKENS
     --border:         #21262d;
 
     /* Typography */
-    --font:           'Plus Jakarta Sans', sans-serif;
+    --font:           'Inter', sans-serif;
     --weight-thin:    300;
     --weight-regular: 400;
     --weight-medium:  500;
@@ -31,22 +34,23 @@ CSS VARIABLES — DESIGN TOKENS
     --section-gap:    5rem;
 }
 
-/* Light Mode */
+/* Light Mode
 [data-theme="light"] {
     --bg-primary:     #FFFFFF;
-    --bg-secondary:   #f5f5f4;
-    --bg-surface:     #e8e6e3;
+    --bg-secondary:   #ECE5E3;
+    --bg-surface:     #D5CECC;
     --text-primary:   #1a1a1a;
     --text-secondary: #625F5B;
     --text-muted:     #78746D;
     --accent:         #6D8087;
     --accent-light:   #8FA6AC;
     --border:         #e0ddd9;
-}
+} */
 
-/* ============================================================
+/* =========================================================
 RESET & BASE
 ============================================================ */
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin:     0;
@@ -81,9 +85,10 @@ img {
     max-width: 100%;
 }
 
-/* ============================================================
+/* =========================================================
 TYPOGRAPHY
 ============================================================ */
+
 h1 {
     font-weight: var(--weight-bold);
     font-size:   2.25rem;
@@ -110,9 +115,10 @@ h3 {
     margin:         0.35rem 0 0.75rem;
 }
 
-/* ============================================================
+/* =========================================================
 LAYOUT
 ============================================================ */
+
 main {
     max-width: var(--max-width);
     margin:    0 auto;
@@ -123,9 +129,10 @@ section {
     margin-bottom: var(--section-gap);
 }
 
-/* ============================================================
+/* =========================================================
 NAV
 ============================================================ */
+
 header {
     position:         fixed;
     top:              0;
@@ -149,8 +156,8 @@ nav {
 }
 
 .nav-name {
-    font-weight:    var(--weight-medium);
-    font-size:      1.5rem;
+    font-weight:    var(--weight-bold);
+    font-size:      1rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color:          var(--text-primary);
@@ -163,6 +170,7 @@ nav ul {
     gap:         2rem;
 }
 
+/* Main bar, right side */
 nav ul li a {
     font-size:      1rem;
     font-weight:    var(--weight-regular);
@@ -176,7 +184,7 @@ nav ul li a:hover {
     color: var(--text-primary);
 }
 
-/* Theme toggle */
+/* Theme toggle
 .theme-toggle {
     background:    none;
     border:        1px solid var(--border);
@@ -194,15 +202,16 @@ nav ul li a:hover {
 .theme-toggle:hover {
     border-color: var(--accent);
     color:        var(--text-primary);
-}
+} */
 
-/* ============================================================
+/* =========================================================
 HERO
 ============================================================ */
+
 #hero {
     position:   relative;
     width:      100%;
-    height:     90vh;
+    height:     70vh;
     overflow:   hidden;
     margin-top: var(--nav-height);
 }
@@ -211,7 +220,7 @@ HERO
     width:           100%;
     height:          100%;
     object-fit:      cover;
-    object-position: center 100%;
+    object-position: center 80%;
     display:         block;
 }
 
@@ -241,11 +250,13 @@ HERO
     margin-top:     0.4rem;
 } */
 
-/* ============================================================
+/* =========================================================
 BIO
 ============================================================ */
+
 #bio {
-    padding:   var(--section-gap) 1rem;
+    /* padding: top, sides, bottom */
+    padding:   1rem 1rem 6rem; /* original: var(--section-gap) 1rem; */
     max-width: var(--max-width);
     margin:    0 auto;
 }
@@ -253,13 +264,13 @@ BIO
 .bio-container {
     display:     flex;
     align-items: flex-start;
-    gap:         6rem; /* Space in between photo and text profile */
+    gap:         3.5rem; /* Space in between photo and text profile */
 }
 
 .bio-photo {
-    width:           400px;
+    width:           335px;
     flex-shrink:     0;
-    border-radius:   4px;
+    border-radius:   2px;
     object-fit:      cover;
     object-position: center top;
     filter:          grayscale(100%);
@@ -271,46 +282,61 @@ BIO
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color:          var(--accent-light);
-    margin-bottom:  1.25rem;
+    margin-bottom:  1.75rem;
 }
 
 .bio-text p {
     font-size:   1rem;
     font-weight: var(--weight-thin);
+    letter-spacing: 0.03em;
     color:       var(--text-primary);
-    line-height: 1.8;
-    max-width:   60ch;
+    margin-bottom: 16px;              /* Adjust to shrink/grow the gap */
+    line-height: 1.4;
+    max-width:   58ch;
+}
+
+/* Target only the list in bio*/
+.bio-list {
+    list-style-type: disc !important; /* Force bullets to show */
+    list-style-position: inside;      /* Keeps bullets aligned with text */
+    padding-left: 20px;               /* Indents the list */
+    margin: 8px 0;                   /* Space above/below the whole list */
+}
+
+.bio-list li {
+    font-size: 1rem;                  /* Set this to match your paragraph size */
+    letter-spacing: 0.03em;
 }
 
 .cv-link {
     display:        inline-block;
-    margin-top:     1.5rem;
-    font-size:      0.75rem;
+    margin-top:     0.5rem;
+    font-size:      1rem;
     font-weight:    var(--weight-regular);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color:          var(--accent);
-    border:         1px solid var(--accent); /* or --text-muted? */
-    padding:        0.4rem 1.25rem;
-    border-radius:  2px;
+    color:          var(--accent-light);
+    /* padding:        0.4rem 1.25rem; */
     transition:     all 0.2s ease;
 }
 
 .cv-link:hover {
-    background-color: var(--accent);
+    /* border-radius:  1px; */ /* On hover, square or rounded */
+    /* background-color: var(--accent); */
     color:            #FFFFFF;
 }
 
-/* ============================================================
+/* =========================================================
 AFFILIATIONS
 ============================================================ */
+
 .affiliations-light {
     background-color: #FFFFFF;
-    padding:          1.5rem 1.5rem; /* original: 2.5rem 2rem */
+    padding:          2rem 2rem; /* original: 2.5rem 2rem */
 }
 
 .affiliations-light h2 {
-    color:          #625F5B;
+    color:          #0a0906;
     font-size:      1.5rem;
     font-weight:    var(--weight-regular);
     letter-spacing: 0.15em;
