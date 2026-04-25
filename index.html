@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Makes the site behave correctly on mobile screens -->
         <title>Morgan Olivia Evans</title>                                       <!-- The text that appears in the browser tab -->
         <link rel="stylesheet" href="style.css" />                               <!-- Loading CSS file -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     </head>
 
     <body> <!-- Everything visible on the page goes here -->
@@ -17,6 +18,12 @@
                     <li><a href="/experience/">Experience</a></li>
                     <li><a href="/projects/">Projects</a></li>
                 </ul>
+                <!-- ===== CONTACT LIST (HEADER) ===== -->
+                <div class="nav-icons">
+                    <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
             </nav>
         </header>
 
@@ -71,16 +78,15 @@
             </div>
         </section>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>
-            <ul class="contact-list">
-                <li><a href="mailto:morganoliviaevans@gmail.com">morganoliviaevans@gmail.com</a></li>
-                <li><a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank">LinkedIn</a></li>
-                <li><a href="https://www.github.com/morganoliviaevans" target="_blank">GitHub</a></li>
-            </ul>
+            <div class="footer-icons">
+                <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
         </footer>
 
         <script src="script.js"></script> <!-- Attaches our JS file. Always at the bottom, so the HTML loads before the JS tries to interact with it -->
-
     </body>
 </html>

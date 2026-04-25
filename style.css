@@ -172,7 +172,7 @@ nav ul {
 /* Main bar, right side */
 nav ul li a {
     font-size:      1rem;
-    font-weight:    var(--weight-regular);
+    font-weight:    var(--weight-thin);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color:          var(--accent-light);
@@ -237,7 +237,7 @@ BIO
 
 .bio-text h2 {
     font-size:      1rem;
-    font-weight:    var(--weight-regular);
+    font-weight:    var(--weight-thin);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color:          var(--accent-light);
@@ -272,7 +272,7 @@ BIO
     display:        inline-block;
     margin-top:     0.5rem;
     font-size:      1rem;
-    font-weight:    var(--weight-regular);
+    font-weight:    var(--weight-thin);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color:          var(--accent-light);
@@ -280,7 +280,7 @@ BIO
 }
 
 .cv-link:hover {
-    color:            #FFFFFF;
+    color: #FFFFFF;
 }
 
 /* 
@@ -298,7 +298,7 @@ AFFILIATIONS
 .affiliations-light h2 {
     color:          #0a0906;
     font-size:      1.5rem;
-    font-weight:    var(--weight-regular);
+    font-weight:    var(--weight-thin);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-bottom:  1.5rem;
@@ -329,4 +329,50 @@ AFFILIATIONS
 .affiliations-row img:hover {
     filter:  grayscale(0%);
     opacity: 1;
+}
+
+/* 
+=========================================================
+CONTACT LIST (HEADER)
+=========================================================
+*/
+
+.nav-icons {
+    display:     flex;
+    align-items: center;
+    gap:         2rem;
+}
+
+.nav-icons a {
+    color:      var(--text-primary);
+    font-size:  1.5rem;
+    transition: color 0.2s ease;
+}
+
+.nav-icons a:hover {
+    color: var(--text-muted);
+}
+
+/* 
+=========================================================
+CONTACT LIST (FOOTER)
+=========================================================
+*/
+
+.footer-icons {
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             2rem;
+    margin-bottom:  1.5rem;
+}
+
+.footer-icons a {
+    color:      var(--text-primary);
+    font-size:  1.5rem;
+    transition: color 0.2s ease;
+}
+
+.footer-icons a:hover {
+    color: var(--text-muted);
 }
