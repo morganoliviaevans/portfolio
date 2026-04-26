@@ -5,7 +5,7 @@ IMPORTS
  */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@175;300;400;500;600&display=swap');
 
 /* 
 =========================================================
@@ -26,11 +26,12 @@ CSS VARIABLES — DESIGN TOKENS
     --border:         #21262d;
 
     /* Typography */
-    --font:           'Inter', sans-serif;
-    --weight-thin:    300;
-    --weight-regular: 400;
-    --weight-medium:  500;
-    --weight-bold:    600;
+    --font:              'Inter', sans-serif;
+    --weight-ultra-thin: 175;
+    --weight-thin:       300;
+    --weight-regular:    400;
+    --weight-medium:     500;
+    --weight-bold:       600;
 
     /* Spacing */
     --nav-height:     80px;
@@ -45,9 +46,9 @@ RESET & BASE
 */
 
 *, *::before, *::after {
-    box-sizing: border-box;
     margin:     0;
     padding:    0;
+    box-sizing: border-box;
 }
 
 html {
@@ -55,13 +56,13 @@ html {
 }
 
 body {
-    font-family:      var(--font);
-    font-weight:      var(--weight-thin);
-    background-color: var(--bg-primary);
     color:            var(--text-primary);
     font-size:        16px;
-    line-height:      1.7;
     transition:       background-color 0.3s ease, color 0.3s ease;
+    font-family:      var(--font);
+    font-weight:      var(--weight-thin);
+    line-height:      1.7;
+    background-color: var(--bg-primary);
 }
 
 a {
@@ -85,29 +86,29 @@ TYPOGRAPHY
 */
 
 h1 {
-    font-weight: var(--weight-bold);
     font-size:   2.25rem;
+    font-weight: var(--weight-bold);
     line-height: 1.2;
 }
 
 h2 {
-    font-weight: var(--weight-medium);
     font-size:   1.5rem;
+    font-weight: var(--weight-medium);
     line-height: 1.3;
 }
 
 h3 {
-    font-weight: var(--weight-medium);
     font-size:   1.1rem;
+    font-weight: var(--weight-thin);
 }
 
 .card-meta {
+    color:          var(--text-muted);
+    margin:         0.35rem 0 0.75rem;
     font-size:      0.8rem;
     font-weight:    var(--weight-thin);
-    color:          var(--text-muted);
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin:         0.35rem 0 0.75rem;
 }
 
 /* 
@@ -117,9 +118,14 @@ LAYOUT
 */
 
 main {
-    max-width: var(--max-width);
     margin:    0 auto;
     padding:   calc(var(--nav-height) + 3rem) 2rem var(--section-gap);
+    max-width: var(--max-width);
+}
+
+.grid-main {
+    padding-top:    calc(10px);
+    padding-bottom: calc(60px);
 }
 
 section {
@@ -133,50 +139,50 @@ NAV
 */
 
 header {
-    position:         fixed;
     top:              0;
     left:             0;
     right:            0;
     height:           var(--nav-height);
-    background-color: var(--bg-primary);
-    border-bottom:    1px solid var(--border);
     z-index:          100;
+    position:         fixed;
     transition:       background-color 0.3s ease;
+    border-bottom:    1px solid var(--border);
+    background-color: var(--bg-primary);
 }
 
 nav {
-    max-width:   var(--max-width);
+    gap:         2rem;
     margin:      0 auto;
     height:      100%;
     display:     flex;
-    align-items: center;
     padding:     0 2rem;
-    gap:         2rem;
+    max-width:   var(--max-width);
+    align-items: center;
 }
 
 .nav-name {
-    font-weight:    var(--weight-bold);
+    color:          var(--text-primary);
     font-size:      1rem;
+    font-weight:    var(--weight-bold);
+    margin-right:   auto;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color:          var(--text-primary);
-    margin-right:   auto;
 }
 
 nav ul {
+    gap:         2rem;
     display:     flex;
     align-items: center;
-    gap:         2rem;
 }
 
-/* Main bar, right side */
+/* Nav bar, right side */
 nav ul li a {
+    color:          var(--accent-light);
     font-size:      1rem;
+    transition:     color 0.2s ease;
     font-weight:    var(--weight-thin);
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color:          var(--accent-light);
-    transition:     color 0.2s ease;
 }
 
 nav ul li a:hover {
@@ -190,20 +196,19 @@ HERO
 */
 
 #hero {
-    position:   relative;
     width:      100%;
-    /* e.g. 70% of the screen height */
-    height:     70vh;
+    height:     70vh; /* e.g. 70% of the screen height */
     overflow:   hidden;
+    position:   relative;
     margin-top: var(--nav-height);
 }
 
 #hero img {
     width:           100%;
     height:          100%;
+    display:         block;
     object-fit:      cover;
     object-position: center 80%;
-    display:         block;
 }
 
 /* 
@@ -213,70 +218,67 @@ BIO
 */
 
 #bio {
-    /* Padding: top, sides, bottom */
-    padding:   0rem 1rem 5rem; 
-    max-width: var(--max-width);
     margin:    0 auto;
+    padding:   0rem 1rem 5rem; /* Padding: top, sides, bottom */
+    max-width: var(--max-width);
 }
 
 .bio-container {
+    gap:         3.5rem; /* Space in between photo and text profile */
     display:     flex;
     align-items: flex-start;
-    /* Space in between photo and text profile */
-    gap:         3.5rem;
 }
 
 .bio-photo {
     width:           335px;
-    flex-shrink:     0;
-    border-radius:   0px;
-    object-fit:      cover;
-    object-position: center top;
     filter:          grayscale(100%);
+    object-fit:      cover;
+    flex-shrink:     0;
+    border-radius:   8px;
+    object-position: center top;
 }
 
 .bio-text h2 {
+    color:          var(--accent-light);
     font-size:      1rem;
     font-weight:    var(--weight-thin);
+    margin-bottom:  1.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color:          var(--accent-light);
-    margin-bottom:  1.75rem;
 }
 
 .bio-text p {
-    font-size:   1rem;
-    font-weight: var(--weight-thin);
+    color:          var(--text-primary);
+    font-size:      1rem;
+    max-width:      58ch;
+    line-height:    1.4;
+    font-weight:    var(--weight-thin);
+    margin-bottom:  16px; /* Adjust to shrink/grow the gap */
     letter-spacing: 0.03em;
-    color:       var(--text-primary);
-    /* Adjust to shrink/grow the gap */
-    margin-bottom: 16px;
-    line-height: 1.4;
-    max-width:   58ch;
 }
 
 /* Target only the list in bio */
 .bio-list {
-    list-style-type: disc !important; /* Force bullets to show */
-    list-style-position: inside;      /* Keeps bullets aligned with text */
-    padding-left: 20px;               /* Indents the list */
-    margin: 8px 0;                    /* Space above/below the whole list */
+    margin:              8px 0;           /* Space above/below the whole list */
+    padding-left:        20px;            /* Indents the list */
+    list-style-type:     disc !important; /* Force bullets to show */
+    list-style-position: inside;          /* Keeps bullets aligned with text */
 }
 
 .bio-list li {
-    font-size: 1rem;        /* Set this to match paragraph size */
+    font-size:      1rem;   /* Set this to match paragraph size */
     letter-spacing: 0.03em;
 }
 
 .cv-link {
+    color:          var(--accent-light);
     display:        inline-block;
-    margin-top:     0.5rem;
     font-size:      1rem;
+    margin-top:     0.5rem;
+    transition:     all 0.2s ease;
     font-weight:    var(--weight-thin);
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color:          var(--accent-light);
-    transition:     all 0.2s ease;
 }
 
 .cv-link:hover {
@@ -290,38 +292,37 @@ AFFILIATIONS
 */
 
 .affiliations-light {
-    /* Important: Keep at #FFFFFF because some png's have white backgrounds */
-    background-color: #FFFFFF;
     padding:          2rem 2rem;
+    background-color: #FFFFFF; /* Keep at #FFFFFF because some png's have white backgrounds */
 }
 
 .affiliations-light h2 {
     color:          #0a0906;
     font-size:      1.5rem;
+    text-align:     center;
     font-weight:    var(--weight-thin);
+    margin-bottom:  1.5rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    margin-bottom:  1.5rem;
-    text-align:     center;
 }
 
 .affiliations-row {
-    display:         flex;
-    align-items:     center;
-    justify-content: center;
     gap:             1.5rem;
+    margin:          0 auto;
+    display:         flex;
     flex-wrap:       wrap;
     max-width:       var(--max-width);
-    margin:          0 auto;
+    align-items:     center;
+    justify-content: center;
 } 
 
 .affiliations-row img {
-    height:     100px;
+    filter:     grayscale(100%);
     width:      auto;
+    height:     100px;
+    opacity:    0.75;
     max-width:  180px;
     object-fit: contain;
-    filter:     grayscale(100%);
-    opacity:    0.75;
     transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
@@ -338,9 +339,9 @@ CONTACT LIST (HEADER)
 */
 
 .nav-icons {
+    gap:         2rem;
     display:     flex;
     align-items: center;
-    gap:         2rem;
 }
 
 .nav-icons a {
@@ -360,11 +361,12 @@ CONTACT LIST (FOOTER)
 */
 
 .footer-icons {
+    gap:             2rem; 
+    margin:          0 auto;
     display:         flex;
+    padding:         0rem 0rem 1.5rem; 
     align-items:     center;
     justify-content: center;
-    gap:             2rem;
-    margin-bottom:  1.5rem;
 }
 
 .footer-icons a {
@@ -384,48 +386,59 @@ EXPERIENCE MAIN
 */
 
 #experience-grid {
-    display:               grid;
-    grid-template-columns: repeat(2, 1fr);
     gap:                   1rem;
-    max-width:             var(--max-width);
     margin:                0 auto;
-    padding:               1rem 1rem;
+    display:               grid;
+    padding:               0rem 0rem 1.5rem; 
+    max-width:             var(--max-width);
+    /* grid-template-columns: repeat(2, 1fr); /* 2x2 */
+    grid-template-columns: repeat(4, 1fr); /* 4x1 */
 }
 
 .card {
     position:      relative;
     display:       block;
     overflow:      hidden;
-    border-radius: 2px;
-    aspect-ratio:  8 / 8;
+    aspect-ratio:  1 / 1;
+    border-radius: 8px;
 }
 
 .card img {
     width:      100%;
     height:     100%;
+    filter:     brightness(0.75);
     object-fit: cover;
     transition: transform 0.4s ease, filter 0.4s ease;
-    filter:     brightness(0.8);
 }
 
 .card:hover img {
-    transform: scale(1.03);
-    filter:    brightness(1);
+    color:       #FFFFFF;
+    filter:      brightness(1); /* Brighten on hover */
+    transform:   scale(1.05);   /* Zoom on hover */
+    font-weight: var(--weight-medium);
 }
 
 .card-overlay {
-    position:  absolute;
-    bottom:    2rem;
-    left:      2rem;
+    left:       50%;
+    bottom:     50%;
+    position:   absolute;
+    transform:  translate(-50%, 50%);
+    text-align: center;
 }
 
 .card-overlay h2 {
-    font-size:   2rem;
-    font-weight: var(--weight-light);
-    color:       var(--text-primary);
+    color:          var(--text-primary);
+    font-size:      2.5rem;
+    font-weight:    var(--weight-ultra-thin);
+    letter-spacing: 0.15em;
 }
 
 .card-overlay .card-meta {
     color:     var(--accent-light);
     margin:    0.25rem 0 0;
+}
+
+.experience-highlight h2 {
+    font-size:   1rem;
+    font-weight: var(--weight-bold);
 }
