@@ -376,3 +376,56 @@ CONTACT LIST (FOOTER)
 .footer-icons a:hover {
     color: var(--text-muted);
 }
+
+/* 
+=========================================================
+EXPERIENCE MAIN
+=========================================================
+*/
+
+#experience-grid {
+    display:               grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:                   1rem;
+    max-width:             var(--max-width);
+    margin:                0 auto;
+    padding:               1rem 1rem;
+}
+
+.card {
+    position:      relative;
+    display:       block;
+    overflow:      hidden;
+    border-radius: 2px;
+    aspect-ratio:  8 / 8;
+}
+
+.card img {
+    width:      100%;
+    height:     100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter:     brightness(0.8);
+}
+
+.card:hover img {
+    transform: scale(1.03);
+    filter:    brightness(1);
+}
+
+.card-overlay {
+    position:  absolute;
+    bottom:    2rem;
+    left:      2rem;
+}
+
+.card-overlay h2 {
+    font-size:   2rem;
+    font-weight: var(--weight-light);
+    color:       var(--text-primary);
+}
+
+.card-overlay .card-meta {
+    color:     var(--accent-light);
+    margin:    0.25rem 0 0;
+}

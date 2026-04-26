@@ -1,3 +1,5 @@
+<!-- ===================== EXPERIENCE PAGE ===================== -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,56 +7,71 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Experience — Morgan Olivia Evans</title>
         <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     </head>
     <body>
 
         <!-- ===== NAV ===== -->
         <header>
-        <nav>
-            <a href="/" class="nav-name">Morgan Olivia Evans</a>
-            <ul>
-                <li><a href="/experience/">Experience</a></li>
-                <li><a href="/projects/">Projects</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <a href="/" class="nav-name">Morgan Olivia Evans</a>
+                <ul>
+                    <li><a href="/experience/"><b>Experience</b></a></li>
+                    <li><a href="/projects/">Projects</a></li>
+                </ul>
+                <!-- ===== CONTACT LIST (HEADER) ===== -->
+                <div class="nav-icons">
+                    <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </nav>
         </header>
+
+        <!-- ===== HERO ===== -->
+        <section id="hero">
+            <img src="discover.jpg" alt="NCCS Discover" />
+        </section>
 
         <!-- ===== EXPERIENCE LIST ===== -->
         <main>
-        <h1>Experience</h1>
-
-        <div class="card-grid">
-
-            <a href="/experience/nasa/" class="card">
-                <h2>NASA NCCS</h2>
-                <p class="card-meta">NASA Center for Climate Simulation · High-Performance Computing Intern</p>
-                <p>GEOS climate model benchmarking across NCCS, NAS, AWS, and Azure.</p>
-            </a>
-
-            <a href="/experience/access/" class="card">
-                <h2>ACCESS</h2>
-                <p class="card-meta">ACCESS · Computational Research Intern</p>
-                <p>GPU kernel optimization for climate modeling.</p>
-            </a>
-
-            <a href="/experience/scec/" class="card">
-                <h2>SCEC</h2>
-                <p class="card-meta">Statewide California Earthquake Center · Computational Research Intern</p>
-                <p>SW4 seismic simulations for Wellington, New Zealand.</p>
-            </a>
-
-        </div>
+            <section id="experience-grid">
+                <a href="/experience/nasa/" class="card"> 
+                    <img src="geos-co2-model.jpeg" alt="NCCS GEOS" />
+                    <div class="card-overlay">
+                        <h2>NASA</h2>
+                    </div>
+                </a>
+                <a href="/experience/scec/" class="card"> 
+                    <img src="stronach-GNS-wellington-basin.jpg" alt="Wellington Harbor" />
+                    <div class="card-overlay">
+                        <h2>SCEC</h2>
+                    </div>
+                </a>
+                <a href="/experience/access/" class="card"> 
+                    <img src="jakobshavn-isbræ-glacier.jpg" alt="Jakobshavn Isbræ Glacier" /> 
+                    <div class="card-overlay">
+                        <h2>ACCESS</h2>
+                    </div>
+                </a>
+                <a href="/projects/kpff/" class="card"> 
+                    <img src="kpff.png" alt="KPFF" /> 
+                    <div class="card-overlay">
+                        <h2>KPFF</h2>
+                    </div>
+                </a>
+            </section>
         </main>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>
-            <ul class="contact-list">
-                <li><a href="mailto:morganoliviaevans@gmail.com">morganoliviaevans@gmail.com</a></li>
-                <li><a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank">LinkedIn</a></li>
-                <li><a href="https://www.github.com/morganoliviaevans" target="_blank">GitHub</a></li>
-            </ul>
+            <div class="footer-icons">
+                <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
         </footer>
 
-        <script src="../script.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
