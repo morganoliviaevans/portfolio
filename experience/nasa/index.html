@@ -1,39 +1,70 @@
+<!-- ===================== EXPERIENCE PAGE - NASA ===================== -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>NASA NCCS — Morgan Olivia Evans</title>
+        <title>Experience - NASA — Morgan Olivia Evans</title>
         <link rel="stylesheet" href="../../style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     </head>
+
     <body>
 
         <!-- ===== NAV ===== -->
         <header>
-        <nav>
-            <a href="/" class="nav-name">Morgan Olivia Evans</a>
-            <ul>
-                <li><a href="/experience/">Experience</a></li>
-                <li><a href="/projects/">Projects</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <a href="/" class="nav-name">Morgan Olivia Evans</a>
+                <ul>
+                    <div class="experience-highlight">
+                        <li><a href="/experience/"><h2>Experience</h2></a></li>
+                    </div>
+                    <li><a href="/projects/">Projects</a></li>
+                </ul>
+                <!-- ===== CONTACT LIST (HEADER) ===== -->
+                <div class="nav-icons">
+                    <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </nav>
         </header>
 
+        <!-- ===== HERO ===== -->
+        <section id="hero">
+            <img src="geos-model.jpg" alt="NASA GEOS" />
+        </section>
+
         <!-- ===== CONTENT ===== -->
-        <main>
-        <a href="/experience/" class="back-link">&larr; Experience</a>
-        <h1>NASA Center for Climate Simulation</h1>
-        <p class="card-meta">HPC Research Intern · 2024</p>
-        <p>Content coming soon.</p>
+        <main class="detail-main">
+            <a href="/experience/" class="back-link">&larr; Experience</a>
+            <div class="detail-header">
+                <h2>NASA Center for Climate Simulation</h2>
+                <p class="card-meta">HPC Research Intern · Summer 2024 · Greenbelt, MD</p>
+            </div>
+            <div class="detail-container">
+                <div class="detail-pdf">
+                    <iframe 
+                        src="Evaluating_MPI_Performance_and_Scalability_MorganNewton.pdf"
+                        width="100%"
+                        height="600px"
+                        style="border: none;">
+                    </iframe>
+                </div>
+                <div class="detail-text">
+                    <p>Summary paragraph goes here.</p>
+                </div>
+            </div>
         </main>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>
-            <ul class="contact-list">
-                <li><a href="mailto:morganoliviaevans@gmail.com">morganoliviaevans@gmail.com</a></li>
-                <li><a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank">LinkedIn</a></li>
-                <li><a href="https://www.github.com/morganoliviaevans" target="_blank">GitHub</a></li>
-            </ul>
+            <div class="footer-icons">
+                <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
         </footer>
 
         <script src="../../script.js"></script>
