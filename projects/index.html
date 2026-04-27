@@ -1,3 +1,5 @@
+<!-- ===================== PROJECTS PAGE ===================== -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,66 +7,84 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Projects — Morgan Olivia Evans</title>
         <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     </head>
     <body>
 
         <!-- ===== NAV ===== -->
         <header>
-        <nav>
-            <a href="/" class="nav-name">Morgan Olivia Evans</a>
-            <ul>
-                <li><a href="/experience/">Experience</a></li>
-                <li><a href="/projects/">Projects</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <a href="/" class="nav-name">Morgan Olivia Evans</a>
+                <ul>
+                        <li><a href="/experience/">Experience</a></li>
+                    <div class="projects-highlight">
+                        <li><a href="/projects/"><h2>Projects</h2></a></li>
+                    </div>
+                </ul>
+                <!-- ===== CONTACT LIST (HEADER) ===== -->
+                <div class="nav-icons">
+                    <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </nav>
         </header>
 
+        <!-- ===== HERO ===== -->
+        <section id="projects-hero">
+                <img src="lab-testing.jpg" alt="NASA MINDS" />
+        </section>
+
+        /* TEXT TO PROJECTS WILL BE GOING ON MAIN INDIVIDUAL PROJECT PAGES */
+
         <!-- ===== PROJECTS LIST ===== -->
-        <main>
-        <h1>Projects</h1>
-
-        <div class="card-grid">
-
-            <a href="/projects/bithacks/" class="card">
-                <h2>Robotic Traffic Cone</h2>
-                <p class="card-meta">BitHacks Hackathon · Embedded Systems</p>
-                <p>Award-winning vision-based, autonomous robot built on Raspberry Pi–ESP32.</p>
-            </a>
-
-            <a href="/projects/atmega32/" class="card">
-                <h2>ATmega32 Audio Feedback Device</h2>
-                <p class="card-meta">Embedded Systems</p>
-                <p>Gamer volume feedback device built on ATmega32.</p>
-            </a>
-
-            <a href="/projects/esp32/" class="card">
-                <h2>ESP32 Motion-activated Cat Toy</h2>
-                <p class="card-meta">Embedded Systems</p>
-                <p>Motion-activated cat toy built on ESP32 LilyGo.</p>
-            </a>
-
-            <a href="/projects/nasa-glee/" class="card">
-                <h2>LunaSat</h2>
-                <p class="card-meta">NASA GLEE · Embedded Systems</p>
-                <p>LunaSat spacecraft for NASA's Artemis lunar mission.</p>
-            </a>
-
-            <a href="/projects/nasa-minds/" class="card">
-                <h2>Lunar Dust Repellency</h2>
-                <p class="card-meta">NASA MINDS · Materials Research</p>
-                <p>Lunar dust repellency research for NASA's Artemis lunar mission. 2nd place Best Technical Paper.</p>
-            </a>
-
-        </div>
+        <main class="grid-main">
+            <section id="projects-grid">
+                <a href="/projects/bithacks/" class="card">
+                    <img src="con-e.png" alt="CON-E" />
+                    <div class="projects-title">
+                        <h2>Robotic Traffic Cone</h2>
+                    </div>
+                    <p class="projects-text"> BitHacks Hackathon · Embedded Systems</p>
+                </a>
+                <a href="/projects/atmega32/" class="card">
+                    <img src="low-level.jpeg" alt="ATmega32" />
+                    <div class="projects-title">
+                        <h2>ATmega32 Audio Feedback Device</h2>
+                    </div>
+                    <p class="projects-text"> Embedded Systems</p>
+                </a>
+                <a href="/projects/esp32/" class="card">
+                    <img src="neopixel.png" alt="Neopixel" />
+                    <div class="projects-title">
+                        <h2>ESP32 Motion-activated Cat Toy</h2>
+                    </div>
+                    <p class="projects-text"> Embedded Systems</p>
+                </a>
+                <a href="/projects/nasa-glee/" class="card">
+                    <img src="nasa-glee.jpeg" alt="NASA GLEE" />
+                    <div class="projects-title">
+                        <h2>LunaSat Device</h2>
+                    </div>
+                    <p class="projects-text"> NASA GLEE · Embedded Systems</p>
+                </a>
+                <a href="/projects/nasa-minds/" class="card">
+                    <img src="nasa-minds.png" alt="NASA MINDS" />
+                    <div class="projects-title">
+                        <h2>Lunar Dust Repellency</h2>
+                    </div>
+                    <p class="projects-text"> NASA MINDS · Materials Research</p>
+                </a>
+            </section>
         </main>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>
-            <ul class="contact-list">
-                <li><a href="mailto:morganoliviaevans@gmail.com">morganoliviaevans@gmail.com</a></li>
-                <li><a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank">LinkedIn</a></li>
-                <li><a href="https://www.github.com/morganoliviaevans" target="_blank">GitHub</a></li>
-            </ul>
+            <div class="footer-icons">
+                <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
         </footer>
 
         <script src="../script.js"></script>
