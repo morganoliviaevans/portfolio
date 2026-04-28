@@ -5,7 +5,10 @@ IMPORTS
  */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@175;300;400;500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@175;300;400;500;600&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,600;1,6..12,300&family=Lora:ital,wght@0,400;0,500;1,400&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,600;1,6..12,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,200;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,600;1,800&display=swap');
 
 /* 
 =========================================================
@@ -15,23 +18,25 @@ CSS VARIABLES — DESIGN TOKENS
 
 :root {
     /* Colors */
-    --bg-primary:     #0a0906;
-    --bg-secondary:   #363020;
-    --bg-surface:     #625F5B;
-    --text-primary:   #ECE5E3;
-    --text-secondary: rgba(210, 203, 200, 0.887);
-    --text-muted:     #8FA6AC;
-    --accent:         #6D8087;
-    --accent-light:   #8FA6AC;
-    --border:         #21262d;
+    --bg-primary:     #1B1D25;
+    --bg-secondary:   #1b1d25b3;
+    --bg-surface:     #686B73;
+    --text-primary:   #ffffff;
+    --text-secondary: #d4d4d4;
+    --text-muted:     #404558;
+    --accent:         #e8e8e8;
+    /* --accent-light:   #8d9eb6; */
+    /* --border:         #000000; */
 
     /* Typography */
-    --font:              'Inter', sans-serif;
-    --weight-ultra-thin: 175;
-    --weight-thin:       300;
-    --weight-regular:    400;
-    --weight-medium:     500;
-    --weight-bold:       600;
+    --font-sans:         'Lato', sans-serif;
+    /* --font-serif:        'Lora', serif; */
+    /* --font-serif:        'Cormorant Garamond', serif; */
+    --weight-thin:    200;
+    --weight-light:   300;
+    --weight-regular: 400;
+    --weight-medium:  600;
+    --weight-bold:    800;
 
     /* Spacing */
     --nav-height:     80px;
@@ -48,7 +53,6 @@ RESET & BASE
 *, *::before, *::after {
     margin:     0;
     padding:    0;
-    box-sizing: border-box;
 }
 
 html {
@@ -59,8 +63,8 @@ body {
     color:            var(--text-primary);
     font-size:        16px;
     transition:       background-color 0.3s ease, color 0.3s ease;
-    font-family:      var(--font);
-    font-weight:      var(--weight-thin);
+    font-family:      var(--font-sans);
+    font-weight:      var(--weight-light);
     line-height:      1.7;
     background-color: var(--bg-primary);
 }
@@ -98,15 +102,15 @@ h2 {
 }
 
 h3 {
-    font-size:   1.1rem;
-    font-weight: var(--weight-thin);
+    font-size:   1rem;
+    font-weight: var(--weight-light);
 }
 
 .card-meta {
     color:          var(--text-secondary);
     margin:         0.35rem 0 0.75rem;
     font-size:      1rem;
-    font-weight:    var(--weight-thin);
+    font-weight:    var(--weight-light);
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
@@ -145,9 +149,9 @@ header {
     height:           var(--nav-height);
     z-index:          100;
     position:         fixed;
-    transition:       background-color 0.3s ease;
-    border-bottom:    1px solid var(--border);
-    background-color: var(--bg-primary);
+    transition:       transform 0.3s ease, background-color 0.3s ease;
+    border-bottom:    none;
+    background-color: transparent;
 }
 
 nav {
@@ -162,8 +166,8 @@ nav {
 
 .nav-name {
     color:          var(--text-primary);
-    font-size:      1rem;
-    font-weight:    var(--weight-regular);
+    font-size:      1.5rem;
+    font-weight:    var(--weight-bold);
     margin-right:   auto;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -177,16 +181,25 @@ nav ul {
 
 /* Nav bar, right side */
 nav ul li a {
-    color:          var(--accent-light);
-    font-size:      1rem;
+    color:          var(--text-secondary);
+    font-size:      1.5rem;
     transition:     color 0.2s ease;
-    font-weight:    var(--weight-thin);
+    font-weight:    var(--weight-light);
     letter-spacing: 0.15em;
     text-transform: uppercase;
 }
 
 nav ul li a:hover {
     color: var(--text-primary);
+}
+
+.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.nav-active {
+    color:       var(--text-primary);
+    font-weight: var(--weight-regular);
 }
 
 /* 
@@ -200,12 +213,13 @@ HERO
     height:     70vh; /* e.g. 70% of the screen height */
     overflow:   hidden;
     position:   relative;
-    margin-top: var(--nav-height);
+    margin-top: 0;
 }
 
 #hero img {
     width:           100%;
     height:          100%;
+    filter:          brightness(0.8) blur(2px);
     display:         block;
     object-fit:      cover;
     object-position: center 80%;
@@ -219,18 +233,18 @@ BIO
 
 #bio {
     margin:    0 auto;
-    padding:   0rem 4rem 5rem; /* Padding: top, sides, bottom */
+    padding:   0rem 5rem 5rem; /* Padding: top, sides, bottom */
     max-width: var(--max-width);
 }
 
 .bio-container {
-    gap:         3.5rem; /* Space in between photo and text profile */
+    gap:         4rem; /* Space in between photo and text profile */
     display:     flex;
     align-items: flex-start;
 }
 
 .bio-photo {
-    width:           335px;
+    width:           375px;
     filter:          grayscale(100%);
     object-fit:      cover;
     flex-shrink:     0;
@@ -239,45 +253,50 @@ BIO
 }
 
 .bio-text h2 {
-    color:          var(--accent-light);
-    font-size:      1rem;
-    font-weight:    var(--weight-regular);
+    color:          var(--text-secondary);
+    font-size:      1.5rem;
+    font-weight:    var(--weight-light);
     margin-bottom:  1.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
 }
 
 .bio-text p {
-    color:          var(--text-primary);
-    font-size:      1rem;
-    max-width:      58ch;
-    line-height:    1.4;
+    color:          var(--accent);
+    font-size:      1.1rem;
+    max-width:      80ch;
+    font-family:    var(--font-sans);
+    line-height:    1.3;
     font-weight:    var(--weight-thin);
     margin-bottom:  16px; /* Adjust to shrink/grow the gap */
-    letter-spacing: 0.03em;
+    letter-spacing: 0.035em;
 }
 
 /* Target only the list in bio */
 .bio-list {
+    color:               var(--accent);
     margin:              8px 0;           /* Space above/below the whole list */
+    font-family:         var(--font-sans);
+    font-weight:         var(--weight-regular);
     padding-left:        20px;            /* Indents the list */
+    letter-spacing:      0.035em;
     list-style-type:     disc !important; /* Force bullets to show */
     list-style-position: inside;          /* Keeps bullets aligned with text */
 }
 
 .bio-list li {
-    font-size:      1rem;   /* Set this to match paragraph size */
-    letter-spacing: 0.03em;
+    font-size:      1.1rem;   /* Set this to match paragraph size */
+    letter-spacing: 0.035em;
 }
 
 /* TODO: Add CV button here */
 .cv-link {
     color:          var(--text-secondary);
     display:        inline-block;
-    font-size:      1rem;
+    font-size:      1.5rem;
     margin-top:     0.5rem;
     transition:     all 0.2s ease;
-    font-weight:    var(--weight-regular);
+    font-weight:    var(--weight-light);
     letter-spacing: 0.15em;
     text-transform: uppercase;
 }
@@ -298,10 +317,10 @@ AFFILIATIONS
 }
 
 .affiliations h2 {
-    color:          #0a0906;
+    color:          var(--bg-primary);
     font-size:      1.5rem;
     text-align:     center;
-    font-weight:    var(--weight-thin);
+    font-weight:    var(--weight-regular);
     margin-bottom:  1.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -346,7 +365,7 @@ CONTACT LIST (HEADER)
 }
 
 .nav-icons a {
-    color:      var(--text-primary);
+    color:      var(--accent);
     font-size:  1.5rem;
     transition: color 0.2s ease;
 }
@@ -371,7 +390,7 @@ CONTACT LIST (FOOTER)
 }
 
 .footer-icons a {
-    color:      var(--text-primary);
+    color:      var(--accent);
     font-size:  1.5rem;
     transition: color 0.2s ease;
 }
@@ -394,6 +413,23 @@ EXPERIENCE MAIN
     max-width:             var(--max-width);
     /* grid-template-columns: repeat(2, 1fr); /* 2x2 */
     grid-template-columns: repeat(4, 1fr); /* 4x1 */
+}
+
+#experience-hero {
+    width:      100%;
+    height:     70vh; /* e.g. 70% of the screen height */
+    overflow:   hidden;
+    position:   relative;
+    margin-top: 0;
+}
+
+#experience-hero img {
+    width:           100%;
+    height:          100%;
+    filter:          brightness(0.8) blur(2px);
+    display:         block;
+    object-fit:      cover;
+    object-position: center 50%;
 }
 
 .card {
@@ -419,7 +455,7 @@ EXPERIENCE MAIN
 
 .card:hover h2 {
     color:       #FFFFFF;
-    font-weight: var(--weight-thin);
+    font-weight: var(--weight-light);
 }
 
 .card-overlay {
@@ -433,19 +469,13 @@ EXPERIENCE MAIN
 .card-overlay h2 {
     color:          var(--text-primary);
     font-size:      2.5rem;
-    font-weight:    var(--weight-ultra-thin);
+    font-weight:    var(--weight-light);
     letter-spacing: 0.15em;
 }
 
 .card-overlay .card-meta {
-    color:     var(--accent-light);
+    color:     var(--text-primary);
     margin:    0.25rem 0 0;
-}
-
-.experience-highlight h2 {
-    color:       var(--text-primary);
-    font-size:   1rem;
-    font-weight: var(--weight-regular);
 }
 
 /* 
@@ -462,11 +492,11 @@ EXPERIENCE - DETAIL PAGES
 
 .back-link {
     display:        inline-block;
-    font-size:      1rem;
+    font-size:      1.1rem;
     font-weight:    var(--weight-regular);
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color:          var(--text-muted);
+    color:          var(--text-secondary);
     margin-bottom:  2rem;
     transition:     color 0.2s ease;
 }
@@ -480,10 +510,10 @@ EXPERIENCE - DETAIL PAGES
 }
 
 .detail-header h2 {
-    font-size:   1.5rem;
+    font-size:   1.25rem;
     font-weight: var(--weight-regular);
     letter-spacing: 0.05em;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
 }
 
 .detail-container {
@@ -504,12 +534,35 @@ EXPERIENCE - DETAIL PAGES
 }
 
 .detail-text {
-    flex:        1;
-    min-width:   0;
-    font-size:   1rem;
-    font-weight: var(--weight-thin);
-    line-height: 1.8;
-    color:       var(--text-primary);
+    flex:           1;
+    color:          var(--accent);
+    min-width:      0;
+    font-size:      1.1rem;
+    font-family:    var(--font-sans);
+    line-height:    1.3;
+    font-weight:    var(--weight-thin);
+    margin-bottom:  16px; /* Adjust to shrink/grow the gap */
+    letter-spacing: 0.035em;
+}
+
+.detail-text p {
+    margin-bottom: 1rem;
+}
+
+.tools-list {
+    color:               var(--accent);
+    margin:              8px 0;           /* Space above/below the whole list */
+    font-family:         var(--font-sans);
+    font-weight:         var(--weight-thin);
+    padding-left:        20px;            /* Indents the list */
+    letter-spacing:      0.035em;
+    list-style-type:     disc !important; /* Force bullets to show */
+    list-style-position: inside;          /* Keeps bullets aligned with text */
+}
+
+.tools-list li {
+    font-size:      1.1rem;   /* Set this to match paragraph size */
+    letter-spacing: 0.035em;
 }
 
 /* 
@@ -523,12 +576,13 @@ PROJECTS MAIN
     height:     70vh; /* e.g. 70% of the screen height */
     overflow:   hidden;
     position:   relative;
-    margin-top: var(--nav-height);
+    margin-top: 0;
 }
 
 #projects-hero img {
     width:           100%;
     height:          100%;
+    filter:          brightness(0.8) blur(2px);
     display:         block;
     object-fit:      cover;
     object-position: center 65%;
@@ -574,17 +628,11 @@ PROJECTS MAIN
 .projects-title h2 {
     color:          var(--text-primary);
     font-size:      2.5rem;
-    font-weight:    var(--weight-ultra-thin);
+    font-weight:    var(--weight-light);
     letter-spacing: 0.15em;
 }
 
 .projects-text {
     color:     var(--accent-light);
     margin:    0.25rem 0 0;
-}
-
-.projects-highlight h2 {
-    color:       var(--text-primary);
-    font-size:   1rem;
-    font-weight: var(--weight-regular);
 }
