@@ -1,39 +1,92 @@
+<!-- ===================== EXPERIENCE DETAIL PAGE - KPFF ===================== -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Structural Visualization Tool — Morgan Olivia Evans</title>
+        <title>Experience - KPFF — Morgan Olivia Evans</title>
         <link rel="stylesheet" href="../../style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     </head>
+
     <body>
 
         <!-- ===== NAV ===== -->
         <header>
-        <nav>
-            <a href="/" class="nav-name">Morgan Olivia Evans</a>
-            <ul>
-            <li><a href="/experience/">Experience</a></li>
-            <li><a href="/projects/">Projects</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <a href="/" class="nav-name">Morgan Olivia Evans</a>
+                <ul>
+                    <li><a href="/experience/" class="nav-active"> Experience </a></li>
+                    <li><a href="/projects/"> Projects </a></li>
+                </ul>
+                <!-- ===== CONTACT LIST (HEADER) ===== -->
+                <div class="nav-icons">
+                    <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </nav>
         </header>
 
+        <!-- ===== HERO ===== -->
+        <section id="experience-kpff-hero">
+            <img src="ics-expo.jpg" alt="ICS Expo" />
+        </section>
+
         <!-- ===== CONTENT ===== -->
-        <main>
-        <a href="/projects/" class="back-link">&larr; Projects</a>
-        <h1>Structural Visualization Software</h1>
-        <p class="card-meta">UCI Senior Capstone · 2025</p>
-        <p>Content coming soon.</p>
+        <main class="detail-main">
+            <a href="/experience/" class="back-link">&larr; Experience</a>
+            <div class="detail-container">
+                <div class="detail-pdf">
+                    <div class="detail-pdf">
+                        <a href="2025-expo-poster.pdf" target="_blank">
+                            <img src="ics-expo-cover.png" alt="ICS Expo Poster" class="pdf-cover" />
+                        </a>
+                    </div>
+                </div>
+                <div class="text-detail">
+                    <h2>KPFF Consulting Engineers</h2>
+
+                    <p>As part of UC Irvine's senior capstone program, I led a team of six students on a multi-quarter project for KPFF Consulting Engineers, 
+                    a global structural engineering firm specializing in building and infrastructure design. Our project, VISTA — Visualization Tools for 
+                    Structural Analysis — was a full-stack visualization tool built from the ground up using Godot Engine and GDScript, handling backend 
+                    OpenSees TCL script processing and frontend 3D visualization of structural engineering models and post-processing results. In addition 
+                    to leading the team, I contributed directly to frontend design and testing, owned version control and code review for the entire team 
+                    via Git, managed sprint organization and task tracking in Jira, and produced all technical documentation including our expo poster. 
+                    The project was awarded 3rd place at UC Irvine's 5th Annual ICS Project Expo.</p>
+
+                    <p>Tools & Languages Used:</p>
+
+                    <ul class="text-list">
+                        <li>Linux CLI</li>
+                        <li>GDScript</li>
+                        <li>Jira</li>
+                        <li>Git</li>
+                        <li>OpenSees</li>
+                        <li>Agile/Scrum</li>
+                        <li>Godot Engine</li>
+                    </ul>
+
+                    <a href="/experience/kpff/2025-expo-poster.pdf" target="_blank"
+                    class="outgoing-link"> View Expo Poster <i class="fa-solid fa-download"></i></a>
+                    <a href="https://youtu.be/RG-x3DfUInU?si=FBF57AQJrC_2bCTR" target="_blank" 
+                    class="outgoing-link"> Watch VISTA Demo <i class="fa-solid fa-video"></i></a>
+                    <a href="https://youtu.be/FZ0ihAW0lcM?si=g-mnj81OlVA-ZmHL" target="_blank" 
+                    class="outgoing-link"> Watch 2025 ICS Expo <i class="fa-solid fa-video"></i></a>
+                    <a href="https://github.com/morganolivianewton" target="_blank" 
+                    class="outgoing-link"> GitHub (Private Repo) <i class="fa-brands fa-github"></i></a>
+                </div> 
+            </div>
         </main>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>
-        <ul class="contact-list">
-            <li><a href="mailto:morganoliviaevans@gmail.com">morganoliviaevans@gmail.com</a></li>
-            <li><a href="https://linkedin.com/in/morganoliviaevans" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/morganoliviaevans" target="_blank">GitHub</a></li>
-        </ul>
+            <div class="footer-icons">
+                <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
         </footer>
 
         <script src="../../script.js"></script>

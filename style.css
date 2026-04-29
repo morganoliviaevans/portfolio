@@ -4,10 +4,6 @@ IMPORTS
 =========================================================
  */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@175;300;400;500;600&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,600;1,6..12,300&family=Lora:ital,wght@0,400;0,500;1,400&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,600;1,6..12,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,200;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,600;1,800&display=swap');
 
 /* 
@@ -24,14 +20,10 @@ CSS VARIABLES — DESIGN TOKENS
     --text-primary:   #ffffff;
     --text-secondary: #d4d4d4;
     --text-muted:     #404558;
-    --accent:         #e8e8e8;
-    /* --accent-light:   #8d9eb6; */
-    /* --border:         #000000; */
+    --link:           #d2c401;
 
     /* Typography */
-    --font-sans:         'Lato', sans-serif;
-    /* --font-serif:        'Lora', serif; */
-    /* --font-serif:        'Cormorant Garamond', serif; */
+    --font-sans:      'Lato', sans-serif;
     --weight-thin:    200;
     --weight-light:   300;
     --weight-regular: 400;
@@ -89,21 +81,66 @@ TYPOGRAPHY
 =========================================================
 */
 
-h1 {
-    font-size:   2.25rem;
-    font-weight: var(--weight-bold);
-    line-height: 1.2;
-}
-
 h2 {
-    font-size:   1.5rem;
-    font-weight: var(--weight-medium);
-    line-height: 1.3;
+    color:          #FFFFFF;
+    font-size:      1.25rem;
+    font-weight:    var(--weight-regular);
+    margin-bottom:  1rem; /* Adjust to shrink/grow the gap */
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
-h3 {
-    font-size:   1rem;
-    font-weight: var(--weight-light);
+/* Container rules */
+.text-detail {
+    flex:           1;      /* Take up half the parent's width */
+    display:        flex;   /* Arrange children designation, e.g. flex + column */
+    min-width:      0;      /* Prevents flex items from overflowing the container, e.g. pdf-link is anchored at bottom of container */
+    flex-direction: column; /* Stack my children vertically */
+}
+
+/* Paragraph specific rules */
+.text-detail p {
+    color:          var(--text-secondary);
+    font-size:      1.1rem;
+    max-width:      80ch;
+    font-family:    var(--font-sans);
+    line-height:    1.3;
+    font-weight:    var(--weight-thin);
+    margin-bottom:  1rem;
+    letter-spacing: 0.035em;
+}
+
+/* Target only the list in text */
+.text-list {
+    color:               var(--text-secondary);
+    font-family:         var(--font-sans);
+    font-weight:         var(--weight-light);
+    line-height:         1.3;
+    padding-left:        20px;            /* Indents the list */
+    margin-bottom:       1rem;
+    letter-spacing:      0.035em;
+    list-style-type:     disc !important; /* Force bullets to show */
+    list-style-position: inside;          /* Keeps bullets aligned with text */
+}
+
+.text-list li {
+    font-size:      1.1rem;   /* Set this to match paragraph size */
+    letter-spacing: 0.035em;
+}
+
+.outgoing-link {
+    color:          var(--link);
+    display:        inline-block;
+    font-size:      1.1rem;
+    margin-top:     auto; /* Anchors to the bottom of the container regardless of how much content is above it */
+    transition:     all 0.2s ease;
+    font-weight:    var(--weight-light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.outgoing-link:hover {
+    color: #FFFFFF;
 }
 
 .card-meta {
@@ -167,7 +204,7 @@ nav {
 .nav-name {
     color:          var(--text-primary);
     font-size:      1.5rem;
-    font-weight:    var(--weight-bold);
+    font-weight:    var(--weight-medium);
     margin-right:   auto;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -198,7 +235,7 @@ nav ul li a:hover {
 }
 
 .nav-active {
-    color:       var(--text-primary);
+    color:       var(--link);
     font-weight: var(--weight-regular);
 }
 
@@ -238,9 +275,9 @@ BIO
 }
 
 .bio-container {
-    gap:         4rem; /* Space in between photo and text profile */
+    gap:         4rem;    /* Space in between photo and text profile */
     display:     flex;
-    align-items: flex-start;
+    align-items: stretch; /* Make both columns match the height of the taller one */
 }
 
 .bio-photo {
@@ -250,59 +287,6 @@ BIO
     flex-shrink:     0;
     border-radius:   8px;
     object-position: center top;
-}
-
-.bio-text h2 {
-    color:          var(--text-secondary);
-    font-size:      1.5rem;
-    font-weight:    var(--weight-light);
-    margin-bottom:  1.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-}
-
-.bio-text p {
-    color:          var(--accent);
-    font-size:      1.1rem;
-    max-width:      80ch;
-    font-family:    var(--font-sans);
-    line-height:    1.3;
-    font-weight:    var(--weight-thin);
-    margin-bottom:  16px; /* Adjust to shrink/grow the gap */
-    letter-spacing: 0.035em;
-}
-
-/* Target only the list in bio */
-.bio-list {
-    color:               var(--accent);
-    margin:              8px 0;           /* Space above/below the whole list */
-    font-family:         var(--font-sans);
-    font-weight:         var(--weight-regular);
-    padding-left:        20px;            /* Indents the list */
-    letter-spacing:      0.035em;
-    list-style-type:     disc !important; /* Force bullets to show */
-    list-style-position: inside;          /* Keeps bullets aligned with text */
-}
-
-.bio-list li {
-    font-size:      1.1rem;   /* Set this to match paragraph size */
-    letter-spacing: 0.035em;
-}
-
-/* TODO: Add CV button here */
-.cv-link {
-    color:          var(--text-secondary);
-    display:        inline-block;
-    font-size:      1.5rem;
-    margin-top:     0.5rem;
-    transition:     all 0.2s ease;
-    font-weight:    var(--weight-light);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-}
-
-.cv-link:hover {
-    color: #FFFFFF;
 }
 
 /* 
@@ -365,7 +349,7 @@ CONTACT LIST (HEADER)
 }
 
 .nav-icons a {
-    color:      var(--accent);
+    color:      var(--text-secondary);
     font-size:  1.5rem;
     transition: color 0.2s ease;
 }
@@ -390,7 +374,7 @@ CONTACT LIST (FOOTER)
 }
 
 .footer-icons a {
-    color:      var(--accent);
+    color:      var(--text-secondary);
     font-size:  1.5rem;
     transition: color 0.2s ease;
 }
@@ -449,8 +433,8 @@ EXPERIENCE MAIN
 }
 
 .card:hover img {
-    filter:      brightness(1); /* Brighten on hover */
-    transform:   scale(1.05);   /* Zoom on hover */
+    filter:    brightness(1); /* Brighten on hover */
+    transform: scale(1.05);   /* Zoom on hover */
 }
 
 .card:hover h2 {
@@ -485,24 +469,24 @@ EXPERIENCE - DETAIL PAGES
 */
 
 .detail-main {
-    max-width: var(--max-width);
     margin:    0 auto;
     padding:   0rem 4rem 5rem; /* Padding: top, sides, bottom */
+    max-width: var(--max-width);
 }
 
 .back-link {
+    color:          var(--link);
     display:        inline-block;
     font-size:      1.1rem;
-    font-weight:    var(--weight-regular);
+    transition:     color 0.2s ease;
+    font-weight:    var(--weight-light);
+    margin-bottom:  2rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color:          var(--text-secondary);
-    margin-bottom:  2rem;
-    transition:     color 0.2s ease;
 }
 
 .back-link:hover {
-    color: var(--text-primary);
+    color: #FFFFFF;
 }
 
 .detail-header {
@@ -510,16 +494,17 @@ EXPERIENCE - DETAIL PAGES
 }
 
 .detail-header h2 {
-    font-size:   1.25rem;
-    font-weight: var(--weight-regular);
-    letter-spacing: 0.05em;
+    color:          var(--text-secondary);
+    font-size:      1.5rem;
+    font-weight:    var(--weight-regular);
+    letter-spacing: 0.15em;
     text-transform: uppercase;
 }
 
 .detail-container {
-    display:     flex;
     gap:         4rem;
-    align-items: flex-start;
+    display:     flex;
+    align-items: stretch; /* Make both columns match the height of the taller one */
 }
 
 .detail-pdf {
@@ -533,36 +518,38 @@ EXPERIENCE - DETAIL PAGES
     border-radius: 4px;
 }
 
-.detail-text {
-    flex:           1;
-    color:          var(--accent);
-    min-width:      0;
-    font-size:      1.1rem;
-    font-family:    var(--font-sans);
-    line-height:    1.3;
-    font-weight:    var(--weight-thin);
-    margin-bottom:  16px; /* Adjust to shrink/grow the gap */
-    letter-spacing: 0.035em;
+.pdf-cover {
+    width:         100%;
+    border-radius: 4px;
+    transition:    opacity 0.2s ease;
+    cursor:        pointer;
 }
 
-.detail-text p {
-    margin-bottom: 1rem;
+.pdf-cover:hover {
+    filter: brightness(1.25); /* Brighten on hover */
 }
 
-.tools-list {
-    color:               var(--accent);
-    margin:              8px 0;           /* Space above/below the whole list */
-    font-family:         var(--font-sans);
-    font-weight:         var(--weight-thin);
-    padding-left:        20px;            /* Indents the list */
-    letter-spacing:      0.035em;
-    list-style-type:     disc !important; /* Force bullets to show */
-    list-style-position: inside;          /* Keeps bullets aligned with text */
+/* 
+=========================================================
+EXPERIENCE - KPFF
+=========================================================
+*/
+
+#experience-kpff-hero {
+    width:      100%;
+    height:     70vh; /* e.g. 70% of the screen height */
+    overflow:   hidden;
+    position:   relative;
+    margin-top: 0;
 }
 
-.tools-list li {
-    font-size:      1.1rem;   /* Set this to match paragraph size */
-    letter-spacing: 0.035em;
+#experience-kpff-hero img {
+    width:           100%;
+    height:          100%;
+    filter:          brightness(0.8) blur(1px);
+    display:         block;
+    object-fit:      cover;
+    object-position: center 48%;
 }
 
 /* 
@@ -623,16 +610,4 @@ PROJECTS MAIN
 .card:hover h2 {
     color:       #FFFFFF;
     font-weight: var(--weight-thin);
-}
-
-.projects-title h2 {
-    color:          var(--text-primary);
-    font-size:      2.5rem;
-    font-weight:    var(--weight-light);
-    letter-spacing: 0.15em;
-}
-
-.projects-text {
-    color:     var(--accent-light);
-    margin:    0.25rem 0 0;
 }

@@ -17,8 +17,8 @@
             <nav>
                 <a href="/" class="nav-name">Morgan Olivia Evans</a>
                 <ul>
-                    <li><a href="/experience/" class="nav-active">Experience</a></li>
-                    <li><a href="/projects/">Projects</a></li>
+                    <li><a href="/experience/" class="nav-active"> Experience </a></li>
+                    <li><a href="/projects/"> Projects </a></li>
                 </ul>
                 <!-- ===== CONTACT LIST (HEADER) ===== -->
                 <div class="nav-icons">
@@ -39,24 +39,24 @@
             <a href="/experience/" class="back-link">&larr; Experience</a>
             <div class="detail-container">
                 <div class="detail-pdf">
-                    <iframe 
-                        src="/pdfjs/web/viewer.html?file=/experience/nasa/Evaluating_MPI_Performance_and_Scalability_MorganNewton.pdf"
-                        width="100%"
-                        height="600px"
-                        style="border: none;">
-                    </iframe>
-                </div>
-                <div class="detail-text">
-                    <div class="detail-header">
-                        <h2>NASA Center for Climate Simulation · 2024</h2>
+                    <div class="detail-pdf">
+                        <a href="/experience/nasa/Evaluating_MPI_Performance_and_Scalability_MorganNewton.pdf" target="_blank">
+                            <img src="nasa-cover.png" alt="NASA NCCS" class="pdf-cover" />
+                        </a>
                     </div>
+                </div>
+                <div class="text-detail">
+                    <h2>NASA Center for Climate Simulation</h2>
+
                     <p>During the summer of 2024, I interned as a High-Performance Computing Intern at NASA's Center for Climate Simulation at Goddard Space Flight Center. 
                     My work focused on investigating MPI and I/O performance anomalies for the GEOS climate model across multiple production supercomputing clusters 
                     and AWS and Azure cloud environments. I conducted OSU micro-benchmarks on AMD Milan architecture, performed I/O benchmarking comparing file systems 
                     for large-scale climate simulations, and implemented MPI tuning configurations to evaluate communication efficiency. My findings directly contributed 
                     to advancing the performance of climate simulations running on NASA's supercomputing infrastructure.</p>
+
                     <p>Tools & Languages Used:</p>
-                    <ul class="tools-list">
+
+                    <ul class="text-list">
                         <li>Linux CLI</li>
                         <li>Bash</li>
                         <li>Slurm</li>
@@ -68,7 +68,13 @@
                         <li>Git</li>
                         <li>Confluence</li>
                     </ul>
-                </div>
+
+                    <a href="https://github.com/morganoliviaevans/nccs-summer-2024" target="_blank" 
+                    class="outgoing-link"> GitHub <i class="fa-brands fa-github"></i></a>
+
+                    <a href="/experience/nasa/Evaluating_MPI_Performance_and_Scalability_MorganNewton.pdf" target="_blank" 
+                    class="outgoing-link"> View Report <i class="fa-solid fa-download"></i></a> <!-- target="_blank" opens link in new tab -->
+                </div> 
             </div>
         </main>
 
