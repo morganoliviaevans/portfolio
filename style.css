@@ -5,6 +5,7 @@ IMPORTS
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,200;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,600;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 /* 
 =========================================================
@@ -14,16 +15,22 @@ CSS VARIABLES — DESIGN TOKENS
 
 :root {
     /* Colors */
-    --bg-primary:     #1B1D25;
-    --bg-secondary:   #1b1d25b3;
-    --bg-surface:     #686B73;
-    --text-primary:   #ffffff;
-    --text-secondary: #d4d4d4;
-    --text-muted:     #404558;
-    --link:           #d2c401;
+    --bg-primary:       #1B1D25;
+    --bg-secondary:     #292a2e;
+    --bg-surface:       #686B73;
+    --text-primary:     #FFFFFF;
+    --text-secondary:   #d4d4d4;
+    --text-muted:       #7d7d7d;
+    --teal:             #016E84;
+    --earth:            #6D7944;
+    --olive:            #B4B059;
+    --gold:             #FFBF00;
+    --orange:           #FF821B;
+    --rust:             #FF5C1B;
 
     /* Typography */
-    --font-sans:      'Lato', sans-serif;
+    --font-lato:      'Lato', sans-serif;
+    --font-pacifico:  'Pacifico', sans-serif;
     --weight-thin:    200;
     --weight-light:   300;
     --weight-regular: 400;
@@ -32,7 +39,7 @@ CSS VARIABLES — DESIGN TOKENS
 
     /* Spacing */
     --nav-height:     80px;
-    --max-width:      1100px;
+    --max-width:      1250px;
     --section-gap:    5rem;
 }
 
@@ -55,7 +62,7 @@ body {
     color:            var(--text-primary);
     font-size:        16px;
     transition:       background-color 0.3s ease, color 0.3s ease;
-    font-family:      var(--font-sans);
+    font-family:      var(--font-lato);
     font-weight:      var(--weight-light);
     line-height:      1.7;
     background-color: var(--bg-primary);
@@ -81,29 +88,44 @@ TYPOGRAPHY
 =========================================================
 */
 
+h1 {
+    font-size:   9rem;
+    font-weight: var(--weight-regular);
+    font-family: var(--font-pacifico);
+    text-shadow: 0 2px 8px #3a3a3a;
+}
+
 h2 {
-    color:          #FFFFFF;
+    color:          var(--text-primary);
     font-size:      1.25rem;
     font-weight:    var(--weight-regular);
+    font-family:    var(--font-lato);
     margin-bottom:  1rem; /* Adjust to shrink/grow the gap */
     letter-spacing: 0.15em;
     text-transform: uppercase;
 }
 
+/* h3 {
+    font-size:   4rem;
+    font-weight: var(--weight-regular);
+    font-family: var(--font-lato);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+} */
+
 /* Container rules */
 .text-detail {
     flex:           1;      /* Take up half the parent's width */
     display:        flex;   /* Arrange children designation, e.g. flex + column */
-    min-width:      0;      /* Prevents flex items from overflowing the container, e.g. pdf-link is anchored at bottom of container */
+    min-width:      0;      /* Prevents flex items from overflowing the container, e.g. outgoing-link is anchored at bottom of container */
     flex-direction: column; /* Stack my children vertically */
 }
 
 /* Paragraph specific rules */
 .text-detail p {
     color:          var(--text-secondary);
-    font-size:      1.1rem;
+    font-size:      1.25rem;
     max-width:      80ch;
-    font-family:    var(--font-sans);
+    font-family:    var(--font-lato);
     line-height:    1.3;
     font-weight:    var(--weight-thin);
     margin-bottom:  1rem;
@@ -113,7 +135,7 @@ h2 {
 /* Target only the list in text */
 .text-list {
     color:               var(--text-secondary);
-    font-family:         var(--font-sans);
+    font-family:         var(--font-lato);
     font-weight:         var(--weight-light);
     line-height:         1.3;
     padding-left:        20px;            /* Indents the list */
@@ -124,25 +146,26 @@ h2 {
 }
 
 .text-list li {
-    font-size:      1.1rem;   /* Set this to match paragraph size */
+    font-size:      1.25rem;   /* Set this to match paragraph size */
     letter-spacing: 0.035em;
 }
 
 .outgoing-link {
-    color:          var(--link);
+    color:          var(--text-muted);
+    font-family:    var(--font-lato);
     display:        inline-block;
-    font-size:      1.1rem;
+    font-size:      1.5rem;
     margin-top:     auto; /* Anchors to the bottom of the container regardless of how much content is above it */
     transition:     all 0.2s ease;
     font-weight:    var(--weight-light);
-    letter-spacing: 0.15em;
     text-transform: uppercase;
 }
 
 .outgoing-link:hover {
-    color: #FFFFFF;
+    color: var(--rust);
 }
 
+/* Text style */
 .card-meta {
     color:          var(--text-secondary);
     margin:         0.35rem 0 0.75rem;
@@ -150,6 +173,18 @@ h2 {
     font-weight:    var(--weight-light);
     letter-spacing: 0.05em;
     text-transform: uppercase;
+}
+
+/* Bubble wrapper around block of content */
+.content-card {
+    padding:          2rem;
+    box-shadow:       0 16px 60px rgba(0, 0, 0, 0.8);      /* offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
+    border-top:       1px solid rgba(255, 255, 255, 0.15);
+    border-left:      1px solid rgba(255, 255, 255, 0.04);
+    border-right:     1px solid rgba(255, 255, 255, 0.04);
+    border-bottom:    1px solid rgba(0, 0, 0, 0.5);
+    border-radius:    60px;
+    background-color: var(--bg-secondary);
 }
 
 /* 
@@ -197,7 +232,7 @@ nav {
     height:      100%;
     display:     flex;
     padding:     0 2rem;
-    max-width:   var(--max-width);
+    width:       97%;
     align-items: center;
 }
 
@@ -205,7 +240,6 @@ nav {
     color:          var(--text-primary);
     font-size:      1.5rem;
     font-weight:    var(--weight-medium);
-    margin-right:   auto;
     letter-spacing: 0.15em;
     text-transform: uppercase;
 }
@@ -214,6 +248,7 @@ nav ul {
     gap:         1.5rem;
     display:     flex;
     align-items: center;
+    margin-left: auto;
 }
 
 /* Nav bar, right side */
@@ -223,6 +258,7 @@ nav ul li a {
     transition:     color 0.2s ease;
     font-weight:    var(--weight-light);
     letter-spacing: 0.15em;
+    margin-right:   auto;
     text-transform: uppercase;
 }
 
@@ -235,7 +271,7 @@ nav ul li a:hover {
 }
 
 .nav-active {
-    color:       var(--link);
+    color:       var(--orange);
     font-weight: var(--weight-regular);
 }
 
@@ -262,6 +298,16 @@ HERO
     object-position: center 80%;
 }
 
+.hero-overlay {
+    left:     1.5rem;
+    bottom:   -1.5rem;
+    position: absolute;
+}
+
+.hero-overlay h1 {
+    color: var(--gold);
+}
+
 /* 
 =========================================================
 BIO
@@ -275,7 +321,7 @@ BIO
 }
 
 .bio-container {
-    gap:         4rem;    /* Space in between photo and text profile */
+    gap:         3rem;    /* Space in between photo and text profile */
     display:     flex;
     align-items: stretch; /* Make both columns match the height of the taller one */
 }
@@ -284,8 +330,9 @@ BIO
     width:           375px;
     filter:          grayscale(100%);
     object-fit:      cover;
+    box-shadow:      0 16px 60px rgba(0, 0, 0, 0.8);
     flex-shrink:     0;
-    border-radius:   8px;
+    border-radius:   24px;
     object-position: center top;
 }
 
@@ -297,7 +344,7 @@ AFFILIATIONS
 
 .affiliations {
     padding:          2rem 2rem;
-    background-color: #FFFFFF; /* Keep at #FFFFFF because some png's have white backgrounds */
+    background-color: var(--text-primary); /* Keep at #FFFFFF because some png's have white backgrounds */
 }
 
 .affiliations h2 {
@@ -355,7 +402,7 @@ CONTACT LIST (HEADER)
 }
 
 .nav-icons a:hover {
-    color: var(--text-muted);
+    color: var(--gold);
 }
 
 /* 
@@ -380,7 +427,7 @@ CONTACT LIST (FOOTER)
 }
 
 .footer-icons a:hover {
-    color: var(--text-muted);
+    color: var(--gold);
 }
 
 /* 
@@ -390,7 +437,7 @@ EXPERIENCE MAIN
 */
 
 #experience-grid {
-    gap:                   1rem;
+    gap:                   2rem;
     margin:                0 auto;
     display:               grid;
     padding:               0rem 0rem 1.5rem; 
@@ -420,8 +467,9 @@ EXPERIENCE MAIN
     position:      relative;
     display:       block;
     overflow:      hidden;
+    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
     aspect-ratio:  1 / 1; /* Square! */
-    border-radius: 8px;
+    border-radius: 24px;
 }
 
 .card img {
@@ -438,13 +486,13 @@ EXPERIENCE MAIN
 }
 
 .card:hover h2 {
-    color:       #FFFFFF;
-    font-weight: var(--weight-light);
+    color:       var(--text-primary);
+    font-weight: var(--weight-regular);
 }
 
 .card-overlay {
     left:       50%;
-    bottom:     50%;
+    bottom:     48%;
     position:   absolute;
     transform:  translate(-50%, 50%);
     text-align: center;
@@ -453,7 +501,7 @@ EXPERIENCE MAIN
 .card-overlay h2 {
     color:          var(--text-primary);
     font-size:      2.5rem;
-    font-weight:    var(--weight-light);
+    font-weight:    var(--weight-regular);
     letter-spacing: 0.15em;
 }
 
@@ -475,18 +523,19 @@ EXPERIENCE - DETAIL PAGES
 }
 
 .back-link {
-    color:          var(--link);
+    color:          var(--text-muted);
     display:        inline-block;
-    font-size:      1.1rem;
+    font-size:      1.5rem;
     transition:     color 0.2s ease;
-    font-weight:    var(--weight-light);
+    font-family:    var(--font-bitter);
+    font-weight:    var(--weight-regular);
     margin-bottom:  2rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
 .back-link:hover {
-    color: #FFFFFF;
+    color: var(--text-primary);
 }
 
 .detail-header {
@@ -502,7 +551,7 @@ EXPERIENCE - DETAIL PAGES
 }
 
 .detail-container {
-    gap:         4rem;
+    gap:         3rem;
     display:     flex;
     align-items: stretch; /* Make both columns match the height of the taller one */
 }
@@ -515,18 +564,53 @@ EXPERIENCE - DETAIL PAGES
 .detail-pdf iframe {
     width:         100%;
     height:        600px;
-    border-radius: 4px;
+    border-radius: 24px;
 }
 
 .pdf-cover {
     width:         100%;
-    border-radius: 4px;
-    transition:    opacity 0.2s ease;
     cursor:        pointer;
+    transition:    opacity 0.2s ease;
+    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
+    border-radius: 24px;
 }
 
 .pdf-cover:hover {
     filter: brightness(1.25); /* Brighten on hover */
+}
+
+/* 
+=========================================================
+EXPERIENCE - NASA
+=========================================================
+*/
+
+.nasa-hero-overlay {
+    left:     1.5rem;
+    bottom:   1rem;
+    position: absolute;
+}
+
+.nasa-hero-overlay h1 {
+    color:     var(--gold);
+    font-size: 4rem;
+}
+
+/* 
+=========================================================
+EXPERIENCE - NASA
+=========================================================
+*/
+
+.scec-hero-overlay {
+    left:     1.5rem;
+    bottom:   1rem;
+    position: absolute;
+}
+
+.scec-hero-overlay h1 {
+    color:     var(--gold);
+    font-size: 4rem;
 }
 
 /* 
@@ -550,6 +634,17 @@ EXPERIENCE - KPFF
     display:         block;
     object-fit:      cover;
     object-position: center 48%;
+}
+
+.kpff-hero-overlay {
+    left:     1.5rem;
+    bottom:   1rem;
+    position: absolute;
+}
+
+.kpff-hero-overlay h1 {
+    color:     var(--gold);
+    font-size: 4rem;
 }
 
 /* 
@@ -582,36 +677,49 @@ EXPERIENCE - ACCESS
 }
 
 .access-images {
-    flex:           1;
-    min-width:      0;
-    display:        flex;
-    flex-direction: column;
     gap:            1rem;
+    flex:           1;
+    display:        flex;
+    min-width:      0;
+    flex-direction: column;
 }
 
 .access-model {
     width:         100%;
-    border-radius: 8px;
     object-fit:    cover;
+    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
+    border-radius: 24px;
 }
 
 .access-model:hover {
-    filter: brightness(1.25); /* TODO: Hover not working */
+    filter: brightness(1.25);
 }
 
 .access-concurrency {
-    display: flex;
     gap:     1rem;
+    display: flex;
+    border-radius: 24px;
 }
 
 .access-concurrency img {
     width:         50%;
-    border-radius: 8px;
+    border-radius: 24px;
     object-fit:    cover;
 }
 
 .access-concurrency:hover {
     filter: brightness(1.25);
+}
+
+.access-hero-overlay {
+    left:     1.5rem;
+    bottom:   1rem;
+    position: absolute;
+}
+
+.access-hero-overlay h1 {
+    color:     var(--gold);
+    font-size: 4rem;
 }
 
 /* 
@@ -631,10 +739,10 @@ PROJECTS MAIN
 #projects-hero img {
     width:           100%;
     height:          100%;
-    filter:          brightness(0.8) blur(2px);
+    filter:          brightness(0.8) blur(3px);
     display:         block;
     object-fit:      cover;
-    object-position: center 65%;
+    object-position: center 13.5%;
 }
 
 #projects-grid {
@@ -652,8 +760,9 @@ PROJECTS MAIN
     position:      relative;
     display:       block;
     overflow:      hidden;
+    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
     aspect-ratio:  1 / 1; /* Square! */
-    border-radius: 8px;
+    border-radius: 24px;
 }
 
 .card img {
@@ -667,9 +776,4 @@ PROJECTS MAIN
 .card:hover img {
     filter:      brightness(1); /* Brighten on hover */
     transform:   scale(1.05);   /* Zoom on hover */
-}
-
-.card:hover h2 {
-    color:       #FFFFFF;
-    font-weight: var(--weight-thin);
 }
