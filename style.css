@@ -5,7 +5,8 @@ IMPORTS
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,200;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,600;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
 
 /* 
 =========================================================
@@ -21,16 +22,13 @@ CSS VARIABLES — DESIGN TOKENS
     --text-primary:     #FFFFFF;
     --text-secondary:   #d4d4d4;
     --text-muted:       #7d7d7d;
-    --teal:             #016E84;
-    --earth:            #6D7944;
-    --olive:            #B4B059;
+    --accent-muted:     #575861;
     --gold:             #FFBF00;
-    --orange:           #FF821B;
-    --rust:             #FF5C1B;
 
     /* Typography */
     --font-lato:      'Lato', sans-serif;
-    --font-pacifico:  'Pacifico', sans-serif;
+    --font-playfair:  'Playfair Display', sans-serif;
+    --font-cormorant:  'Cormorant Garamond', sans-serif;
     --weight-thin:    200;
     --weight-light:   300;
     --weight-regular: 400;
@@ -88,10 +86,11 @@ TYPOGRAPHY
 =========================================================
 */
 
+/* Hero Overlay */
 h1 {
-    font-size:   9rem;
+    font-size:   2.75rem;
     font-weight: var(--weight-regular);
-    font-family: var(--font-pacifico);
+    font-family: var(--font-playfair);
     text-shadow: 0 2px 8px #3a3a3a;
 }
 
@@ -152,17 +151,17 @@ h2 {
 
 .outgoing-link {
     color:          var(--text-muted);
-    font-family:    var(--font-lato);
     display:        inline-block;
     font-size:      1.5rem;
     margin-top:     auto; /* Anchors to the bottom of the container regardless of how much content is above it */
     transition:     all 0.2s ease;
     font-weight:    var(--weight-light);
+    font-family:    var(--font-lato);
     text-transform: uppercase;
 }
 
 .outgoing-link:hover {
-    color: var(--rust);
+    color: var(--text-primary);
 }
 
 /* Text style */
@@ -240,8 +239,13 @@ nav {
     color:          var(--text-primary);
     font-size:      1.5rem;
     font-weight:    var(--weight-medium);
+    text-shadow:    0 8px 32px #333333;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+}
+
+.nav-name:hover {
+    color: var(--text-secondary);
 }
 
 nav ul {
@@ -257,8 +261,9 @@ nav ul li a {
     font-size:      1.5rem;
     transition:     color 0.2s ease;
     font-weight:    var(--weight-light);
-    letter-spacing: 0.15em;
+    text-shadow:    0 8px 32px #333333;
     margin-right:   auto;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
 }
 
@@ -271,7 +276,7 @@ nav ul li a:hover {
 }
 
 .nav-active {
-    color:       var(--orange);
+    color:       var(--gold);
     font-weight: var(--weight-regular);
 }
 
@@ -298,15 +303,15 @@ HERO
     object-position: center 80%;
 }
 
-.hero-overlay {
+/* .hero-overlay {
     left:     1.5rem;
-    bottom:   -1.5rem;
+    bottom:   1.5rem;
     position: absolute;
 }
 
 .hero-overlay h1 {
-    color: var(--gold);
-}
+    color: var(--text-primary);
+} */
 
 /* 
 =========================================================
@@ -368,8 +373,8 @@ AFFILIATIONS
 } 
 
 .affiliations-row img {
-    filter:     grayscale(100%);
     width:      auto;
+    filter:     grayscale(100%);
     height:     100px;
     opacity:    0.75;
     max-width:  175px;
@@ -396,13 +401,15 @@ CONTACT LIST (HEADER)
 }
 
 .nav-icons a {
-    color:      var(--text-secondary);
-    font-size:  1.5rem;
-    transition: color 0.2s ease;
+    color:       var(--text-secondary);
+    font-size:   1.5rem;
+    transition:  color 0.2s ease;
+    text-shadow: 0 8px 32px #333333;
 }
 
 .nav-icons a:hover {
-    color: var(--gold);
+    color:       var(--accent-muted);
+    text-shadow: 0 8px 32px #333333;
 }
 
 /* 
@@ -421,13 +428,15 @@ CONTACT LIST (FOOTER)
 }
 
 .footer-icons a {
-    color:      var(--text-secondary);
-    font-size:  1.5rem;
-    transition: color 0.2s ease;
+    color:       var(--text-secondary);
+    font-size:   1.5rem;
+    transition:  color 0.2s ease;
+    text-shadow: 0 8px 32px #333333;
 }
 
 .footer-icons a:hover {
-    color: var(--gold);
+    color:       var(--accent-muted);
+    text-shadow: 0 8px 32px #333333;
 }
 
 /* 
@@ -457,15 +466,26 @@ EXPERIENCE MAIN
 #experience-hero img {
     width:           100%;
     height:          100%;
-    filter:          brightness(0.8) blur(2px);
+    filter:          brightness(0.8) blur(3px);
     display:         block;
     object-fit:      cover;
-    object-position: center 50%;
+    object-position: center 75%;
+}
+
+.experience-hero-overlay {
+    left:     1.5rem;
+    bottom:   1rem;
+    position: absolute;
+}
+
+.experience-hero-overlay h1 {
+    color:     var(--text-primary);
+    font-size: 2.75rem;
 }
 
 .card {
-    position:      relative;
     display:       block;
+    position:      relative;
     overflow:      hidden;
     box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
     aspect-ratio:  1 / 1; /* Square! */
@@ -475,19 +495,24 @@ EXPERIENCE MAIN
 .card img {
     width:      100%;
     height:     100%;
-    filter:     brightness(0.75);
+    /* filter:     brightness(0.75); */
+    opacity:    0.75;
+    filter:     grayscale(100%);
     object-fit: cover;
-    transition: transform 0.4s ease, filter 0.4s ease;
+    /* transition: transform 0.4s ease, filter 0.4s ease; */
+    transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
 .card:hover img {
     filter:    brightness(1); /* Brighten on hover */
+    filter:    grayscale(0%); /* Full color on hover */
     transform: scale(1.05);   /* Zoom on hover */
+    opacity: 1;
 }
 
 .card:hover h2 {
     color:       var(--text-primary);
-    font-weight: var(--weight-regular);
+    text-shadow:    0 8px 32px #000000;
 }
 
 .card-overlay {
@@ -499,15 +524,16 @@ EXPERIENCE MAIN
 }
 
 .card-overlay h2 {
-    color:          var(--text-primary);
+    color:          var(--text-secondary);
     font-size:      2.5rem;
-    font-weight:    var(--weight-regular);
+    text-shadow:    0 8px 32px #000000;
+    font-weight:    var(--weight-light);
     letter-spacing: 0.15em;
 }
 
 .card-overlay .card-meta {
-    color:     var(--text-primary);
-    margin:    0.25rem 0 0;
+    color:  var(--text-primary);
+    margin: 0.25rem 0 0;
 }
 
 /* 
@@ -525,9 +551,9 @@ EXPERIENCE - DETAIL PAGES
 .back-link {
     color:          var(--text-muted);
     display:        inline-block;
-    font-size:      1.5rem;
+    font-size:      2rem;
     transition:     color 0.2s ease;
-    font-family:    var(--font-bitter);
+    font-family:    var(--font-latos);
     font-weight:    var(--weight-regular);
     margin-bottom:  2rem;
     letter-spacing: 0.05em;
@@ -592,7 +618,7 @@ EXPERIENCE - NASA
 }
 
 .nasa-hero-overlay h1 {
-    color:     var(--gold);
+    color:     var(--text-primary);
     font-size: 4rem;
 }
 
@@ -602,6 +628,23 @@ EXPERIENCE - NASA
 =========================================================
 */
 
+#experience-scec-hero {
+    width:      100%;
+    height:     70vh; /* e.g. 70% of the screen height */
+    overflow:   hidden;
+    position:   relative;
+    margin-top: 0;
+}
+
+#experience-scec-hero img {
+    width:           100%;
+    height:          100%;
+    filter:          brightness(0.8) blur(1px);
+    display:         block;
+    object-fit:      cover;
+    object-position: center 48%;
+}
+
 .scec-hero-overlay {
     left:     1.5rem;
     bottom:   1rem;
@@ -609,7 +652,7 @@ EXPERIENCE - NASA
 }
 
 .scec-hero-overlay h1 {
-    color:     var(--gold);
+    color:     var(--text-primary);
     font-size: 4rem;
 }
 
@@ -643,7 +686,7 @@ EXPERIENCE - KPFF
 }
 
 .kpff-hero-overlay h1 {
-    color:     var(--gold);
+    color:     var(--text-primary);
     font-size: 4rem;
 }
 
@@ -703,8 +746,8 @@ EXPERIENCE - ACCESS
 
 .access-concurrency img {
     width:         50%;
-    border-radius: 24px;
     object-fit:    cover;
+    border-radius: 24px;
 }
 
 .access-concurrency:hover {
@@ -718,7 +761,7 @@ EXPERIENCE - ACCESS
 }
 
 .access-hero-overlay h1 {
-    color:     var(--gold);
+    color:     var(--text-primary);
     font-size: 4rem;
 }
 
@@ -757,8 +800,8 @@ PROJECTS MAIN
 }
 
 .card {
-    position:      relative;
     display:       block;
+    position:      relative;
     overflow:      hidden;
     box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
     aspect-ratio:  1 / 1; /* Square! */

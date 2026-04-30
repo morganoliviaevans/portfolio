@@ -1,39 +1,124 @@
+<!-- ===================== EXPERIENCE DETAIL PAGE - SCEC ===================== -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>SCEC — Morgan Olivia Evans</title>
+        <title>Experience - SCEC — Morgan Olivia Evans</title>
         <link rel="stylesheet" href="../../style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     </head>
+
     <body>
 
         <!-- ===== NAV ===== -->
         <header>
-        <nav>
-            <a href="/" class="nav-name">Morgan Olivia Evans</a>
-            <ul>
-                <li><a href="/experience/">Experience</a></li>
-                <li><a href="/projects/">Projects</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <a href="/" class="nav-name">Morgan Olivia Evans</a>
+                <ul>
+                    <li><a href="/experience/" class="nav-active"> Experience </a></li>
+                    <li><a href="/projects/"> Projects </a></li>
+                    <li><a href="/publications/"> Publications </a></li>
+                </ul>
+                <!-- ===== CONTACT LIST (HEADER) ===== -->
+                <div class="nav-icons">
+                    <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </nav>
         </header>
 
+        <!-- ===== HERO ===== -->
+        <section id="experience-scec-hero">
+            <img src="wellington.jpg" alt="Wellington Harbor" />
+            <div class="scec-hero-overlay">
+                <h1>Statewide California Earthquake Center</h1>
+            </div>
+        </section>
+
         <!-- ===== CONTENT ===== -->
-        <main>
-        <a href="/experience/" class="back-link">&larr; Experience</a>
-        <h1>Statewide California Earthquake Center</h1>
-        <p class="card-meta">Computational Research Intern · 2022-2023</p>
-        <p>Content coming soon.</p>
+        <main class="detail-main">
+            <a href="/experience/" class="back-link">&larr; Experience</a>
+            <div class="detail-container content-card">
+                <div class="detail-pdf">
+                    <div class="detail-pdf">
+                        <a href="/experience/scec/2022SCECSOURCESPoster.pdf" target="_blank">
+                            <img src="scec-cover.png" alt="SCEC" class="pdf-cover" />
+                        </a>
+                    </div>
+                </div>
+                <div class="text-detail">
+                    <p>From May 2022 to February 2023, I worked as a Computational Research Intern through the SCEC SOURCES Program at the 
+                    Statewide California Earthquake Center. Working one-on-one with my research mentor Dr. John Louie, Professor of 
+                    Geophysics at the University of Nevada, Reno, I developed and ran low-frequency, physics-based 3D seismic wave 
+                    propagation models using SW4 software for the Wellington, New Zealand region — the highest-resolution simulations 
+                    ever performed for the area. My work aimed to determine whether newly developed gravity-based basin thickness 
+                    estimates by Stronach and Stern produced a substantial difference in how seismic waves travel through Wellington's 
+                    sedimentary basin compared to older geological models, with direct implications for seismic hazard planning 
+                    and earthquake preparedness. I managed all computational workflows on the Rockfish supercomputing cluster at 
+                    Johns Hopkins University using Slurm, and developed Bash scripts to automate model builds and job submissions. 
+                    My research demonstrated basin amplifications of 2-3x and showed that basin trapped waves extend shaking 
+                    duration by at least five seconds — results with direct relevance to disaster preparedness in a major seismically active city.</p>
+                </div> 
+            </div>
+
+            <div class="detail-container content-card">
+                <div class="detail-pdf">
+                    <div class="detail-pdf">
+                        <a href="/experience/scec/2023EERIPoster.pdf" target="_blank">
+                            <img src="eeri-cover.png" alt="SCEC EERI" class="pdf-cover" />
+                        </a>
+                    </div>
+                </div>
+                <div class="text-detail">
+                    <p>In January 2023, SCEC sponsored my travel to Wellington, New Zealand to visit our research collaborators. 
+                    I spent one week with Dr. Tim Stern, Professor of Geophysics at Victoria University of Wellington, 
+                    and Dr. Aasha Pancha, Geophysical Ground Investigation Manager at Aurecon. During my visit, I presented 
+                    a research seminar to graduate students and faculty at Victoria University of Wellington and had the 
+                    opportunity to meet with researchers at the GNS Science Institute, where I shared my findings and had 
+                    in-depth conversations about ongoing seismology research in the region.</p>
+
+                    <p>Tools & Languages Used:</p>
+
+                    <ul class="text-list">
+                        <li>Linux CLI</li>
+                        <li>Bash</li>
+                        <li>Slurm</li>
+                        <li>SW4</li>
+                        <li>JRG-Viewmat</li>
+                        <li>Adapter</li>
+                        <li>Git</li>
+                    </ul>
+
+                    <p>Publications:</p>
+
+                    <ul class="text-list">
+                        <li>Stern, T.A., Louie, J., Evans, M., et al. (2026). "Subsurface Expression of the Lambton Fault and Potential for the Basin 
+                        Edge Effect in the Wellington Central Business District." New Zealand Journal of Geology and Geophysics, 69(1). DOI: 10.1002/jgo2.70034</li>
+                        <li>Louie, J.N., Lewright, L., Newton, M.O., Pancha, A., Stern, T. (2023). "Exploring Basin Amplification Within the Reno, Nevada 
+                        and Wellington, New Zealand Metropolitan Areas with Non-Ergodic Physics-Based 3D Scenarios." EERI Poster.</li>
+                        <li>Newton, M.O., Louie, J.N., Stern, T., Pancha, A. (2022). "Low Frequency Non-Ergodic Synthetic Modeling of Earthquake Basin 
+                        Effects in Wellington, New Zealand." SCEC Annual Meeting Poster.</li>
+                    </ul>
+
+                    <a href="https://github.com/morganoliviaevans/scec-2022-2023" target="_blank" 
+                    class="outgoing-link"> GitHub <i class="fa-brands fa-github"></i></a>
+
+                    <a href="/experience/scec/2022SCECSOURCESPoster.pdf" target="_blank" 
+                    class="outgoing-link"> These will be merged with the above Publication list? <i class="fa-solid fa-download"></i></a>
+                </div> 
+            </div>
         </main>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>
-        <ul class="contact-list">
-            <li><a href="mailto:morganoliviaevans@gmail.com">morganoliviaevans@gmail.com</a></li>
-            <li><a href="https://linkedin.com/in/morganoliviaevans" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/morganoliviaevans" target="_blank">GitHub</a></li>
-        </ul>
+            <div class="footer-icons">
+                <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
         </footer>
 
         <script src="../../script.js"></script>
