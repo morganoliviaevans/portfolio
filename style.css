@@ -6,7 +6,6 @@ IMPORTS
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,200;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,600;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
 
 /* 
 =========================================================
@@ -17,18 +16,17 @@ CSS VARIABLES — DESIGN TOKENS
 :root {
     /* Colors */
     --bg-primary:       #1B1D25;
-    --bg-secondary:     #292a2e;
-    --bg-surface:       #686B73;
+    --bg-secondary:     #202124;
+    --bg-surface:       #36383d;
     --text-primary:     #FFFFFF;
-    --text-secondary:   #d4d4d4;
-    --text-muted:       #7d7d7d;
-    --accent-muted:     #575861;
-    --gold:             #FFBF00;
+    --text-secondary:   #b9b9b9;
+    --text-muted:       #63656e;
+    --accent-muted:     #424753;
+    --gold:             #e8ae00;
 
     /* Typography */
     --font-lato:      'Lato', sans-serif;
     --font-playfair:  'Playfair Display', sans-serif;
-    --font-cormorant:  'Cormorant Garamond', sans-serif;
     --weight-thin:    200;
     --weight-light:   300;
     --weight-regular: 400;
@@ -37,8 +35,8 @@ CSS VARIABLES — DESIGN TOKENS
 
     /* Spacing */
     --nav-height:     80px;
-    --max-width:      1250px;
-    --section-gap:    5rem;
+    --max-width:      1300px;
+    --section-gap:    2rem;
 }
 
 /* 
@@ -54,6 +52,7 @@ RESET & BASE
 
 html {
     scroll-behavior: smooth;
+    font-size: 14px; /* scale down, default is 16px */
 }
 
 body {
@@ -104,12 +103,24 @@ h2 {
     text-transform: uppercase;
 }
 
-/* h3 {
-    font-size:   4rem;
-    font-weight: var(--weight-regular);
-    font-family: var(--font-lato);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-} */
+/* Detail Heading */
+h3 {
+    font-size:     2.75rem;
+    font-weight:   var(--weight-regular);
+    font-family:   var(--font-playfair);
+    text-shadow:   0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+h4 {
+    font-size:      1.25rem;
+    font-weight:    var(--weight-light);
+    font-family:    var(--font-lato);
+    text-transform: uppercase;
+}
+
+b {
+    font-weight: var(--weight-bold);
+}
 
 /* Container rules */
 .text-detail {
@@ -122,7 +133,7 @@ h2 {
 /* Paragraph specific rules */
 .text-detail p {
     color:          var(--text-secondary);
-    font-size:      1.25rem;
+    font-size:      1.15rem;
     max-width:      80ch;
     font-family:    var(--font-lato);
     line-height:    1.3;
@@ -176,14 +187,16 @@ h2 {
 
 /* Bubble wrapper around block of content */
 .content-card {
-    padding:          2rem;
-    box-shadow:       0 16px 60px rgba(0, 0, 0, 0.8);      /* offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
-    border-top:       1px solid rgba(255, 255, 255, 0.15);
-    border-left:      1px solid rgba(255, 255, 255, 0.04);
-    border-right:     1px solid rgba(255, 255, 255, 0.04);
-    border-bottom:    1px solid rgba(0, 0, 0, 0.5);
-    border-radius:    60px;
-    background-color: var(--bg-secondary);
+    padding:             2rem;
+    box-shadow:          0 16px 60px rgba(0, 0, 0, 0.8);       /* offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
+    border-top:          1px solid rgba(255, 255, 255, 0.103);
+    border-left:         1px solid rgba(255, 255, 255, 0.04);
+    border-right:        1px solid rgba(255, 255, 255, 0.04);
+    border-bottom:       1px solid rgba(0, 0, 0, 0.5);
+    border-radius:       60px;
+    background-size:     cover;
+    background-position: center;
+    /* background-color:    var(--bg-secondary); */
 }
 
 /* 
@@ -205,6 +218,13 @@ main {
 
 section {
     margin-bottom: var(--section-gap);
+}
+
+.section-divider {
+    margin: 5rem 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    /* border-top: none; */
 }
 
 /* 
@@ -238,7 +258,7 @@ nav {
 .nav-name {
     color:          var(--text-primary);
     font-size:      1.5rem;
-    font-weight:    var(--weight-medium);
+    font-weight:    var(--weight-regular);
     text-shadow:    0 8px 32px #333333;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -408,7 +428,7 @@ CONTACT LIST (HEADER)
 }
 
 .nav-icons a:hover {
-    color:       var(--accent-muted);
+    color:       var(--gold);
     text-shadow: 0 8px 32px #333333;
 }
 
@@ -422,7 +442,7 @@ CONTACT LIST (FOOTER)
     gap:             1.5rem; 
     margin:          0 auto;
     display:         flex;
-    padding:         0rem 0rem 1.5rem; 
+    padding:         0rem 0rem 0rem; 
     align-items:     center;
     justify-content: center;
 }
@@ -435,7 +455,7 @@ CONTACT LIST (FOOTER)
 }
 
 .footer-icons a:hover {
-    color:       var(--accent-muted);
+    color:       var(--gold);
     text-shadow: 0 8px 32px #333333;
 }
 
@@ -449,7 +469,7 @@ EXPERIENCE MAIN
     gap:                   2rem;
     margin:                0 auto;
     display:               grid;
-    padding:               0rem 0rem 1.5rem; 
+    padding:               3rem 0rem 1.5rem; 
     max-width:             var(--max-width);
     /* grid-template-columns: repeat(2, 1fr); /* 2x2 */
     grid-template-columns: repeat(4, 1fr); /* 4x1 */
@@ -495,11 +515,9 @@ EXPERIENCE MAIN
 .card img {
     width:      100%;
     height:     100%;
-    /* filter:     brightness(0.75); */
     opacity:    0.75;
     filter:     grayscale(100%);
     object-fit: cover;
-    /* transition: transform 0.4s ease, filter 0.4s ease; */
     transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
@@ -511,7 +529,6 @@ EXPERIENCE MAIN
 }
 
 .card:hover h2 {
-    color:       var(--text-primary);
     text-shadow:    0 8px 32px #000000;
 }
 
@@ -524,7 +541,7 @@ EXPERIENCE MAIN
 }
 
 .card-overlay h2 {
-    color:          var(--text-secondary);
+    color:          var(--text-primary);
     font-size:      2.5rem;
     text-shadow:    0 8px 32px #000000;
     font-weight:    var(--weight-light);
@@ -544,36 +561,22 @@ EXPERIENCE - DETAIL PAGES
 
 .detail-main {
     margin:    0 auto;
-    padding:   0rem 4rem 5rem; /* Padding: top, sides, bottom */
+    padding:   0rem 4rem 3rem; /* Padding: top, sides, bottom */
     max-width: var(--max-width);
 }
 
-.back-link {
-    color:          var(--text-muted);
-    display:        inline-block;
-    font-size:      2rem;
-    transition:     color 0.2s ease;
-    font-family:    var(--font-latos);
-    font-weight:    var(--weight-regular);
-    margin-bottom:  2rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.back-link:hover {
-    color: var(--text-primary);
-}
-
 .detail-header {
-    margin-bottom: 1rem;
+    text-align: center;
 }
 
-.detail-header h2 {
-    color:          var(--text-secondary);
-    font-size:      1.5rem;
-    font-weight:    var(--weight-regular);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+.detail-header h3 {
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.detail-header h4 {
+    color: var(--text-muted);
+    line-height: 1.3;
 }
 
 .detail-container {
@@ -607,87 +610,33 @@ EXPERIENCE - DETAIL PAGES
 
 /* 
 =========================================================
-EXPERIENCE - NASA
-=========================================================
-*/
-
-.nasa-hero-overlay {
-    left:     1.5rem;
-    bottom:   1rem;
-    position: absolute;
-}
-
-.nasa-hero-overlay h1 {
-    color:     var(--text-primary);
-    font-size: 4rem;
-}
-
-/* 
-=========================================================
-EXPERIENCE - NASA
-=========================================================
-*/
-
-#experience-scec-hero {
-    width:      100%;
-    height:     70vh; /* e.g. 70% of the screen height */
-    overflow:   hidden;
-    position:   relative;
-    margin-top: 0;
-}
-
-#experience-scec-hero img {
-    width:           100%;
-    height:          100%;
-    filter:          brightness(0.8) blur(1px);
-    display:         block;
-    object-fit:      cover;
-    object-position: center 48%;
-}
-
-.scec-hero-overlay {
-    left:     1.5rem;
-    bottom:   1rem;
-    position: absolute;
-}
-
-.scec-hero-overlay h1 {
-    color:     var(--text-primary);
-    font-size: 4rem;
-}
-
-/* 
-=========================================================
 EXPERIENCE - KPFF
 =========================================================
 */
 
-#experience-kpff-hero {
-    width:      100%;
-    height:     70vh; /* e.g. 70% of the screen height */
-    overflow:   hidden;
-    position:   relative;
-    margin-top: 0;
+#kpff .content-card {
+    background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.55), /* Top */ 
+                    rgba(0, 0, 0, 0.55)  /* Bottom */
+                    ), url('../media/backgrounds/blur-background10.jpg');
 }
 
-#experience-kpff-hero img {
-    width:           100%;
-    height:          100%;
-    filter:          brightness(0.8) blur(1px);
-    display:         block;
-    object-fit:      cover;
-    object-position: center 48%;
-}
+/* 
+=========================================================
+EXPERIENCE - NASA
+=========================================================
+*/
 
-.kpff-hero-overlay {
-    left:     1.5rem;
-    bottom:   1rem;
-    position: absolute;
-}
-
-.kpff-hero-overlay h1 {
-    color:     var(--text-primary);
-    font-size: 4rem;
+#nasa .content-card {
+    /* background-image overlay syntax:
+    linear-gradient(rgba(R, G, B, opacity), rgba(R, G, B, opacity)), 
+    url('path') R, G, B = color channels 0-255 | opacity = 0 (transparent) to 1 (solid)
+    The gradient layer sits on top of the image, use opacity to control darkness
+    e.g. rgba(0, 0, 0, 0.75) = pure black at 75% opacity */
+    background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.75), /* Top */ 
+                    rgba(0, 0, 0, 0.75)  /* Bottom */
+                    ), url('../media/backgrounds/blur-background09.jpg');
 }
 
 /* 
@@ -696,21 +645,11 @@ EXPERIENCE - ACCESS
 =========================================================
 */
 
-#experience-access-hero {
-    width:      100%;
-    height:     70vh; /* e.g. 70% of the screen height */
-    overflow:   hidden;
-    position:   relative;
-    margin-top: 0;
-}
-
-#experience-access-hero img {
-    width:           100%;
-    height:          100%;
-    filter:          brightness(0.8) blur(1px);
-    display:         block;
-    object-fit:      cover;
-    object-position: center 48%;
+#access .content-card {
+    background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.65), /* Top */ 
+                    rgba(0, 0, 0, 0.65)  /* Bottom */
+                    ), url('../media/backgrounds/blur-background13.jpg');
 }
 
 .detail-access-container {
@@ -754,15 +693,17 @@ EXPERIENCE - ACCESS
     filter: brightness(1.25);
 }
 
-.access-hero-overlay {
-    left:     1.5rem;
-    bottom:   1rem;
-    position: absolute;
-}
+/* 
+=========================================================
+EXPERIENCE - SCEC
+=========================================================
+*/
 
-.access-hero-overlay h1 {
-    color:     var(--text-primary);
-    font-size: 4rem;
+#scec .content-card {
+    background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.75), /* Top */ 
+                    rgba(0, 0, 0, 0.75)  /* Bottom */
+                    ), url('../media/backgrounds/blur-background03.jpg');
 }
 
 /* 
@@ -786,6 +727,17 @@ PROJECTS MAIN
     display:         block;
     object-fit:      cover;
     object-position: center 13.5%;
+}
+
+.projects-hero-overlay {
+    left:     1.5rem;
+    bottom:   1rem;
+    position: absolute;
+}
+
+.projects-hero-overlay h1 {
+    color:     var(--text-primary);
+    font-size: 2.75rem;
 }
 
 #projects-grid {
@@ -819,4 +771,45 @@ PROJECTS MAIN
 .card:hover img {
     filter:      brightness(1); /* Brighten on hover */
     transform:   scale(1.05);   /* Zoom on hover */
+}
+
+/* 
+=========================================================
+PUBLICATIONS
+=========================================================
+*/
+
+#publications-hero {
+    width:      100%;
+    height:     70vh; /* e.g. 70% of the screen height */
+    overflow:   hidden;
+    position:   relative;
+    margin-top: 0;
+}
+
+#publications-hero img {
+    width:           100%;
+    height:          100%;
+    filter:          brightness(0.8) blur(3px);
+    display:         block;
+    object-fit:      cover;
+    object-position: center 50%;
+}
+
+.publications-hero-overlay {
+    left:     1.5rem;
+    bottom:   1rem;
+    position: absolute;
+}
+
+.publications-hero-overlay h1 {
+    color:     var(--text-primary);
+    font-size: 2.75rem;
+}
+
+#publications .content-card {
+    background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.85), /* Top */ 
+                    rgba(0, 0, 0, 0.65)  /* Bottom */
+                    ), url('../media/backgrounds/blur-background12.jpg');
 }
