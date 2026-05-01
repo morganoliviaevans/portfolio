@@ -256,10 +256,10 @@ nav {
 }
 
 .nav-name {
-    color:          var(--text-primary);
+    color:          var(--text-secondary);
     font-size:      1.5rem;
     font-weight:    var(--weight-regular);
-    text-shadow:    0 8px 32px #333333;
+    text-shadow:    0 8px 32px #5d5d5d;
     letter-spacing: 0.15em;
     text-transform: uppercase;
 }
@@ -281,7 +281,7 @@ nav ul li a {
     font-size:      1.5rem;
     transition:     color 0.2s ease;
     font-weight:    var(--weight-light);
-    text-shadow:    0 8px 32px #333333;
+    text-shadow:    0 8px 32px #5d5d5d;
     margin-right:   auto;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -422,14 +422,13 @@ CONTACT LIST (HEADER)
 
 .nav-icons a {
     color:       var(--text-secondary);
-    font-size:   1.5rem;
+    font-size:   1.75rem;
     transition:  color 0.2s ease;
-    text-shadow: 0 8px 32px #333333;
+    text-shadow: 0 8px 32px #5d5d5d;
 }
 
 .nav-icons a:hover {
     color:       var(--gold);
-    text-shadow: 0 8px 32px #333333;
 }
 
 /* 
@@ -439,17 +438,17 @@ CONTACT LIST (FOOTER)
 */
 
 .footer-icons {
-    gap:             1.5rem; 
+    gap:             1.75rem; 
     margin:          0 auto;
     display:         flex;
-    padding:         0rem 0rem 0rem; 
+    padding:         1rem 0rem 0rem; 
     align-items:     center;
     justify-content: center;
 }
 
 .footer-icons a {
     color:       var(--text-secondary);
-    font-size:   1.5rem;
+    font-size:   2rem;
     transition:  color 0.2s ease;
     text-shadow: 0 8px 32px #333333;
 }
@@ -457,6 +456,20 @@ CONTACT LIST (FOOTER)
 .footer-icons a:hover {
     color:       var(--gold);
     text-shadow: 0 8px 32px #333333;
+}
+
+.footer-copyright {
+    margin:          0 auto;
+    display:         flex;
+    padding:         0rem 0rem 2rem; 
+    align-items:     center;
+    justify-content: center;
+}
+
+.footer-copyright p {
+    color:       var(--text-muted);
+    font-size:   1.20rem;
+    align-items: center;
 }
 
 /* 
