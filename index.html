@@ -15,12 +15,12 @@
         <!-- ===== NAV ===== -->
         <header>
             <nav>
-                <!-- <a href="/" class="nav-name">Morgan Olivia Evans</a> -->
+                <a href="/" class="nav-name">Morgan Olivia Evans</a>
                 <ul>
-                    <li><a href="/about/"> About </a></li>
-                    <li><a href="/experience/"> Experience </a></li>
-                    <li><a href="/projects/"> Projects </a></li>
-                    <li><a href="/publications/"> Publications </a></li>
+                    <li><a href="#about"> About </a></li>
+                    <li><a href="#experience-landing"> Experience </a></li>
+                    <li><a href="#projects-landing"> Projects </a></li>
+                    <li><a href="#publications"> Publications </a></li>
                 </ul>
                 <!-- ===== CONTACT LIST (HEADER) ===== -->
                 <div class="nav-icons">
@@ -31,13 +31,328 @@
             </nav>
         </header>
 
-        <!-- ===== HERO ===== -->
-        <section id="hero">
-            <img src="media/grad.jpg" alt="It's Me" />
-            <div class="hero-overlay">
-                <h2>MORGAN OLIVIA EVANS</h2>
+        <!-- ===== LANDING ===== -->
+        <section id="landing">
+            <div class="landing-content">
+                <div class="landing-text">
+                    <h1>Morgan Olivia Evans</h1>
+                    <h2>New Grad Software Engineer, Scientific Researcher</h2>
+                </div>
+                <div class="landing-avatar">
+                    <img src="media/avatar.png" alt="Morgan Olivia Evans" />
+                </div>
             </div>
         </section>
+
+        <section id="section"></section> <!-- TODO: NEED TO MANUALLY ADJUST EACH SECTION -->
+        <section id="section"></section>
+        <hr class="section-divider" />
+
+        <!-- ===== ABOUT ===== -->
+        <section id="about">
+            <div class="about-container content-card">
+                <img src="media/about/nccs-bw.jpg" alt="Morgan Olivia Evans at NASA Goddard" class="about-photo" />
+                <div class="text-detail">
+                    <p>Morgan is a recent Computer Science graduate from UC Irvine, specializing in high-performance computing, 
+                    scientific research, and embedded systems. She is a seasoned technical leader with a proven track record of managing 
+                    end-to-end development and research projects, particularly within the realm of earth system science.</p>
+
+                    <p>She thrives at the intersection of industry and academia, a passion fueled by opportunities to contribute to meaningful projects with:</p>
+
+                    <!-- Using an unordered list for the bullets instead of individual HTML tags -->
+                    <ul class="text-list">
+                        <li>KPFF Consulting Engineers</li>
+                        <li>NASA Center for Climate Simulation (NCCS)</li>
+                        <li>Statewide California Earthquake Center (SCEC)</li>
+                        <li>Advanced Cyberinfrastructure Coordination Ecosystem (ACCESS)</li>
+                    </ul>
+
+                    <p>Morgan is driven by a commitment to understanding our planet and excels at collaborating with educators and industry leaders to build 
+                    impactful real-world systems. She is eager to continue learning and contributing to the field through creative, purpose-led innovation.</p>
+
+                    <div class="link-wrapper">
+                        <a href="https://drive.google.com/file/d/197jzIhMwKH6mfxXvNBxno3roQA9zJFe5/view?usp=sharing" target="_blank" 
+                        class="outgoing-link"> Resume </a> <!-- target="_blank" opens link in new tab -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AFFILIATIONS ===== -->
+        <section id="affiliations" class="affiliations">
+            <h2>Affiliations</h2>
+            <div class="affiliations-row">
+                <a href="https://ics.uci.edu/"><img src="media/about/affiliations/uci-logo.png" alt="UC Irvine" /></a>
+                <a href="https://central.scec.org/"><img src="media/about/affiliations/scec-logo-2.jpg" alt="SCEC" /></a>
+                <a href="https://www.kpff.com/"><img src="media/about/affiliations/kpff.png" alt="KPFF" /></a>
+                <a href="https://www.nasa.gov/"><img src="media/about/affiliations/nasa-logo.png" alt="NASA" /></a>
+                <a href="https://science.gsfc.nasa.gov/earth/"><img src="media/about/affiliations/goddard-logo.png" alt="GODDARD" /></a>
+                <a href="https://support.access-ci.org/"><img src="media/about/affiliations/access-logo.png" alt="ACCESS" /></a>
+                <a href="https://www.nccs.nasa.gov/"><img src="media/about/affiliations/nccs-logo.png" alt="NCCS" /></a>
+            </div>
+        </section>
+
+        <!-- ===== EXPERIENCE LIST ===== -->
+        <section id="experience-landing">
+            <main class="grid-main">
+                <section id="experience-grid">
+                    <a href="#kpff" class="card"> 
+                        <img src="media/experience/kpff.png" alt="KPFF" /> 
+                        <div class="card-overlay">
+                            <h2>KPFF</h2>
+                        </div>
+                    </a>
+                    <a href="#nasa" class="card"> 
+                        <img src="media/experience/geos-co2-model.jpeg" alt="NCCS GEOS" />
+                        <div class="card-overlay">
+                            <h2>NASA</h2>
+                        </div>
+                    </a>
+                    <a href="#access" class="card"> 
+                        <img src="media/experience/jakobshavn-isbræ-glacier.jpg" alt="Jakobshavn Isbræ Glacier" /> 
+                        <div class="card-overlay">
+                            <h2>ACCESS</h2>
+                        </div>
+                    </a>
+                    <a href="#scec" class="card"> 
+                        <img src="media/experience/stronach-GNS-wellington-basin.jpg" alt="Wellington Harbor" />
+                        <div class="card-overlay">
+                            <h2>SCEC</h2>
+                        </div>
+                    </a>
+                </section>
+            </main>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- ===================== EXPERIENCE DETAIL - KPFF ===================== -->
+
+        <!-- ===== TITLE SECTION ===== -->
+        <section id="kpff">
+            <div class="detail-header">
+                <h3>KPFF Consulting Engineers</h3>
+                <h4>January 2025 — June 2025</h4>
+            </div>
+        </section>
+
+        <!-- ===== CONTENT ===== -->
+        <main class="detail-main" id="kpff">
+            <div class="detail-container content-card">
+                <div class="detail-pdf">
+                    <a href="media/experience/2025-expo-poster.pdf" target="_blank">
+                        <img src="media/experience/ics-expo-cover.png" alt="ICS Expo Poster" class="pdf-cover" />
+                    </a>
+                </div>
+                <div class="text-detail">
+                    <p>As part of UC Irvine's senior capstone program, I led a team of six students on a multi-quarter project for <b>KPFF Consulting Engineers</b>, 
+                    a global structural engineering firm specializing in building and infrastructure design. Our project, <b>VISTA — Visualization Tools for Structural Analysis</b> 
+                    — was a full-stack visualization tool built from the ground up using <b>Godot Engine</b> and <b>GDScript</b>, handling backend <b>OpenSees</b> 
+                    TCL script processing and frontend <b>3D visualization</b> of structural engineering models and post-processing results.</p>
+
+                    <p>The project began with a thorough research phase in which I evaluated industry-standard structural engineering software — including RISA-3D, 
+                    ETABS, and Perform3D — to identify gaps in usability and analysis capability that VISTA could address. From there, I developed the <b>technical roadmap</b> 
+                    and <b>onboarding plan</b> that guided the team through the full development lifecycle, from prototyping through final deployment, in under six months.</p>
+
+                    <p>I led all <b>client-facing communication</b> throughout the project. This included weekly remote check-ins, monthly in-person meetings with KPFF engineers, 
+                    and two formal mid-project presentations required for course evaluation. I led every meeting with the KPFF team, wrote all <b>progress summaries</b>, 
+                    and compiled teammate notes into structured <b>action items and goals</b> for the following week. At the conclusion of the project, I led our final 
+                    <b>company-wide presentation</b> to KPFF stakeholders.</p>
+
+                    <p>In addition to project leadership, I contributed directly to <b>frontend design</b> and <b>testing</b>, owned <b>version control</b> and 
+                    <b>code review</b> for the entire team via <b>Git</b>, managed <b>sprint organization</b> and <b>task tracking</b> in <b>Jira</b>, 
+                    and produced all technical documentation. I also led and structured our <b>ICS Project Expo</b> presentation, which earned our team 
+                    <b>3rd place</b> at the <b>UC Irvine ICS Project Expo</b> — a result I'm particularly proud of given that the capstone was entirely optional for CS majors.</p>
+
+                    <div class="link-wrapper">
+                        <a href="media/experience/2025-expo-poster.pdf" target="_blank"
+                        class="outgoing-link"> Expo Poster <i class="fa-solid fa-download"></i></a>
+                    </div>
+                    <div class="link-wrapper">
+                        <a href="https://youtu.be/RG-x3DfUInU?si=FBF57AQJrC_2bCTR" target="_blank" 
+                        class="outgoing-link"> Watch VISTA Demo <i class="fa-solid fa-video"></i></a>
+                    </div>
+                    <div class="link-wrapper">
+                        <a href="https://youtu.be/FZ0ihAW0lcM?si=g-mnj81OlVA-ZmHL" target="_blank" 
+                        class="outgoing-link"> Watch 2025 ICS Expo <i class="fa-solid fa-video"></i></a>
+                    </div>
+                    <div class="link-wrapper">
+                        <a href="https://github.com/morganolivianewton" target="_blank" 
+                        class="outgoing-link"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div> 
+            </div>
+        </main>
+
+        <hr class="section-divider" />
+
+        <!-- ===================== EXPERIENCE DETAIL - NASA ===================== -->
+
+        <!-- ===== TITLE SECTION ===== -->
+        <section id="nasa">
+            <div class="detail-header">
+                <h3>NASA Center for Climate Simulation</h3>
+                <h4>Summer 2024</h4>
+            </div>
+        </section>
+
+        <!-- ===== CONTENT ===== -->
+        <main class="detail-main" id="nasa">
+            <div class="detail-container content-card">
+                <div class="detail-pdf">
+                    <a href="media/experience/docs/Evaluating_MPI_Performance_and_Scalability_MorganNewton.pdf" target="_blank">
+                        <img src="media/experience/docs/nasa-cover.png" alt="NASA NCCS" class="pdf-cover" />
+                    </a>
+                </div>
+                <div class="text-detail">
+                    <p>During the summer of 2024, I worked as a <b>High-Performance Computing Intern</b> at NASA's Center for Climate Simulation at Goddard Space Flight Center in Greenbelt, Maryland.
+                    My work focused on investigating <b>MPI</b> and <b>I/O performance anomalies</b> for the GEOS climate model across multiple production supercomputing clusters
+                    — NCCS Discover at Goddard and NAS Aitken at Ames — as well as AWS and Azure cloud environments managed with Spack.</p>
+
+                    <p>I conducted benchmarking in two parts: OSU micro-benchmarks on AMD Milan architecture across various platforms, and I/O benchmarking on the NCCS Discover cluster comparing 
+                    DNB09 and DTSE01 file systems to assess their impact on large-scale climate simulations. I also implemented and tested various MPI tuning configurations, 
+                    including OFI and GMAO-specific settings, to evaluate <b>communication efficiency</b> and overall <b>system performance</b>.</p>
+                    
+                    <p>Along the way I addressed real-world systems challenges — transitioning <b>Bash</b> scripts from Slurm to PBS and customizing Spack module environments for 
+                    cloud deployments. My findings directly contributed to advancing the <b>performance</b> of climate simulations running on NASA's supercomputing infrastructure.</p>
+
+                    <div class="link-wrapper">
+                        <a href="https://github.com/morganoliviaevans/nccs-summer-2024" target="_blank" 
+                        class="outgoing-link"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                    <div class="link-wrapper">
+                        <a href="media/experience/docs/Evaluating_MPI_Performance_and_Scalability_MorganNewton.pdf" target="_blank" 
+                        class="outgoing-link"> Report <i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div> 
+            </div>
+        </main>
+
+        <hr class="section-divider" />
+
+        <!-- ===================== EXPERIENCE DETAIL - ACCESS ===================== -->
+
+        <!-- ===== TITLE SECTION ===== -->
+        <section id="access">
+            <div class="detail-header">
+                <h3>ACCESS</h3>
+                <h4>July 2023 — June 2024</h4>
+            </div>
+        </section>
+
+        <!-- ===== CONTENT ===== -->
+        <main class="detail-main" id="access">
+            <div class="detail-access-container content-card">
+                <div class="access-images">
+                    <img src="media/experience/model-vis.png" class="access-model" alt="Jakobshavn Isbrae ice velocity field" />
+                    <div class="access-concurrency">
+                        <img src="media/experience/pre-concurrency.png" alt="Pre-concurrency kernel execution" />
+                        <img src="media/experience/post-concurrency.png" alt="Post-concurrency kernel execution" />
+                    </div>
+                </div>
+                <div class="text-detail">
+                    <p>During my time with ACCESS, I worked as a <b>Computational Research Intern</b> through the ACCESS MATCH Program, 
+                    remotely from Orange County, California. My work focused on <b>optimizing</b> GPU-accelerated ice-sheet flow modeling 
+                    software using <b>NVIDIA Nsight Systems</b>, <b>Compute</b>, and <b>NVTX annotations</b> to profile and analyze <b>performance bottlenecks</b>
+                    within <b>CUDA</b> kernels. Through targeted optimizations — removing redundancies, establishing kernel concurrency, and 
+                    eliminating expensive operations — I <b>reduced overall runtime by approximately 10%</b>.</p>
+                    
+                    <p>I utilized two Slurm-managed supercomputing clusters, Delta at the National Center for Supercomputing 
+                    Applications and Jetstream2 at the Pervasive Technology Institute, to compare <b>runtime</b>, <b>grid points</b>, <b>scale</b>, 
+                    and <b>error values</b> between test cases. I also began a codebase conversion toward a <b>performance-portable</b>, 
+                    <b>architecture-agnostic</b> implementation using <b>OpenACC</b>. My research findings contributed to narrowing 
+                    uncertainty in sea level rise prediction to better understand the effects of climate change.</p>
+
+                    <p><b>Note</b>: The performance-portable branch I developed remains active and is maintained in a private fork of 
+                    the public repository, with software development ongoing.</p>
+
+                    <div class="link-wrapper">
+                        <a href="https://github.com/AnjaliSandip/FastIceFlo" target="_blank" 
+                        class="outgoing-link"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div> 
+            </div>
+        </main>
+
+        <hr class="section-divider" />
+
+        <!-- ===================== EXPERIENCE DETAIL - SCEC ===================== -->
+
+        <!-- ===== TITLE SECTION ===== -->
+        <section id="scec">
+            <div class="detail-header">
+                <h3>Statewide California Earthquake Center</h3>
+                <h4>May 2022 — February 2023</h4>
+            </div>
+        </section>
+
+        <!-- ===== CONTENT ===== -->
+        <main class="detail-main" id="scec">
+            <div class="detail-container content-card">
+                <div class="detail-pdf">
+                    <a href="media/experience/docs/2022SCECSOURCESPoster.pdf" target="_blank">
+                        <img src="media/experience/docs/scec-cover.png" alt="SCEC" class="pdf-cover" />
+                    </a>
+                </div>
+                <div class="text-detail">
+                    <p>At SCEC, I worked as a <b>Computational Research Intern</b> through the SCEC SOURCES Program.
+                    Working one-on-one with my research mentor Dr. John Louie, Professor of Geophysics at the University of Nevada, Reno, 
+                    I developed and ran low-frequency, <b>physics-based 3D seismic wave propagation models</b> using SW4 software for the <b>Wellington, 
+                    New Zealand</b> region — the <b>highest-resolution</b> simulations ever performed for the area.</p>
+                    
+                    <p>My work aimed to determine whether newly developed gravity-based basin thickness estimates by Stronach and Stern produced a substantial 
+                    difference in how seismic waves travel through Wellington's sedimentary basin compared to older geological models.
+                    I managed all computational workflows on the Rockfish supercomputing cluster at Johns Hopkins University using 
+                    <b>Slurm</b>, and developed <b>Bash</b> scripts to automate model builds and job submissions. My research 
+                    demonstrated basin amplifications of 2-3x and showed that basin trapped waves extend shaking duration 
+                    by at least five seconds — results with direct relevance to disaster preparedness in a major seismically active city.</p>
+                </div> 
+            </div>
+
+            <section id="section"></section>
+
+            <div class="detail-container content-card">
+                <div class="detail-pdf">
+                    <a href="media/experience/docs/ExploringTheSW4SyntheticSeismicPerformanceOfTheARCHRockfishCluster.pdf" target="_blank">
+                        <img src="media/experience/docs/scec-explore-cover.png" alt="SCEC Report" class="pdf-cover" />
+                    </a>
+                </div>
+                <div class="text-detail">
+                    <p>In January 2023, SCEC sponsored my travel to Wellington, New Zealand to visit our research collaborators. 
+                    I spent one week with Dr. Tim Stern, Professor of Geophysics at <b>Victoria University of Wellington</b>, 
+                    and Dr. Aasha Pancha, Geophysical Ground Investigation Manager at Aurecon. During my visit, I presented 
+                    a <b>research seminar</b> to graduate students and faculty at Victoria University of Wellington and had the 
+                    opportunity to meet with researchers at the <b>GNS Science Institute</b>, where I shared my findings and had 
+                    in-depth conversations about ongoing seismology research in the region.</p>
+
+                    <p>This work has been published <b>four</b> times, most recently in March 2026 as a co-author on 
+                    "Subsurface Expression of the Lambton Fault and Potential for the Basin Edge Effect in 
+                    the Wellington Central Business District," published in the <b>New Zealand Journal of Geology 
+                    and Geophysics</b>.</p>
+
+                    <p>For a full overview: 
+                    <div class="link-wrapper">
+                        <a href="/publications/" class="outgoing-link">Publications</i></a>
+                    </div>
+                    </p>
+
+                    <div class="link-wrapper">
+                        <a href="https://github.com/morganoliviaevans/scec-2022-2023" target="_blank" 
+                        class="outgoing-link"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div> 
+            </div>
+        </main>
+
+        <section id="section"></section>
+
+
+
+
+
+
+
+
 
         <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>

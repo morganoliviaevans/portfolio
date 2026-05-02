@@ -5,24 +5,31 @@ NAV
 */
 
 const header = document.querySelector('header');
-const hero = document.querySelector('#hero');
+const landing = document.querySelector('#landing');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
-    const heroHeight = hero ? hero.offsetHeight : 0;
+    const landingHeight = landing ? landing.offsetHeight : 0;
 
+    // At the very top — show nav, but hide name (we're still on landing)
     if (currentScroll <= 0) {
         header.classList.remove('nav-hidden');
+        header.classList.remove('nav-scrolled');
         return;
     }
     if (currentScroll > lastScroll) {
         // Scrolling down — always hide
         header.classList.add('nav-hidden');
     } else {
-        // Scrolling up — only show if back over the hero image
-        if (currentScroll < heroHeight * 0.2) {    // Wait to pop up until we are close to the top
-            header.classList.remove('nav-hidden');
+        // Scrolling up — show nav
+        header.classList.remove('nav-hidden');
+
+        // Only show the name once we've passed the landing section
+        if (currentScroll > landingHeight * 0.9) {
+            header.classList.add('nav-scrolled');
+        } else {
+            header.classList.remove('nav-scrolled');
         }
     }
 

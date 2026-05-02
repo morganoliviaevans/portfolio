@@ -22,7 +22,9 @@ CSS VARIABLES — DESIGN TOKENS
     --text-secondary:   #b9b9b9;
     --text-muted:       #63656e;
     --accent-muted:     #424753;
-    --gold:             #e8ae00;
+    --gold:             #FAC658;
+    --blue:             #00a8f0;
+    --teal:             #46718B;
 
     /* Typography */
     --font-lato:      'Lato', sans-serif;
@@ -35,7 +37,7 @@ CSS VARIABLES — DESIGN TOKENS
 
     /* Spacing */
     --nav-height:     80px;
-    --max-width:      1300px;
+    --max-width:      1350px;
     --section-gap:    2rem;
 }
 
@@ -85,29 +87,30 @@ TYPOGRAPHY
 =========================================================
 */
 
-/* Hero Overlay */
+/* Landing - Name */
 h1 {
-    font-size:   2.75rem;
-    font-weight: var(--weight-regular);
-    font-family: var(--font-playfair);
-    text-shadow: 0 2px 8px #3a3a3a;
-}
-
-h2 {
     color:          var(--text-primary);
-    font-size:      1.25rem;
+    font-size:      5rem;
     font-weight:    var(--weight-regular);
     font-family:    var(--font-lato);
-    margin-bottom:  1rem; /* Adjust to shrink/grow the gap */
     letter-spacing: 0.15em;
     text-transform: uppercase;
+}
+
+/* Landing - Intro */
+h2 {
+    color:          var(--text-secondary);
+    font-size:      1.5rem;
+    font-weight:    var(--weight-light);
+    font-family:    var(--font-lato);
+    letter-spacing: 0.15em;
 }
 
 /* Detail Heading */
 h3 {
     font-size:     2.75rem;
     font-weight:   var(--weight-regular);
-    font-family:   var(--font-playfair);
+    font-family:   var(--font-lato);
     text-shadow:   0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
@@ -133,10 +136,10 @@ b {
 /* Paragraph specific rules */
 .text-detail p {
     color:          var(--text-secondary);
-    font-size:      1.15rem;
+    font-size:      1.25rem;
     max-width:      80ch;
     font-family:    var(--font-lato);
-    line-height:    1.3;
+    line-height:    1.25;
     font-weight:    var(--weight-thin);
     margin-bottom:  1rem;
     letter-spacing: 0.035em;
@@ -147,7 +150,7 @@ b {
     color:               var(--text-secondary);
     font-family:         var(--font-lato);
     font-weight:         var(--weight-light);
-    line-height:         1.3;
+    line-height:         1.25;
     padding-left:        20px;            /* Indents the list */
     margin-bottom:       1rem;
     letter-spacing:      0.035em;
@@ -156,7 +159,7 @@ b {
 }
 
 .text-list li {
-    font-size:      1.25rem;   /* Set this to match paragraph size */
+    font-size:      1.25rem;  /* Set this to match paragraph size */
     letter-spacing: 0.035em;
 }
 
@@ -170,6 +173,7 @@ b {
     cursor:        pointer;
     padding:       0.3rem 0.8rem 0.25rem; /* top, sides, bottom */
     outline:       none;
+    margin-top:    2rem;                  /* TODO: Find a more efficient way to add gap margin in between text and link */
     font-weight:   500;
     border-radius: 14px;
 
@@ -179,24 +183,22 @@ b {
     text-align:      center;
     font-weight:     var(--weight-regular); 
     font-family:     var(--font-lato);
-    text-shadow:     0 8px 32px #5d5d5d;
     text-transform:  uppercase;
     letter-spacing:  0.1em;
     text-decoration: none;
 
     /* Visual */
-    background:    #00a0b2;
+    background:    var(--blue);
     box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
     transition:    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    border-bottom: 3px solid #005f6b;     
+    border-bottom: 3px solid var(--teal);   
 }
 
 .outgoing-link:hover {
     color:         var(--text-primary);
     transform:     translateY(1px); /* This feature shifts it slightly to simulate a button press */
-    background:    #007683;
-    text-shadow:   0 8px 32px #5d5d5d;
-    border-bottom: 1px solid #005f6b;
+    background:    #00a0e5;
+    border-bottom: 1px solid var(--teal);
 }
 
 /* Text style */
@@ -217,7 +219,7 @@ b {
     border-left:         1px solid rgba(255, 255, 255, 0.04);
     border-right:        1px solid rgba(255, 255, 255, 0.04);
     border-bottom:       1px solid rgba(0, 0, 0, 0.5);
-    border-radius:       60px;
+    border-radius:       80px;
     background-size:     cover;
     background-position: center;
 }
@@ -278,13 +280,22 @@ nav {
     align-items: center;
 }
 
+/* Nav name hidden by default — only appears after scrolling past landing */
 .nav-name {
     color:          var(--text-secondary);
+    opacity:        0;
     font-size:      1.5rem;
+    transition:     opacity 0.3s ease;
     font-weight:    var(--weight-regular);
     text-shadow:    0 8px 32px #5d5d5d;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    pointer-events: none; /* not clickable when invisible */
+}
+
+.nav-scrolled .nav-name {
+    opacity:        1;
+    pointer-events: auto;
 }
 
 .nav-name:hover {
@@ -325,57 +336,63 @@ nav ul li a:hover {
 
 /* 
 =========================================================
-HERO
+LANDING
 =========================================================
 */
 
-#hero {
-    width:      100%;
-    height:     70vh; /* e.g. 70% of the screen height */
-    overflow:   hidden;
-    position:   relative;
-    margin-top: 0;
+#landing {
+    width:       100%;
+    height:      100vh; /* e.g. 100% of the screen height */
+    display:     flex;
+    overflow:    visible;
+    position:    relative;
+    align-items: center;
 }
 
-#hero img {
+.landing-content {
+    gap:             3rem;
     width:           100%;
-    height:          100%;
-    filter:          brightness(0.8);
-    display:         block;
-    object-fit:      cover;
-    object-position: center 60%;
+    margin:          0 auto;
+    display:         flex;
+    padding:         0 2rem;
+    max-width:       var(--max-width);
+    align-items:     center;
+    justify-content: center;
 }
 
-.hero-overlay {
-    left:     1.5rem;
-    bottom:   1.5rem;
+.landing-overlay {
+    left:     10rem;
+    bottom:   10rem;
     position: absolute;
 }
 
-.hero-overlay h2 {
-    color:     var(--text-primary);
-    font-size: 5rem;
+.landing-avatar img {
+    width:         280px;
+    border-radius: 50%;
 }
 
 /* 
 =========================================================
-BIO
+ABOUT
 =========================================================
 */
 
-#bio {
-    margin:    0 auto;
-    padding:   0rem 5rem 5rem; /* Padding: top, sides, bottom */
-    max-width: var(--max-width);
+#about {
+    width:       100%;
+    height:      100vh;
+    display:     flex;
+    overflow:    visible;
+    position:    relative;
+    align-items: center;
 }
 
-.bio-container {
+.about-container {
     gap:         3rem;    /* Space in between photo and text profile */
     display:     flex;
-    align-items: stretch; /* Make both columns match the height of the taller one */
+    align-items: center;
 }
 
-.bio-photo {
+.about-photo {
     width:           375px;
     filter:          grayscale(100%);
     object-fit:      cover;
@@ -501,6 +518,15 @@ CONTACT LIST (FOOTER)
 EXPERIENCE MAIN
 =========================================================
 */
+
+#experience-landing {
+    width:       100%;
+    height:      100vh;
+    display:     flex;
+    overflow:    visible;
+    position:    relative;
+    align-items: center;
+}
 
 #experience-grid {
     gap:                   2rem;
@@ -748,6 +774,15 @@ EXPERIENCE - SCEC
 PROJECTS MAIN
 =========================================================
 */
+
+#projects-landing {
+    width:       100%;
+    height:      100vh;
+    display:     flex;
+    overflow:    visible;
+    position:    relative;
+    align-items: center;
+}
 
 #projects-hero {
     width:      100%;
