@@ -5,7 +5,7 @@ IMPORTS
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,200;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,600;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 /* 
 =========================================================
@@ -23,12 +23,13 @@ CSS VARIABLES — DESIGN TOKENS
     --text-muted:       #63656e;
     --accent-muted:     #424753;
     --gold:             #FAC658;
-    --blue:             #00a8f0;
+    --blue:             #0098d9;
     --teal:             #46718B;
 
     /* Typography */
     --font-lato:      'Lato', sans-serif;
-    --font-playfair:  'Playfair Display', sans-serif;
+    --font-jetbrains: 'Jetbrains Mono', serif;
+    --weight-fine:    100;
     --weight-thin:    200;
     --weight-light:   300;
     --weight-regular: 400;
@@ -90,7 +91,7 @@ TYPOGRAPHY
 /* Landing - Name */
 h1 {
     color:          var(--text-primary);
-    font-size:      5rem;
+    font-size:      4rem;
     font-weight:    var(--weight-regular);
     font-family:    var(--font-lato);
     letter-spacing: 0.15em;
@@ -111,7 +112,6 @@ h3 {
     font-size:     2.75rem;
     font-weight:   var(--weight-regular);
     font-family:   var(--font-lato);
-    text-shadow:   0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 h4 {
@@ -122,13 +122,12 @@ h4 {
 }
 
 b {
-    font-weight: var(--weight-bold);
+    font-weight: var(--weight-regular);
 }
 
 /* Container rules */
 .text-detail {
-    flex:           1;      /* Take up half the parent's width */
-    display:        flex;   /* Arrange children designation, e.g. flex + column */
+    flex:           1 0 0;
     min-width:      0;      /* Prevents flex items from overflowing the container, e.g. outgoing-link is anchored at bottom of container */
     flex-direction: column; /* Stack my children vertically */
 }
@@ -136,69 +135,31 @@ b {
 /* Paragraph specific rules */
 .text-detail p {
     color:          var(--text-secondary);
-    font-size:      1.25rem;
-    max-width:      80ch;
-    font-family:    var(--font-lato);
-    line-height:    1.25;
-    font-weight:    var(--weight-thin);
+    font-size:      1.20rem;
+    max-width:      50ch;
+    font-family:    var(--font-jetbrains);
+    line-height:    1.5rem;
+    font-weight:    var(--weight-fine);
     margin-bottom:  1rem;
-    letter-spacing: 0.035em;
+    letter-spacing: 0.020em;
 }
 
 /* Target only the list in text */
 .text-list {
     color:               var(--text-secondary);
-    font-family:         var(--font-lato);
-    font-weight:         var(--weight-light);
-    line-height:         1.25;
-    padding-left:        20px;            /* Indents the list */
+    font-family:         var(--font-jetbrains);
+    font-weight:         var(--weight-fine);
+    line-height:         1.5rem;
+    padding-left:        2rem;            /* Indents the list */
     margin-bottom:       1rem;
-    letter-spacing:      0.035em;
+    letter-spacing:      0.020em;
     list-style-type:     disc !important; /* Force bullets to show */
-    list-style-position: inside;          /* Keeps bullets aligned with text */
+    list-style-position: outside;         /* Keeps bullets aligned with text */
 }
 
 .text-list li {
-    font-size:      1.25rem;  /* Set this to match paragraph size */
-    letter-spacing: 0.035em;
-}
-
-.link-wrapper {
-    display: flex;
-}
-
-.outgoing-link {
-    /* Layout */
-    border:        none;
-    cursor:        pointer;
-    padding:       0.3rem 0.8rem 0.25rem; /* top, sides, bottom */
-    outline:       none;
-    margin-top:    2rem;                  /* TODO: Find a more efficient way to add gap margin in between text and link */
-    font-weight:   500;
-    border-radius: 14px;
-
-    /* Typography */
-    color:           var(--text-primary);
-    font-size:       1.25rem;
-    text-align:      center;
-    font-weight:     var(--weight-regular); 
-    font-family:     var(--font-lato);
-    text-transform:  uppercase;
-    letter-spacing:  0.1em;
-    text-decoration: none;
-
-    /* Visual */
-    background:    var(--blue);
-    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
-    transition:    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    border-bottom: 3px solid var(--teal);   
-}
-
-.outgoing-link:hover {
-    color:         var(--text-primary);
-    transform:     translateY(1px); /* This feature shifts it slightly to simulate a button press */
-    background:    #00a0e5;
-    border-bottom: 1px solid var(--teal);
+    font-size:      1.20rem;  /* Set this to match paragraph size */
+    letter-spacing: 0.020em;
 }
 
 /* Text style */
@@ -206,7 +167,7 @@ b {
     color:          var(--text-secondary);
     margin:         0.35rem 0 0.75rem;
     font-size:      1rem;
-    font-weight:    var(--weight-light);
+    font-weight:    var(--weight-fine);
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
@@ -250,6 +211,44 @@ section {
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     /* border-top: none; */
+}
+
+.link-wrapper {
+    display: flex;
+}
+
+.outgoing-link {
+    /* Layout */
+    border:        none;
+    cursor:        pointer;
+    padding:       0.3rem 0.8rem 0.25rem; /* top, sides, bottom */
+    outline:       none;
+    margin-top:    0.5rem;                  /* TODO: Find a more efficient way to add gap margin in between text and link */
+    font-weight:   500;
+    border-radius: 14px;
+
+    /* Typography */
+    color:           var(--text-primary);
+    font-size:       1.25rem;
+    text-align:      center;
+    font-weight:     var(--weight-regular); 
+    font-family:     var(--font-lato);
+    text-transform:  uppercase;
+    letter-spacing:  0.1em;
+    text-decoration: none;
+
+    /* Visual */
+    background:    var(--blue);
+    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
+    transition:    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 3px solid var(--teal);   
+}
+
+.outgoing-link:hover {
+    color:         var(--text-primary);
+    transform:     translateY(1px);
+    background:    #0089c4;
+    border-bottom: 1px solid var(--teal);
 }
 
 /* 
@@ -340,6 +339,9 @@ LANDING
 =========================================================
 */
 
+/* TODO: Add SCROLL --> feature on bottom left side */
+/* TODO: Add some features on name hover; maybe clouds move on avatar? Can be done through Photoshop? */
+
 #landing {
     width:       100%;
     height:      100vh; /* e.g. 100% of the screen height */
@@ -367,7 +369,7 @@ LANDING
 }
 
 .landing-avatar img {
-    width:         280px;
+    width:         260px;
     border-radius: 50%;
 }
 
@@ -379,27 +381,111 @@ ABOUT
 
 #about {
     width:       100%;
-    height:      100vh;
+    height:      100vh; 
     display:     flex;
-    overflow:    visible;
     position:    relative;
     align-items: center;
 }
 
-.about-container {
-    gap:         3rem;    /* Space in between photo and text profile */
-    display:     flex;
-    align-items: center;
+/* Outer card — inherits content-card styles */
+.about-card {
+    width:          var(--max-width);
+    margin:         0 auto;
+    display:        flex;
+    flex-direction: column;
+    gap:            2rem;
+}
+
+/* Top row: photo | bio | tools */
+.about-top {
+    gap:             2rem;
+    display:         flex;
+    padding:         0rem 0.5rem 0rem;
+    align-items:     flex-start;
+}
+
+/* Thin rule between top and bottom rows */
+.about-divider {
+    margin: 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Bottom row: affiliations marquee */
+.about-bottom {
+    display:        flex;
+    flex-direction: column;
+    gap:            0.75rem;
 }
 
 .about-photo {
-    width:           375px;
+    width:           350px;
     filter:          grayscale(100%);
     object-fit:      cover;
     box-shadow:      0 16px 60px rgba(0, 0, 0, 0.8);
     flex-shrink:     0;
-    border-radius:   24px;
+    border-radius:   60px;
     object-position: center top;
+}
+
+/* Tools column */
+.about-tools {
+    flex-shrink: 0;
+    width:       200px;
+}
+
+.about-tools-label {
+    color:          var(--text-muted);
+    font-size:      1.5rem;
+    line-height:    2rem;
+    margin-bottom:  0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* 
+=========================================================
+TOOLS
+=========================================================
+*/
+
+/* Bubble grid */
+.tools-grid {
+    gap:                   15px;
+    display:               grid;
+    padding:               0.75rem 0rem 0rem; 
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Individual tool bubble */
+.tool-bubble {
+    width:           42px;
+    height:          42px;
+    border:          1px solid rgba(255, 255, 255, 0.07);
+    display:         flex;
+    padding:         8px;
+    transition:      transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    background:      rgba(255, 255, 255, 0.05);
+    align-items:     center;
+    border-radius:   10px;
+    justify-content: center;
+}
+
+.tool-bubble img {
+    width:      100%;
+    height:     100%;
+    filter:     brightness(0) invert(1); /* Low brightness, inverted */
+    opacity:    0.5;                     /* Muted */
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+}
+
+.tool-bubble:hover {
+    filter:       brightness(1);
+    opacity:      1;
+    transform:    translateY(-2px);
+    background:   rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
 /* 
@@ -408,45 +494,63 @@ AFFILIATIONS
 =========================================================
 */
 
-.affiliations {
-    padding:          2rem 2rem;
-    background-color: var(--text-primary); /* Keep at #FFFFFF because some png's have white backgrounds */
+/* Clip window — logos scroll inside here */
+.affiliations-wrapper {
+    width:      952px;
+    margin:     0 auto; /* Center the strip */
+    overflow:   hidden;
+    position:   relative;
+    /* Fade edges so logos don't hard-cut */
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%
+    );
 }
 
-.affiliations h2 {
-    color:          var(--bg-primary);
-    font-size:      1.5rem;
-    text-align:     center;
-    font-weight:    var(--weight-regular);
-    margin-bottom:  1.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+/* The moving track — CSS animation */
+.affiliations-track {
+    gap:         1rem;
+    width:       max-content;
+    display:     flex;
+    animation:   marquee-scroll 45s linear infinite;
+    align-items: center;
 }
 
-.affiliations-row {
-    gap:             1.5rem;
-    margin:          0 auto;
-    display:         flex;
-    flex-wrap:       wrap;
-    max-width:       600px;
-    align-items:     center;
-    justify-content: center;
-} 
+.affiliations-track a {
+    display:     block;
+    flex-shrink: 0;
+}
 
-.affiliations-row img {
-    width:      auto;
+.affiliations-track img {
+    width:      120px;
+    height:     80px;
     filter:     grayscale(100%);
-    height:     100px;
-    opacity:    0.75;
-    max-width:  175px;
+    opacity:    0.4;
+    max-width:  unset;
     object-fit: contain;
-    transition: opacity 0.2s ease, filter 0.2s ease;
+    transition: filter 0.25s ease, opacity 0.25s ease;
 }
 
-/* Full color on hover */
-.affiliations-row img:hover {
+.affiliations-track img:hover {
     filter:  grayscale(0%);
     opacity: 1;
+}
+
+@keyframes marquee-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* -50% because track is doubled */
+}
+
+.about-affiliations-label {
+    color:          var(--text-muted);
+    font-size:      1.5rem;
+    text-align:     center;
+    margin-bottom:  0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
 /* 
@@ -456,7 +560,7 @@ CONTACT LIST (HEADER)
 */
 
 .nav-icons {
-    gap:         1.5rem;
+    gap:         1.75rem;
     display:     flex;
     align-items: center;
 }
@@ -465,11 +569,11 @@ CONTACT LIST (HEADER)
     color:       var(--text-secondary);
     font-size:   1.75rem;
     transition:  color 0.2s ease;
-    text-shadow: 0 8px 32px #5d5d5d;
 }
 
 .nav-icons a:hover {
-    color:       var(--gold);
+    color:     var(--gold);
+    transform: translateY(2px);
 }
 
 /* 
@@ -488,15 +592,14 @@ CONTACT LIST (FOOTER)
 }
 
 .footer-icons a {
-    color:       var(--text-secondary);
-    font-size:   2rem;
-    transition:  color 0.2s ease;
-    text-shadow: 0 8px 32px #333333;
+    color:      var(--text-secondary);
+    font-size:  1.75rem;
+    transition: color 0.2s ease;
 }
 
 .footer-icons a:hover {
-    color:       var(--gold);
-    text-shadow: 0 8px 32px #333333;
+    color:     var(--gold);
+    transform: translateY(2px);
 }
 
 .footer-copyright {
@@ -538,33 +641,7 @@ EXPERIENCE MAIN
     grid-template-columns: repeat(4, 1fr); /* 4x1 */
 }
 
-#experience-hero {
-    width:      100%;
-    height:     70vh; /* e.g. 70% of the screen height */
-    overflow:   hidden;
-    position:   relative;
-    margin-top: 0;
-}
-
-#experience-hero img {
-    width:           100%;
-    height:          100%;
-    filter:          brightness(0.8) blur(3px);
-    display:         block;
-    object-fit:      cover;
-    object-position: center 75%;
-}
-
-.experience-hero-overlay {
-    left:     1.5rem;
-    bottom:   1rem;
-    position: absolute;
-}
-
-.experience-hero-overlay h1 {
-    color:     var(--text-primary);
-    font-size: 2.75rem;
-}
+/* TODO: Add CLICK --> feature on Experience and Projects cards */
 
 .card {
     display:       block;
@@ -677,43 +754,17 @@ EXPERIENCE - KPFF
 =========================================================
 */
 
-#kpff .content-card {
-    background-image: linear-gradient(
-                    rgba(0, 0, 0, 0.55), /* Top */ 
-                    rgba(0, 0, 0, 0.55)  /* Bottom */
-                    ), url('../media/backgrounds/blur-background10.jpg');
-}
-
 /* 
 =========================================================
 EXPERIENCE - NASA
 =========================================================
 */
 
-#nasa .content-card {
-    /* background-image overlay syntax:
-    linear-gradient(rgba(R, G, B, opacity), rgba(R, G, B, opacity)), 
-    url('path') R, G, B = color channels 0-255 | opacity = 0 (transparent) to 1 (solid)
-    The gradient layer sits on top of the image, use opacity to control darkness
-    e.g. rgba(0, 0, 0, 0.75) = pure black at 75% opacity */
-    background-image: linear-gradient(
-                    rgba(0, 0, 0, 0.75), /* Top */ 
-                    rgba(0, 0, 0, 0.75)  /* Bottom */
-                    ), url('../media/backgrounds/blur-background09.jpg');
-}
-
 /* 
 =========================================================
 EXPERIENCE - ACCESS
 =========================================================
 */
-
-#access .content-card {
-    background-image: linear-gradient(
-                    rgba(0, 0, 0, 0.65), /* Top */ 
-                    rgba(0, 0, 0, 0.65)  /* Bottom */
-                    ), url('../media/backgrounds/blur-background13.jpg');
-}
 
 .detail-access-container {
     gap:         2rem;
@@ -762,13 +813,6 @@ EXPERIENCE - SCEC
 =========================================================
 */
 
-#scec .content-card {
-    background-image: linear-gradient(
-                    rgba(0, 0, 0, 0.75), /* Top */ 
-                    rgba(0, 0, 0, 0.75)  /* Bottom */
-                    ), url('../media/backgrounds/blur-background03.jpg');
-}
-
 /* 
 =========================================================
 PROJECTS MAIN
@@ -782,34 +826,6 @@ PROJECTS MAIN
     overflow:    visible;
     position:    relative;
     align-items: center;
-}
-
-#projects-hero {
-    width:      100%;
-    height:     70vh; /* e.g. 70% of the screen height */
-    overflow:   hidden;
-    position:   relative;
-    margin-top: 0;
-}
-
-#projects-hero img {
-    width:           100%;
-    height:          100%;
-    filter:          brightness(0.8) blur(3px);
-    display:         block;
-    object-fit:      cover;
-    object-position: center 0%;
-}
-
-.projects-hero-overlay {
-    left:     1.5rem;
-    bottom:   1rem;
-    position: absolute;
-}
-
-.projects-hero-overlay h1 {
-    color:     var(--text-primary);
-    font-size: 2.75rem;
 }
 
 #projects-grid {
@@ -847,7 +863,22 @@ PROJECTS MAIN
 
 /* 
 =========================================================
-PROJECTS WORK IN PROGRESS
+PUBLICATIONS
+=========================================================
+*/
+
+#publications {
+    width:       100%;
+    height:      100vh;
+    display:     flex;
+    overflow:    visible;
+    position:    relative;
+    align-items: center;
+}
+
+/* 
+=========================================================
+WORK IN PROGRESS
 =========================================================
 */
 
@@ -859,45 +890,4 @@ PROJECTS WORK IN PROGRESS
 #work-in-progress .detail-header h4 {
     color: var(--text-muted);
     line-height: 1.3;
-}
-
-/* 
-=========================================================
-PUBLICATIONS
-=========================================================
-*/
-
-#publications-hero {
-    width:      100%;
-    height:     70vh; /* e.g. 70% of the screen height */
-    overflow:   hidden;
-    position:   relative;
-    margin-top: 0;
-}
-
-#publications-hero img {
-    width:           100%;
-    height:          100%;
-    filter:          brightness(0.8) blur(2px);
-    display:         block;
-    object-fit:      cover;
-    object-position: center 65%;
-}
-
-.publications-hero-overlay {
-    left:     1.5rem;
-    bottom:   1rem;
-    position: absolute;
-}
-
-.publications-hero-overlay h1 {
-    color:     var(--text-primary);
-    font-size: 2.75rem;
-}
-
-#publications .content-card {
-    background-image: linear-gradient(
-                    rgba(0, 0, 0, 0.85), /* Top */ 
-                    rgba(0, 0, 0, 0.65)  /* Bottom */
-                    ), url('../media/backgrounds/blur-background12.jpg');
 }

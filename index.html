@@ -12,6 +12,8 @@
 
     <body> <!-- Everything visible on the page goes here -->
 
+        <!-- TODO: Fix nav-active; either on click or on section -->
+
         <!-- ===== NAV ===== -->
         <header>
             <nav>
@@ -20,7 +22,7 @@
                     <li><a href="#about"> About </a></li>
                     <li><a href="#experience-landing"> Experience </a></li>
                     <li><a href="#projects-landing"> Projects </a></li>
-                    <li><a href="#publications"> Publications </a></li>
+                    <li><a href="#work-in-progress"> Publications </a></li>
                 </ul>
                 <!-- ===== CONTACT LIST (HEADER) ===== -->
                 <div class="nav-icons">
@@ -44,51 +46,136 @@
             </div>
         </section>
 
-        <section id="section"></section> <!-- TODO: NEED TO MANUALLY ADJUST EACH SECTION -->
-        <section id="section"></section>
-        <hr class="section-divider" />
-
         <!-- ===== ABOUT ===== -->
         <section id="about">
-            <div class="about-container content-card">
-                <img src="media/about/nccs-bw.jpg" alt="Morgan Olivia Evans at NASA Goddard" class="about-photo" />
-                <div class="text-detail">
-                    <p>Morgan is a recent Computer Science graduate from UC Irvine, specializing in high-performance computing, 
-                    scientific research, and embedded systems. She is a seasoned technical leader with a proven track record of managing 
-                    end-to-end development and research projects, particularly within the realm of earth system science.</p>
+            <div class="about-card content-card">
 
-                    <p>She thrives at the intersection of industry and academia, a passion fueled by opportunities to contribute to meaningful projects with:</p>
+                <!-- TOP ROW: photo | bio | tools -->
+                <div class="about-top">
 
-                    <!-- Using an unordered list for the bullets instead of individual HTML tags -->
-                    <ul class="text-list">
-                        <li>KPFF Consulting Engineers</li>
-                        <li>NASA Center for Climate Simulation (NCCS)</li>
-                        <li>Statewide California Earthquake Center (SCEC)</li>
-                        <li>Advanced Cyberinfrastructure Coordination Ecosystem (ACCESS)</li>
-                    </ul>
+                    <!-- Photo -->
+                    <img src="media/about/nccs-bw.jpg" 
+                        alt="Morgan Olivia Evans at NASA Goddard" 
+                        class="about-photo" />
 
-                    <p>Morgan is driven by a commitment to understanding our planet and excels at collaborating with educators and industry leaders to build 
-                    impactful real-world systems. She is eager to continue learning and contributing to the field through creative, purpose-led innovation.</p>
+                    <!-- Bio -->
+                    <div class="text-detail">
+                        <p><i class="fa-solid fa-terminal"></i></p>
+                        
+                        <p>Morgan is a recent Computer Science graduate from UC Irvine, specializing in high-performance
+                        computing, scientific research, and embedded systems. She is a seasoned technical leader with a
+                        proven track record of managing end-to-end development and research projects, particularly within
+                        the realm of earth system science.</p>
 
-                    <div class="link-wrapper">
-                        <a href="https://drive.google.com/file/d/197jzIhMwKH6mfxXvNBxno3roQA9zJFe5/view?usp=sharing" target="_blank" 
-                        class="outgoing-link"> Resume </a> <!-- target="_blank" opens link in new tab -->
+                        <p>She thrives at the intersection of industry and academia, a passion fueled by opportunities
+                        to contribute to meaningful projects with:</p>
+
+                        <ul class="text-list">
+                            <li>KPFF Consulting Engineers</li>
+                            <li>NASA Center for Climate Simulation (NCCS)</li>
+                            <li>Statewide California Earthquake Center (SCEC)</li>
+                            <li>Advanced Cyberinfrastructure Coordination Ecosystem (ACCESS)</li>
+                        </ul>
+
+                        <p>Morgan is driven by a commitment to understanding our planet and excels at collaborating
+                        with educators and industry leaders to build impactful real-world systems.</p>
+
+                        <div class="link-wrapper">
+                            <a href="https://drive.google.com/file/d/197jzIhMwKH6mfxXvNBxno3roQA9zJFe5/view?usp=sharing"
+                            target="_blank" class="outgoing-link">Resume</a>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Languages (icons dropped in tomorrow) -->
+                    <div class="about-tools">
+                        <p class="about-tools-label">Tools &amp; Languages</p>
+                        <div class="tools-grid">
+                            <div class="tool-bubble" data-tooltip="C">
+                                <img src="media/about/tools/c.svg" alt="C" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="C++">
+                                <img src="media/about/tools/cplusplus.svg" alt="C++" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Python">
+                                <img src="media/about/tools/python.svg" alt="Python" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Bash">
+                                <img src="media/about/tools/bash.svg" alt="Bash" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Slurm">
+                                <img src="media/about/tools/slurm.svg" alt="Slurm" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Markdown">
+                                <img src="media/about/tools/markdown.svg" alt="Markdown" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Linux">
+                                <img src="media/about/tools/linux.svg" alt="Linux" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="VSCode">
+                                <img src="media/about/tools/vscode.svg" alt="VSCode" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Arduino">
+                                <img src="media/about/tools/arduino.svg" alt="Arduino" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="ESP32">
+                                <img src="media/about/tools/esphome.svg" alt="ESP32" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Java">
+                                <img src="media/about/tools/java.svg" alt="Java" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="CSS">
+                                <img src="media/about/tools/css.svg" alt="CSS" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="HTML">
+                                <img src="media/about/tools/html.svg" alt="HTML" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Jira">
+                                <img src="media/about/tools/jira.svg" alt="Jira" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Git">
+                                <img src="media/about/tools/github.svg" alt="Git" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Claude">
+                                <img src="media/about/tools/claude.svg" alt="Claude" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Confluence">
+                                <img src="media/about/tools/confluence.svg" alt="Confluence" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Docker">
+                                <img src="media/about/tools/docker.svg" alt="Docker" />
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ===== AFFILIATIONS ===== -->
-        <section id="affiliations" class="affiliations">
-            <h2>Affiliations</h2>
-            <div class="affiliations-row">
-                <a href="https://ics.uci.edu/"><img src="media/about/affiliations/uci-logo.png" alt="UC Irvine" /></a>
-                <a href="https://central.scec.org/"><img src="media/about/affiliations/scec-logo-2.jpg" alt="SCEC" /></a>
-                <a href="https://www.kpff.com/"><img src="media/about/affiliations/kpff.png" alt="KPFF" /></a>
-                <a href="https://www.nasa.gov/"><img src="media/about/affiliations/nasa-logo.png" alt="NASA" /></a>
-                <a href="https://science.gsfc.nasa.gov/earth/"><img src="media/about/affiliations/goddard-logo.png" alt="GODDARD" /></a>
-                <a href="https://support.access-ci.org/"><img src="media/about/affiliations/access-logo.png" alt="ACCESS" /></a>
-                <a href="https://www.nccs.nasa.gov/"><img src="media/about/affiliations/nccs-logo.png" alt="NCCS" /></a>
+                <!-- DIVIDER -->
+                <hr class="about-divider" />
+
+                <!-- BOTTOM ROW: affiliations marquee -->
+                <div class="about-bottom">
+                    <p class="about-affiliations-label">Affiliations</p>
+                    <div class="affiliations-wrapper">
+                        <div class="affiliations-track">
+                            <!-- Duplicated for seamless loop -->
+                            <a href="https://ics.uci.edu/" target="_blank"><img src="media/about/affiliations/uci-logo.png" alt="UC Irvine" /></a>
+                            <a href="https://science.gsfc.nasa.gov/earth/" target="_blank"><img src="media/about/affiliations/goddard-logo.png" alt="GODDARD" /></a>
+                            <a href="https://central.scec.org/" target="_blank"><img src="media/about/affiliations/scec-logo.png" alt="SCEC" /></a>
+                            <a href="https://support.access-ci.org/" target="_blank"><img src="media/about/affiliations/access-logo.png" alt="ACCESS" /></a>
+                            <a href="https://www.kpff.com/" target="_blank"><img src="media/about/affiliations/kpff.png" alt="KPFF" /></a>
+                            <a href="https://www.nccs.nasa.gov/" target="_blank"><img src="media/about/affiliations/nccs-logo.png" alt="NCCS" /></a>
+                            <a href="https://www.nasa.gov/" target="_blank"><img src="media/about/affiliations/nasa-logo.png" alt="NASA" /></a>
+                            <!-- Duplicate set for seamless infinite scroll -->
+                            <a href="https://ics.uci.edu/" target="_blank"><img src="media/about/affiliations/uci-logo.png" alt="UC Irvine" /></a>
+                            <a href="https://science.gsfc.nasa.gov/earth/" target="_blank"><img src="media/about/affiliations/goddard-logo.png" alt="GODDARD" /></a>
+                            <a href="https://central.scec.org/" target="_blank"><img src="media/about/affiliations/scec-logo.png" alt="SCEC" /></a>
+                            <a href="https://support.access-ci.org/" target="_blank"><img src="media/about/affiliations/access-logo.png" alt="ACCESS" /></a>
+                            <a href="https://www.kpff.com/" target="_blank"><img src="media/about/affiliations/kpff.png" alt="KPFF" /></a>
+                            <a href="https://www.nccs.nasa.gov/" target="_blank"><img src="media/about/affiliations/nccs-logo.png" alt="NCCS" /></a>
+                            <a href="https://www.nasa.gov/" target="_blank"><img src="media/about/affiliations/nasa-logo.png" alt="NASA" /></a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -123,8 +210,6 @@
                 </section>
             </main>
         </section>
-
-        <hr class="section-divider" />
 
         <!-- ===================== EXPERIENCE DETAIL - KPFF ===================== -->
 
@@ -344,15 +429,86 @@
             </div>
         </main>
 
-        <section id="section"></section>
+        <!-- ===== PROJECTS LIST ===== -->
+        <section id="projects-landing">
+            <main class="grid-main">
+                <section id="projects-grid">
+                    <a href="#work-in-progress" class="card">
+                        <img src="media/projects/con-e.png" alt="CON-E" />
+                        <div class="projects-title">
+                            <h2>Robotic Traffic Cone</h2>
+                        </div>
+                        <p class="projects-text"> BitHacks Hackathon · Embedded Systems</p>
+                    </a>
+                    <a href="#work-in-progress" class="card">
+                        <img src="media/projects/low-level.jpeg" alt="ATmega32" />
+                        <div class="projects-title">
+                            <h2>ATmega32 Audio Feedback Device</h2>
+                        </div>
+                        <p class="projects-text"> Embedded Systems</p>
+                    </a>
+                    <a href="#work-in-progress" class="card">
+                        <img src="media/projects/neopixel.png" alt="Neopixel" />
+                        <div class="projects-title">
+                            <h2>ESP32 Motion-activated Cat Toy</h2>
+                        </div>
+                        <p class="projects-text"> Embedded Systems</p>
+                    </a>
+                    <a href="#work-in-progress" class="card">
+                        <img src="media/projects/nasa-glee.jpeg" alt="NASA GLEE" />
+                        <div class="projects-title">
+                            <h2>LunaSat Device</h2>
+                        </div>
+                        <p class="projects-text"> NASA GLEE · Embedded Systems</p>
+                    </a>
+                    <a href="#work-in-progress" class="card">
+                        <img src="media/projects/nasa-minds.png" alt="NASA MINDS" />
+                        <div class="projects-title">
+                            <h2>Lunar Dust Repellency</h2>
+                        </div>
+                        <p class="projects-text"> NASA MINDS · Materials Research</p>
+                    </a>
+                </section>
+            </main>
+        </section>
 
+        <!-- ===================== PROJECTS DETAIL - WORK IN PROGRESS ===================== -->
 
+        <!-- ===== TITLE SECTION ===== -->
+        <section id="work-in-progress">
+            <div class="detail-header">
+                <h3>Work In Progress</h3>
+                <h4>Stay tuned! Thank you for your patience!</h4>
+            </div>
+        </section>
 
+        <!-- ===================== PUBLICATIONS DETAIL - WORK IN PROGRESS ===================== -->
 
+        <!-- ===== CONTENT ===== -->
+        <!-- <main class="detail-main" id="publications">
+            <div class="detail-container content-card">
+                <div class="detail-pdf">
+                    <a href="media/2023EERIPoster.pdf" target="_blank">
+                        <img src="media/eeri-cover.png" alt="EERI Poster" class="pdf-cover" />
+                    </a>
+                </div>
+                <div class="text-detail">
+                    <p>Publications:</p>
 
+                    <ul class="text-list">
+                        <li>Stern, T.A., Louie, J., Evans, M., et al. (2026). "Subsurface Expression of the Lambton Fault and Potential for the Basin 
+                        Edge Effect in the Wellington Central Business District." New Zealand Journal of Geology and Geophysics, 69(1). DOI: 10.1002/jgo2.70034</li>
+                        <li>Louie, J.N., Lewright, L., Newton, M.O., Pancha, A., Stern, T. (2023). "Exploring Basin Amplification Within the Reno, Nevada 
+                        and Wellington, New Zealand Metropolitan Areas with Non-Ergodic Physics-Based 3D Scenarios." EERI Poster.</li>
+                        <li>Newton, M.O., Louie, J.N., Stern, T., Pancha, A. (2022). "Low Frequency Non-Ergodic Synthetic Modeling of Earthquake Basin 
+                        Effects in Wellington, New Zealand." SCEC Annual Meeting Poster.</li>
+                    </ul>
 
-
-
+                    <a href="https://drive.google.com/file/d/197jzIhMwKH6mfxXvNBxno3roQA9zJFe5/view?usp=sharing" target="_blank" 
+                    class="outgoing-link"> Add Links Here <i class="fa-solid fa-download"></i></a>
+                </div>
+            </div>
+        </main> -->
 
         <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>
