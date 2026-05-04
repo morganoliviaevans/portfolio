@@ -15,13 +15,13 @@ CSS VARIABLES — DESIGN TOKENS
 
 :root {
     /* Colors */
-    --bg-primary:       #1B1D25;
-    --bg-secondary:     #202124;
-    --bg-surface:       #36383d;
-    --text-primary:     #FFFFFF;
-    --text-secondary:   #b9b9b9;
+    --bg-primary:       #121212;
+    --bg-secondary:     #1e1e1e;
+    --bg-surface:       #414141;
+    --text-primary:     #FAFAFA;
+    --text-secondary:   #c2c2c2;
     --text-muted:       #63656e;
-    --accent-muted:     #424753;
+    --accent-muted:     #4d4d4d;
     --gold:             #FAC658;
     --blue:             #0098d9;
     --teal:             #46718B;
@@ -37,8 +37,8 @@ CSS VARIABLES — DESIGN TOKENS
     --weight-bold:    800;
 
     /* Spacing */
-    --nav-height:     80px;
-    --max-width:      1350px;
+    --nav-height:     65px;
+    --max-width:      1250px;
     --section-gap:    2rem;
 }
 
@@ -165,7 +165,7 @@ b {
 /* Text style */
 .card-meta {
     color:          var(--text-secondary);
-    margin:         0.35rem 0 0.75rem;
+    margin:         0.5rem 0 0.5rem;
     font-size:      1rem;
     font-weight:    var(--weight-fine);
     letter-spacing: 0.05em;
@@ -175,12 +175,13 @@ b {
 /* Bubble wrapper around block of content */
 .content-card {
     padding:             2rem;
-    box-shadow:          0 16px 60px rgba(0, 0, 0, 0.8);       /* offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
+    width:          var(--max-width);
+    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);       /* offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
     border-top:          1px solid rgba(255, 255, 255, 0.103);
     border-left:         1px solid rgba(255, 255, 255, 0.04);
     border-right:        1px solid rgba(255, 255, 255, 0.04);
     border-bottom:       1px solid rgba(0, 0, 0, 0.5);
-    border-radius:       80px;
+    border-radius:       20px;
     background-size:     cover;
     background-position: center;
 }
@@ -246,7 +247,7 @@ section {
 
 .outgoing-link:hover {
     color:         var(--text-primary);
-    transform:     translateY(1px);
+    transform:     translateY(2px);
     background:    #0089c4;
     border-bottom: 1px solid var(--teal);
 }
@@ -258,63 +259,54 @@ NAV
 */
 
 header {
-    top:              0;
-    left:             0;
-    right:            0;
-    height:           var(--nav-height);
-    z-index:          100;
-    position:         fixed;
-    transition:       transform 0.3s ease, background-color 0.3s ease;
-    border-bottom:    none;
-    background-color: transparent;
+    top:                     0;
+    left:                    0;
+    right:                   0;
+    width:                   100%;
+    height:                  var(--nav-height);
+    z-index:                 100;
+    position:                fixed;
+    align-items:             center;
+    border-bottom:           none;
+    backdrop-filter:         blur(12px);
+    background-color:       #121212a4;
+    -webkit-backdrop-filter: blur(12px);
 }
 
 nav {
     gap:         2rem;
     margin:      0 auto;
+    width:       1300px;
     height:      100%;
     display:     flex;
     padding:     0 2rem;
-    width:       97%;
     align-items: center;
 }
 
-/* Nav name hidden by default — only appears after scrolling past landing */
-.nav-name {
-    color:          var(--text-secondary);
-    opacity:        0;
-    font-size:      1.5rem;
-    transition:     opacity 0.3s ease;
-    font-weight:    var(--weight-regular);
-    text-shadow:    0 8px 32px #5d5d5d;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    pointer-events: none; /* not clickable when invisible */
+.nav-home {
+    color:       var(--text-secondary);
+    font-size:   1.5rem;
+    font-weight: var(--weight-regular);
 }
 
-.nav-scrolled .nav-name {
-    opacity:        1;
-    pointer-events: auto;
-}
-
-.nav-name:hover {
-    color: var(--text-primary);
+.nav-home:hover {
+    color: var(--blue);
+    transform: translateY(2px);
 }
 
 nav ul {
     gap:         1.5rem;
     display:     flex;
-    align-items: center;
+    align-items: right;
     margin-left: auto;
 }
 
 /* Nav bar, right side */
 nav ul li a {
     color:          var(--text-secondary);
-    font-size:      1.5rem;
+    font-size:      1.25rem;
     transition:     color 0.2s ease;
     font-weight:    var(--weight-light);
-    text-shadow:    0 8px 32px #5d5d5d;
     margin-right:   auto;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -322,15 +314,35 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--text-primary);
-}
-
-.nav-hidden {
-    transform: translateY(-100%);
+    /* transform: translateY(2px); */ /* TODO: Not sure why this hover translate is not working, follow-up here */
 }
 
 .nav-active {
     color:       var(--gold);
     font-weight: var(--weight-regular);
+}
+
+/* 
+=========================================================
+CONTACT LIST (HEADER)
+=========================================================
+*/
+
+.nav-icons {
+    gap:         1.5rem;
+    display:     flex;
+    align-items: right;
+}
+
+.nav-icons a {
+    color:       var(--text-secondary);
+    font-size:   1.5rem;
+    transition:  color 0.2s ease;
+}
+
+.nav-icons a:hover {
+    color:     var(--gold);
+    transform: translateY(2px);
 }
 
 /* 
@@ -353,11 +365,10 @@ LANDING
 
 .landing-content {
     gap:             3rem;
-    width:           100%;
+    width:           var(--max-width);
     margin:          0 auto;
     display:         flex;
     padding:         0 2rem;
-    max-width:       var(--max-width);
     align-items:     center;
     justify-content: center;
 }
@@ -371,6 +382,88 @@ LANDING
 .landing-avatar img {
     width:         260px;
     border-radius: 50%;
+}
+
+.landing-content-card {
+    padding:             2rem;
+    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);       /* offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
+    border-top:          1px solid rgba(255, 255, 255, 0.103);
+    border-left:         1px solid rgba(255, 255, 255, 0.04);
+    border-right:        1px solid rgba(255, 255, 255, 0.04);
+    border-bottom:       1px solid rgba(0, 0, 0, 0.5);
+    border-radius:       20px;
+    background-size:     cover;
+    background-position: center;
+}
+
+.scroll-indicator {
+    left:            50%;
+    bottom:          2.5rem;
+    display:         flex;
+    position:        absolute;
+    transform:       translateX(-50%);
+    align-items:     center;
+    flex-direction:  column;
+    gap:             0.5rem;
+    opacity:         1;
+    transition:      opacity 0.4s ease;
+}
+
+.scroll-indicator.hidden {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.scroll-line {
+    width:            0.5px;
+    height:           48px;
+    background:       var(--text-muted);
+    animation:        bounce-line 1.6s ease-in-out infinite;
+}
+
+/* Bottom line only bounces — top line is static */
+.scroll-line:first-child {
+    animation: none;
+}
+
+.scroll-text {
+    color:          var(--text-muted);
+    font-size:      1rem;
+    font-family:    var(--font-lato);
+    font-weight:    var(--weight-fine);
+    letter-spacing: 0.25em;
+    transition:     transform 0.2s ease;
+    text-transform: uppercase;
+}
+
+.scroll-text:hover {
+    color:  var(--gold);
+    cursor: pointer;
+}
+
+/* Base state */
+.explode {
+    display: inline-block;
+    font-weight: var(--weight-bold);
+}
+
+/* Base state for each letter */
+.explode span {
+    display:    inline-block; /* Required for transform to work */
+    transition: transform 3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 5s;
+}
+
+/* On hover: Each child span flies in a different direction */
+.explode:hover span:nth-child(1) { transform: translate(-30px, -30px) rotate(-15deg); opacity: 0; }
+.explode:hover span:nth-child(2) { transform: translate(-5px, -25px) rotate(20deg); opacity: 0; }
+.explode:hover span:nth-child(3) { transform: translate(10px, -30px) rotate(-10deg); opacity: 0; }
+.explode:hover span:nth-child(4) { transform: translate(15px, -15px) rotate(15deg); opacity: 0; }
+.explode:hover span:nth-child(5) { transform: translate(5px, -20px) rotate(-10deg); opacity: 0; }
+.explode:hover span:nth-child(6) { transform: translate(20px, -20px) rotate(15deg); opacity: 0; }
+
+@keyframes bounce-line {
+    0%, 100% { transform: scaleY(1);    transform-origin: top; }
+    50%       { transform: scaleY(0.4); transform-origin: top; }
 }
 
 /* 
@@ -424,7 +517,7 @@ ABOUT
     object-fit:      cover;
     box-shadow:      0 16px 60px rgba(0, 0, 0, 0.8);
     flex-shrink:     0;
-    border-radius:   60px;
+    border-radius:   20px;
     object-position: center top;
 }
 
@@ -483,7 +576,7 @@ TOOLS
 .tool-bubble:hover {
     filter:       brightness(1);
     opacity:      1;
-    transform:    translateY(-2px);
+    transform:    translateY(2px);
     background:   rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.18);
 }
@@ -555,69 +648,6 @@ AFFILIATIONS
 
 /* 
 =========================================================
-CONTACT LIST (HEADER)
-=========================================================
-*/
-
-.nav-icons {
-    gap:         1.75rem;
-    display:     flex;
-    align-items: center;
-}
-
-.nav-icons a {
-    color:       var(--text-secondary);
-    font-size:   1.75rem;
-    transition:  color 0.2s ease;
-}
-
-.nav-icons a:hover {
-    color:     var(--gold);
-    transform: translateY(2px);
-}
-
-/* 
-=========================================================
-CONTACT LIST (FOOTER)
-=========================================================
-*/
-
-.footer-icons {
-    gap:             1.75rem; 
-    margin:          0 auto;
-    display:         flex;
-    padding:         1rem 0rem 0rem; 
-    align-items:     center;
-    justify-content: center;
-}
-
-.footer-icons a {
-    color:      var(--text-secondary);
-    font-size:  1.75rem;
-    transition: color 0.2s ease;
-}
-
-.footer-icons a:hover {
-    color:     var(--gold);
-    transform: translateY(2px);
-}
-
-.footer-copyright {
-    margin:          0 auto;
-    display:         flex;
-    padding:         0rem 0rem 2rem; 
-    align-items:     center;
-    justify-content: center;
-}
-
-.footer-copyright p {
-    color:       var(--text-muted);
-    font-size:   1.20rem;
-    align-items: center;
-}
-
-/* 
-=========================================================
 EXPERIENCE MAIN
 =========================================================
 */
@@ -632,7 +662,7 @@ EXPERIENCE MAIN
 }
 
 #experience-grid {
-    gap:                   2rem;
+    gap:                   3rem;
     margin:                0 auto;
     display:               grid;
     padding:               3rem 0rem 1.5rem; 
@@ -647,9 +677,13 @@ EXPERIENCE MAIN
     display:       block;
     position:      relative;
     overflow:      hidden;
-    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
+    box-shadow:    0 16px 20px rgba(0, 0, 0, 0.8);
+    border-top:    1px solid rgba(255, 255, 255, 0.103);
+    border-left:   1px solid rgba(255, 255, 255, 0.04);
+    border-right:  1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     aspect-ratio:  1 / 1; /* Square! */
-    border-radius: 24px;
+    border-radius: 20px;
 }
 
 .card img {
@@ -701,8 +735,10 @@ EXPERIENCE - DETAIL PAGES
 
 .detail-main {
     margin:    0 auto;
-    padding:   0rem 4rem 3rem; /* Padding: top, sides, bottom */
+    padding:   2rem 0rem 3rem; /* Padding: top, sides, bottom */
     max-width: var(--max-width);
+    align-items: center;
+    
 }
 
 .detail-header {
@@ -733,15 +769,19 @@ EXPERIENCE - DETAIL PAGES
 .detail-pdf iframe {
     width:         100%;
     height:        600px;
-    border-radius: 24px;
+    border-radius: 20px;
 }
 
 .pdf-cover {
     width:         100%;
     cursor:        pointer;
     transition:    opacity 0.2s ease;
-    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
-    border-radius: 24px;
+    box-shadow:    0 16px 20px rgba(0, 0, 0, 0.8);
+    border-top:    1px solid rgba(255, 255, 255, 0.103);
+    border-left:   1px solid rgba(255, 255, 255, 0.04);
+    border-right:  1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
 }
 
 .pdf-cover:hover {
@@ -784,7 +824,7 @@ EXPERIENCE - ACCESS
     width:         100%;
     object-fit:    cover;
     box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
-    border-radius: 24px;
+    border-radius: 20px;
 }
 
 .access-model:hover {
@@ -794,13 +834,13 @@ EXPERIENCE - ACCESS
 .access-concurrency {
     gap:     1rem;
     display: flex;
-    border-radius: 24px;
+    border-radius: 20px;
 }
 
 .access-concurrency img {
     width:         50%;
     object-fit:    cover;
-    border-radius: 24px;
+    border-radius: 20px;
 }
 
 .access-concurrency:hover {
@@ -843,9 +883,13 @@ PROJECTS MAIN
     display:       block;
     position:      relative;
     overflow:      hidden;
-    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
-    aspect-ratio:  1 / 1; /* Square! */
-    border-radius: 24px;
+    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);
+    border-top:          1px solid rgba(255, 255, 255, 0.103);
+    border-left:         1px solid rgba(255, 255, 255, 0.04);
+    border-right:        1px solid rgba(255, 255, 255, 0.04);
+    border-bottom:       1px solid rgba(0, 0, 0, 0.5);
+    aspect-ratio:  1 / 1;
+    border-radius: 20px;
 }
 
 .card img {
@@ -890,4 +934,44 @@ WORK IN PROGRESS
 #work-in-progress .detail-header h4 {
     color: var(--text-muted);
     line-height: 1.3;
+}
+
+/* 
+=========================================================
+CONTACT LIST (FOOTER)
+=========================================================
+*/
+
+.footer-icons {
+    gap:             1.75rem; 
+    margin:          0 auto;
+    display:         flex;
+    padding:         1rem 0rem 0rem; 
+    align-items:     center;
+    justify-content: center;
+}
+
+.footer-icons a {
+    color:      var(--text-secondary);
+    font-size:  1.75rem;
+    transition: color 0.2s ease;
+}
+
+.footer-icons a:hover {
+    color:     var(--gold);
+    transform: translateY(2px);
+}
+
+.footer-copyright {
+    margin:          0 auto;
+    display:         flex;
+    padding:         0rem 0rem 2rem; 
+    align-items:     center;
+    justify-content: center;
+}
+
+.footer-copyright p {
+    color:       var(--text-muted);
+    font-size:   1.20rem;
+    align-items: center;
 }
