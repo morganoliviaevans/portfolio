@@ -1,5 +1,13 @@
 /* 
 =========================================================
+MEDIA
+=========================================================
+*/
+
+const lightbox = GLightbox();
+
+/* 
+=========================================================
 NAV
 =========================================================
 */
@@ -54,13 +62,13 @@ window.addEventListener('scroll', () => {
     );
 
     // Separately, nav-active based on section
-    if (currentScroll >= publicationsTop) {
+    if (currentScroll >= publicationsTop * 0.8) {
         setActiveLink('publications');
-    } else if (currentScroll >= projectsTop) {
+    } else if (currentScroll >= projectsTop * 0.7) {
         setActiveLink('projects');
-    } else if (currentScroll >= experienceTop) {
+    } else if (currentScroll >= experienceTop * 0.55) {
         setActiveLink('experience');
-    } else if (currentScroll >= aboutTop) {
+    } else if (currentScroll >= aboutTop * 0.5) {
         setActiveLink('about');
     } else {
         setActiveLink(null);

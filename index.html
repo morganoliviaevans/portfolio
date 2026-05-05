@@ -8,7 +8,8 @@
         <title>Morgan Olivia Evans</title>                                       <!-- The text that appears in the browser tab -->
         <link rel="stylesheet" href="style.css" />                               <!-- Loading CSS file -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />               <!-- Cute little browswer tab icon -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
     </head>
 
     <body> <!-- Everything visible on the page goes here -->
@@ -219,6 +220,15 @@
                     </a>
                 </section>
             </main>
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                    <span class="scroll-text">
+                        <span class="explode">
+                            <span>S</span><span>C</span><span>R</span><span>O</span><span>L</span><span>L</span>
+                        </span>
+                    </span>
+                <div class="scroll-line"></div>
+            </div>
         </section>
 
         <!-- ===================== EXPERIENCE DETAIL - KPFF ===================== -->
@@ -233,48 +243,46 @@
             <!-- ===== CONTENT ===== -->
             <main class="detail-main">
                 <div class="detail-container content-card">
-                    <div class="detail-pdf">
-                        <a href="media/experience/2025-expo-poster.pdf" target="_blank">
-                            <img src="media/experience/ics-expo-cover.png" alt="ICS Expo Poster" class="pdf-cover" />
+                    <!-- LEFT: media grid -->
+                    <div class="detail-media">
+                        
+                        <a href="media/experience/2025-expo-poster.jpg" class="glightbox media-item">
+                            <img src="media/experience/2025-expo-poster.jpg" alt="ICS Expo Poster" />
                         </a>
+
+                        <div class="media-item-video">
+                            <!-- Clicking the thumbnail opens the silent version  -->
+                            <a href="https://youtu.be/B4MYKNuLST8" class="glightbox">
+                                <img src="https://img.youtube.com/vi/B4MYKNuLST8/maxresdefault.jpg" alt="VISTA Demo" />
+                                <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
+                            </a>
+                            <!-- YouTube icon in corner links to the audio version -->
+                            <a href="https://youtu.be/RG-x3DfUInU" target="_blank" class="media-yt-link">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <div class="media-item-video">
+                            <a href="https://youtu.be/FZ0ihAW0lcM" class="glightbox">
+                                <img src="https://img.youtube.com/vi/FZ0ihAW0lcM/maxresdefault.jpg" alt="ICS Expo 2025" />
+                                <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
+                            </a>
+
+                            <a href="https://youtu.be/FZ0ihAW0lcM" target="_blank" class="media-yt-link">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
                     </div>
+
                     <div class="text-detail">
-                        <p>As part of UC Irvine's senior capstone program, I led a team of six students on a multi-quarter project for <b>KPFF Consulting Engineers</b>, 
-                        a global structural engineering firm specializing in building and infrastructure design. Our project, <b>VISTA — Visualization Tools for Structural Analysis</b> 
-                        — was a full-stack visualization tool built from the ground up using <b>Godot Engine</b> and <b>GDScript</b>, handling backend <b>OpenSees</b> 
-                        TCL script processing and frontend <b>3D visualization</b> of structural engineering models and post-processing results.</p>
+                        <p>As part of UC Irvine's senior capstone program, I led a team of six students on a multi-quarter project for KPFF, a global structural engineering firm. 
+                        Our deliverable was VISTA — Visualization Tools for Structural Analysis, a full-stack 3D visualization tool built in Godot Engine and GDScript, 
+                        integrating backend OpenSees TCL script processing with an interactive frontend for structural model visualization and post-processing.</p>
 
-                        <p>The project began with a thorough research phase in which I evaluated industry-standard structural engineering software — including RISA-3D, 
-                        ETABS, and Perform3D — to identify gaps in usability and analysis capability that VISTA could address. From there, I developed the <b>technical roadmap</b> 
-                        and <b>onboarding plan</b> that guided the team through the full development lifecycle, from prototyping through final deployment, in under six months.</p>
-
-                        <p>I led all <b>client-facing communication</b> throughout the project. This included weekly remote check-ins, monthly in-person meetings with KPFF engineers, 
-                        and two formal mid-project presentations required for course evaluation. I led every meeting with the KPFF team, wrote all <b>progress summaries</b>, 
-                        and compiled teammate notes into structured <b>action items and goals</b> for the following week. At the conclusion of the project, I led our final 
-                        <b>company-wide presentation</b> to KPFF stakeholders.</p>
-
-                        <p>In addition to project leadership, I contributed directly to <b>frontend design</b> and <b>testing</b>, owned <b>version control</b> and 
-                        <b>code review</b> for the entire team via <b>Git</b>, managed <b>sprint organization</b> and <b>task tracking</b> in <b>Jira</b>, 
-                        and produced all technical documentation. I also led and structured our <b>ICS Project Expo</b> presentation, which earned our team 
-                        <b>3rd place</b> at the <b>UC Irvine ICS Project Expo</b> — a result I'm particularly proud of given that the capstone was entirely optional for CS majors.</p>
-
-                        <div class="link-wrapper">
-                            <a href="media/experience/2025-expo-poster.pdf" target="_blank"
-                            class="outgoing-link"> Expo Poster <i class="fa-solid fa-download"></i></a>
-                        </div>
-                        <div class="link-wrapper">
-                            <a href="https://youtu.be/RG-x3DfUInU?si=FBF57AQJrC_2bCTR" target="_blank" 
-                            class="outgoing-link"> Watch VISTA Demo <i class="fa-solid fa-video"></i></a>
-                        </div>
-                        <div class="link-wrapper">
-                            <a href="https://youtu.be/FZ0ihAW0lcM?si=g-mnj81OlVA-ZmHL" target="_blank" 
-                            class="outgoing-link"> Watch 2025 ICS Expo <i class="fa-solid fa-video"></i></a>
-                        </div>
-                        <div class="link-wrapper">
-                            <a href="https://github.com/morganolivianewton" target="_blank" 
-                            class="outgoing-link"><i class="fa-brands fa-github"></i></a>
-                        </div>
+                        <p>I owned the technical roadmap, client communication, version control, and sprint tracking in Jira — guiding the team from prototyping 
+                        through deployment in under six months. Our work earned 3rd place at the UC Irvine ICS Project Expo.</p>
                     </div> 
+                    
                 </div>
             </main>
         </section>
@@ -480,6 +488,15 @@
                     </a>
                 </section>
             </main>
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                    <span class="scroll-text">
+                        <span class="explode">
+                            <span>S</span><span>C</span><span>R</span><span>O</span><span>L</span><span>L</span>
+                        </span>
+                    </span>
+                <div class="scroll-line"></div>
+            </div>
         </section>
 
         <!-- ===================== PROJECTS DETAIL - WORK IN PROGRESS ===================== -->
@@ -534,6 +551,7 @@
             </div>
         </footer>
 
+        <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
         <script src="script.js"></script> <!-- Attaches our JS file. Always at the bottom, so the HTML loads before the JS tries to interact with it -->
     </body>
 </html>

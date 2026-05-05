@@ -5,7 +5,7 @@ IMPORTS
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,200;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,600;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* 
 =========================================================
@@ -28,7 +28,7 @@ CSS VARIABLES — DESIGN TOKENS
 
     /* Typography */
     --font-lato:      'Lato', sans-serif;
-    --font-jetbrains: 'Jetbrains Mono', serif;
+    --font-roboto:    'Roboto', sans-serif;
     --weight-fine:    100;
     --weight-thin:    200;
     --weight-light:   300;
@@ -64,7 +64,7 @@ body {
     transition:       background-color 0.3s ease, color 0.3s ease;
     font-family:      var(--font-lato);
     font-weight:      var(--weight-light);
-    line-height:      1.7;
+    line-height:      1.7rem;
     background-color: var(--bg-primary);
 }
 
@@ -109,13 +109,13 @@ h2 {
 
 /* Detail Heading */
 h3 {
-    font-size:     2.75rem;
+    font-size:     2.5rem;
     font-weight:   var(--weight-regular);
     font-family:   var(--font-lato);
 }
 
 h4 {
-    font-size:      1.25rem;
+    font-size:      1.5rem;
     font-weight:    var(--weight-light);
     font-family:    var(--font-lato);
     text-transform: uppercase;
@@ -135,11 +135,11 @@ b {
 /* Paragraph specific rules */
 .text-detail p {
     color:          var(--text-secondary);
-    font-size:      1.20rem;
+    font-size:      1.3rem;
     max-width:      50ch;
-    font-family:    var(--font-jetbrains);
+    font-family:    var(--font-roboto);
     line-height:    1.5rem;
-    font-weight:    var(--weight-fine);
+    font-weight:    var(--weight-thin);
     margin-bottom:  1rem;
     letter-spacing: 0.020em;
 }
@@ -147,8 +147,8 @@ b {
 /* Target only the list in text */
 .text-list {
     color:               var(--text-secondary);
-    font-family:         var(--font-jetbrains);
-    font-weight:         var(--weight-fine);
+    font-family:         var(--font-roboto);
+    font-weight:         var(--weight-thin);
     line-height:         1.5rem;
     padding-left:        2rem;            /* Indents the list */
     margin-bottom:       1rem;
@@ -158,7 +158,7 @@ b {
 }
 
 .text-list li {
-    font-size:      1.20rem;  /* Set this to match paragraph size */
+    font-size:      1.3rem;  /* Set this to match paragraph size */
     letter-spacing: 0.020em;
 }
 
@@ -175,7 +175,6 @@ b {
 /* Bubble wrapper around block of content */
 .content-card {
     padding:             2rem;
-    width:          var(--max-width);
     box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);       /* offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
     border-top:          1px solid rgba(255, 255, 255, 0.103);
     border-left:         1px solid rgba(255, 255, 255, 0.04);
@@ -250,6 +249,60 @@ section {
     transform:     translateY(2px);
     background:    #0089c4;
     border-bottom: 1px solid var(--teal);
+}
+
+/* TODO: Add CLICK --> feature on Experience and Projects cards */
+
+.card {
+    display:       block;
+    position:      relative;
+    overflow:      hidden;
+    box-shadow:    0 16px 20px rgba(0, 0, 0, 0.8);
+    border-top:    1px solid rgba(255, 255, 255, 0.103);
+    border-left:   1px solid rgba(255, 255, 255, 0.04);
+    border-right:  1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    aspect-ratio:  1 / 1; /* Square! */
+    border-radius: 20px;
+}
+
+.card img {
+    width:      100%;
+    height:     100%;
+    opacity:    0.75;
+    object-fit: cover;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.card:hover img {
+    filter:    brightness(1); /* Brighten on hover */
+    transform: scale(1.05);   /* Zoom on hover */
+    opacity: 1;
+}
+
+.card:hover h2 {
+    text-shadow:    0 8px 32px #000000;
+}
+
+.card-overlay {
+    left:       50%;
+    bottom:     50%;
+    position:   absolute;
+    transform:  translate(-50%, 50%);
+    text-align: center;
+}
+
+.card-overlay h2 {
+    color:          var(--text-primary);
+    font-size:      2.5rem;
+    text-shadow:    0 8px 32px #000000;
+    font-weight:    var(--weight-light);
+    letter-spacing: 0.15em;
+}
+
+.card-overlay .card-meta {
+    color:  var(--text-primary);
+    margin: 0.25rem 0 0;
 }
 
 /* 
@@ -351,7 +404,6 @@ LANDING
 =========================================================
 */
 
-/* TODO: Add SCROLL --> feature on bottom left side */
 /* TODO: Add some features on name hover; maybe clouds move on avatar? Can be done through Photoshop? */
 
 #landing {
@@ -438,7 +490,7 @@ LANDING
 
 .scroll-text:hover {
     color:  var(--gold);
-    cursor: pointer;
+    cursor: default;
 }
 
 /* Base state */
@@ -574,11 +626,13 @@ TOOLS
 }
 
 .tool-bubble:hover {
-    filter:       brightness(1);
-    opacity:      1;
     transform:    translateY(2px);
     background:   rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.18);
+}
+
+.tool-bubble:hover img {
+    opacity: 1;
 }
 
 /* 
@@ -667,14 +721,39 @@ EXPERIENCE MAIN
     display:               grid;
     padding:               3rem 0rem 1.5rem; 
     max-width:             var(--max-width);
-    /* grid-template-columns: repeat(2, 1fr); /* 2x2 */
-    grid-template-columns: repeat(4, 1fr); /* 4x1 */
+    grid-template-columns: repeat(4, 1fr);
 }
 
-/* TODO: Add CLICK --> feature on Experience and Projects cards */
+#experience-grid .card img {
+    width:      100%;
+    height:     100%;
+    opacity:    0.75;
+    object-fit: cover;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+}
 
-.card {
-    display:       block;
+#experience-grid .card:hover img {
+    transform: scale(1.05);
+    opacity:   1;
+}
+
+/* 
+=========================================================
+EXPERIENCE - DETAIL MEDIA GRID
+=========================================================
+*/
+
+.detail-media {
+    gap:                   1.5rem;
+    width:                 350px;
+    display:               grid;
+    flex-shrink:           0;
+    align-content:         start;
+    grid-template-columns: repeat(1, 3fr);
+}
+
+/* Image, pdf */
+.media-item {
     position:      relative;
     overflow:      hidden;
     box-shadow:    0 16px 20px rgba(0, 0, 0, 0.8);
@@ -682,54 +761,95 @@ EXPERIENCE MAIN
     border-left:   1px solid rgba(255, 255, 255, 0.04);
     border-right:  1px solid rgba(255, 255, 255, 0.04);
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    aspect-ratio:  1 / 1; /* Square! */
-    border-radius: 20px;
+    border-radius: 2%;
+    aspect-ratio:  1 / 1;
+    display:       block;
+    background:    var(--bg-secondary);
 }
 
-.card img {
+/* Image, pdf */
+.media-item img {
+    width:      100%;
+    height:     auto;
+    object-position: top;
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+/* Image, pdf */
+.media-item:hover img {
+    filter:    brightness(0.5);
+    transform: translateY(-70px);
+}
+
+/* Video only */
+.media-item-video {
+    display:       block;
+    position:      relative;
+    overflow:      hidden;
+    background:    var(--bg-secondary);
+    box-shadow:    0 16px 20px rgba(0, 0, 0, 0.8);
+    border-top:    1px solid rgba(255, 255, 255, 0.103);
+    border-left:   1px solid rgba(255, 255, 255, 0.04);
+    border-right:  1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 2%;
+    aspect-ratio:  1 / 1;
+}
+
+/* Video only */
+.media-item-video img {
     width:      100%;
     height:     100%;
-    opacity:    0.75;
-    filter:     grayscale(100%);
     object-fit: cover;
-    transition: opacity 0.2s ease, filter 0.2s ease;
+    transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-.card:hover img {
-    filter:    brightness(1); /* Brighten on hover */
-    filter:    grayscale(0%); /* Full color on hover */
-    transform: scale(1.05);   /* Zoom on hover */
+/* Video only */
+.media-item-video:hover {
+    filter: brightness(0.5);
+}
+
+/* Play button overlay for video */
+.media-play {
+    top:             50%;
+    left:            50%;
+    position:        absolute;
+    transform:       translate(-50%, -50%);
+    background:      rgba(0, 0, 0, 0.55);
+    width:           80px;
+    height:          50px;
+    border-radius:   4%;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    color:           var(--text-primary);
+    font-size:       2rem;
+    transition:      background 0.2s ease;
+}
+
+.media-item:hover .media-play {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.media-yt-link {
+    position:    absolute;
+    bottom:      1.5rem;
+    right:       1.5rem;
+    color:       var(--text-muted);
+    font-size:   1.5rem;
+    opacity:     0.7;
+    transition:  opacity 0.2s ease;
+    z-index:     2;
+}
+
+.media-yt-link:hover {
     opacity: 1;
-}
-
-.card:hover h2 {
-    text-shadow:    0 8px 32px #000000;
-}
-
-.card-overlay {
-    left:       50%;
-    bottom:     48%;
-    position:   absolute;
-    transform:  translate(-50%, 50%);
-    text-align: center;
-}
-
-.card-overlay h2 {
-    color:          var(--text-primary);
-    font-size:      2.5rem;
-    text-shadow:    0 8px 32px #000000;
-    font-weight:    var(--weight-light);
-    letter-spacing: 0.15em;
-}
-
-.card-overlay .card-meta {
-    color:  var(--text-primary);
-    margin: 0.25rem 0 0;
+    color:       var(--text-secondary);
 }
 
 /* 
 =========================================================
-EXPERIENCE - DETAIL PAGES
+EXPERIENCE - DETAIL
 =========================================================
 */
 
@@ -879,20 +999,7 @@ PROJECTS MAIN
     grid-template-columns: repeat(5, 1fr); /* 5x1 */
 }
 
-.card {
-    display:       block;
-    position:      relative;
-    overflow:      hidden;
-    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);
-    border-top:          1px solid rgba(255, 255, 255, 0.103);
-    border-left:         1px solid rgba(255, 255, 255, 0.04);
-    border-right:        1px solid rgba(255, 255, 255, 0.04);
-    border-bottom:       1px solid rgba(0, 0, 0, 0.5);
-    aspect-ratio:  1 / 1;
-    border-radius: 20px;
-}
-
-.card img {
+#projects-grid .card img {
     width:      100%;
     height:     100%;
     filter:     brightness(0.75);
@@ -900,7 +1007,7 @@ PROJECTS MAIN
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.card:hover img {
+#projects-grid .card:hover img {
     filter:      brightness(1); /* Brighten on hover */
     transform:   scale(1.05);   /* Zoom on hover */
 }
