@@ -62,13 +62,13 @@ window.addEventListener('scroll', () => {
     );
 
     // Separately, nav-active based on section
-    if (currentScroll >= publicationsTop * 0.8) {
+    if (currentScroll >= publicationsTop) {
         setActiveLink('publications');
-    } else if (currentScroll >= projectsTop * 0.7) {
+    } else if (currentScroll >= projectsTop) {
         setActiveLink('projects');
-    } else if (currentScroll >= experienceTop * 0.55) {
+    } else if (currentScroll >= experienceTop) {
         setActiveLink('experience');
-    } else if (currentScroll >= aboutTop * 0.5) {
+    } else if (currentScroll >= aboutTop) {
         setActiveLink('about');
     } else {
         setActiveLink(null);
@@ -90,4 +90,43 @@ window.addEventListener('scroll', () => {
     } else {
         scrollIndicator.classList.remove('hidden');
     }
+});
+
+/* 
+=========================================================
+EXPERIENCE ACCORDION
+=========================================================
+*/
+
+const experienceCards   = document.querySelectorAll('.experience-card');
+const experienceDetail  = document.getElementById('experience-detail');
+const detailPanels      = document.querySelectorAll('.experience-detail-panel');
+
+experienceCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const targetId      = card.dataset.target;
+        const targetPanel   = document.getElementById(targetId);
+        const isAlreadyOpen = card.classList.contains('card-active');
+
+        /* Reset all cards to grayscale */
+        experienceCards.forEach(c => {
+            c.classList.remove('card-active');
+            c.classList.add('card-inactive');
+        });
+
+        /* Hide all panels */
+        detailPanels.forEach(p => p.classList.remove('active'));
+
+        if (isAlreadyOpen) {
+            /* Clicking active card — collapse everything */
+            experienceDetail.classList.remove('open');
+            experienceCards.forEach(c => c.classList.remove('card-inactive'));
+        } else {
+            /* Open clicked card's panel */
+            card.classList.remove('card-inactive');
+            card.classList.add('card-active');
+            targetPanel.classList.add('active');
+            experienceDetail.classList.add('open');
+        }
+    });
 });

@@ -38,7 +38,7 @@ CSS VARIABLES — DESIGN TOKENS
 
     /* Spacing */
     --nav-height:     65px;
-    --max-width:      1250px;
+    --max-width:      1300px;
     --section-gap:    2rem;
 }
 
@@ -127,7 +127,6 @@ b {
 
 /* Container rules */
 .text-detail {
-    flex:           1 0 0;
     min-width:      0;      /* Prevents flex items from overflowing the container, e.g. outgoing-link is anchored at bottom of container */
     flex-direction: column; /* Stack my children vertically */
 }
@@ -136,11 +135,11 @@ b {
 .text-detail p {
     color:          var(--text-secondary);
     font-size:      1.3rem;
-    max-width:      50ch;
     font-family:    var(--font-roboto);
     line-height:    1.5rem;
     font-weight:    var(--weight-thin);
     margin-bottom:  1rem;
+    margin-right:  2rem;
     letter-spacing: 0.020em;
 }
 
@@ -213,17 +212,12 @@ section {
     /* border-top: none; */
 }
 
-.link-wrapper {
-    display: flex;
-}
-
 .outgoing-link {
     /* Layout */
     border:        none;
     cursor:        pointer;
     padding:       0.3rem 0.8rem 0.25rem; /* top, sides, bottom */
     outline:       none;
-    margin-top:    0.5rem;                  /* TODO: Find a more efficient way to add gap margin in between text and link */
     font-weight:   500;
     border-radius: 14px;
 
@@ -238,17 +232,18 @@ section {
     text-decoration: none;
 
     /* Visual */
-    background:    var(--blue);
-    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
-    transition:    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    border-bottom: 3px solid var(--teal);   
+    background: var(--blue);
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.8);
 }
 
 .outgoing-link:hover {
     color:         var(--text-primary);
     transform:     translateY(2px);
-    background:    #0089c4;
-    border-bottom: 1px solid var(--teal);
+    background:    var(--gold);
+}
+
+.link-wrapper {
+    margin-top: 1rem;
 }
 
 /* TODO: Add CLICK --> feature on Experience and Projects cards */
@@ -446,6 +441,12 @@ LANDING
     border-radius:       20px;
     background-size:     cover;
     background-position: center;
+}
+
+.landing-text {
+    display:        flex;
+    flex-direction: column;
+    gap:            2rem;
 }
 
 .scroll-indicator {
@@ -708,15 +709,16 @@ EXPERIENCE MAIN
 
 #experience-landing {
     width:       100%;
-    height:      100vh;
+    min-height:  100vh;
     display:     flex;
     overflow:    visible;
     position:    relative;
-    align-items: center;
+    align-items: flex-start;
+    padding-top:  calc(var(--nav-height) + 2rem); /* Sits just below nav */
 }
 
 #experience-grid {
-    gap:                   3rem;
+    gap:                   5rem;
     margin:                0 auto;
     display:               grid;
     padding:               3rem 0rem 1.5rem; 
@@ -737,20 +739,27 @@ EXPERIENCE MAIN
     opacity:   1;
 }
 
+/* Active card — full color, gold border bottom */
+.card-active img {
+    filter:  grayscale(0%) !important;
+    opacity: 1 !important;
+}
+
+.card-active {
+    border-bottom: 2px solid var(--gold);
+}
+
+/* Inactive cards — grayscale, dimmed */
+.card-inactive img {
+    filter:  grayscale(100%) !important;
+    opacity: 0.4 !important;
+}
+
 /* 
 =========================================================
 EXPERIENCE - DETAIL MEDIA GRID
 =========================================================
 */
-
-.detail-media {
-    gap:                   1.5rem;
-    width:                 350px;
-    display:               grid;
-    flex-shrink:           0;
-    align-content:         start;
-    grid-template-columns: repeat(1, 3fr);
-}
 
 /* Image, pdf */
 .media-item {
@@ -770,15 +779,15 @@ EXPERIENCE - DETAIL MEDIA GRID
 /* Image, pdf */
 .media-item img {
     width:      100%;
-    height:     auto;
-    object-position: top;
+    height:     100%;
+    object-position: center;
     transition: filter 0.2s ease, transform 0.2s ease;
 }
 
 /* Image, pdf */
 .media-item:hover img {
     filter:    brightness(0.5);
-    transform: translateY(-70px);
+    transform: scale(1.05);
 }
 
 /* Video only */
@@ -844,134 +853,120 @@ EXPERIENCE - DETAIL MEDIA GRID
 
 .media-yt-link:hover {
     opacity: 1;
-    color:       var(--text-secondary);
+    color: var(--text-secondary);
 }
 
 /* 
 =========================================================
-EXPERIENCE - DETAIL
+EXPERIENCE - DETAIL PANEL
 =========================================================
 */
 
-.detail-main {
-    margin:    0 auto;
-    padding:   2rem 0rem 3rem; /* Padding: top, sides, bottom */
-    max-width: var(--max-width);
-    align-items: center;
-    
+/* Hidden by default — expands on card click */
+.experience-detail {
+    display:    none;
+    margin-top: 2rem;
+    width:      100%;
+}
+
+.experience-detail.open {
+    display: block;
+}
+
+/* Individual panels — only active one is shown */
+.experience-detail-panel {
+    display: none;
+}
+
+.experience-detail-panel.active {
+    display: block;
 }
 
 .detail-header {
-    text-align: center;
+    margin-bottom: 1.5rem;
+    text-align:    left;
 }
 
 .detail-header h3 {
-    color: var(--text-primary);
+    color:       var(--text-primary);
     line-height: 1.3;
 }
 
 .detail-header h4 {
-    color: var(--text-muted);
+    color:       var(--text-muted);
     line-height: 1.3;
 }
 
-.detail-container {
-    gap:         3rem;
-    display:     flex;
-    align-items: stretch; /* Make both columns match the height of the taller one */
-}
-
-.detail-pdf {
-    flex:       1;
-    min-width:  0;
-}
-
-.detail-pdf iframe {
-    width:         100%;
-    height:        600px;
-    border-radius: 20px;
-}
-
-.pdf-cover {
-    width:         100%;
-    cursor:        pointer;
-    transition:    opacity 0.2s ease;
-    box-shadow:    0 16px 20px rgba(0, 0, 0, 0.8);
-    border-top:    1px solid rgba(255, 255, 255, 0.103);
-    border-left:   1px solid rgba(255, 255, 255, 0.04);
-    border-right:  1px solid rgba(255, 255, 255, 0.04);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-}
-
-.pdf-cover:hover {
-    filter: brightness(1.25); /* Brighten on hover */
-}
-
-/* 
-=========================================================
-EXPERIENCE - KPFF
-=========================================================
-*/
-
-/* 
-=========================================================
-EXPERIENCE - NASA
-=========================================================
-*/
-
-/* 
-=========================================================
-EXPERIENCE - ACCESS
-=========================================================
-*/
-
-.detail-access-container {
-    gap:         2rem;
-    display:     flex;
-    align-items: stretch;
-}
-
-.access-images {
-    gap:            1rem;
-    flex:           1;
-    display:        flex;
-    min-width:      0;
-    flex-direction: column;
-}
-
-.access-model {
-    width:         100%;
-    object-fit:    cover;
-    box-shadow:    0 16px 60px rgba(0, 0, 0, 0.8);
-    border-radius: 20px;
-}
-
-.access-model:hover {
-    filter: brightness(1.25);
-}
-
-.access-concurrency {
+/* Text left, media right */
+.detail-body {
     gap:     1rem;
+    /* flex:    1 1 0;  /* Grow and shrink to fill remaining space */
     display: flex;
-    border-radius: 20px;
+    flex-direction: row;    /* Two columns, side by side */
+    align-items: flex-start;
+    width: 100%;
 }
 
-.access-concurrency img {
-    width:         50%;
-    object-fit:    cover;
-    border-radius: 20px;
+.detail-body .text-detail {
+    flex:      1 1 0;
+    min-width: 0;
 }
 
-.access-concurrency:hover {
-    filter: brightness(1.25);
+/* Tools, outgoing links, media tiles */
+.detail-right {
+    display:        flex;
+    flex-shrink:    0;
+    flex-direction: column;
+    gap:            1rem;
+    width:          55%;      /* Let content determine width either side */
+    align-items:    flex-end; /* Pushes everything to the right */
 }
 
-/* 
-=========================================================
-EXPERIENCE - SCEC
-=========================================================
-*/
+/* Media grid to the right of text */
+.detail-media {
+    gap:                   1rem;
+    display:               grid;
+    align-content:         start;
+    justify-content:       end;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 200px)); /* cap tile max width */
+    width: 100%;
+}
+
+.detail-tags-row {
+    display:     flex;
+    flex-wrap:   wrap;
+    gap:         0.5rem;
+    align-items: center;
+    justify-content: flex-end; /* Tools + outgoing link bubble in one row on the right */
+}
+
+
+/* For Experience and Projects details (tools and languages) */
+.detail-tags {
+    display:   flex;
+    flex-wrap: wrap;
+    gap:       0.5rem;
+}
+
+.detail-tag {
+    color:          var(--text-muted);
+    font-size:      1.10rem;
+    font-family:    var(--font-lato);
+    padding:        0.15rem 0.65rem;
+    background:     var(--bg-secondary);
+    /* border-radius:  20px; */
+    border:         1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:     0 16px 20px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.05em;
+    opacity:        0.7;
+    text-transform: uppercase;
+}
+
+.detail-tag:hover {
+    color:  var(--text-primary);
+    font-weight: var(--weight-light);
+    border: 1px solid rgba(255, 255, 255, 0.345);
+}
 
 /* 
 =========================================================
