@@ -115,8 +115,8 @@ h3 {
 }
 
 h4 {
-    font-size:      1.5rem;
-    font-weight:    var(--weight-light);
+    font-size:      1.3rem;
+    font-weight:    var(--weight-regular);
     font-family:    var(--font-lato);
     text-transform: uppercase;
 }
@@ -137,7 +137,7 @@ b {
     font-size:      1.3rem;
     font-family:    var(--font-roboto);
     line-height:    1.5rem;
-    font-weight:    var(--weight-thin);
+    font-weight:    var(--weight-light);
     margin-bottom:  1rem;
     margin-right:  2rem;
     letter-spacing: 0.020em;
@@ -213,6 +213,14 @@ section {
 }
 
 .outgoing-link {
+    color: var(--text-primary);
+}
+
+.outgoing-link:hover {
+    color: var(--blue);
+}
+
+.outgoing-link-bubble {
     /* Layout */
     border:        none;
     cursor:        pointer;
@@ -236,14 +244,14 @@ section {
     box-shadow: 0 16px 20px rgba(0, 0, 0, 0.8);
 }
 
-.outgoing-link:hover {
+.outgoing-link-bubble:hover {
     color:         var(--text-primary);
     transform:     translateY(2px);
     background:    var(--gold);
 }
 
 .link-wrapper {
-    margin-top: 1rem;
+    margin-top: 1.75rem;
 }
 
 /* TODO: Add CLICK --> feature on Experience and Projects cards */

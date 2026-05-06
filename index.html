@@ -91,8 +91,20 @@
                         <p>Morgan is driven by a commitment to understanding our planet and excels at collaborating
                         with educators and industry leaders to build impactful real-world systems.</p>
 
-                        <div class="link wrapper">
-                            <a href="https://drive.google.com/file/d/197jzIhMwKH6mfxXvNBxno3roQA9zJFe5/view?usp=sharing" target="_blank" class="outgoing-link">Resume</a>
+                        <!-- 
+                        NOTE: OUTGOING LINK BUBBLE LIGHTBOX TRIGGER STRUCTURE
+                        ------------------------------------------------------
+                        PROBLEM: Applying button styles (bg-color, padding) directly to the <a> trigger causes GLightbox 
+                        to render its overlay *inside* the button background, "blowing up" the layout.
+
+                        FIX: Use the <a> tag purely as a functional trigger and move all visual styling (the "bubble") 
+                        to an inner <span>. This isolates the lightbox UI from the button's CSS constraints!
+                        -->
+
+                        <div class="link-wrapper">
+                            <a href="media/resume-mevans-redacted.png" class="glightbox">
+                                <span class="outgoing-link-bubble">Resume</span>
+                            </a>
                         </div>
                     </div>
 
@@ -231,13 +243,15 @@
                         <div class="detail-body">
                             <!-- LEFT: text only -->
                             <div class="text-detail">
-                                <p>As part of UC Irvine's optional computer science senior capstone program, I led a team of six students through a multi-quarter project for KPFF, 
-                                a global structural engineering firm. Our deliverable was VISTA — Visualization Tools for Structural Analysis — a full-stack 3D visualization 
-                                tool built in Godot Engine and GDScript, integrating backend OpenSees TCL script processing with an interactive frontend for structural model 
-                                visualization and post-processing.</p>
+                                <p>As part of UC Irvine's optional computer science senior capstone program, I led a team of six students through a multi-quarter project for 
+                                <a href="https://www.kpff.com/" target="_blank" class="outgoing-link">KPFF</a>, a global structural engineering firm. Our deliverable was 
+                                VISTA — Visualization Tools for Structural Analysis — a full-stack 3D visualization tool built in Godot Engine and GDScript, 
+                                integrating backend <a href="https://github.com/OpenSees/OpenSees" target="_blank" class="outgoing-link">OpenSees</a> TCL script 
+                                processing with an interactive front-end for structural model visualization and post-processing.</p>
 
-                                <p>I owned front-end design, feature testing, our technical roadmap, all client communication, version control, and sprint tracking in Jira — guiding the team from prototyping through 
-                                deployment in under six months. Our work earned 3rd place at the UC Irvine ICS Project Expo.</p>
+                                <p>I owned front-end design, feature testing, our technical roadmap, all client communication, version control, and sprint tracking in Jira 
+                                — guiding the team from prototyping through deployment in under six months. Our work earned 3rd place at the <a href="https://ics.uci.edu/expo" 
+                                target="_blank" class="outgoing-link">UCI Irvine ICS Project Expo</a>.</p>
                             </div>
                             <!-- RIGHT: tags + links + media -->
                             <div class="detail-right">
@@ -247,7 +261,7 @@
                                         <span class="detail-tag">GDScript</span>
                                         <span class="detail-tag">Jira</span>
                                     </div>
-                                    <a href="https://github.com/morganolivianewton" target="_blank" class="outgoing-link">
+                                    <a href="https://github.com/morganolivianewton" target="_blank" class="outgoing-link-bubble">
                                         <i class="fa-brands fa-github"></i> GitHub
                                     </a>
                                 </div>
@@ -286,15 +300,17 @@
                         </div>
                         <div class="detail-body">
                             <div class="text-detail">
-                                <p>During the summer of 2024, I worked as a High-Performance Computing Intern at NASA's Center for Climate Simulation at 
-                                Goddard Space Flight Center in Greenbelt, Maryland. My work focused on investigating MPI and I/O performance anomalies 
-                                for the GEOS climate model across multiple production supercomputing clusters — NCCS Discover at Goddard and NAS Aitken 
-                                at Ames — as well as AWS and Azure cloud environments.</p>
+                                <p>During the summer of 2024, I worked as a High-Performance Computing Intern at <a href="https://www.nccs.nasa.gov" 
+                                target="_blank" class="outgoing-link">NASA's Center for Climate Simulation</a> at Goddard Space Flight Center in 
+                                Greenbelt, Maryland. My work focused on investigating MPI and I/O performance anomalies for the 
+                                <a href="https://gmao.gsfc.nasa.gov/geos-systems" target="_blank" class="outgoing-link">GEOS climate model</a> 
+                                across multiple production supercomputing clusters and AWS and Azure cloud environments.</p>
 
-                                <p>I conducted benchmarking in two parts: OSU micro-benchmarks on AMD Milan architecture across various platforms, 
-                                and I/O benchmarking on the NCCS Discover cluster comparing file systems. I also implemented and tested various 
-                                MPI tuning configurations to evaluate communication efficiency and overall system performance. My findings directly 
-                                contributed to advancing the performance of climate simulations running on NASA's supercomputing infrastructure.</p>
+                                <p>Benchmarking was conducted in two parts: <a href="https://github.com/forresti/osu-micro-benchmarks" target="_blank" 
+                                class="outgoing-link">OSU micro-benchmarks</a> on AMD Milan architecture across various platforms, and I/O benchmarking 
+                                on the NCCS Discover cluster comparing file systems. I also implemented and tested various MPI tuning configurations 
+                                to evaluate communication efficiency and overall system performance. My findings directly contributed to advancing 
+                                the performance of climate simulations running on NASA's supercomputing infrastructure.</p>
                             </div>
                             <div class="detail-right">
                                 <div class="detail-tags-row">
@@ -306,7 +322,7 @@
                                         <span class="detail-tag">Azure</span>
                                         <!-- <span class="detail-tag">Confluence</span> -->
                                     </div>
-                                    <a href="https://github.com/morganoliviaevans/nccs-summer-2024" target="_blank" class="outgoing-link">
+                                    <a href="https://github.com/morganoliviaevans/nccs-summer-2024" target="_blank" class="outgoing-link-bubble">
                                         <i class="fa-brands fa-github"></i> GitHub
                                     </a>
                                 </div>
@@ -346,17 +362,15 @@
                         </div>
                         <div class="detail-body">
                             <div class="text-detail">
-                                <p>During my time with ACCESS, I worked as a Computational Research Intern through the ACCESS MATCH Program, remotely from Orange County, California.
-                                My work focused on optimizing GPU-accelerated ice-sheet flow modeling software using NVIDIA Nsight Systems, Compute, and NVTX annotations 
-                                to profile and analyze performance bottlenecks within CUDA kernels. Through targeted optimizations — removing redundancies, establishing 
-                                kernel concurrency, and eliminating expensive operations — I reduced overall runtime by approximately 10%.</p>
+                                <p>Throughout the 2023-2024 schoolyear, I worked as a remote Computational Research Intern through the <a href="https://support.access-ci.org/match/overview" 
+                                target="_blank" class="outgoing-link">ACCESS MATCH Program</a>. My work focused on optimizing GPU-accelerated ice-sheet flow modeling 
+                                software using NVIDIA profiling tools to analyze performance bottlenecks within CUDA kernels. Through targeted optimizations — 
+                                removing redundancies, establishing kernel concurrency, and eliminating expensive operations — I reduced overall runtime by approximately 10%. 
+                                I utilized two Slurm-managed supercomputing clusters to compare runtime, grid points, scale, and error values between test cases. I also 
+                                began a codebase conversion toward a performance-portable, architecture-agnostic implementation using OpenACC. My research findings 
+                                contribute to narrowing uncertainty in sea level rise prediction to better understand the effects of climate change.</p>
 
-                                <p>I utilized two Slurm-managed supercomputing clusters to compare runtime, grid points, scale, and error values between test cases. 
-                                I also began a codebase conversion toward a performance-portable, architecture-agnostic implementation using OpenACC. 
-                                My research findings contributed to narrowing uncertainty in sea level rise prediction to better understand the effects of climate change.</p>
-
-                                <p>Note: The performance-portable branch I developed remains active and is maintained in a private fork of the public repository,
-                                with software development ongoing.</p>
+                                <p>Note: The performance-portable branch I developed remains active and is maintained in a private fork of the public repository.</p>
                             </div>
                             <div class="detail-right">
                                 <div class="detail-tags-row">
@@ -367,7 +381,7 @@
                                         <span class="detail-tag">OpenACC</span>
                                         <span class="detail-tag">Slurm</span>
                                     </div>
-                                    <a href="https://github.com/AnjaliSandip/FastIceFlo" target="_blank" class="outgoing-link">
+                                    <a href="https://github.com/AnjaliSandip/FastIceFlo" target="_blank" class="outgoing-link-bubble">
                                         <i class="fa-brands fa-github"></i> GitHub
                                     </a>
                                 </div>
@@ -394,14 +408,16 @@
                         </div>
                         <div class="detail-body">
                             <div class="text-detail">
-                                <p>At SCEC, I worked as a Computational Research Intern through the SCEC SOURCES Program. Working one-on-one with my research mentor Dr. John Louie, 
-                                Professor of Geophysics at the University of Nevada, Reno, I developed and ran low-frequency, physics-based 3D seismic wave propagation models using 
-                                SW4 software for the Wellington, New Zealand region — the highest-resolution simulations ever performed for the area.</p>
+                                <p>At SCEC, I worked as a Computational Research Intern through the SCEC SOURCES Program. Working one-on-one with my research mentor <a href="https://www.louie.pub" 
+                                target="_blank" class="outgoing-link">Dr. John Louie</a>, Professor of Geophysics, Emeritus at the University of Nevada, Reno, 
+                                I developed and ran low-frequency, physics-based 3D seismic wave propagation models using SW4 software for the Wellington, 
+                                New Zealand region — the highest-resolution simulations ever performed for the area.</p>
 
                                 <p>My work demonstrated basin amplifications of 2-3x and showed that basin trapped waves extend shaking duration by at least five seconds — 
                                 results with direct relevance to disaster preparedness in a major seismically active city. In January 2023, SCEC sponsored my travel to 
-                                Wellington to present a research seminar at Victoria University of Wellington and meet with researchers at the GNS Science Institute. 
-                                This work has been published four times, most recently in March 2026 in the New Zealand Journal of Geology and Geophysics.</p>
+                                Wellington to present a research seminar at Victoria University of Wellington, as well as a meeting with fellow researchers at the GNS Science Institute. 
+                                This work has been published four times, most recently in March 2026 in the <a href="https://doi.org/10.1002/jgo2.70034" 
+                                target="_blank" class="outgoing-link">New Zealand Journal of Geology and Geophysics</a>.</p>
                             </div>
                             <div class="detail-right">
                                 <div class="detail-tags-row">
@@ -410,7 +426,7 @@
                                         <span class="detail-tag">SW4</span>
                                         <span class="detail-tag">Slurm</span>
                                     </div>
-                                    <a href="https://github.com/morganoliviaevans/scec-2022-2023" target="_blank" class="outgoing-link">
+                                    <a href="https://github.com/morganoliviaevans/scec-2022-2023" target="_blank" class="outgoing-link-bubble">
                                         <i class="fa-brands fa-github"></i> GitHub
                                     </a>
                                 </div>
