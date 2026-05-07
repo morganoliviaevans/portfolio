@@ -498,16 +498,13 @@
             </main>
         </section>
 
-        <!-- ===== PROJECTS LIST ===== -->
+        <!-- These classes need to be adjusted for projects landing or merged with experience -->
+        <!-- ===================== PROJECTS DETAIL - WORK IN PROGRESS ===================== -->
         <section id="projects-landing">
             <main class="grid-main">
                 <section id="projects-grid">
-                    <a href="#work-in-progress" class="card">
-                        <img src="media/projects/con-e.png" alt="CON-E" />
-                        <div class="projects-title">
-                            <h2>Robotic Traffic Cone</h2>
-                        </div>
-                        <p class="projects-text"> BitHacks Hackathon · Embedded Systems</p>
+                    <a class="card projects-card" data-target="detail-bithacks"> 
+                        <img src="media/projects/con-e.png" alt="BITHACKS" /> 
                     </a>
                     <a href="#work-in-progress" class="card">
                         <img src="media/projects/low-level.jpeg" alt="ATmega32" />
@@ -538,26 +535,57 @@
                         <p class="projects-text"> NASA MINDS · Materials Research</p>
                     </a>
                 </section>
+
+                <!-- These classes need to be adjusted for projects landing or merged with experience -->
+                <!-- Detail panel — hidden until a card is clicked -->
+                <div id="projects-detail" class="projects-detail">
+
+                    <!-- BITHACKS -->
+                    <div class="projects-detail-panel" id="detail-bithacks">
+                        <div class="detail-header">
+                            <h3>Robotic Traffic Cone</h3>
+                            <h4>BitHacks Hackathon · Embedded Systems · May 2025</h4>
+                        </div>
+                        <div class="detail-body">
+                            <!-- LEFT: text only -->
+                            <div class="text-detail">
+                                <p>CON-E is a computer vision-enabled robotic traffic cone that autonomously tracks orange objects (like other cones or safety vests). 
+                                This project was built in 2 days at UCI's first ever Embedded Systems Hackathon, BitHacks 2025, where it was awarded Best Meme Hack.</p>
+                                
+                                <p>The system combines a Raspberry Pi for vision processing with an ESP32-S3 controlling mobility, audio, 
+                                and LED-based expression. I specialized in the embedded hardware architecture, custom 3D-printed chassis, physical internal and external components, and 
+                                power design (all under strict budget constraints set by the hackathon). I also collaborated on embedded-software and firmware design.</p>
+                            </div>
+                            <!-- RIGHT: tags + links + media -->
+                            <div class="detail-right">
+                                <div class="detail-tags-row">
+                                    <div class="detail-tags">
+                                        <span class="detail-tag">C++</span>
+                                        <span class="detail-tag">Python</span>
+                                        <span class="detail-tag">ESP32</span>
+                                        <span class="detail-tag">Arduino</span>
+                                        <span class="detail-tag">Embedded</span>
+                                    </div>
+                                    <a href="https://github.com/morganoliviaevans/con-e" target="_blank" class="outgoing-link-bubble">
+                                        <i class="fa-brands fa-github"></i> GitHub
+                                    </a>
+                                </div>
+                                <div class="detail-media">
+                                    <div class="media-item-video">
+                                        <a href="https://youtu.be/x9RpbLjtsWk" class="glightbox">
+                                            <img src="https://img.youtube.com/vi/x9RpbLjtsWk/maxresdefault.jpg" alt="Bithacks" />
+                                            <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
+                                        </a>
+                                        <a href="https://youtu.be/mB1M_Rw7u4M" target="_blank" class="media-yt-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
-            <div class="scroll-indicator">
-                <div class="scroll-line"></div>
-                    <span class="scroll-text">
-                        <span class="explode">
-                            <span>S</span><span>C</span><span>R</span><span>O</span><span>L</span><span>L</span>
-                        </span>
-                    </span>
-                <div class="scroll-line"></div>
-            </div>
-        </section>
-
-        <!-- ===================== PROJECTS DETAIL - WORK IN PROGRESS ===================== -->
-
-        <!-- ===== TITLE SECTION ===== -->
-        <section id="work-in-progress">
-            <div class="detail-header">
-                <h3>Work In Progress</h3>
-                <h4>Stay tuned! Thank you for your patience!</h4>
-            </div>
         </section>
 
         <!-- ===================== PUBLICATIONS DETAIL - WORK IN PROGRESS ===================== -->

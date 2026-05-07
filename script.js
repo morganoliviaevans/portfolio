@@ -133,6 +133,45 @@ experienceCards.forEach(card => {
 
 /* 
 =========================================================
+PROJECTS ACCORDION
+=========================================================
+*/
+
+const projectsCards   = document.querySelectorAll('.projects-card');
+const projectsDetail  = document.getElementById('projects-detail');
+const projectsDetailPanels    = document.querySelectorAll('.projects-detail-panel');
+
+projectsCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const targetId      = card.dataset.target;
+        const targetPanel   = document.getElementById(targetId);
+        const isAlreadyOpen = card.classList.contains('card-active');
+
+        /* Reset all cards to grayscale */
+        projectsCards.forEach(c => {
+            c.classList.remove('card-active');
+            c.classList.add('card-inactive');
+        });
+
+        /* Hide all panels */
+        projectsDetailPanels.forEach(p => p.classList.remove('active'));
+
+        if (isAlreadyOpen) {
+            /* Clicking active card — collapse everything */
+            projectsDetail.classList.remove('open');
+            projectsCards.forEach(c => c.classList.remove('card-inactive'));
+        } else {
+            /* Open clicked card's panel */
+            card.classList.remove('card-inactive');
+            card.classList.add('card-active');
+            targetPanel.classList.add('active');
+            projectsDetail.classList.add('open');
+        }
+    });
+});
+
+/* 
+=========================================================
 COMPARISON SLIDER
 =========================================================
 */

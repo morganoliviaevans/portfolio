@@ -769,7 +769,7 @@ EXPERIENCE MAIN
 
 /* 
 =========================================================
-EXPERIENCE - DETAIL MEDIA GRID
+EXPERIENCE / PROJECTS - DETAIL MEDIA GRID
 =========================================================
 */
 
@@ -870,7 +870,7 @@ EXPERIENCE - DETAIL MEDIA GRID
 
 /* 
 =========================================================
-EXPERIENCE - DETAIL PANEL
+EXPERIENCE / PROJECTS - DETAIL PANEL
 =========================================================
 */
 
@@ -891,6 +891,26 @@ EXPERIENCE - DETAIL PANEL
 }
 
 .experience-detail-panel.active {
+    display: block;
+}
+
+/* Hidden by default — expands on card click */
+.projects-detail {
+    width:      100%;
+    display:    none;
+    margin-top: 2rem;
+}
+
+.projects-detail.open {
+    display: block;
+}
+
+/* Individual panels — only active one is shown */
+.projects-detail-panel {
+    display: none;
+}
+
+.projects-detail-panel.active {
     display: block;
 }
 
@@ -995,7 +1015,11 @@ EXPERIENCE - DETAIL PANEL
     font-weight: var(--weight-light);
 }
 
-/* _____________________________________________________________________ */
+/* 
+=========================================================
+ACCESS DETAIL - COMPARISON SLIDER
+=========================================================
+*/
 
 .comparison-slider {
     position:      relative;
@@ -1065,8 +1089,6 @@ EXPERIENCE - DETAIL PANEL
 
 .comparison-label-left  { left:  0.5rem; }
 .comparison-label-right { right: 0.5rem; }
-
-/* _____________________________________________________________________ */
 
 /* 
 =========================================================
