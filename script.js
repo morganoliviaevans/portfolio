@@ -130,3 +130,20 @@ experienceCards.forEach(card => {
         }
     });
 });
+
+/* 
+=========================================================
+COMPARISON SLIDER
+=========================================================
+*/
+document.querySelectorAll('.comparison-slider').forEach(slider => {
+    const range    = slider.querySelector('.comparison-range');
+    const after    = slider.querySelector('.comparison-after');
+    const divider  = slider.querySelector('.comparison-divider');
+
+    range.addEventListener('input', () => {
+        const val = range.value;
+        after.style.clipPath  = `inset(0 ${100 - val}% 0 0)`;
+        divider.style.left    = `${val}%`;
+    });
+});

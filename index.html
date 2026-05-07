@@ -70,26 +70,27 @@
                         class="about-photo" />
 
                     <!-- Bio -->
-                    <div class="text-detail">
+                    <div class="about-bio text-detail">
                         <p><i class="fa-solid fa-terminal"></i></p>
                         
-                        <p>Morgan is a recent Computer Science graduate from UC Irvine, specializing in high-performance
-                        computing, scientific research, and embedded systems. She is a seasoned technical leader with a
-                        proven track record of managing end-to-end development and research projects, particularly within
-                        the realm of earth system science.</p>
+                        <p>Morgan is a recent Computer Science graduate from UC Irvine with a background 
+                        spanning high-performance computing, scientific research, and embedded systems. 
+                        As a returning student who spent over a decade working professionally in photography 
+                        and film, she brings a non-traditional perspective to engineering — one shaped by 
+                        years of independent problem-solving, client communication, and creative 
+                        technical thinking.</p>
 
-                        <p>She thrives at the intersection of industry and academia, a passion fueled by opportunities
-                        to contribute to meaningful projects with:</p>
+                        <p>Returning to school in her 30s was a deliberate decision to pursue a lifelong 
+                        passion for earth and space science. That drive led to research opportunities with 
+                        NASA, SCEC, and ACCESS, a sponsored research trip to Wellington, New Zealand, 
+                        and multiple publications — all before graduating.</p>
+                        
+                        <p>Morgan is a seasoned technical leader with a proven track record of managing 
+                        end-to-end development and research projects, and is now seeking her first 
+                        full-time industry role where she can contribute to meaningful, real-world impact.</p>
 
-                        <ul class="text-list">
-                            <li>KPFF Consulting Engineers</li>
-                            <li>NASA Center for Climate Simulation (NCCS)</li>
-                            <li>Statewide California Earthquake Center (SCEC)</li>
-                            <li>Advanced Cyberinfrastructure Coordination Ecosystem (ACCESS)</li>
-                        </ul>
-
-                        <p>Morgan is driven by a commitment to understanding our planet and excels at collaborating
-                        with educators and industry leaders to build impactful real-world systems.</p>
+                        <p>Outside of engineering, Morgan enjoys cycling with her husband and friends, 
+                        playing softball competitively, 3D printing, painting and traveling.</p>
 
                         <!-- 
                         NOTE: OUTGOING LINK BUBBLE LIGHTBOX TRIGGER STRUCTURE
@@ -270,8 +271,8 @@
                                         <img src="media/experience/kpff/expo-cover.png" alt="ICS Expo Poster" />
                                     </a>
                                     <div class="media-item-video">
-                                        <a href="https://youtu.be/B4MYKNuLST8" class="glightbox">
-                                            <img src="https://img.youtube.com/vi/B4MYKNuLST8/maxresdefault.jpg" alt="VISTA Demo" />
+                                        <a href="https://www.youtube.com/watch?v=B4MYKNuLST8" class="glightbox">
+                                            <img src="media/experience/kpff/vista.gif" alt="VISTA Demo" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
                                         <a href="https://youtu.be/RG-x3DfUInU" target="_blank" class="media-yt-link">
@@ -389,12 +390,25 @@
                                     <a href="media/experience/access/access.png" class="glightbox media-item">
                                         <img src="media/experience/access/access-cover.png" alt="Ice sheet model visualization" />
                                     </a>
-                                    <a href="media/experience/pre-concurrency.png" class="glightbox media-item">
+                                    <!-- <a href="media/experience/access/pre-concurrency.png" class="glightbox media-item">
                                         <img src="media/experience/access/pre-concurrency.png" alt="Pre-concurrency" />
                                     </a>
-                                    <a href="media/experience/post-concurrency.png" class="glightbox media-item">
+                                    <a href="media/experience/access/post-concurrency.png" class="glightbox media-item">
                                         <img src="media/experience/access/post-concurrency.png" alt="Post-concurrency" />
-                                    </a>
+                                    </a> -->
+                                    <!-- Before/after slider -->
+                                    <div class="comparison-slider">
+                                        <div class="comparison-before">
+                                            <img src="media/experience/access/post-concurrency.png" alt="Post-concurrency" />
+                                            <span class="comparison-label comparison-label-right">After</span>
+                                        </div>
+                                        <div class="comparison-after">
+                                            <img src="media/experience/access/pre-concurrency.png" alt="Pre-concurrency" />
+                                            <span class="comparison-label comparison-label-left">Before</span>
+                                        </div>
+                                        <input type="range" class="comparison-range" min="0" max="100" value="50" />
+                                        <div class="comparison-divider"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -419,7 +433,7 @@
                                 This work has been published four times, most recently in March 2026 in the <a href="https://doi.org/10.1002/jgo2.70034" 
                                 target="_blank" class="outgoing-link">New Zealand Journal of Geology and Geophysics</a>.</p>
                             </div>
-                            <div class="detail-right">
+                            <div class="detail-right-scec">
                                 <div class="detail-tags-row">
                                     <div class="detail-tags">
                                         <span class="detail-tag">Bash</span>
@@ -430,11 +444,23 @@
                                         <i class="fa-brands fa-github"></i> GitHub
                                     </a>
                                 </div>
-                                <div class="detail-media">
+                                <div class="detail-media-scec">
+
                                     <a href="media/experience/scec/scec-sources.jpg" class="glightbox media-item">
                                         <img src="media/experience/scec/scec-sources.jpg" alt="SCEC Poster" />
                                     </a>
-                                    <!-- Visible thumbnail — clicking opens gallery at page 1 -->
+
+                                    <div class="media-item-video">
+                                        <a href="https://youtu.be/5OeCtDuIKwE?si=ZbYYvnLA-DzEK4D5" class="glightbox">
+                                            <img src="media/experience/scec/rockfish.gif" alt="Wellington, New Zealand Hi-resolution 3D Shaking Model at 1.5 Hz Max Frequency" />
+                                            <div class="media-play"><i class="fa-solid fa-play"></i></div>
+                                        </a>
+                                        <a href="https://youtu.be/5OeCtDuIKwE?si=ZbYYvnLA-DzEK4D5" target="_blank" class="media-yt-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+
+                                    <!-- Gallery 1 — clicking opens gallery at page 1 -->
                                     <a href="media/experience/scec/scec-paper/page-1.png"
                                         class="glightbox media-item" 
                                         data-gallery="scec-paper">
@@ -446,7 +472,8 @@
                                     <a href="media/experience/scec/scec-paper/page-4.png"  class="glightbox" data-gallery="scec-paper" style="display:none;"></a>
                                     <a href="media/experience/scec/scec-paper/page-5.png"  class="glightbox" data-gallery="scec-paper" style="display:none;"></a>
                                     <a href="media/experience/scec/scec-paper/page-6.png"  class="glightbox" data-gallery="scec-paper" style="display:none;"></a>
-                                    <!-- Visible thumbnail — clicking opens gallery at page 1 -->
+
+                                    <!-- Gallery 2 — clicking opens gallery at page 1 -->
                                     <a href="media/experience/scec/sw4-install-guide/page-1.png"
                                         class="glightbox media-item" 
                                         data-gallery="sw4-install-guide">
@@ -462,11 +489,11 @@
                                     <a href="media/experience/scec/sw4-install-guide/page-8.png"  class="glightbox" data-gallery="sw4-install-guide" style="display:none;"></a>
                                     <a href="media/experience/scec/sw4-install-guide/page-9.png"  class="glightbox" data-gallery="sw4-install-guide" style="display:none;"></a>
                                     <a href="media/experience/scec/sw4-install-guide/page-10.png" class="glightbox" data-gallery="sw4-install-guide" style="display:none;"></a>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </main>
         </section>

@@ -251,7 +251,7 @@ section {
 }
 
 .link-wrapper {
-    margin-top: 1.75rem;
+    margin-top: 1.65rem;
 }
 
 /* TODO: Add CLICK --> feature on Experience and Projects cards */
@@ -369,8 +369,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--text-primary);
-    /* transform: translateY(2px); */ /* TODO: Not sure why this hover translate is not working, follow-up here */
+    color:       var(--text-primary);
+    font-weight: var(--weight-regular);
 }
 
 .nav-active {
@@ -441,7 +441,7 @@ LANDING
 
 .landing-content-card {
     padding:             2rem;
-    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);       /* offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
+    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);       /* Offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
     border-top:          1px solid rgba(255, 255, 255, 0.103);
     border-left:         1px solid rgba(255, 255, 255, 0.04);
     border-right:        1px solid rgba(255, 255, 255, 0.04);
@@ -452,34 +452,34 @@ LANDING
 }
 
 .landing-text {
+    gap:            2rem;
     display:        flex;
     flex-direction: column;
-    gap:            2rem;
 }
 
 .scroll-indicator {
-    left:            50%;
-    bottom:          2.5rem;
-    display:         flex;
-    position:        absolute;
-    transform:       translateX(-50%);
-    align-items:     center;
-    flex-direction:  column;
-    gap:             0.5rem;
-    opacity:         1;
-    transition:      opacity 0.4s ease;
+    gap:            0.5rem;
+    left:           50%;
+    bottom:         2.5rem;
+    opacity:        1;
+    display:        flex;
+    position:       absolute;
+    transform:      translateX(-50%);
+    transition:     opacity 0.4s ease;
+    align-items:    center;
+    flex-direction: column;
 }
 
 .scroll-indicator.hidden {
-    opacity: 0.4;
+    opacity:        0.4;
     pointer-events: none;
 }
 
 .scroll-line {
-    width:            0.5px;
-    height:           48px;
-    background:       var(--text-muted);
-    animation:        bounce-line 1.6s ease-in-out infinite;
+    width:      0.5px;
+    height:     48px;
+    animation:  bounce-line 1.6s ease-in-out infinite;
+    background: var(--text-muted);
 }
 
 /* Bottom line only bounces — top line is static */
@@ -490,10 +490,10 @@ LANDING
 .scroll-text {
     color:          var(--text-muted);
     font-size:      1rem;
+    transition:     transform 0.2s ease;
     font-family:    var(--font-lato);
     font-weight:    var(--weight-fine);
     letter-spacing: 0.25em;
-    transition:     transform 0.2s ease;
     text-transform: uppercase;
 }
 
@@ -504,7 +504,7 @@ LANDING
 
 /* Base state */
 .explode {
-    display: inline-block;
+    display:     inline-block;
     font-weight: var(--weight-bold);
 }
 
@@ -543,40 +543,43 @@ ABOUT
 
 /* Outer card — inherits content-card styles */
 .about-card {
+    gap:            2rem;
     width:          var(--max-width);
     margin:         0 auto;
     display:        flex;
     flex-direction: column;
-    gap:            2rem;
 }
 
 /* Top row: photo | bio | tools */
 .about-top {
-    gap:             2rem;
-    display:         flex;
-    padding:         0rem 0.5rem 0rem;
-    align-items:     flex-start;
+    gap:         2rem;
+    display:     flex;
+    align-items: flex-start;
 }
 
 /* Thin rule between top and bottom rows */
 .about-divider {
-    margin: 0;
-    border: none;
+    margin:     0.5rem; 
+    border:     none;
     border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 /* Bottom row: affiliations marquee */
 .about-bottom {
+    gap:            0.75rem;
     display:        flex;
     flex-direction: column;
-    gap:            0.75rem;
+}
+
+.about-bio {
+    padding-right: 4rem;
 }
 
 .about-photo {
-    width:           350px;
+    width:           340px;
     filter:          grayscale(100%);
     object-fit:      cover;
-    box-shadow:      0 16px 60px rgba(0, 0, 0, 0.8);
+    box-shadow:      0 16px 20px rgba(0, 0, 0, 0.8);
     flex-shrink:     0;
     border-radius:   20px;
     object-position: center top;
@@ -584,8 +587,8 @@ ABOUT
 
 /* Tools column */
 .about-tools {
-    flex-shrink: 0;
     width:       200px;
+    flex-shrink: 0;
 }
 
 .about-tools-label {
@@ -607,7 +610,7 @@ TOOLS
 .tools-grid {
     gap:                   15px;
     display:               grid;
-    padding:               0.75rem 0rem 0rem; 
+    padding:               0.5rem 0rem 0rem;
     grid-template-columns: repeat(3, 1fr);
 }
 
@@ -620,6 +623,7 @@ TOOLS
     padding:         8px;
     transition:      transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     background:      rgba(255, 255, 255, 0.05);
+    box-shadow:      0 16px 20px rgba(0, 0, 0, 0.8);
     align-items:     center;
     border-radius:   10px;
     justify-content: center;
@@ -717,10 +721,10 @@ EXPERIENCE MAIN
 
 #experience-landing {
     width:       100%;
-    min-height:  100vh;
     display:     flex;
     overflow:    visible;
     position:    relative;
+    min-height:  100vh;
     align-items: flex-start;
     padding-top:  calc(var(--nav-height) + 2rem); /* Sits just below nav */
 }
@@ -729,7 +733,7 @@ EXPERIENCE MAIN
     gap:                   5rem;
     margin:                0 auto;
     display:               grid;
-    padding:               3rem 0rem 1.5rem; 
+    padding:               0rem 0rem 1.5rem; 
     max-width:             var(--max-width);
     grid-template-columns: repeat(4, 1fr);
 }
@@ -743,8 +747,8 @@ EXPERIENCE MAIN
 }
 
 #experience-grid .card:hover img {
-    transform: scale(1.05);
     opacity:   1;
+    transform: scale(1.05);
 }
 
 /* Active card — full color, gold border bottom */
@@ -830,18 +834,18 @@ EXPERIENCE - DETAIL MEDIA GRID
 .media-play {
     top:             50%;
     left:            50%;
+    color:           var(--text-primary);
+    width:           60px;
+    height:          40px;
+    display:         flex;
     position:        absolute;
+    font-size:       2rem;
     transform:       translate(-50%, -50%);
     background:      rgba(0, 0, 0, 0.55);
-    width:           80px;
-    height:          50px;
-    border-radius:   4%;
-    display:         flex;
-    align-items:     center;
-    justify-content: center;
-    color:           var(--text-primary);
-    font-size:       2rem;
     transition:      background 0.2s ease;
+    align-items:     center;
+    border-radius:   4%;
+    justify-content: center;
 }
 
 .media-item:hover .media-play {
@@ -849,19 +853,19 @@ EXPERIENCE - DETAIL MEDIA GRID
 }
 
 .media-yt-link {
-    position:    absolute;
-    bottom:      1.5rem;
-    right:       1.5rem;
-    color:       var(--text-muted);
-    font-size:   1.5rem;
-    opacity:     0.7;
-    transition:  opacity 0.2s ease;
-    z-index:     2;
+    right:      0.75rem;
+    color:      var(--text-muted);
+    bottom:     0.75rem;
+    opacity:    0.7;
+    z-index:    2;
+    position:   absolute;
+    font-size:  1.5rem;
+    transition: opacity 0.2s ease;
 }
 
 .media-yt-link:hover {
+    color:   var(--text-secondary);
     opacity: 1;
-    color: var(--text-secondary);
 }
 
 /* 
@@ -872,9 +876,9 @@ EXPERIENCE - DETAIL PANEL
 
 /* Hidden by default — expands on card click */
 .experience-detail {
+    width:      100%;
     display:    none;
     margin-top: 2rem;
-    width:      100%;
 }
 
 .experience-detail.open {
@@ -891,8 +895,8 @@ EXPERIENCE - DETAIL PANEL
 }
 
 .detail-header {
-    margin-bottom: 1.5rem;
     text-align:    left;
+    margin-bottom: 1.5rem;
 }
 
 .detail-header h3 {
@@ -907,12 +911,11 @@ EXPERIENCE - DETAIL PANEL
 
 /* Text left, media right */
 .detail-body {
-    gap:     1rem;
-    /* flex:    1 1 0;  /* Grow and shrink to fill remaining space */
-    display: flex;
-    flex-direction: row;    /* Two columns, side by side */
-    align-items: flex-start;
-    width: 100%;
+    gap:            1rem;
+    width:          100%;
+    display:        flex;
+    align-items:    flex-start;
+    flex-direction: row; /* Two columns, side by side */
 }
 
 .detail-body .text-detail {
@@ -922,59 +925,148 @@ EXPERIENCE - DETAIL PANEL
 
 /* Tools, outgoing links, media tiles */
 .detail-right {
-    display:        flex;
-    flex-shrink:    0;
-    flex-direction: column;
     gap:            1rem;
     width:          55%;      /* Let content determine width either side */
+    display:        flex;
+    flex-shrink:    0;
     align-items:    flex-end; /* Pushes everything to the right */
+    flex-direction: column;
 }
 
 /* Media grid to the right of text */
 .detail-media {
     gap:                   1rem;
+    width:                 100%;
     display:               grid;
     align-content:         start;
     justify-content:       end;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 200px)); /* cap tile max width */
-    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 200px)); /* Cap tile max width */
 }
 
+.detail-right-scec {
+    gap:            1rem;
+    width:          56%; /* A little extra room here */
+    display:        flex;
+    flex-shrink:    0;
+    align-items:    flex-end;
+    flex-direction: column;
+}
+
+.detail-media-scec {
+    gap:                   1rem;
+    width:                 100%;
+    display:               grid;
+    align-content:         start;
+    justify-content:       end;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 165px)); /* A little smaller, so we can fit 4 across */
+} 
+
 .detail-tags-row {
-    display:     flex;
-    flex-wrap:   wrap;
-    gap:         0.5rem;
-    align-items: center;
+    gap:             0.5rem;
+    display:         flex;
+    flex-wrap:       wrap;
+    align-items:     center;
     justify-content: flex-end; /* Tools + outgoing link bubble in one row on the right */
 }
 
-
 /* For Experience and Projects details (tools and languages) */
 .detail-tags {
+    gap:       0.5rem;
     display:   flex;
     flex-wrap: wrap;
-    gap:       0.5rem;
 }
 
 .detail-tag {
     color:          var(--text-muted);
-    font-size:      1.10rem;
-    font-family:    var(--font-lato);
-    padding:        0.15rem 0.65rem;
-    background:     var(--bg-secondary);
-    /* border-radius:  20px; */
     border:         1px solid rgba(255, 255, 255, 0.18);
-    box-shadow:     0 16px 20px rgba(0, 0, 0, 0.8);
-    letter-spacing: 0.05em;
     opacity:        0.7;
+    padding:        0.15rem 0.65rem;
+    font-size:      1.10rem;
+    background:     var(--bg-secondary);
+    box-shadow:     0 16px 20px rgba(0, 0, 0, 0.8);
+    font-family:    var(--font-lato);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
 .detail-tag:hover {
-    color:  var(--text-primary);
+    color:       var(--text-primary);
+    border:      1px solid rgba(255, 255, 255, 0.345);
     font-weight: var(--weight-light);
-    border: 1px solid rgba(255, 255, 255, 0.345);
 }
+
+/* _____________________________________________________________________ */
+
+.comparison-slider {
+    position:      relative;
+    overflow:      hidden;
+    border-radius: 2%;
+    aspect-ratio:  1 / 1;
+    cursor:        ew-resize;
+}
+
+.comparison-before,
+.comparison-after {
+    position:   absolute;
+    top:        0;
+    left:       0;
+    width:      100%;
+    height:     100%;
+}
+
+.comparison-before img,
+.comparison-after img {
+    width:      100%;
+    height:     100%;
+    object-fit: cover;
+    display:    block;
+}
+
+.comparison-after {
+    clip-path: inset(0 50% 0 0); /* right half hidden by default */
+}
+
+.comparison-divider {
+    position:         absolute;
+    top:              0;
+    left:             50%;
+    width:            2px;
+    height:           100%;
+    background:       var(--text-primary);
+    transform:        translateX(-50%);
+    pointer-events:   none;
+}
+
+.comparison-range {
+    position:   absolute;
+    top:        0;
+    left:       0;
+    width:      100%;
+    height:     100%;
+    opacity:    0;
+    cursor:     ew-resize;
+    margin:     0;
+}
+
+.comparison-label {
+    position:      absolute;
+    bottom:        0.5rem;
+    font-size:     0.85rem;
+    font-family:   var(--font-lato);
+    font-weight:   var(--weight-regular);
+    color:         var(--text-primary);
+    background:    rgba(0, 0, 0, 0.5);
+    padding:       0.15rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.comparison-label-left  { left:  0.5rem; }
+.comparison-label-right { right: 0.5rem; }
+
+/* _____________________________________________________________________ */
 
 /* 
 =========================================================
@@ -997,8 +1089,6 @@ PROJECTS MAIN
     display:               grid;
     padding:               3rem 0rem 1.5rem;
     max-width:             var(--max-width);
-    /* grid-template-columns: repeat(2, 1fr); /* 2x2 */
-    /* grid-template-columns: repeat(4, 1fr); /* 4x1 */
     grid-template-columns: repeat(5, 1fr); /* 5x1 */
 }
 
@@ -1011,8 +1101,8 @@ PROJECTS MAIN
 }
 
 #projects-grid .card:hover img {
-    filter:      brightness(1); /* Brighten on hover */
-    transform:   scale(1.05);   /* Zoom on hover */
+    filter:    brightness(1); /* Brighten on hover */
+    transform: scale(1.05);   /* Zoom on hover */
 }
 
 /* 
@@ -1037,12 +1127,12 @@ WORK IN PROGRESS
 */
 
 #work-in-progress .detail-header h3 {
-    color: var(--text-primary);
+    color:       var(--text-primary);
     line-height: 1.3;
 }
 
 #work-in-progress .detail-header h4 {
-    color: var(--text-muted);
+    color:       var(--text-muted);
     line-height: 1.3;
 }
 
