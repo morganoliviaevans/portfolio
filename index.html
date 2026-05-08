@@ -24,7 +24,7 @@
                     <li><a href="#about"> About </a></li>
                     <li><a href="#experience-landing"> Experience </a></li>
                     <li><a href="#projects-landing"> Projects </a></li>
-                    <li><a href="#work-in-progress"> Publications </a></li>
+                    <li><a href="#publications"> Publications </a></li>
                 </ul>
                 <!-- ===== CONTACT LIST (HEADER) ===== -->
                 <div class="nav-icons">
@@ -390,12 +390,6 @@
                                     <a href="media/experience/access/access.png" class="glightbox media-item">
                                         <img src="media/experience/access/access-cover.png" alt="Ice sheet model visualization" />
                                     </a>
-                                    <!-- <a href="media/experience/access/pre-concurrency.png" class="glightbox media-item">
-                                        <img src="media/experience/access/pre-concurrency.png" alt="Pre-concurrency" />
-                                    </a>
-                                    <a href="media/experience/access/post-concurrency.png" class="glightbox media-item">
-                                        <img src="media/experience/access/post-concurrency.png" alt="Post-concurrency" />
-                                    </a> -->
                                     <!-- Before/after slider -->
                                     <div class="comparison-slider">
                                         <div class="comparison-before">
@@ -504,36 +498,48 @@
             <main class="grid-main">
                 <section id="projects-grid">
                     <a class="card projects-card" data-target="detail-bithacks"> 
-                        <img src="media/projects/con-e.png" alt="BITHACKS" /> 
+                        <img src="media/projects/bithacks.png" alt="Bithacks" /> 
                     </a>
-                    <a href="#work-in-progress" class="card">
-                        <img src="media/projects/low-level.jpeg" alt="ATmega32" />
+                    <a class="card projects-card" data-target="detail-audio"> 
+                        <img src="media/projects/low-level.jpeg" alt="Audio" /> 
+                    </a>
+                    <a class="card projects-card" data-target="detail-neopixel"> 
+                        <img src="media/projects/neopixel.png" alt="Neopixel" /> 
+                    </a>
+                    <a class="card projects-card" data-target="detail-glee"> 
+                        <img src="media/projects/nasa-glee.jpeg" alt="NASA GLEE" /> 
+                    </a>
+                    <a class="card projects-card" data-target="detail-audio"> 
+                        <img src="media/projects/nasa-minds.png" alt="NASA MINDS" /> 
+                    </a>
+                    <!-- <a href="#work-in-progress" class="card">
+                        <img src="media/projects/low-level-cover.jpeg" alt="ATmega32" />
                         <div class="projects-title">
                             <h2>ATmega32 Audio Feedback Device</h2>
                         </div>
                         <p class="projects-text"> Embedded Systems</p>
-                    </a>
-                    <a href="#work-in-progress" class="card">
+                    </a> -->
+                    <!-- <a href="#work-in-progress" class="card">
                         <img src="media/projects/neopixel.png" alt="Neopixel" />
                         <div class="projects-title">
                             <h2>ESP32 Motion-activated Cat Toy</h2>
                         </div>
                         <p class="projects-text"> Embedded Systems</p>
-                    </a>
-                    <a href="#work-in-progress" class="card">
+                    </a> -->
+                    <!-- <a href="#work-in-progress" class="card">
                         <img src="media/projects/nasa-glee.jpeg" alt="NASA GLEE" />
                         <div class="projects-title">
                             <h2>LunaSat Device</h2>
                         </div>
                         <p class="projects-text"> NASA GLEE · Embedded Systems</p>
-                    </a>
-                    <a href="#work-in-progress" class="card">
+                    </a> -->
+                    <!-- <a href="#work-in-progress" class="card">
                         <img src="media/projects/nasa-minds.png" alt="NASA MINDS" />
                         <div class="projects-title">
                             <h2>Lunar Dust Repellency</h2>
                         </div>
                         <p class="projects-text"> NASA MINDS · Materials Research</p>
-                    </a>
+                    </a> -->
                 </section>
 
                 <!-- These classes need to be adjusted for projects landing or merged with experience -->
@@ -571,12 +577,69 @@
                                     </a>
                                 </div>
                                 <div class="detail-media">
+                                    <a href="media/projects/bithacks/self.png" class="glightbox media-item">
+                                        <img src="media/projects/bithacks/self-cover.png" alt="Morgan with CON-E" />
+                                    </a>
                                     <div class="media-item-video">
                                         <a href="https://youtu.be/x9RpbLjtsWk" class="glightbox">
-                                            <img src="https://img.youtube.com/vi/x9RpbLjtsWk/maxresdefault.jpg" alt="Bithacks" />
+                                            <img src="media/projects/bithacks/bithacks.gif" alt="Bithacks" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
                                         <a href="https://youtu.be/mB1M_Rw7u4M" target="_blank" class="media-yt-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                    <a href="media/projects/bithacks/bithacks-team.png" class="glightbox media-item">
+                                        <img src="media/projects/bithacks/bithacks-team-cover.png" alt="Team with CON-E" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ATMEGA32 -->
+                    <div class="projects-detail-panel" id="detail-audio">
+                        <div class="detail-header">
+                            <h3>ATmega32 Audio Feedback Device</h3>
+                            <h4>Embedded Systems · May 2025</h4>
+                        </div>
+                        <div class="detail-body">
+                            <!-- LEFT: text only -->
+                            <div class="text-detail">
+                                <p>Developed an embedded system using an ATmega32 microcontroller, discrete LEDs, and a sound decibel detector to 
+                                provide real-time visual feedback for ambient sound levels. The device is designed to help gamers—often unaware 
+                                of their volume due to noise-canceling headphones—self-regulate their speaking volume using intuitive LED cues. 
+                                Future plans include migrating to a LilyGo MCU for WS2812 LED strip integration, adding a USB-C power interface, 
+                                and developing a reward-based sound history tracking system.</p>
+
+                                <ul class="text-list">
+                                    <li>Green, yellow, and red LEDs represent real-time volume levels</li>
+                                    <li>A flashing RGB LED activates in full white after prolonged or repeated high-volume detection</li>
+                                    <li>Designed custom circuit and audio input handling in C, with a 3D-printed enclosure and regulated power system</li>
+                                </ul>
+                            </div>
+                            <!-- RIGHT: tags + links + media -->
+                            <div class="detail-right">
+                                <div class="detail-tags-row">
+                                    <div class="detail-tags">
+                                        <span class="detail-tag">C</span>
+                                        <span class="detail-tag">ATMega32</span>
+                                        <span class="detail-tag">Embedded</span>
+                                    </div>
+                                    <a href="https://github.com/morganoliviaevans/cs-145-project" target="_blank" class="outgoing-link-bubble">
+                                        <i class="fa-brands fa-github"></i> GitHub
+                                    </a>
+                                </div>
+                                <div class="detail-media">
+                                    <a href="media/projects/atmega32/all-levels.png" class="glightbox media-item">
+                                        <img src="media/projects/atmega32/low-level-cover.png" alt="ATMega32" />
+                                    </a>
+                                    <div class="media-item-video">
+                                        <a href="https://youtu.be/shorts/fyeoDqoIOzc" class="glightbox">
+                                            <img src="media/projects/atmega32/all-levels.gif" alt="ATMega32" />
+                                            <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
+                                        </a>
+                                        <a href="https://youtu.be/shorts/fyeoDqoIOzc" target="_blank" class="media-yt-link">
                                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                         </a>
                                     </div>
