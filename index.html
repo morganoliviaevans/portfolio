@@ -503,36 +503,15 @@
                     <a class="card projects-card" data-target="detail-audio"> 
                         <img src="media/projects/low-level.jpeg" alt="Audio" /> 
                     </a>
-                    <a class="card projects-card" data-target="detail-neopixel"> 
+                    <a class="card projects-card" data-target="detail-cat-toy"> 
                         <img src="media/projects/neopixel.png" alt="Neopixel" /> 
                     </a>
                     <a class="card projects-card" data-target="detail-glee"> 
                         <img src="media/projects/nasa-glee.jpeg" alt="NASA GLEE" /> 
                     </a>
-                    <a class="card projects-card" data-target="detail-audio"> 
+                    <a class="card projects-card" data-target="detail-minds"> 
                         <img src="media/projects/nasa-minds.png" alt="NASA MINDS" /> 
                     </a>
-                    <!-- <a href="#work-in-progress" class="card">
-                        <img src="media/projects/low-level-cover.jpeg" alt="ATmega32" />
-                        <div class="projects-title">
-                            <h2>ATmega32 Audio Feedback Device</h2>
-                        </div>
-                        <p class="projects-text"> Embedded Systems</p>
-                    </a> -->
-                    <!-- <a href="#work-in-progress" class="card">
-                        <img src="media/projects/neopixel.png" alt="Neopixel" />
-                        <div class="projects-title">
-                            <h2>ESP32 Motion-activated Cat Toy</h2>
-                        </div>
-                        <p class="projects-text"> Embedded Systems</p>
-                    </a> -->
-                    <!-- <a href="#work-in-progress" class="card">
-                        <img src="media/projects/nasa-glee.jpeg" alt="NASA GLEE" />
-                        <div class="projects-title">
-                            <h2>LunaSat Device</h2>
-                        </div>
-                        <p class="projects-text"> NASA GLEE · Embedded Systems</p>
-                    </a> -->
                     <!-- <a href="#work-in-progress" class="card">
                         <img src="media/projects/nasa-minds.png" alt="NASA MINDS" />
                         <div class="projects-title">
@@ -556,8 +535,9 @@
                             <!-- LEFT: text only -->
                             <div class="text-detail">
                                 <p>CON-E is a computer vision-enabled robotic traffic cone that autonomously tracks orange objects (like other cones or safety vests). 
-                                This project was built in 2 days at UCI's first ever Embedded Systems Hackathon, BitHacks 2025, where it was awarded Best Meme Hack.</p>
-                                
+                                This project was built in 2 days at UCI's first ever Embedded Systems Hackathon, <a href="https://devpost.com/software/con-e?_gl=1*5m1v9d*_gcl_au*MTg3NjE3MTc0MC4xNzc3MjUwMDg4*_ga*MTE2MTcwNDkxNS4xNzc3MjUwMDg4*_ga_0YHJK3Y10M*czE3Nzg0NjgxNzgkbzMkZzEkdDE3Nzg0NjgxOTUkajQzJGwwJGgw" 
+                                target="_blank" class="outgoing-link">BitHacks 2025</a>, where it was awarded Best Meme Hack.</p>
+
                                 <p>The system combines a Raspberry Pi for vision processing with an ESP32-S3 controlling mobility, audio, 
                                 and LED-based expression. I specialized in the embedded hardware architecture, custom 3D-printed chassis, physical internal and external components, and 
                                 power design (all under strict budget constraints set by the hackathon). I also collaborated on embedded-software and firmware design.</p>
@@ -606,11 +586,12 @@
                         <div class="detail-body">
                             <!-- LEFT: text only -->
                             <div class="text-detail">
-                                <p>Developed an embedded system using an ATmega32 microcontroller, discrete LEDs, and a sound decibel detector to 
-                                provide real-time visual feedback for ambient sound levels. The device is designed to help gamers—often unaware 
-                                of their volume due to noise-canceling headphones—self-regulate their speaking volume using intuitive LED cues. 
-                                Future plans include migrating to a LilyGo MCU for WS2812 LED strip integration, adding a USB-C power interface, 
-                                and developing a reward-based sound history tracking system.</p>
+                                <p>After repeatedly failing at regulating my husband's gaming volume, I created an embedded system using an 
+                                ATmega32 microcontroller, discrete LEDs, and a sound decibel detector to provide real-time visual feedback 
+                                for ambient sound levels. The device is designed to help gamers, who are often unaware of their volume due to 
+                                noise-canceling headphones, to self-regulate their speaking volume using intuitive LED cues. Future plans include 
+                                migrating to a LilyGo MCU for WS2812 LED strip integration, adding a USB-C power interface, and developing 
+                                a reward-based sound history tracking system.</p>
 
                                 <ul class="text-list">
                                     <li>Green, yellow, and red LEDs represent real-time volume levels</li>
@@ -635,11 +616,11 @@
                                         <img src="media/projects/atmega32/low-level-cover.png" alt="ATMega32" />
                                     </a>
                                     <div class="media-item-video">
-                                        <a href="https://youtu.be/shorts/fyeoDqoIOzc" class="glightbox">
+                                        <a href="https://www.youtube.com/watch?v=fyeoDqoIOzc" class="glightbox">
                                             <img src="media/projects/atmega32/all-levels.gif" alt="ATMega32" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
-                                        <a href="https://youtu.be/shorts/fyeoDqoIOzc" target="_blank" class="media-yt-link">
+                                        <a href="https://youtube.com/shorts/fyeoDqoIOzc" target="_blank" class="media-yt-link">
                                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                         </a>
                                     </div>
@@ -647,6 +628,120 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- ESP32 -->
+                    <div class="projects-detail-panel" id="detail-cat-toy">
+                        <div class="detail-header">
+                            <h3>ESP32 Motion-activated Cat Toy</h3>
+                            <h4>Embedded Systems · December 2024</h4>
+                        </div>
+                        <div class="detail-body">
+                            <!-- LEFT: text only -->
+                            <div class="text-detail">
+                                <p>Designed and built a motion-activated motorized cat toy using an ESP32 LilyGo microcontroller, 
+                                integrating motor control, a speaker, LED, and accelerometer to drive autonomous state logic and 
+                                interactive play.</p>
+                                
+                                <p>All embedded behavior was programmed in C++, with motion detection triggering 
+                                dynamic responses based on programmed thresholds. The embedded system was contained in a custom 
+                                3D-printed spherical enclosure and internal component housing, and featured interchangeable attachments.</p>
+                            </div>
+                            <!-- RIGHT: tags + links + media -->
+                            <div class="detail-right">
+                                <div class="detail-tags-row">
+                                    <div class="detail-tags">
+                                        <span class="detail-tag">C++</span>
+                                        <span class="detail-tag">ESP32</span>
+                                        <span class="detail-tag">Embedded</span>
+                                    </div>
+                                    <a href="https://github.com/morganoliviaevans/cs-147-project" target="_blank" class="outgoing-link-bubble">
+                                        <i class="fa-brands fa-github"></i> GitHub
+                                    </a>
+                                </div>
+                                <div class="detail-media">
+                                    <a href="media/projects/esp32/esp32-design.png" class="glightbox media-item">
+                                        <img src="media/projects/esp32/esp32-design-cover.png" alt="ESP32" />
+                                    </a>
+                                    <!-- Gallery 1 -->
+                                    <a href="media/projects/esp32/hardware-housing1.png"
+                                        class="glightbox media-item" 
+                                        data-gallery="esp32-media">
+                                        <img src="media/projects/esp32/hardware-housing-cover.png" alt="ESP32 Hardware Housing" />
+                                    </a>
+                                    <!-- Hidden gallery items — images 2 through 4 -->
+                                    <a href="media/projects/esp32/hardware-housing2.png"  class="glightbox" data-gallery="esp32-media" style="display:none;"></a>
+                                    <a href="media/projects/esp32/hardware-housing3.png"  class="glightbox" data-gallery="esp32-media" style="display:none;"></a>
+                                    <a href="media/projects/esp32/stls.png"  class="glightbox" data-gallery="esp32-media" style="display:none;"></a>
+
+                                    <div class="media-item-video">
+                                        <a href="https://youtu.be/WbrV01EbhwA" class="glightbox">
+                                            <img src="media/projects/esp32/esp32.gif" alt="ESP32" />
+                                            <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
+                                        </a>
+                                        <a href="https://youtu.be/5Dz7GZrXhy0" target="_blank" class="media-yt-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                                        <!-- ESP32 -->
+                    <div class="projects-detail-panel" id="detail-glee">
+                        <div class="detail-header">
+                            <h3>LunaSat Device</h3>
+                            <h4>Embedded Systems · May 2022 – Jun 2023</h4>
+                        </div>
+                        <div class="detail-body">
+                            <!-- LEFT: text only -->
+                            <div class="text-detail">
+                                <p>The NASA GLEE project is a student-led initiative run through NASA's Artemis mission, giving students 
+                                worldwide the opportunity to build, design, and program a LunaSat — a small spacecraft equipped with an 
+                                integrated sensor suite for gathering temperature, magnetic field, and inertial measurement data on the 
+                                lunar surface. Once deployed, each LunaSat operates on the Moon for approximately 56 Earth days, 
+                                transmitting sensor readings back to teams for processing and archival in NASA's research database.</p>
+
+                                <p>As one of my earliest technical experiences, I worked as part of a small team to assemble, test, 
+                                and program our LunaSat using Arduino and C++. At the time, none of us had yet been introduced to 
+                                version control or collaborative development workflows — we were learning what it meant to work 
+                                on a technical project as a team entirely from scratch. Looking back, it was a foundational 
+                                experience that sparked my interest in both space systems and hands-on hardware development.</p>
+                            </div>
+                            <!-- RIGHT: tags + links + media -->
+                            <div class="detail-right">
+                                <div class="detail-tags-row">
+                                    <div class="detail-tags">
+                                        <span class="detail-tag">C++</span>
+                                        <span class="detail-tag">Arduino</span>
+                                    </div>
+                                </div>
+                                <div class="detail-media">
+                                    <!-- Gallery 1 -->
+                                    <a href="media/projects/nasa-glee/lunasat-2.jpg"
+                                        class="glightbox media-item" 
+                                        data-gallery="lunasat-media">
+                                        <img src="media/projects/nasa-glee/lunasat-2.jpg" alt="Lunasat" />
+                                    </a>
+                                    <!-- Hidden gallery items — image 2 -->
+                                    <a href="media/projects/nasa-glee/lunasat-1.jpg"  class="glightbox" data-gallery="lunasat-media" style="display:none;"></a>
+
+                                    <div class="media-item-video">
+                                        <a href="https://www.youtube.com/watch?v=aHxeZxGVyVQ" class="glightbox">
+                                            <img src="https://img.youtube.com/vi/aHxeZxGVyVQ/maxresdefault.jpg" alt="ESP32" />
+                                            <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v=aHxeZxGVyVQ" target="_blank" class="media-yt-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </main>
         </section>

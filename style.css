@@ -747,6 +747,7 @@ EXPERIENCE MAIN
 }
 
 #experience-grid .card:hover img {
+    cursor:    pointer;
     opacity:   1;
     transform: scale(1.05);
 }
@@ -1123,6 +1124,7 @@ PROJECTS MAIN
 }
 
 #projects-grid .card:hover img {
+    cursor:    pointer;
     filter:    brightness(1); /* Brighten on hover */
     transform: scale(1.05);   /* Zoom on hover */
 }
@@ -1168,7 +1170,7 @@ CONTACT LIST (FOOTER)
     gap:             1.75rem; 
     margin:          0 auto;
     display:         flex;
-    padding:         1rem 0rem 0rem; 
+    padding:         1rem 0rem 1rem; 
     align-items:     center;
     justify-content: center;
 }
