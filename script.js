@@ -12,19 +12,25 @@ NAV
 =========================================================
 */
 
-const about               = document.querySelector('#about');
-const experienceLanding   = document.querySelector('#experience-landing');
-const projectsLanding     = document.querySelector('#projects-landing');
-const publications        = document.querySelector('#work-in-progress');
+const about             = document.querySelector('#about');
+const experienceLanding = document.querySelector('#experience-landing');
+const projectsLanding   = document.querySelector('#projects-landing');
 
 const navLinks = {
-    about:        document.querySelector('a[href="#about"]'),
-    experience:   document.querySelector('a[href="#experience-landing"]'),
-    projects:     document.querySelector('a[href="#projects-landing"]'),
-    publications: document.querySelector('a[href="#work-in-progress"]')
+    about:      document.querySelector('a[href="#about"]'),
+    experience: document.querySelector('a[href="#experience-landing"]'),
+    projects:   document.querySelector('a[href="#projects-landing"]'),
 };
 
-let lastScroll = 0;
+const landingScrollIndicator   = document.querySelector('.landing-scroll-indicator');
+const aboutScrollIndicator     = document.querySelector('.about-scroll-indicator');
+const navHome                  = document.querySelector('.nav-home a');
+const OFFSET                   = 200; // How many pixels before a section top to trigger nav-active 
+
+const experienceClickIndicator = document.querySelector('.experience-click-indicator');
+const projectsClickIndicator   = document.querySelector('.projects-click-indicator');
+
+let lastScroll   = 0;
 let ignoreScroll = false; // Suppress scroll logic after a click
 
 // Remove nav-active from all links, then apply to the current one
@@ -35,60 +41,72 @@ function setActiveLink(active) {
     }
 }
 
-/* On click — show nav immediately and suppress scroll logic briefly */
+// On click — show nav immediately and suppress scroll logic briefly
 document.querySelectorAll('nav ul li a').forEach(link => {
+
     link.addEventListener('click', () => {
-        ignoreScroll = true;
-        showNav();
+        /* Set nav-active based on which link was clicked */
+        const href = link.getAttribute('href');
+
+        if (href === '#about') {
+            setActiveLink('about');
+        } else if (href === '#experience-landing') {
+            setActiveLink('experience');
+        } else if (href === '#projects-landing') {
+            setActiveLink('projects');
+        } else { setActiveLink(null); }
+
         setTimeout(() => { ignoreScroll = false; }, 800);
     });
 });
 
-// Note: We are only allowed one 'scroll' event listener
+/* 
+=========================================================
+SCROLL INDICATOR
+=========================================================
+*/
+
 window.addEventListener('scroll', () => {
 
     if (ignoreScroll) return;
 
-    const currentScroll   = window.scrollY;
-    const aboutTop        = about.offsetTop;
-    const experienceTop   = experienceLanding.offsetTop;
-    const projectsTop     = projectsLanding.offsetTop;
-    const publicationsTop = publications.offsetTop;
-
-    // On a section landing — always show nav
-    const onSectionLanding = (
-        (currentScroll >= experienceTop && currentScroll < experienceTop + experienceLanding.offsetHeight) ||
-        (currentScroll >= projectsTop   && currentScroll < projectsTop   + projectsLanding.offsetHeight)
-    );
+    const currentScroll = window.scrollY;
+    const aboutTop      = about.offsetTop;
+    const experienceTop = experienceLanding.offsetTop;
+    const projectsTop   = projectsLanding.offsetTop;
 
     // Separately, nav-active based on section
-    if (currentScroll >= publicationsTop) {
-        setActiveLink('publications');
-    } else if (currentScroll >= projectsTop) {
+    if (currentScroll >= projectsTop - OFFSET) {
         setActiveLink('projects');
-    } else if (currentScroll >= experienceTop) {
+        navHome.classList.add('nav-home-inactive');      // Muted home icon
+    } else if (currentScroll >= experienceTop - OFFSET) {
         setActiveLink('experience');
-    } else if (currentScroll >= aboutTop) {
+        navHome.classList.add('nav-home-inactive');      // Muted home icon
+    } else if (currentScroll >= aboutTop - OFFSET) {
         setActiveLink('about');
+        navHome.classList.add('nav-home-inactive');      // Muted home icon
     } else {
         setActiveLink(null);
+        navHome.classList.remove('nav-home-inactive');   // On landing — back to gold home icon
     }
     lastScroll = currentScroll;
-});
 
-/* 
-=========================================================
-LANDING
-=========================================================
-*/
-
-const scrollIndicator = document.querySelector('.scroll-indicator');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        scrollIndicator.classList.add('hidden');
+    // Landing scroll indicator
+    if (currentScroll > 100) {
+        landingScrollIndicator.classList.add('hidden');
     } else {
-        scrollIndicator.classList.remove('hidden');
+        landingScrollIndicator.classList.remove('hidden');
+    }
+
+    // About scroll indicator
+    const aboutHeight = about.offsetHeight;
+
+    if (currentScroll > experienceTop - 600) {           // If we are past the About section
+        aboutScrollIndicator.classList.add('hidden');    // Hide the scroll feature
+    } else if (currentScroll > aboutTop) {               // If we are in the About section
+        aboutScrollIndicator.classList.remove('hidden'); // Show the scroll feature
+    } else {
+        aboutScrollIndicator.classList.add('hidden');    // Else, if we are anywhere else, hide it
     }
 });
 
@@ -108,25 +126,27 @@ experienceCards.forEach(card => {
         const targetPanel   = document.getElementById(targetId);
         const isAlreadyOpen = card.classList.contains('card-active');
 
-        /* Reset all cards to grayscale */
+        // Reset all cards to grayscale
         experienceCards.forEach(c => {
             c.classList.remove('card-active');
             c.classList.add('card-inactive');
         });
 
-        /* Hide all panels */
+        // Hide all panels
         detailPanels.forEach(p => p.classList.remove('active'));
 
         if (isAlreadyOpen) {
-            /* Clicking active card — collapse everything */
+            // Clicking active card — collapse everything
             experienceDetail.classList.remove('open');
             experienceCards.forEach(c => c.classList.remove('card-inactive'));
+            experienceClickIndicator.classList.remove('hidden'); // Show click indicator when collapsed
         } else {
-            /* Open clicked card's panel */
+            // Open clicked card's panel
             card.classList.remove('card-inactive');
             card.classList.add('card-active');
             targetPanel.classList.add('active');
             experienceDetail.classList.add('open');
+            experienceClickIndicator.classList.add('hidden'); // Hide click indicator when a card is opened
         }
     });
 });
@@ -147,25 +167,27 @@ projectsCards.forEach(card => {
         const targetPanel   = document.getElementById(targetId);
         const isAlreadyOpen = card.classList.contains('card-active');
 
-        /* Reset all cards to grayscale */
+        // Reset all cards to grayscale
         projectsCards.forEach(c => {
             c.classList.remove('card-active');
             c.classList.add('card-inactive');
         });
 
-        /* Hide all panels */
+        // Hide all panels
         projectsDetailPanels.forEach(p => p.classList.remove('active'));
 
         if (isAlreadyOpen) {
-            /* Clicking active card — collapse everything */
+            // Clicking active card — collapse everything
             projectsDetail.classList.remove('open');
             projectsCards.forEach(c => c.classList.remove('card-inactive'));
+            projectsClickIndicator.classList.remove('hidden'); // Show click indicator when collapsed
         } else {
-            /* Open clicked card's panel */
+            // Open clicked card's panel
             card.classList.remove('card-inactive');
             card.classList.add('card-active');
             targetPanel.classList.add('active');
             projectsDetail.classList.add('open');
+            projectsClickIndicator.classList.add('hidden'); // Hide click indicator when a card is opened
         }
     });
 });
@@ -186,3 +208,7 @@ document.querySelectorAll('.comparison-slider').forEach(slider => {
         divider.style.left    = `${val}%`;
     });
 });
+
+// // Save for DEBUG
+// // About scroll indicator
+// console.log('scrollY:', currentScroll, 'aboutTop:', aboutTop, 'aboutBottom:', aboutTop + about.offsetHeight);

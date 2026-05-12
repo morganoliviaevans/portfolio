@@ -16,15 +16,17 @@ CSS VARIABLES — DESIGN TOKENS
 :root {
     /* Colors */
     --bg-primary:       #121212;
-    --bg-secondary:     #1e1e1e;
-    --bg-surface:       #414141;
+    --bg-secondary:     #242424;
+    --bg-nav:           #12121239;
     --text-primary:     #FAFAFA;
-    --text-secondary:   #c2c2c2;
-    --text-muted:       #63656e;
-    --accent-muted:     #4d4d4d;
+    --text-secondary:   #d6dcd7;
+    --text-paragraph:   #a1a5a1;
+    --text-muted:       #7d807e;
     --gold:             #FAC658;
     --blue:             #0098d9;
-    --teal:             #46718B;
+    --blue-muted:       #25779a;
+    --teal:             #00838F;
+    --teal-muted:       #1b494d;
 
     /* Typography */
     --font-lato:      'Lato', sans-serif;
@@ -49,13 +51,13 @@ RESET & BASE
 */
 
 *, *::before, *::after {
-    margin:     0;
-    padding:    0;
+    margin:  0;
+    padding: 0;
 }
 
 html {
+    font-size: 14px;         /* Scale down, default is 16px */
     scroll-behavior: smooth;
-    font-size: 14px; /* scale down, default is 16px */
 }
 
 body {
@@ -116,13 +118,9 @@ h3 {
 
 h4 {
     font-size:      1.3rem;
-    font-weight:    var(--weight-regular);
+    font-weight:    var(--weight-light);
     font-family:    var(--font-lato);
     text-transform: uppercase;
-}
-
-b {
-    font-weight: var(--weight-regular);
 }
 
 /* Container rules */
@@ -133,7 +131,7 @@ b {
 
 /* Paragraph specific rules */
 .text-detail p {
-    color:          var(--text-secondary);
+    color:          var(--text-paragraph);
     font-size:      1.3rem;
     font-family:    var(--font-roboto);
     line-height:    1.5rem;
@@ -145,9 +143,9 @@ b {
 
 /* Target only the list in text */
 .text-list {
-    color:               var(--text-secondary);
+    color:               var(--text-paragraph);
     font-family:         var(--font-roboto);
-    font-weight:         var(--weight-thin);
+    font-weight:         var(--weight-light);
     line-height:         1.5rem;
     padding-left:        2rem;            /* Indents the list */
     margin-bottom:       1rem;
@@ -213,11 +211,11 @@ section {
 }
 
 .outgoing-link {
-    color: var(--text-primary);
+    color: var(--text-secondary);
 }
 
 .outgoing-link:hover {
-    color: var(--blue);
+    color: var(--gold);
 }
 
 .outgoing-link-bubble {
@@ -240,14 +238,14 @@ section {
     text-decoration: none;
 
     /* Visual */
-    background: var(--blue);
+    background: var(--blue-muted);
     box-shadow: 0 16px 20px rgba(0, 0, 0, 0.8);
 }
 
 .outgoing-link-bubble:hover {
     color:         var(--text-primary);
     transform:     translateY(2px);
-    background:    var(--gold);
+    background:    var(--blue);
 }
 
 .link-wrapper {
@@ -325,7 +323,7 @@ header {
     align-items:             center;
     border-bottom:           none;
     backdrop-filter:         blur(12px);
-    background-color:       #121212a4;
+    background-color:        var(--bg-nav);
     -webkit-backdrop-filter: blur(12px);
 }
 
@@ -340,14 +338,18 @@ nav {
 }
 
 .nav-home {
-    color:       var(--text-secondary);
+    color:       var(--gold);
     font-size:   1.5rem;
     font-weight: var(--weight-regular);
 }
 
 .nav-home:hover {
-    color: var(--blue);
+    color:     var(--blue);
     transform: translateY(2px);
+}
+
+.nav-home-inactive {
+    color: var(--text-secondary);
 }
 
 nav ul {
@@ -397,7 +399,7 @@ CONTACT LIST (HEADER)
 }
 
 .nav-icons a:hover {
-    color:     var(--gold);
+    color:     var(--blue);
     transform: translateY(2px);
 }
 
@@ -457,76 +459,6 @@ LANDING
     flex-direction: column;
 }
 
-.scroll-indicator {
-    gap:            0.5rem;
-    left:           50%;
-    bottom:         2.5rem;
-    opacity:        1;
-    display:        flex;
-    position:       absolute;
-    transform:      translateX(-50%);
-    transition:     opacity 0.4s ease;
-    align-items:    center;
-    flex-direction: column;
-}
-
-.scroll-indicator.hidden {
-    opacity:        0.4;
-    pointer-events: none;
-}
-
-.scroll-line {
-    width:      0.5px;
-    height:     48px;
-    animation:  bounce-line 1.6s ease-in-out infinite;
-    background: var(--text-muted);
-}
-
-/* Bottom line only bounces — top line is static */
-.scroll-line:first-child {
-    animation: none;
-}
-
-.scroll-text {
-    color:          var(--text-muted);
-    font-size:      1rem;
-    transition:     transform 0.2s ease;
-    font-family:    var(--font-lato);
-    font-weight:    var(--weight-fine);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-}
-
-.scroll-text:hover {
-    color:  var(--gold);
-    cursor: default;
-}
-
-/* Base state */
-.explode {
-    display:     inline-block;
-    font-weight: var(--weight-bold);
-}
-
-/* Base state for each letter */
-.explode span {
-    display:    inline-block; /* Required for transform to work */
-    transition: transform 3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 5s;
-}
-
-/* On hover: Each child span flies in a different direction */
-.explode:hover span:nth-child(1) { transform: translate(-30px, -30px) rotate(-15deg); opacity: 0; }
-.explode:hover span:nth-child(2) { transform: translate(-5px, -25px) rotate(20deg); opacity: 0; }
-.explode:hover span:nth-child(3) { transform: translate(10px, -30px) rotate(-10deg); opacity: 0; }
-.explode:hover span:nth-child(4) { transform: translate(15px, -15px) rotate(15deg); opacity: 0; }
-.explode:hover span:nth-child(5) { transform: translate(5px, -20px) rotate(-10deg); opacity: 0; }
-.explode:hover span:nth-child(6) { transform: translate(20px, -20px) rotate(15deg); opacity: 0; }
-
-@keyframes bounce-line {
-    0%, 100% { transform: scaleY(1);    transform-origin: top; }
-    50%       { transform: scaleY(0.4); transform-origin: top; }
-}
-
 /* 
 =========================================================
 ABOUT
@@ -535,10 +467,11 @@ ABOUT
 
 #about {
     width:       100%;
-    height:      100vh; 
+    min-height:  100vh;
     display:     flex;
     position:    relative;
     align-items: center;
+    padding-bottom: 18rem;
 }
 
 /* Outer card — inherits content-card styles */
@@ -622,7 +555,7 @@ TOOLS
     display:         flex;
     padding:         8px;
     transition:      transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-    background:      rgba(255, 255, 255, 0.05);
+    background:      var(--teal-muted);
     box-shadow:      0 16px 20px rgba(0, 0, 0, 0.8);
     align-items:     center;
     border-radius:   10px;
@@ -640,7 +573,7 @@ TOOLS
 
 .tool-bubble:hover {
     transform:    translateY(2px);
-    background:   rgba(255, 255, 255, 0.1);
+    background:   var(--teal);
     border-color: rgba(255, 255, 255, 0.18);
 }
 
@@ -765,7 +698,6 @@ EXPERIENCE MAIN
 /* Inactive cards — grayscale, dimmed */
 .card-inactive img {
     filter:  grayscale(100%) !important;
-    opacity: 0.4 !important;
 }
 
 /* 
@@ -855,9 +787,9 @@ EXPERIENCE / PROJECTS - DETAIL MEDIA GRID
 
 .media-yt-link {
     right:      0.75rem;
-    color:      var(--text-muted);
+    color:      var(--text-secondary);
     bottom:     0.75rem;
-    opacity:    0.7;
+    opacity:    0.8;
     z-index:    2;
     position:   absolute;
     font-size:  1.5rem;
@@ -865,8 +797,8 @@ EXPERIENCE / PROJECTS - DETAIL MEDIA GRID
 }
 
 .media-yt-link:hover {
-    color:   var(--text-secondary);
-    opacity: 1;
+    color:   var(--text-primary);
+    opacity: 1.5;
 }
 
 /* 
@@ -1013,6 +945,7 @@ EXPERIENCE / PROJECTS - DETAIL PANEL
 .detail-tag:hover {
     color:       var(--text-primary);
     border:      1px solid rgba(255, 255, 255, 0.345);
+    cursor:      default;
     font-weight: var(--weight-light);
 }
 
@@ -1103,7 +1036,9 @@ PROJECTS MAIN
     display:     flex;
     overflow:    visible;
     position:    relative;
-    align-items: center;
+    min-height:  100vh;
+    align-items: flex-start;
+    padding-top: 3.5rem;
 }
 
 #projects-grid {
@@ -1118,7 +1053,6 @@ PROJECTS MAIN
 #projects-grid .card img {
     width:      100%;
     height:     100%;
-    filter:     brightness(0.75);
     object-fit: cover;
     transition: transform 0.4s ease, filter 0.4s ease;
 }
@@ -1146,22 +1080,6 @@ PUBLICATIONS
 
 /* 
 =========================================================
-WORK IN PROGRESS
-=========================================================
-*/
-
-#work-in-progress .detail-header h3 {
-    color:       var(--text-primary);
-    line-height: 1.3;
-}
-
-#work-in-progress .detail-header h4 {
-    color:       var(--text-muted);
-    line-height: 1.3;
-}
-
-/* 
-=========================================================
 CONTACT LIST (FOOTER)
 =========================================================
 */
@@ -1170,7 +1088,7 @@ CONTACT LIST (FOOTER)
     gap:             1.75rem; 
     margin:          0 auto;
     display:         flex;
-    padding:         1rem 0rem 1rem; 
+    padding:         10rem 0rem 1rem; 
     align-items:     center;
     justify-content: center;
 }
@@ -1182,7 +1100,7 @@ CONTACT LIST (FOOTER)
 }
 
 .footer-icons a:hover {
-    color:     var(--gold);
+    color:     var(--blue);
     transform: translateY(2px);
 }
 
@@ -1198,4 +1116,167 @@ CONTACT LIST (FOOTER)
     color:       var(--text-muted);
     font-size:   1.20rem;
     align-items: center;
+}
+
+/* 
+=========================================================
+FUN FEATURES
+=========================================================
+*/
+
+.landing-scroll-indicator {
+    gap:            0.5rem;
+    left:           50%;
+    bottom:         2.5rem;
+    opacity:        1;
+    display:        flex;
+    position:       absolute;
+    transform:      translateX(-50%);
+    transition:     opacity 0.4s ease;
+    align-items:    center;
+    flex-direction: column;
+}
+
+.landing-scroll-indicator.hidden {
+    opacity:        0.4;
+    pointer-events: none;
+}
+
+.about-scroll-indicator {
+    gap:            0.5rem;
+    left:           50%;
+    bottom:         2.5rem;
+    opacity:        1;
+    display:        flex;
+    position:       absolute;
+    transform:      translateX(-50%);
+    transition:     opacity 0.4s ease;
+    align-items:    center;
+    flex-direction: column;
+}
+
+.about-scroll-indicator.hidden {
+    opacity:        0.4;
+    pointer-events: none;
+}
+
+.scroll-line {
+    width:      0.5px;
+    height:     48px;
+    animation:  bounce-line 1.6s ease-in-out infinite;
+    background: var(--text-muted);
+}
+
+/* Bottom line only bounces — top line is static */
+.scroll-line:first-child {
+    animation: none;
+}
+
+.scroll-text {
+    color:          var(--text-muted);
+    font-size:      1rem;
+    transition:     transform 0.2s ease;
+    font-family:    var(--font-lato);
+    font-weight:    var(--weight-fine);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.scroll-text:hover {
+    color:  var(--gold);
+    cursor: default;
+}
+
+/* Base state */
+.explode {
+    display:     inline-block;
+    font-weight: var(--weight-bold);
+}
+
+/* Base state for each letter */
+.explode span {
+    display:    inline-block; /* Required for transform to work */
+    transition: transform 3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 5s;
+}
+
+/* On hover: Each child span flies in a different direction */
+.explode:hover span:nth-child(1) { transform: translate(-30px, -30px) rotate(-15deg); opacity: 0; }
+.explode:hover span:nth-child(2) { transform: translate(-5px, -25px) rotate(20deg); opacity: 0; }
+.explode:hover span:nth-child(3) { transform: translate(10px, -30px) rotate(-10deg); opacity: 0; }
+.explode:hover span:nth-child(4) { transform: translate(15px, -15px) rotate(15deg); opacity: 0; }
+.explode:hover span:nth-child(5) { transform: translate(5px, -20px) rotate(-10deg); opacity: 0; }
+.explode:hover span:nth-child(6) { transform: translate(20px, -20px) rotate(15deg); opacity: 0; }
+
+@keyframes bounce-line {
+    0%, 100% { transform: scaleY(1);    transform-origin: top; }
+    50%       { transform: scaleY(0.4); transform-origin: top; }
+}
+
+.click-indicator {
+    gap:            0.5rem;
+    top:            30rem;
+    left:           50%;
+    opacity:        1;
+    display:        flex;
+    position:       absolute;
+    transform:      translateX(-50%);
+    transition:     opacity 0s ease;
+    align-items:    center;
+    flex-direction: column;
+}
+
+.click-indicator.hidden {
+    opacity:        0;
+    pointer-events: none;
+}
+
+.click-line {
+    width:      0.5px;
+    height:     48px;
+    animation:  none;
+    background: var(--text-muted);
+}
+
+/* Top line only bounces — bottom line is static */
+.click-line:first-child {
+    animation: bounce-line 1.6s ease-in-out infinite;
+}
+
+.click-text {
+    color:          var(--text-muted);
+    font-size:      1rem;
+    transition:     transform 0.2s ease;
+    font-family:    var(--font-lato);
+    font-weight:    var(--weight-fine);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.click-text:hover {
+    color:  var(--gold);
+    cursor: default;
+}
+
+/* Base state */
+.pop {
+    display:     inline-block;
+    font-weight: var(--weight-bold);
+}
+
+/* Base state for each letter */
+.pop span {
+    display:    inline-block; /* Required for transform to work */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 1s;
+}
+
+/* On hover: Each child span flies in a different direction */
+.pop:hover span:nth-child(1) { transform: translate(-20px, -20px) rotate(-180deg); opacity: 0; }
+.pop:hover span:nth-child(2) { transform: translate(-10px, 10px) rotate(90deg); opacity: 0; }
+.pop:hover span:nth-child(3) { transform: translate(2px, 2px) rotate(-360deg); opacity: 0; }
+.pop:hover span:nth-child(4) { transform: translate(10px, -10px) rotate(360deg); opacity: 0; }
+.pop:hover span:nth-child(5) { transform: translate(20px, 20px) rotate(-30deg); opacity: 0; }
+
+@keyframes bounce-line {
+    0%, 100% { transform: scaleY(1);    transform-origin: bottom; }
+    50%       { transform: scaleY(0.4); transform-origin: bottom; }
 }

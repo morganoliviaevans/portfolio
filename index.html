@@ -17,14 +17,13 @@
         <!-- ===== NAV ===== -->
         <header>
             <nav>
-                <div class="nav-home">
+                <div class="nav-home nav-home-active">
                     <a href="#landing"><i class="fa-solid fa-house-chimney"></i></a>
                 </div>
                 <ul>
                     <li><a href="#about"> About </a></li>
                     <li><a href="#experience-landing"> Experience </a></li>
                     <li><a href="#projects-landing"> Projects </a></li>
-                    <li><a href="#publications"> Publications </a></li>
                 </ul>
                 <!-- ===== CONTACT LIST (HEADER) ===== -->
                 <div class="nav-icons">
@@ -46,7 +45,7 @@
                     <img src="media/avatar.png" alt="Morgan Olivia Evans" />
                 </div>
             </div>
-            <div class="scroll-indicator">
+            <div class="landing-scroll-indicator">
                 <div class="scroll-line"></div>
                     <span class="scroll-text">
                         <span class="explode">
@@ -199,6 +198,16 @@
                     </div>
                 </div>
 
+                <div class="about-scroll-indicator hidden">
+                    <div class="scroll-line"></div>
+                        <span class="scroll-text">
+                            <span class="explode">
+                                <span>S</span><span>C</span><span>R</span><span>O</span><span>L</span><span>L</span>
+                            </span>
+                        </span>
+                    <div class="scroll-line"></div>
+                </div>
+
             </div>
         </section>
 
@@ -230,6 +239,17 @@
                             <h2>SCEC</h2>
                         </div>
                     </a>
+
+                    <div class="click-indicator experience-click-indicator">
+                        <div class="click-line"></div>
+                            <span class="click-text">
+                                <span class="pop">
+                                    <span>C</span><span>L</span><span>I</span><span>C</span><span>K</span>
+                                </span>
+                            </span>
+                        <div class="click-line"></div>
+                    </div>
+
                 </section>
 
                 <!-- Detail panel — hidden until a card is clicked -->
@@ -506,19 +526,23 @@
                     <a class="card projects-card" data-target="detail-cat-toy"> 
                         <img src="media/projects/neopixel.png" alt="Neopixel" /> 
                     </a>
-                    <a class="card projects-card" data-target="detail-glee"> 
-                        <img src="media/projects/nasa-glee.jpeg" alt="NASA GLEE" /> 
-                    </a>
                     <a class="card projects-card" data-target="detail-minds"> 
                         <img src="media/projects/nasa-minds.png" alt="NASA MINDS" /> 
                     </a>
-                    <!-- <a href="#work-in-progress" class="card">
-                        <img src="media/projects/nasa-minds.png" alt="NASA MINDS" />
-                        <div class="projects-title">
-                            <h2>Lunar Dust Repellency</h2>
-                        </div>
-                        <p class="projects-text"> NASA MINDS · Materials Research</p>
-                    </a> -->
+                    <a class="card projects-card" data-target="detail-glee"> 
+                        <img src="media/projects/nasa-glee.jpeg" alt="NASA GLEE" /> 
+                    </a>
+
+                    <div class="click-indicator projects-click-indicator">
+                        <div class="click-line"></div>
+                            <span class="click-text">
+                                <span class="pop">
+                                    <span>C</span><span>L</span><span>I</span><span>C</span><span>K</span>
+                                </span>
+                            </span>
+                        <div class="click-line"></div>
+                    </div>
+
                 </section>
 
                 <!-- These classes need to be adjusted for projects landing or merged with experience -->
@@ -687,7 +711,88 @@
                         </div>
                     </div>
 
-                                        <!-- ESP32 -->
+                    <!-- MINDS -->
+                    <div class="projects-detail-panel" id="detail-minds">
+                        <div class="detail-header">
+                            <h3>NASA MINDS Competition</h3>
+                            <h4>Materials Research · Sep 2021 – May 2022</h4>
+                        </div>
+                        <div class="detail-body">
+                            <!-- LEFT: text only -->
+                            <div class="text-detail">
+                                <p><a href="https://www.nasa.gov/learning-resources/minority-university-research-education-project/murep-student-engagement/"
+                                target="_blank" class="outgoing-link">NASA MINDS</a> (Minority University Research and Education Project, Innovative 
+                                New Designs for Space) is a national multi-semester undergraduate research competition supporting NASA's Artemis mission. 
+                                Our team investigated whether hydrophobicity directly correlates to dust repellency, with the goal of developing a synthetic 
+                                coating capable of mitigating lunar regolith adhesion on spacecraft surfaces.</p>
+                                
+                                <p>Over eight months of lab research, we developed multiple synthetic dust-repellent coatings that significantly reduced 
+                                regolith coverage under vacuum conditions — from 60% dust coverage to less than 20%. The competition required a structured 
+                                set of formal deliverables including a materials cost breakdown, Preliminary Design Review (PDR), final technical report, 
+                                and a championship presentation — providing early exposure to real engineering project workflows and documentation standards.</p>
+
+                                <p>Our team was awarded 2nd place for Best Technical Paper and 4th place overall for Championship 
+                                Design, Build & Demonstration.</p>
+                            </div>
+                            <!-- RIGHT: tags + links + media -->
+                            <div class="detail-right">
+                                <div class="detail-tags-row">
+                                    <div class="detail-tags">
+                                        <span class="detail-tag">Materials Science</span>
+                                        <span class="detail-tag">Research</span>
+                                        <span class="detail-tag">Data Analysis</span>
+                                        <span class="detail-tag">Surface Chemistry</span>
+                                    </div>
+                                </div>
+                                <div class="detail-media">
+                                    <!-- Gallery 1 -->
+                                    <a href="media/projects/nasa-minds/pdr.png"
+                                        class="glightbox media-item" 
+                                        data-gallery="minds-media">
+                                        <img src="media/projects/nasa-minds/pdr-cover.png" alt="PDR" />
+                                    </a>
+                                    <!-- Hidden gallery items — images 2 & 3 -->
+                                    <a href="media/projects/nasa-minds/hydro-testing.jpg"  class="glightbox" data-gallery="minds-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/lab-testing.jpg"  class="glightbox" data-gallery="minds-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/group.png"  class="glightbox" data-gallery="minds-media" style="display:none;"></a>
+
+                                    <!-- Gallery 2 -->
+                                    <a href="media/projects/nasa-minds/technical-paper/page-1.png"
+                                        class="glightbox media-item" 
+                                        data-gallery="technical-paper-media">
+                                        <img src="media/projects/nasa-minds/technical-paper/technical-paper-cover.png" alt="PDR" />
+                                    </a>
+                                    <!-- Hidden gallery items — page 2 through 15 -->
+                                    <a href="media/projects/nasa-minds/technical-paper/page-2.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-3.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-4.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-5.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-6.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-7.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-8.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-9.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-10.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-11.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-12.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-13.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-14.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-15.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+
+                                    <div class="media-item-video">
+                                        <a href="https://youtu.be/UTvPs85IMsM" class="glightbox">
+                                            <img src="media/projects/nasa-minds/minds.gif" alt="MINDS" />
+                                            <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
+                                        </a>
+                                        <a href="https://youtu.be/UTvPs85IMsM" target="_blank" class="media-yt-link">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GLEE -->
                     <div class="projects-detail-panel" id="detail-glee">
                         <div class="detail-header">
                             <h3>LunaSat Device</h3>
@@ -696,9 +801,10 @@
                         <div class="detail-body">
                             <!-- LEFT: text only -->
                             <div class="text-detail">
-                                <p>The NASA GLEE project is a student-led initiative run through NASA's Artemis mission, giving students 
-                                worldwide the opportunity to build, design, and program a LunaSat — a small spacecraft equipped with an 
-                                integrated sensor suite for gathering temperature, magnetic field, and inertial measurement data on the 
+                                <p>The <a href="https://www.glee2023.org/home" target="_blank" class="outgoing-link">NASA GLEE</a> 
+                                project is a student-led initiative run through NASA's Artemis mission, giving students worldwide the 
+                                opportunity to build, design, and program a LunaSat — a small spacecraft equipped with an integrated 
+                                sensor suite for gathering temperature, magnetic field, and inertial measurement data on the 
                                 lunar surface. Once deployed, each LunaSat operates on the Moon for approximately 56 Earth days, 
                                 transmitting sensor readings back to teams for processing and archival in NASA's research database.</p>
 
@@ -714,6 +820,7 @@
                                     <div class="detail-tags">
                                         <span class="detail-tag">C++</span>
                                         <span class="detail-tag">Arduino</span>
+                                        <span class="detail-tag">Embedded</span>
                                     </div>
                                 </div>
                                 <div class="detail-media">
@@ -728,7 +835,7 @@
 
                                     <div class="media-item-video">
                                         <a href="https://www.youtube.com/watch?v=aHxeZxGVyVQ" class="glightbox">
-                                            <img src="https://img.youtube.com/vi/aHxeZxGVyVQ/maxresdefault.jpg" alt="ESP32" />
+                                            <img src="media/projects/nasa-glee/moon.gif" alt="Moon" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
                                         <a href="https://www.youtube.com/watch?v=aHxeZxGVyVQ" target="_blank" class="media-yt-link">
@@ -739,9 +846,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </main>
         </section>
@@ -749,7 +853,7 @@
         <!-- ===================== PUBLICATIONS DETAIL - WORK IN PROGRESS ===================== -->
 
         <!-- ===== CONTENT ===== -->
-        <section id="publications">
+        <!-- <section id="publications"> -->
             <!-- <main class="detail-main"">
                 <div class="detail-container content-card">
                     <div class="detail-pdf">
@@ -774,7 +878,7 @@
                     </div>
                 </div>
             </main> -->
-        </section>
+        <!-- </section> -->
 
         <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>
