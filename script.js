@@ -209,6 +209,23 @@ document.querySelectorAll('.comparison-slider').forEach(slider => {
     });
 });
 
+/* 
+=========================================================
+AVATAR HOVER
+=========================================================
+*/
+const preloadGif = new Image();
+preloadGif.src   = 'media/avatar.gif';
+const avatar     = document.querySelector('.avatar-gif');
+
+avatar.addEventListener('mouseenter', () => {
+    avatar.src = avatar.dataset.gif;
+});
+
+avatar.addEventListener('mouseleave', () => {
+    avatar.src = 'media/avatar.png';
+});
+
 // // Save for DEBUG
 // // About scroll indicator
 // console.log('scrollY:', currentScroll, 'aboutTop:', aboutTop, 'aboutBottom:', aboutTop + about.offsetHeight);
