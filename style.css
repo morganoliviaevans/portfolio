@@ -15,18 +15,18 @@ CSS VARIABLES — DESIGN TOKENS
 
 :root {
     /* Colors */
-    --bg-primary:       #121212;
-    --bg-secondary:     #242424;
-    --bg-nav:           #12121239;
-    --text-primary:     #FAFAFA;
-    --text-secondary:   #d6dcd7;
-    --text-paragraph:   #a1a5a1;
-    --text-muted:       #7d807e;
-    --gold:             #FAC658;
-    --blue:             #0098d9;
-    --blue-muted:       #25779a;
-    --teal:             #00838F;
-    --teal-muted:       #1b494d;
+    --bg-primary:     #121212;
+    --bg-secondary:   #242424;
+    --bg-nav:         #12121239;
+    --text-primary:   #FAFAFA;
+    --text-secondary: #d6dcd7;
+    --text-paragraph: #a1a5a1;
+    --text-muted:     #7d807e;
+    --gold:           #FAC658;
+    --blue:           #0098d9;
+    --blue-muted:     #25779a;
+    --teal:           #00838F;
+    --teal-muted:     #1b494d;
 
     /* Typography */
     --font-lato:      'Lato', sans-serif;
@@ -39,9 +39,11 @@ CSS VARIABLES — DESIGN TOKENS
     --weight-bold:    800;
 
     /* Spacing */
-    --nav-height:     65px;
-    --max-width:      1300px;
-    --section-gap:    2rem;
+    --nav-height:        65px;
+    --nav-height-mobile: 60px;
+    --max-width-mobile:  85%;
+    --max-width:         1300px;
+    --section-gap:       2rem;
 }
 
 /* 
@@ -56,7 +58,7 @@ RESET & BASE
 }
 
 html {
-    font-size: 14px;         /* Scale down, default is 16px */
+    font-size:       14px;         /* Scale down, default is 16px */
     scroll-behavior: smooth;
 }
 
@@ -136,8 +138,8 @@ h4 {
     font-family:    var(--font-roboto);
     line-height:    1.5rem;
     font-weight:    var(--weight-light);
+    margin-right:   2rem;
     margin-bottom:  1rem;
-    margin-right:  2rem;
     letter-spacing: 0.020em;
 }
 
@@ -306,6 +308,10 @@ section {
     margin: 0.25rem 0 0;
 }
 
+.mobile-break {
+    display: none;
+}
+
 /* 
 =========================================================
 NAV
@@ -403,13 +409,16 @@ CONTACT LIST (HEADER)
     transform: translateY(2px);
 }
 
+/* Hide mobile icons */
+.nav-icons-mobile {
+    display: none;
+}
+
 /* 
 =========================================================
 LANDING
 =========================================================
 */
-
-/* TODO: Add some features on name hover; maybe clouds move on avatar? Can be done through Photoshop? */
 
 #landing {
     width:       100%;
@@ -1279,4 +1288,224 @@ FUN FEATURES
 @keyframes bounce-line {
     0%, 100% { transform: scaleY(1);    transform-origin: bottom; }
     50%       { transform: scaleY(0.4); transform-origin: bottom; }
+}
+
+/* 
+=========================================================
+MOBILE
+=========================================================
+*/
+
+/* 
+=========================================================
+MOBILE - NAV (768px and below)
+=========================================================
+*/
+
+@media (max-width: 768px) {
+
+    header {
+        width:    100dvw;
+        height:   var(--nav-height-mobile);
+        overflow: visible; /* Allows the fixed dropdown to escape the header bounds */
+    }
+
+    nav {
+        gap:       0;
+        width:     90%;
+        max-width: var(--max-width-mobile);
+        padding-top: 0.5rem;
+    }
+
+    .nav-home {
+        font-size:   2rem;
+        z-index:     102;
+        position:    relative;
+        flex-shrink: 0;
+    }
+
+    /* Full-screen dropdown */
+    nav ul.nav-links {
+        gap:              2rem;
+        top:              0;
+        left:             0;
+        width:            100dvw;  /* Explicit dynamic viewport width */
+        height:           100dvh;  /* Explicit dynamic viewport height */
+        z-index:          100;
+        display:          flex;
+        position:         fixed;
+        transform:        translateY(-110%);
+        transition:       transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+        align-items:      center;
+        margin-left:      0;
+        flex-direction:   column;
+        justify-content:  center;
+        /* background-color: #15151554; */
+        background: transparent;
+        background-color: rgba(27, 27, 27, 0.939)!important;
+        /* -webkit-backdrop-filter: blur(40rem); */
+        /* backdrop-filter: blur(40rem); */
+    }
+
+    nav ul.nav-links.open {
+        transform: translateY(0);
+    }
+
+    nav ul li a {
+        color:          var(--text-primary);
+        font-size:      2rem;
+        letter-spacing: 0.15em;
+    }
+
+    .nav-icons {
+        display: none;
+    }
+
+    .nav-icons-mobile {
+        position:         absolute;
+        /* This adds the device's "safe area inset" on top of 4rem breathing room, so it works on any phone regardless of browser chrome height. */
+        bottom:           calc(env(safe-area-inset-bottom) + 4rem);
+        left:             50%;
+        transform:        translateX(-50%);
+        display:          flex;
+        gap:              2.5rem;
+    }
+
+    .nav-icons-mobile a {
+        color:     var(--text-secondary);
+        font-size: 2rem;
+    }
+
+    /* 
+    =========================================================
+    MOBILE - HAMBURGER BUTTON
+    =========================================================
+    */
+
+    /* Show hamburger */
+    .nav-hamburger {
+        gap:            9px;
+        border:         none;
+        cursor:         pointer;
+        display:        flex;
+        padding:        10px;
+        z-index:        102;
+        background:     none;
+        margin-left:    auto;
+        flex-direction: column;
+    }
+
+    .nav-hamburger span {
+        width:         30px;
+        height:        2px;
+        display:       block;
+        background:    var(--text-secondary);
+        transition:    transform 0.3s ease, opacity 0.3s ease;
+        /* border-radius: 2px; */
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+        transform: translateY(11px) rotate(45deg); /* 9px gap + 2px bar height = 11px */
+    }
+    .nav-hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-hamburger.open span:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+
+    /* 
+    =========================================================
+    MOBILE - LANDING
+    =========================================================
+    */
+
+    #landing {
+        width:           100dvw;
+        height:          100dvh;
+        margin:          0 auto;
+        display:         flex;
+        overflow:        visible;
+        position:        relative;
+        max-width:       var(--max-width-mobile);
+        align-items:     center;
+        justify-content: center;
+    }
+
+    /* Stack text and avatar vertically, centered */
+    .landing-content {
+        gap:            2rem;
+        width:          100dvw;
+        max-width:      var(--max-width-mobile);
+        text-align:     center;
+        align-items:    center;
+        flex-direction: column;
+    }
+
+    .landing-overlay {
+        left:     2rem;
+        bottom:   2rem;
+        position: absolute;
+    }
+
+    .landing-avatar img {
+        width:         200px;
+        border-radius: 50%;
+    }
+
+    .landing-content-card {
+        padding:             2rem;
+        box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);
+        border-top:          1px solid rgba(255, 255, 255, 0.103);
+        border-left:         1px solid rgba(255, 255, 255, 0.04);
+        border-right:        1px solid rgba(255, 255, 255, 0.04);
+        border-bottom:       1px solid rgba(0, 0, 0, 0.5);
+        border-radius:       20px;
+        background-size:     cover;
+        background-position: center;
+    }
+
+    .landing-text {
+        gap:            1.5rem;
+        display:        flex;
+        align-items:    center;
+        flex-direction: column;
+    }
+
+    .landing-text h1 {
+        color:          var(--text-primary);
+        font-size:      2.5rem;
+        font-weight:    var(--weight-regular);
+        font-family:    var(--font-lato);
+        line-height:    3rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+    }
+
+    .landing-text h2 {
+        color:          var(--text-secondary);
+        font-size:      1.25rem;
+        line-height:    1.5rem;
+        font-weight:    var(--weight-light);
+        font-family:    var(--font-lato);
+        letter-spacing: 0.15em;
+    }
+
+    .mobile-break {
+        display: inline;
+    }
+
+    /* 
+    =========================================================
+    FUN FEATURES
+    =========================================================
+    */
+
+    .landing-scroll-indicator {
+        bottom:         0.5rem;
+    }
+
+    .scroll-line {
+        height:     25px;
+    }
 }

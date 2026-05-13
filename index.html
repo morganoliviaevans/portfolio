@@ -2,13 +2,13 @@
 
 <!DOCTYPE html> <!-- Tells the browser "this is an HTML5 document." Just a required declaration, always the first line -->
 <html lang="en">
-    <head>                                                                                                          <!-- A container for metadata; instructions for the browser -->
-        <meta charset="UTF-8" />                                                                                    <!-- UTF-8 encoding -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />                                    <!-- Makes the site behave correctly on mobile screens -->
-        <title>Morgan Olivia Evans</title>                                                                          <!-- The text that appears in the browser tab -->
-        <link rel="stylesheet" href="style.css" />                                                                  <!-- Loading CSS file -->
+    <head> <!-- A container for metadata; instructions for the browser -->
+        <meta charset="UTF-8" /> <!-- UTF-8 encoding -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /> <!-- Makes the site behave correctly on mobile screens -->
+        <title>Morgan Olivia Evans</title> <!-- The text that appears in the browser tab -->
+        <link rel="stylesheet" href="style.css" /> <!-- Loading CSS file -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-        <link rel="icon" type="image/x-icon" href="favicon.ico" />                                                  <!-- Cute little browswer tab icon -->
+        <link rel="icon" type="image/x-icon" href="favicon.ico" /> <!-- Cute little browswer tab icon -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
     </head>
 
@@ -17,20 +17,37 @@
         <!-- ===== NAV ===== -->
         <header>
             <nav>
+
                 <div class="nav-home nav-home-active">
                     <a href="#landing"><i class="fa-solid fa-house-chimney"></i></a>
                 </div>
-                <ul>
+
+                <!-- Hamburger button — only visible on mobile -->
+                <button class="nav-hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links">
                     <li><a href="#about"> About </a></li>
                     <li><a href="#experience-landing"> Experience </a></li>
                     <li><a href="#projects-landing"> Projects </a></li>
+                    <!-- Mobile only — contact icons inside dropdown -->
+                    <li class="nav-icons-mobile">
+                        <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </li>
                 </ul>
+
                 <!-- ===== CONTACT LIST (HEADER) ===== -->
                 <div class="nav-icons">
                     <a href="mailto:morganoliviaevans@gmail.com"><i class="fa-solid fa-envelope"></i></a>
                     <a href="https://www.linkedin.com/in/morganoliviaevans" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://www.github.com/morganoliviaevans" target="_blank"><i class="fa-brands fa-github"></i></a>
                 </div>
+
             </nav>
         </header>
 
@@ -38,8 +55,8 @@
         <section id="landing">
             <div class="landing-content landing-content-card">
                 <div class="landing-text">
-                    <h1>Morgan Olivia Evans</h1>
-                    <h2>New Grad Software Engineer, Scientific Researcher</h2>
+                    <h1>Morgan<span class="mobile-break"><br /></span>Olivia<span class="mobile-break"><br /></span>Evans</h1>
+                    <h2>New Grad Software Engineer,<span class="mobile-break"><br /></span>Scientific Researcher</h2>
                 </div>
                 <div class="landing-avatar">
                     <img src="media/avatar.png" data-gif="media/avatar.gif" alt="Morgan Olivia Evans" class="avatar-gif" />
@@ -460,9 +477,14 @@
                                 </div>
                                 <div class="detail-media-scec">
 
-                                    <a href="media/experience/scec/scec-sources.jpg" class="glightbox media-item">
+                                    <!-- Gallery 1 — clicking opens gallery at image 1 -->
+                                    <a href="media/experience/scec/scec-sources.jpg" 
+                                        class="glightbox media-item"
+                                        data-gallery="scec-posters">
                                         <img src="media/experience/scec/scec-sources.jpg" alt="SCEC Poster" />
                                     </a>
+                                    <!-- Hidden gallery items — image 2 -->
+                                    <a href="media/experience/scec/eeri.png"  class="glightbox" data-gallery="scec-posters" style="display:none;"></a>
 
                                     <div class="media-item-video">
                                         <a href="https://youtu.be/5OeCtDuIKwE?si=ZbYYvnLA-DzEK4D5" class="glightbox">
@@ -474,7 +496,7 @@
                                         </a>
                                     </div>
 
-                                    <!-- Gallery 1 — clicking opens gallery at page 1 -->
+                                    <!-- Gallery 2 — clicking opens gallery at page 1 -->
                                     <a href="media/experience/scec/scec-paper/page-1.png"
                                         class="glightbox media-item" 
                                         data-gallery="scec-paper">
@@ -487,7 +509,7 @@
                                     <a href="media/experience/scec/scec-paper/page-5.png"  class="glightbox" data-gallery="scec-paper" style="display:none;"></a>
                                     <a href="media/experience/scec/scec-paper/page-6.png"  class="glightbox" data-gallery="scec-paper" style="display:none;"></a>
 
-                                    <!-- Gallery 2 — clicking opens gallery at page 1 -->
+                                    <!-- Gallery 3 — clicking opens gallery at page 1 -->
                                     <a href="media/experience/scec/sw4-install-guide/page-1.png"
                                         class="glightbox media-item" 
                                         data-gallery="sw4-install-guide">

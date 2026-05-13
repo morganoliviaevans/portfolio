@@ -229,3 +229,31 @@ avatar.addEventListener('mouseleave', () => {
 // // Save for DEBUG
 // // About scroll indicator
 // console.log('scrollY:', currentScroll, 'aboutTop:', aboutTop, 'aboutBottom:', aboutTop + about.offsetHeight);
+
+/* 
+=========================================================
+MOBILE
+=========================================================
+*/
+
+/* 
+=========================================================
+HAMBURGER NAV
+=========================================================
+*/
+
+const hamburger = document.querySelector('.nav-hamburger');
+const navMenu   = document.querySelector('nav ul.nav-links');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open'); /* toggles X animation */
+    navMenu.classList.toggle('open');   /* toggles menu visibility */
+});
+
+/* Close menu when a nav link is clicked */
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('open');
+    });
+});
