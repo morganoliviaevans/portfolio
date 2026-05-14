@@ -96,7 +96,7 @@ TYPOGRAPHY
 /* Landing - Name */
 h1 {
     color:          var(--text-primary);
-    font-size:      4rem;
+    font-size:      3rem;
     font-weight:    var(--weight-regular);
     font-family:    var(--font-lato);
     letter-spacing: 0.15em;
@@ -128,7 +128,7 @@ h4 {
 
 /* Container rules */
 .text-detail {
-    min-width:      0;      /* Prevents flex items from overflowing the container, e.g. outgoing-link is anchored at bottom of container */
+    min-width:      0;      /* Prevents flex items from overflowing the container, e.g. outgoing-link is anchored at bottom of About container */
     flex-direction: column; /* Stack my children vertically */
 }
 
@@ -466,7 +466,7 @@ LANDING
 }
 
 .landing-text {
-    gap:            3rem;
+    gap:            1.5rem;
     display:        flex;
     flex-direction: column;
 }
@@ -474,7 +474,7 @@ LANDING
 /* Landing - Name */
 .landing-text h1 {
     color:          var(--text-primary);
-    font-size:      4rem;
+    font-size:      3rem;
     font-weight:    var(--weight-regular);
     font-family:    var(--font-lato);
     letter-spacing: 0.15em;
@@ -484,7 +484,7 @@ LANDING
 /* Landing - Intro */
 .landing-text h2 {
     color:          var(--text-secondary);
-    font-size:      1.75rem;
+    font-size:      1.5rem;
     font-weight:    var(--weight-fine);
     font-family:    var(--font-lato);
     letter-spacing: 0.15em;
@@ -901,12 +901,12 @@ EXPERIENCE / PROJECTS - DETAIL PANEL
 
 .detail-header h3 {
     color:       var(--text-primary);
-    line-height: 1.3;
+    line-height: 2rem;
 }
 
 .detail-header h4 {
     color:       var(--text-muted);
-    line-height: 1.3;
+    line-height: 2.5rem;
 }
 
 /* Text left, media right */
@@ -943,24 +943,6 @@ EXPERIENCE / PROJECTS - DETAIL PANEL
     grid-template-columns: repeat(auto-fit, minmax(160px, 200px)); /* Cap tile max width */
 }
 
-.detail-right-scec {
-    gap:            1rem;
-    width:          56%; /* A little extra room here */
-    display:        flex;
-    flex-shrink:    0;
-    align-items:    flex-end;
-    flex-direction: column;
-}
-
-.detail-media-scec {
-    gap:                   1rem;
-    width:                 100%;
-    display:               grid;
-    align-content:         start;
-    justify-content:       end;
-    grid-template-columns: repeat(auto-fit, minmax(165px, 165px)); /* A little smaller, so we can fit 4 across */
-} 
-
 .detail-tags-row {
     gap:             0.5rem;
     display:         flex;
@@ -994,6 +976,30 @@ EXPERIENCE / PROJECTS - DETAIL PANEL
     border:      1px solid rgba(255, 255, 255, 0.345);
     cursor:      default;
     font-weight: var(--weight-light);
+}
+
+/* 
+=========================================================
+SCEC DETAIL - GRID
+=========================================================
+*/
+
+.detail-right-scec {
+    gap:            1rem;
+    width:          56%; /* A little extra room here */
+    display:        flex;
+    flex-shrink:    0;
+    align-items:    flex-end;
+    flex-direction: column;
+}
+
+.detail-media-scec {
+    gap:                   1rem;
+    width:                 100%;
+    display:               grid;
+    align-content:         start;
+    justify-content:       end;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 165px)); /* A little smaller, so we can fit 4 across */
 }
 
 /* 
@@ -1733,6 +1739,118 @@ MOBILE - NAV (768px and below)
         object-fit: cover;
         transition: opacity 0.2s ease, filter 0.2s ease;
     }
+
+    /* 
+    =========================================================
+    MOBILE EXPERIENCE / PROJECTS - DETAIL PANEL
+    =========================================================
+    */
+
+    .detail-header {
+        margin:        0 auto;
+        text-align:    left;
+        margin-bottom: 1.5rem;
+    }
+
+    .detail-header h3 {
+        color:       var(--text-primary);
+        font-size:   2rem; /* Desktop 2.5rem */
+        line-height: 2rem;
+    }
+
+    .detail-header h4 {
+        color:       var(--text-muted);
+        font-size:   1.25rem; /* Desktop 1.3rem */
+        line-height: 2rem;
+    }
+
+    /* Text left, media right */
+    .detail-body {
+        gap:            1rem;
+        width:          100%;
+        display:        flex;
+        max-width:      var(--max-width-mobile);
+        text-align:     left;
+        align-items:    flex-start;
+        flex-direction: column; /* Two columns, side by side */
+    }
+
+    .detail-body .text-detail {
+        flex:      1 1 0;
+        min-width: 0;
+    }
+
+    /* Tools, outgoing links, media tiles */
+    .detail-right {
+        gap:            1rem;
+        width:          100%;
+        display:        flex;
+        max-width:      var(--max-width-mobile);
+        flex-shrink:    0;
+        align-items:    center;
+        flex-direction: column;
+    }
+
+    .detail-media {
+        gap:                   1rem;
+        width:                 100%;
+        display:               grid;
+        align-content:         start;
+        justify-content:       center;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 200px)); /* Cap tile max width */
+    }
+
+    .detail-tags-row {
+        gap:             0.5rem;
+        display:         flex;
+        flex-wrap:       wrap;
+        align-items:     center;
+        justify-content: left;
+    }
+
+    /* For Experience and Projects details (tools and languages) */
+    .detail-tags {
+        gap:       0.5rem;
+        display:   flex;
+        flex-wrap: wrap;
+    }
+
+    .detail-tag {
+        color:          var(--text-muted);
+        border:         1px solid rgba(255, 255, 255, 0.18);
+        opacity:        0.7;
+        padding:        0.15rem 0.65rem;
+        font-size:      1.10rem;
+        background:     var(--bg-secondary);
+        box-shadow:     0 16px 20px rgba(0, 0, 0, 0.8);
+        font-family:    var(--font-lato);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    /* 
+    =========================================================
+    MOBILE SCEC DETAIL - GRID
+    =========================================================
+    */
+
+    .detail-right-scec {
+        gap:            1rem;
+        width:          56%; /* A little extra room here */
+        display:        flex;
+        flex-shrink:    0;
+        align-items:    flex-end;
+        flex-direction: column;
+    }
+
+    .detail-media-scec {
+        gap:                   1rem;
+        width:                 100%;
+        display:               grid;
+        align-content:         start;
+        justify-content:       end;
+        grid-template-columns: repeat(auto-fit, minmax(165px, 165px)); /* A little smaller, so we can fit 4 across */
+    } 
 
     /* !!! For Projects section: make sure to add margin: 0 auto; */
 
