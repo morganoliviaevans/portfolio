@@ -44,6 +44,7 @@ CSS VARIABLES — DESIGN TOKENS
     --max-width-mobile:  90%;
     --max-width:         1300px;
     --section-gap:       2rem;
+    --section-gap-mobile: 1rem;
 }
 
 /* 
@@ -558,7 +559,7 @@ ABOUT
     filter:          grayscale(100%);
     object-fit:      cover;
     box-shadow:      0 16px 20px rgba(0, 0, 0, 0.8);
-    flex-shrink:     0;
+    flex-shrink:     0; /* 0: the item refuses to shrink, it always keeps its defined size, 1: the item will shrink proportionally with other items when space is tight */
     border-radius:   20px;
     object-position: center top;
 }
@@ -586,10 +587,6 @@ TOOLS
 
 /* Bubble grid */
 .tools-grid {
-    /* gap:                   15px;
-    display:               grid;
-    padding:               0.5rem 0rem 0rem;
-    grid-template-columns: repeat(3, 1fr); */
     gap:                   10px;
     display:               grid;
     padding-top:           1rem;
@@ -709,7 +706,7 @@ EXPERIENCE MAIN
     position:    relative;
     min-height:  100vh;
     align-items: flex-start;
-    padding-top:  calc(var(--nav-height) + 2rem); /* Sits just below nav */
+    padding-top: calc(var(--nav-height) + 2rem); /* Sits just below nav */
 }
 
 #experience-grid {
@@ -1345,6 +1342,16 @@ MOBILE - NAV (768px and below)
 
 @media (max-width: 768px) {
 
+    main {
+        margin:    0 auto;
+        padding:   calc(var(--nav-height) + 3rem) 2rem var(--section-gap);
+        max-width: var(--max-width);
+    }
+
+    .grid-main {
+        padding: 0rem;
+    }
+
     .text-detail p {
         color:          var(--text-paragraph);
         font-size:      1.25rem;
@@ -1637,10 +1644,9 @@ MOBILE - NAV (768px and below)
     .about-tools {
         width:       100%;
         margin:      0 auto;
-        flex-shrink: 0; /* 0: the item refuses to shrink, it always keeps its defined size, 1: the item will shrink proportionally with other items when space is tight */
+        flex-shrink: 0;
     }
 
-    /* Bubble grid */
     .tools-grid {
         gap:                   10px;
         display:               grid;
@@ -1649,7 +1655,6 @@ MOBILE - NAV (768px and below)
         grid-template-columns: repeat(4, 60px);
     }
 
-    /* Individual tool bubble */
     .tool-bubble {
         width:           42px;
         height:          42px;
@@ -1664,23 +1669,10 @@ MOBILE - NAV (768px and below)
         justify-content: center;
     }
 
-    .tool-bubble img {
-        width:      100%;
-        height:     100%;
-        filter:     brightness(0) invert(1); /* Low brightness, inverted */
-        opacity:    0.5;                     /* Muted */
-        object-fit: contain;
-        transition: opacity 0.2s ease;
-    }
-
     .about-tools-label {
-        color:          var(--text-muted);
-        font-size:      1.5rem;
         text-align:     center;
         margin-top:     0;
         margin-bottom:  1rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
     }
 
     /* 
@@ -1692,54 +1684,57 @@ MOBILE - NAV (768px and below)
     .affiliations-wrapper {
         width:      100dvw;
         margin:     0 auto;
-        overflow:   hidden;
-        position:   relative;
         max-width:  var(--max-width-mobile);
-        mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 8%,
-            black 92%,
-            transparent 100%
-        );
     }
 
     .affiliations-track {
-        gap:         1rem;
-        width:       max-content;
-        display:     flex;
-        animation:   marquee-scroll 45s linear infinite;
-        align-items: center;
-    }
-
-    .affiliations-track a {
-        display:     block;
-        flex-shrink: 0;
+        animation: marquee-scroll 20s linear infinite;
     }
 
     .affiliations-track img {
-        width:      120px;
-        height:     80px;
+        width:      130px;
         filter:     grayscale(0);
         opacity:    1;
-        max-width:  unset;
-        object-fit: contain;
-        transition: filter 0.25s ease, opacity 0.25s ease;
     }
 
-    @keyframes marquee-scroll {
-        0%   { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+    /* 
+    =========================================================
+    MOBILE - EXPERIENCE MAIN
+    =========================================================
+    */
+
+    #experience-landing {
+        width:       100%;
+        margin:      0 auto;
+        display:     flex;
+        overflow:    visible;
+        position:    relative;
+        max-width:   var(--max-width-mobile);
+        min-height:  100dvh;
+        /* align-items: flex-start; */
+        padding-top: 1rem;
     }
 
-    .about-affiliations-label {
-        color:          var(--text-muted);
-        font-size:      1.5rem;
-        text-align:     center;
-        margin-bottom:  1rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
+    #experience-grid {
+        gap:                   1rem;
+        width:                 100%;
+        margin:                0 auto;
+        display:               grid;
+        padding:               0rem; 
+        max-width:             var(--max-width-mobile);
+        justify-content:       center;
+        grid-template-columns: repeat(2, 180px);
     }
+
+    #experience-grid .card img {
+        width:      100%;
+        height:     100%;
+        opacity:    0.75;
+        object-fit: cover;
+        transition: opacity 0.2s ease, filter 0.2s ease;
+    }
+
+    /* !!! For Projects section: make sure to add margin: 0 auto; */
 
     /* 
     =========================================================
