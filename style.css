@@ -41,7 +41,7 @@ CSS VARIABLES — DESIGN TOKENS
     /* Spacing */
     --nav-height:        65px;
     --nav-height-mobile: 60px;
-    --max-width-mobile:  85%;
+    --max-width-mobile:  90%;
     --max-width:         1300px;
     --section-gap:       2rem;
 }
@@ -209,7 +209,6 @@ section {
     margin: 5rem 0;
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-    /* border-top: none; */
 }
 
 .outgoing-link {
@@ -245,16 +244,14 @@ section {
 }
 
 .outgoing-link-bubble:hover {
-    color:         var(--text-primary);
-    transform:     translateY(2px);
-    background:    var(--blue);
+    color:      var(--text-primary);
+    transform:  translateY(2px);
+    background: var(--blue);
 }
 
 .link-wrapper {
     margin-top: 1.65rem;
 }
-
-/* TODO: Add CLICK --> feature on Experience and Projects cards */
 
 .card {
     display:       block;
@@ -414,6 +411,11 @@ CONTACT LIST (HEADER)
     display: none;
 }
 
+/* Hide mobile cheeseburger */
+.nav-hamburger {
+    display: none;
+}
+
 /* 
 =========================================================
 LANDING
@@ -430,7 +432,7 @@ LANDING
 }
 
 .landing-content {
-    gap:             3rem;
+    gap:             4rem;
     width:           var(--max-width);
     margin:          0 auto;
     display:         flex;
@@ -463,9 +465,28 @@ LANDING
 }
 
 .landing-text {
-    gap:            2rem;
+    gap:            3rem;
     display:        flex;
     flex-direction: column;
+}
+
+/* Landing - Name */
+.landing-text h1 {
+    color:          var(--text-primary);
+    font-size:      4rem;
+    font-weight:    var(--weight-regular);
+    font-family:    var(--font-lato);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Landing - Intro */
+.landing-text h2 {
+    color:          var(--text-secondary);
+    font-size:      1.75rem;
+    font-weight:    var(--weight-fine);
+    font-family:    var(--font-lato);
+    letter-spacing: 0.15em;
 }
 
 /* 
@@ -506,6 +527,19 @@ ABOUT
     border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+.about-divider-mobile {
+    display: none;
+}
+
+.about-divider-vertical {
+    width:      1px;
+    height:     auto;
+    border:     none;
+    background: rgba(255, 255, 255, 0.07);
+    align-self: stretch;  /* Stretches full height of the flex row */
+    flex-shrink: 0;
+}
+
 /* Bottom row: affiliations marquee */
 .about-bottom {
     gap:            0.75rem;
@@ -514,11 +548,13 @@ ABOUT
 }
 
 .about-bio {
-    padding-right: 4rem;
+    flex: 1;
+    max-width: 670px;  /* Prevent bio from stretching too wide */
+    /* padding-right: 1rem; */
 }
 
 .about-photo {
-    width:           340px;
+    width:           280px;
     filter:          grayscale(100%);
     object-fit:      cover;
     box-shadow:      0 16px 20px rgba(0, 0, 0, 0.8);
@@ -550,10 +586,15 @@ TOOLS
 
 /* Bubble grid */
 .tools-grid {
-    gap:                   15px;
+    /* gap:                   15px;
     display:               grid;
     padding:               0.5rem 0rem 0rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); */
+    gap:                   10px;
+    display:               grid;
+    padding-top:           1rem;
+    justify-content:       start; 
+    grid-template-columns: repeat(4, 60px);
 }
 
 /* Individual tool bubble */
@@ -1304,6 +1345,33 @@ MOBILE - NAV (768px and below)
 
 @media (max-width: 768px) {
 
+    .text-detail p {
+        color:          var(--text-paragraph);
+        font-size:      1.25rem;
+        font-family:    var(--font-roboto);
+        line-height:    1.4rem;
+        font-weight:    var(--weight-light);
+        margin-bottom:  1rem;
+        letter-spacing: 0.010em;
+    }
+
+    .text-list {
+        color:               var(--text-paragraph);
+        font-family:         var(--font-roboto);
+        font-weight:         var(--weight-light);
+        line-height:         1.4rem;
+        padding-left:        2rem;            /* Indents the list */
+        margin-bottom:       1rem;
+        letter-spacing:      0.010em;
+        list-style-type:     disc !important; /* Force bullets to show */
+        list-style-position: outside;         /* Keeps bullets aligned with text */
+    }
+
+    .text-list li {
+        font-size:      1.25rem;  /* Set this to match paragraph size */
+        letter-spacing: 0.010em;
+    }
+
     header {
         width:    100dvw;
         height:   var(--nav-height-mobile);
@@ -1314,7 +1382,6 @@ MOBILE - NAV (768px and below)
         gap:       0;
         width:     90%;
         max-width: var(--max-width-mobile);
-        padding-top: 0.5rem;
     }
 
     .nav-home {
@@ -1334,21 +1401,19 @@ MOBILE - NAV (768px and below)
         z-index:          100;
         display:          flex;
         position:         fixed;
-        transform:        translateY(-110%);
-        transition:       transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+        transform:        translateX(-100%);
+        transition:       transform 0.75s ease, opacity 0.75s ease, visibility 0.75s ease;
         align-items:      center;
         margin-left:      0;
         flex-direction:   column;
         justify-content:  center;
-        /* background-color: #15151554; */
-        background: transparent;
-        background-color: rgba(27, 27, 27, 0.939)!important;
-        /* -webkit-backdrop-filter: blur(40rem); */
-        /* backdrop-filter: blur(40rem); */
+        background-size:     cover;
+        background-image:    url('media/mobile/texture.png'); /* Note: Created via Canva Design Studio */
+        background-position: center;
     }
 
     nav ul.nav-links.open {
-        transform: translateY(0);
+        transform: translateX(0);
     }
 
     nav ul li a {
@@ -1362,18 +1427,21 @@ MOBILE - NAV (768px and below)
     }
 
     .nav-icons-mobile {
-        position:         absolute;
-        /* This adds the device's "safe area inset" on top of 4rem breathing room, so it works on any phone regardless of browser chrome height. */
-        bottom:           calc(env(safe-area-inset-bottom) + 4rem);
-        left:             50%;
-        transform:        translateX(-50%);
-        display:          flex;
-        gap:              2.5rem;
+        gap:       2.5rem;
+        left:      50%;
+        bottom:    calc(env(safe-area-inset-bottom) + 4rem); /* Adds the device's "safe area" + 4rem breathing room, so it works on any phone regardless of browser chrome height. */
+        display:   flex;
+        position:  absolute;
+        transform: translateX(-50%);
     }
 
     .nav-icons-mobile a {
         color:     var(--text-secondary);
         font-size: 2rem;
+    }
+
+    .content-card {
+        padding: 1rem;
     }
 
     /* 
@@ -1388,7 +1456,6 @@ MOBILE - NAV (768px and below)
         border:         none;
         cursor:         pointer;
         display:        flex;
-        padding:        10px;
         z-index:        102;
         background:     none;
         margin-left:    auto;
@@ -1396,12 +1463,11 @@ MOBILE - NAV (768px and below)
     }
 
     .nav-hamburger span {
-        width:         30px;
-        height:        2px;
-        display:       block;
-        background:    var(--text-secondary);
-        transition:    transform 0.3s ease, opacity 0.3s ease;
-        /* border-radius: 2px; */
+        width:      30px;
+        height:     2px;
+        display:    block;
+        background: var(--text-secondary);
+        transition: transform 0.5s ease, opacity 0.01s ease;
     }
 
     .nav-hamburger.open span:nth-child(1) {
@@ -1497,7 +1563,187 @@ MOBILE - NAV (768px and below)
 
     /* 
     =========================================================
-    FUN FEATURES
+    MOBILE - ABOUT
+    =========================================================
+    */
+
+    #about {
+        width:          100%;
+        height:         auto;
+        margin:         0 auto;
+        display:        flex;
+        position:       relative;
+        max-width:      var(--max-width-mobile);
+        align-items:    center;
+        padding-top:    2rem;
+        padding-bottom: 12rem;
+    }
+
+    .about-card {
+        gap:            2rem;
+        width:          100%; /* 100% of its parent, not the viewport */
+        margin:         0 auto;
+        display:        flex;
+        max-width:      var(--max-width-mobile);
+        flex-direction: column;
+    }
+
+    .about-top {
+        padding-left:   0.65rem; /* Internal */
+        padding-right:  0.65rem;
+        padding-top:    0.75rem;
+        padding-bottom: 0;
+        align-items:    center;
+        flex-direction: column;
+    }
+
+    .about-bottom {
+        gap:            0.75rem;
+        display:        flex;
+        padding-left:   0.75rem;
+        padding-right:  0.75rem;
+        padding-bottom: 1rem;
+        flex-direction: column;
+    }
+
+    .about-bio {
+        max-width:     100%;
+        text-align:    left;
+        padding-right: 0; 
+    }
+
+    .about-photo {
+        width: 325px;
+    }
+
+    .about-divider-mobile {
+        width:      100%;
+        border:     none;
+        margin:     0.5rem 0;
+        display:    block;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .about-divider-vertical {
+        display: none;
+    }
+
+    /* 
+    =========================================================
+    MOBILE - TOOLS
+    =========================================================
+    */
+
+    .about-tools {
+        width:       100%;
+        margin:      0 auto;
+        flex-shrink: 0; /* 0: the item refuses to shrink, it always keeps its defined size, 1: the item will shrink proportionally with other items when space is tight */
+    }
+
+    /* Bubble grid */
+    .tools-grid {
+        gap:                   10px;
+        display:               grid;
+        padding-top:           1rem;
+        justify-content:       center; 
+        grid-template-columns: repeat(4, 60px);
+    }
+
+    /* Individual tool bubble */
+    .tool-bubble {
+        width:           42px;
+        height:          42px;
+        border:          1px solid rgba(255, 255, 255, 0.07);
+        display:         flex;
+        padding:         8px;
+        transition:      transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        background:      var(--teal-muted);
+        box-shadow:      0 16px 20px rgba(0, 0, 0, 0.8);
+        align-items:     center;
+        border-radius:   10px;
+        justify-content: center;
+    }
+
+    .tool-bubble img {
+        width:      100%;
+        height:     100%;
+        filter:     brightness(0) invert(1); /* Low brightness, inverted */
+        opacity:    0.5;                     /* Muted */
+        object-fit: contain;
+        transition: opacity 0.2s ease;
+    }
+
+    .about-tools-label {
+        color:          var(--text-muted);
+        font-size:      1.5rem;
+        text-align:     center;
+        margin-top:     0;
+        margin-bottom:  1rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+    }
+
+    /* 
+    =========================================================
+    MOBILE - AFFILIATIONS
+    =========================================================
+    */
+
+    .affiliations-wrapper {
+        width:      100dvw;
+        margin:     0 auto;
+        overflow:   hidden;
+        position:   relative;
+        max-width:  var(--max-width-mobile);
+        mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 8%,
+            black 92%,
+            transparent 100%
+        );
+    }
+
+    .affiliations-track {
+        gap:         1rem;
+        width:       max-content;
+        display:     flex;
+        animation:   marquee-scroll 45s linear infinite;
+        align-items: center;
+    }
+
+    .affiliations-track a {
+        display:     block;
+        flex-shrink: 0;
+    }
+
+    .affiliations-track img {
+        width:      120px;
+        height:     80px;
+        filter:     grayscale(0);
+        opacity:    1;
+        max-width:  unset;
+        object-fit: contain;
+        transition: filter 0.25s ease, opacity 0.25s ease;
+    }
+
+    @keyframes marquee-scroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    .about-affiliations-label {
+        color:          var(--text-muted);
+        font-size:      1.5rem;
+        text-align:     center;
+        margin-bottom:  1rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+    }
+
+    /* 
+    =========================================================
+    MOBILE - FUN FEATURES
     =========================================================
     */
 
