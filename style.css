@@ -139,7 +139,6 @@ h4 {
     font-family:    var(--font-roboto);
     line-height:    1.5rem;
     font-weight:    var(--weight-light);
-    margin-right:   2rem;
     margin-bottom:  1rem;
     letter-spacing: 0.020em;
 }
@@ -224,9 +223,9 @@ section {
     /* Layout */
     border:        none;
     cursor:        pointer;
-    padding:       0.3rem 0.8rem 0.25rem; /* top, sides, bottom */
+    padding:       0.3rem 0.8rem 0.3rem; /* top, sides, bottom */
     outline:       none;
-    font-weight:   500;
+    font-weight:   var(--weight-regular);
     border-radius: 14px;
 
     /* Typography */
@@ -251,7 +250,7 @@ section {
 }
 
 .link-wrapper {
-    margin-top: 1.65rem;
+    margin-top: 1.2rem;
 }
 
 .card {
@@ -550,8 +549,8 @@ ABOUT
 
 .about-bio {
     flex: 1;
-    max-width: 670px;  /* Prevent bio from stretching too wide */
-    /* padding-right: 1rem; */
+    max-width: 635px;  /* Prevent bio from stretching too wide */
+    padding-right: 2rem;
 }
 
 .about-photo {
@@ -917,6 +916,12 @@ EXPERIENCE / PROJECTS - DETAIL PANEL
     align-items:    flex-start;
     flex-direction: row; /* Two columns, side by side */
 }
+
+/* 
+flex-grow:   1 — the element can grow to fill available space 
+flex-shrink: 1 — the element can shrink if space is tight
+flex-basis:  0 — the element starts with a base size of 0 before growing 
+*/
 
 .detail-body .text-detail {
     flex:      1 1 0;
@@ -1588,12 +1593,12 @@ MOBILE - NAV (768px and below)
         position:       relative;
         max-width:      var(--max-width-mobile);
         align-items:    center;
-        padding-top:    2rem;
+        padding-top:    2rem; /* External */
         padding-bottom: 12rem;
     }
 
     .about-card {
-        gap:            2rem;
+        gap:            0rem;
         width:          100%; /* 100% of its parent, not the viewport */
         margin:         0 auto;
         display:        flex;
@@ -1601,28 +1606,28 @@ MOBILE - NAV (768px and below)
         flex-direction: column;
     }
 
+    /* Photo / Bio / Resume / Tools & Languages */
     .about-top {
-        padding-left:   0.65rem; /* Internal */
-        padding-right:  0.65rem;
-        padding-top:    0.75rem;
-        padding-bottom: 0;
+        gap:            0rem;
+        padding:        0.5rem; /* Internal */
         align-items:    center;
         flex-direction: column;
     }
 
+    /* Affiliations */
     .about-bottom {
-        gap:            0.75rem;
+        gap:            0rem;
         display:        flex;
-        padding-left:   0.75rem;
-        padding-right:  0.75rem;
-        padding-bottom: 1rem;
+        padding:        0.5rem;
         flex-direction: column;
     }
 
     .about-bio {
         max-width:     100%;
         text-align:    left;
-        padding-right: 0; 
+        padding-top:   1rem;
+        padding-bottom: 1rem;
+        padding-right: 0rem;
     }
 
     .about-photo {
@@ -1656,7 +1661,7 @@ MOBILE - NAV (768px and below)
     .tools-grid {
         gap:                   10px;
         display:               grid;
-        padding-top:           1rem;
+        padding-top:           0.5rem;
         justify-content:       center; 
         grid-template-columns: repeat(4, 60px);
     }
@@ -1677,7 +1682,8 @@ MOBILE - NAV (768px and below)
 
     .about-tools-label {
         text-align:     center;
-        margin-top:     0;
+        padding:        0rem;
+        margin-top:     1rem;
         margin-bottom:  1rem;
     }
 
@@ -1769,11 +1775,21 @@ MOBILE - NAV (768px and below)
         gap:            1rem;
         width:          100%;
         display:        flex;
+        max-width:      95%;
+        text-align:     left;
+        align-items:    flex-start;
+        flex-direction: column;
+    }
+
+    /* .detail-body p {
+        gap:            1rem;
+        width:          100%;
+        display:        flex;
         max-width:      var(--max-width-mobile);
         text-align:     left;
         align-items:    flex-start;
-        flex-direction: column; /* Two columns, side by side */
-    }
+        flex-direction: column;
+    } */
 
     .detail-body .text-detail {
         flex:      1 1 0;
