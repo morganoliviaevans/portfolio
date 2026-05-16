@@ -223,7 +223,7 @@ section {
     /* Layout */
     border:        none;
     cursor:        pointer;
-    padding:       0.3rem 0.8rem 0.3rem; /* top, sides, bottom */
+    padding:       0.3rem 0.8rem 0.30rem; /* top, sides, bottom */
     outline:       none;
     font-weight:   var(--weight-regular);
     border-radius: 14px;
@@ -250,7 +250,7 @@ section {
 }
 
 .link-wrapper {
-    margin-top: 1.2rem;
+    margin-top: 1.4rem;
 }
 
 .card {
@@ -1618,28 +1618,37 @@ MOBILE - NAV (768px and below)
     .about-bottom {
         gap:            0rem;
         display:        flex;
-        padding:        0.5rem;
+        padding-top:    1rem;
+        padding-left:   0rem; /* A little more room horizontally for marquee on mobile */
+        padding-right:  0rem;
+        padding-bottom: 1rem;
         flex-direction: column;
     }
 
     .about-bio {
-        max-width:     100%;
-        text-align:    left;
-        padding-top:   1rem;
+        max-width:      100%;
+        text-align:     left;
+        padding-top:    1.7rem;
+        padding-right:  0rem;
         padding-bottom: 1rem;
-        padding-right: 0rem;
     }
 
     .about-photo {
-        width: 325px;
+        width: 330px;
+    }
+
+    .about-divider {
+        margin-top:    1.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .about-divider-mobile {
-        width:      100%;
-        border:     none;
-        margin:     0.5rem 0;
-        display:    block;
-        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        width:         100%;
+        border:        none;
+        display:       block;
+        border-top:    1px solid rgba(255, 255, 255, 0.07);
+        margin-top:    1rem;
+        margin-bottom: 0.5rem;
     }
 
     .about-divider-vertical {
@@ -1661,7 +1670,7 @@ MOBILE - NAV (768px and below)
     .tools-grid {
         gap:                   10px;
         display:               grid;
-        padding-top:           0.5rem;
+        padding-top:           0rem;
         justify-content:       center; 
         grid-template-columns: repeat(4, 60px);
     }
@@ -1700,13 +1709,18 @@ MOBILE - NAV (768px and below)
     }
 
     .affiliations-track {
+        gap:       0rem;
         animation: marquee-scroll 20s linear infinite;
     }
 
     .affiliations-track img {
-        width:      130px;
-        filter:     grayscale(0);
-        opacity:    1;
+        width:   130px;
+        filter:  grayscale(0);
+        opacity: 1;
+    }
+
+    .about-affiliations-label {
+        margin-bottom: 1rem;
     }
 
     /* 
