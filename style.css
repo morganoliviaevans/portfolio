@@ -339,7 +339,7 @@ nav {
     margin:      0 auto;
     width:       1300px;
     height:      100%;
-    display:     flex;
+    display:     flex; /* Turns the element into a flex container; children are arranged in a row or column and can be aligned, spaced, and sized using flex properties */
     padding:     0 2rem;
     align-items: center;
 }
@@ -591,7 +591,7 @@ TOOLS
 /* Bubble grid */
 .tools-grid {
     gap:                   10px;
-    display:               grid;
+    display:               grid; /* Turns the element into a grid container; children are arranged in rows and columns defined by grid-template-columns and grid-template-rows */
     padding-top:           1rem;
     justify-content:       start; 
     grid-template-columns: repeat(4, 60px);
@@ -756,6 +756,18 @@ EXPERIENCE / PROJECTS - DETAIL MEDIA GRID
 =========================================================
 */
 
+.detail-content-card {
+    padding:             2rem;
+    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);
+    border-top:          1px solid rgba(255, 255, 255, 0.103);
+    border-left:         1px solid rgba(255, 255, 255, 0.04);
+    border-right:        1px solid rgba(255, 255, 255, 0.04);
+    border-bottom:       1px solid rgba(0, 0, 0, 0.5);
+    border-radius:       20px;
+    background-size:     cover;
+    background-position: center;
+}
+
 /* Image, pdf */
 .media-item {
     position:      relative;
@@ -860,12 +872,12 @@ EXPERIENCE / PROJECTS - DETAIL PANEL
 /* Hidden by default — expands on card click */
 .experience-detail {
     width:      100%;
-    display:    none;
+    display:    none; /* Removes the element from the page entirely; takes up no space, invisible, inaccessible */
     margin-top: 2rem;
 }
 
 .experience-detail.open {
-    display: block;
+    display: block; /* Element takes up the full width of its parent and stacks vertically; default for elements like div, p, h1 */
 }
 
 /* Individual panels — only active one is shown */
@@ -957,14 +969,14 @@ flex-basis:  0 — the element starts with a base size of 0 before growing
     display:         flex;
     flex-wrap:       wrap;
     align-items:     center;
-    justify-content: flex-end; /* Tools + outgoing link bubble in one row on the right */
+    justify-content: flex-end; /* Tools + Outgoing link bubble in one row on the right */
 }
 
 /* For Experience and Projects details (tools and languages) */
 .detail-tags {
     gap:       0.5rem;
     display:   flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allows flex children to wrap onto a new line when they don't fit in a single row */
 }
 
 .detail-tag {
@@ -1360,7 +1372,7 @@ MOBILE - NAV (768px and below)
     main {
         margin:    0 auto;
         padding:   calc(var(--nav-height) + 3rem) 2rem var(--section-gap);
-        max-width: var(--max-width);
+        max-width: var(--max-width-mobile);
     }
 
     .grid-main {
@@ -1467,21 +1479,27 @@ MOBILE - NAV (768px and below)
     }
 
     .github-mobile {
-        display: inline-block;
+        display: inline-block; /* Flows inline like text but respects width/height like a block */
     }
 
     .outgoing-link-bubble.github-mobile {
-        width:           45px;
-        height:          45px;
-        margin:          0;
-        padding:         0;
-        display:         flex;
-        font-size:       2.2rem;
-        align-items:     center;
-        border-radius:   50%;
-        letter-spacing:  0em;
-        justify-content: center;
+        width:            25px;
+        height:           23px;
+        border:           1px solid rgba(255, 255, 255, 0.18);
+        margin:           0;
+        padding:          0;
+        display:          flex;
+        font-size:        1.5rem;
+        box-shadow:       0 16px 20px rgba(0, 0, 0, 0.8); /* */
+        align-items:      center;
+        border-radius:    0%;
+        letter-spacing:   0em;
+        justify-content:  center;
         background-color: var(--blue-muted);
+    }
+
+    .outgoing-link-bubble:hover {
+        transform: none;
     }
 
     .content-card {
@@ -1602,7 +1620,7 @@ MOBILE - NAV (768px and below)
     }
 
     .mobile-break {
-        display: inline;
+        display: inline; /* Element only takes up as much width as its content and flows with surrounding text; can't set width/height; default for elements like span, a, i */
     }
 
     /* 
@@ -1763,7 +1781,7 @@ MOBILE - NAV (768px and below)
         position:    relative;
         max-width:   var(--max-width-mobile);
         min-height:  100dvh;
-        /* align-items: flex-start; */
+        align-items: flex-start;
         padding-top: 1rem;
     }
 
@@ -1772,7 +1790,7 @@ MOBILE - NAV (768px and below)
         width:                 100%;
         margin:                0 auto;
         display:               grid;
-        padding:               0rem; 
+        padding:               0rem;
         max-width:             var(--max-width-mobile);
         justify-content:       center;
         grid-template-columns: repeat(2, 180px);
@@ -1791,6 +1809,19 @@ MOBILE - NAV (768px and below)
     MOBILE EXPERIENCE / PROJECTS - DETAIL PANEL
     =========================================================
     */
+
+    .detail-content-card {
+        padding:             1rem;
+        max-width:           var(--max-width-mobile);
+        box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);
+        border-top:          1px solid rgba(255, 255, 255, 0.103);
+        border-left:         1px solid rgba(255, 255, 255, 0.04);
+        border-right:        1px solid rgba(255, 255, 255, 0.04);
+        border-bottom:       1px solid rgba(0, 0, 0, 0.5);
+        border-radius:       20px;
+        background-size:     cover;
+        background-position: center;
+    }
 
     .detail-header {
         margin:        0 auto;
@@ -1812,10 +1843,10 @@ MOBILE - NAV (768px and below)
 
     /* Text left, media right */
     .detail-body {
-        gap:            0.75rem;
+        gap:            0.5rem;
         width:          100%;
         display:        flex;
-        max-width:      95%;
+        max-width:      100%;
         text-align:     left;
         align-items:    flex-start;
         flex-direction: column;
@@ -1827,14 +1858,15 @@ MOBILE - NAV (768px and below)
     }
 
     /* Tools, outgoing links, media tiles */
+    /* Note: Not right on mobile but we don't necessarily need to change the class name */
     .detail-right {
-        gap:            1.5rem;
-        width:          100%;
-        display:        flex;
-        max-width:      var(--max-width-mobile);
-        flex-shrink:    0;
-        align-items:    center;
-        flex-direction: column;
+        gap:             1rem;
+        width:           100%;
+        display:         grid;
+        flex-shrink:     0;
+        align-content:   flex-start;
+        padding-bottom:  0.5rem;
+        justify-content: flex-start;
     }
 
     .detail-media {
@@ -1842,16 +1874,13 @@ MOBILE - NAV (768px and below)
         width:                 100%;
         margin:                0 auto;
         display:               grid;
-        align-content:         center;
-        justify-content:       center;
-        grid-template-columns: repeat(auto-fit, minmax(130px, 130px)); /* Cap tile max width */
+        justify-content:       flex-start;
+        grid-template-columns: repeat(3, minmax(110px, 110px)); /* Cap tile max width */
     }
 
     .detail-tags-row {
-        gap:             0.4rem;
+        gap:             0.5rem;
         display:         flex;
-        flex-wrap:       wrap;
-        align-items:     center;
         justify-content: flex-start;
     }
 
@@ -1859,15 +1888,14 @@ MOBILE - NAV (768px and below)
     .detail-tags {
         gap:       0.4rem;
         display:   flex;
-        flex-wrap: wrap;
     }
 
     .detail-tag {
         color:          var(--text-muted);
         border:         1px solid rgba(255, 255, 255, 0.18);
         opacity:        0.7;
-        padding:        0.10rem 0.4rem;
-        font-size:      1rem;
+        padding:        0rem 0.3rem;
+        font-size:      1.1rem;
         background:     var(--bg-secondary);
         box-shadow:     0 16px 20px rgba(0, 0, 0, 0.8);
         font-family:    var(--font-lato);
