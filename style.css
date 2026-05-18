@@ -1371,11 +1371,12 @@ MOBILE - NAV (768px and below)
 
     main {
         margin:    0 auto;
-        padding:   calc(var(--nav-height) + 3rem) 2rem var(--section-gap);
-        max-width: var(--max-width-mobile);
+        padding:   calc(var(--nav-height) + 3rem) 0rem var(--section-gap); /* Remove 2rem side padding */
+        max-width: 100%;
     }
 
     .grid-main {
+        margin:  0 auto;
         padding: 0rem;
     }
 
@@ -1788,7 +1789,6 @@ MOBILE - NAV (768px and below)
     #experience-grid {
         gap:                   1rem;
         width:                 100%;
-        margin:                0 auto;
         display:               grid;
         padding:               0rem;
         max-width:             var(--max-width-mobile);
@@ -1875,7 +1875,7 @@ MOBILE - NAV (768px and below)
         margin:                0 auto;
         display:               grid;
         justify-content:       flex-start;
-        grid-template-columns: repeat(3, minmax(110px, 110px)); /* Cap tile max width */
+        grid-template-columns: repeat(3, minmax(105px, 105px)); /* Cap tile max width */
     }
 
     .detail-tags-row {
@@ -1911,10 +1911,11 @@ MOBILE - NAV (768px and below)
 
     .detail-right-scec {
         gap:            1rem;
-        width:          56%; /* A little extra room here */
-        display:        flex;
+        width:          100%;
+        display:        grid;
         flex-shrink:    0;
         align-items:    flex-end;
+        padding-bottom: 0.5rem;
         flex-direction: column;
     }
 
@@ -1922,9 +1923,9 @@ MOBILE - NAV (768px and below)
         gap:                   1rem;
         width:                 100%;
         display:               grid;
-        align-content:         start;
-        justify-content:       end;
-        grid-template-columns: repeat(auto-fit, minmax(165px, 165px)); /* A little smaller, so we can fit 4 across */
+        align-content:         flex-start;
+        justify-content:       flex-start;
+        grid-template-columns: repeat(2, minmax(163px, 163px));
     } 
 
     /* !!! For Projects section: make sure to add margin: 0 auto; */
