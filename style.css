@@ -1007,7 +1007,7 @@ SCEC DETAIL - GRID
 
 .detail-right-scec {
     gap:            1rem;
-    width:          56%; /* A little extra room here */
+    width:          60%; /* A little extra room here */
     display:        flex;
     flex-shrink:    0;
     align-items:    flex-end;
@@ -1020,7 +1020,7 @@ SCEC DETAIL - GRID
     display:               grid;
     align-content:         start;
     justify-content:       end;
-    grid-template-columns: repeat(auto-fit, minmax(165px, 165px)); /* A little smaller, so we can fit 4 across */
+    grid-template-columns: repeat(auto-fit, minmax(163px, 163px)); /* A little smaller, so we can fit 4 across */
 }
 
 /* 
@@ -1775,14 +1775,9 @@ MOBILE - NAV (768px and below)
     */
 
     #experience-landing {
-        width:       100%;
         margin:      0 auto;
-        display:     flex;
-        overflow:    visible;
-        position:    relative;
         max-width:   var(--max-width-mobile);
         min-height:  100dvh;
-        align-items: flex-start;
         padding-top: 1rem;
     }
 
@@ -1793,15 +1788,7 @@ MOBILE - NAV (768px and below)
         padding:               0rem;
         max-width:             var(--max-width-mobile);
         justify-content:       center;
-        grid-template-columns: repeat(2, 180px);
-    }
-
-    #experience-grid .card img {
-        width:      100%;
-        height:     100%;
-        opacity:    0.75;
-        object-fit: cover;
-        transition: opacity 0.2s ease, filter 0.2s ease;
+        grid-template-columns: repeat(2, 175px);
     }
 
     /* 
@@ -1875,7 +1862,7 @@ MOBILE - NAV (768px and below)
         margin:                0 auto;
         display:               grid;
         justify-content:       flex-start;
-        grid-template-columns: repeat(3, minmax(105px, 105px)); /* Cap tile max width */
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .detail-tags-row {
@@ -1905,30 +1892,61 @@ MOBILE - NAV (768px and below)
 
     /* 
     =========================================================
-    MOBILE SCEC DETAIL - GRID
+    MOBILE INDIVIDUAL DETAIL ADJUSTMENTS - GRID
     =========================================================
     */
 
     .detail-right-scec {
-        gap:            1rem;
         width:          100%;
         display:        grid;
-        flex-shrink:    0;
-        align-items:    flex-end;
         padding-bottom: 0.5rem;
-        flex-direction: column;
     }
 
     .detail-media-scec {
+        align-content:         flex-start;
+        justify-content:       flex-start;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .detail-media-access {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detail-media-nasa {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* !!! For Projects section: make sure to add margin: 0 auto; */
+
+    /* 
+    =========================================================
+    PROJECTS MAIN
+    =========================================================
+    */
+
+    #projects-landing {
+        width:       100%;
+        height:      100dvh;
+        margin:      0 auto;
+        display:     flex;
+        overflow:    visible;
+        position:    relative;
+        max-width:   var(--max-width-mobile);
+        min-height:  100dvh;
+        align-items: flex-start;
+        padding-top: 10rem;
+        padding-bottom: 30rem;
+    }
+
+    #projects-grid {
         gap:                   1rem;
         width:                 100%;
         display:               grid;
-        align-content:         flex-start;
-        justify-content:       flex-start;
-        grid-template-columns: repeat(2, minmax(163px, 163px));
-    } 
-
-    /* !!! For Projects section: make sure to add margin: 0 auto; */
+        padding:               0rem;
+        max-width:             var(--max-width-mobile);
+        justify-content:       center;
+        grid-template-columns: repeat(2, 180px);
+    }
 
     /* 
     =========================================================
@@ -1936,11 +1954,21 @@ MOBILE - NAV (768px and below)
     =========================================================
     */
 
+    /* TODO: Maybe add text animation for mobile later */
+
     .landing-scroll-indicator {
-        bottom:         0.5rem;
+        bottom: 0.5rem;
     }
 
     .scroll-line {
-        height:     25px;
+        height: 25px;
+    }
+
+    .click-line {
+        height: 25px;
+    }
+
+    .projects-click-indicator {
+        top: 52rem;  /* TODO: Will need to adjust value as needed; need to fix tiles */
     }
 }
