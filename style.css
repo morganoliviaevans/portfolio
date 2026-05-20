@@ -40,7 +40,7 @@ CSS VARIABLES — DESIGN TOKENS
 
     /* Spacing */
     --nav-height:        65px;
-    --nav-height-mobile: 60px;
+    --nav-height-mobile: 50px;
     --max-width-mobile:  90%;
     --max-width:         1300px;
     --section-gap:       2rem;
@@ -1106,7 +1106,8 @@ PROJECTS MAIN
 
 #projects-landing {
     width:       100%;
-    height:      100vh;
+    height: auto;
+    min-height: 100vh;
     display:     flex;
     overflow:    visible;
     position:    relative;
@@ -1135,6 +1136,10 @@ PROJECTS MAIN
     cursor:    pointer;
     filter:    brightness(1); /* Brighten on hover */
     transform: scale(1.05);   /* Zoom on hover */
+}
+
+#projects-card-last-mobile {
+    display: none;
 }
 
 /* 
@@ -1286,7 +1291,20 @@ FUN FEATURES
     50%       { transform: scaleY(0.4); transform-origin: top; }
 }
 
-.click-indicator {
+.experience-click-indicator {
+    gap:            0.5rem;
+    top:            30rem;
+    left:           50%;
+    opacity:        1;
+    display:        flex;
+    position:       absolute;
+    transform:      translateX(-50%);
+    transition:     opacity 0s ease;
+    align-items:    center;
+    flex-direction: column;
+}
+
+.projects-click-indicator {
     gap:            0.5rem;
     top:            30rem;
     left:           50%;
@@ -1775,10 +1793,11 @@ MOBILE - NAV (768px and below)
     */
 
     #experience-landing {
-        margin:      0 auto;
-        max-width:   var(--max-width-mobile);
-        min-height:  100dvh;
-        padding-top: 1rem;
+        margin:         0 auto;
+        max-width:      var(--max-width-mobile);
+        min-height:     100dvh;
+        padding-top:    5rem;
+        padding-bottom: 0rem;
     }
 
     #experience-grid {
@@ -1791,9 +1810,17 @@ MOBILE - NAV (768px and below)
         grid-template-columns: repeat(2, 175px);
     }
 
+    #experience-grid .card img {
+        opacity:    1;
+    }
+
+    #experience-grid .card:hover img {
+        transform: none;
+    }
+
     /* 
     =========================================================
-    MOBILE EXPERIENCE / PROJECTS - DETAIL PANEL
+    MOBILE - EXPERIENCE / PROJECTS - DETAIL PANEL
     =========================================================
     */
 
@@ -1892,7 +1919,7 @@ MOBILE - NAV (768px and below)
 
     /* 
     =========================================================
-    MOBILE INDIVIDUAL DETAIL ADJUSTMENTS - GRID
+    MOBILE - INDIVIDUAL DETAIL ADJUSTMENTS - GRID
     =========================================================
     */
 
@@ -1916,26 +1943,20 @@ MOBILE - NAV (768px and below)
         grid-template-columns: repeat(1, 1fr);
     }
 
-    /* !!! For Projects section: make sure to add margin: 0 auto; */
-
     /* 
     =========================================================
-    PROJECTS MAIN
+    MOBILE - PROJECTS MAIN
     =========================================================
     */
 
     #projects-landing {
-        width:       100%;
-        height:      100dvh;
-        margin:      0 auto;
-        display:     flex;
-        overflow:    visible;
-        position:    relative;
-        max-width:   var(--max-width-mobile);
-        min-height:  100dvh;
-        align-items: flex-start;
-        padding-top: 10rem;
-        padding-bottom: 30rem;
+        height:         auto;
+        margin:         0 auto;
+        max-width:      var(--max-width-mobile);
+        min-height:     unset;
+        align-items:    flex-start;
+        padding-top:    5rem;
+        padding-bottom: 0rem;
     }
 
     #projects-grid {
@@ -1945,7 +1966,48 @@ MOBILE - NAV (768px and below)
         padding:               0rem;
         max-width:             var(--max-width-mobile);
         justify-content:       center;
-        grid-template-columns: repeat(2, 180px);
+        grid-template-columns: repeat(2, 175px);
+    }
+
+    #projects-card-last-mobile {
+        gap:                   1rem;
+        width:                 100%;
+        margin:                0 auto;
+        display:               grid;
+        max-width:             var(--max-width-mobile);
+        padding-top:           1rem;
+        justify-content:       center;
+        grid-template-columns: repeat(1, 175px);
+    }
+
+    .projects-card-last-desktop {
+        display: none;
+    }
+
+    #projects-grid .card img {
+        opacity: 1;
+    }
+
+    #projects-grid .card:hover img {
+        transform: none;
+    }
+
+    #projects-card-last-mobile .card img {
+        opacity: 1;
+    }
+
+    #projects-card-last-mobile .card:hover img {
+        transform: none;
+    }
+
+    /* 
+    =========================================================
+    MOBILE - CONTACT LIST (FOOTER)
+    =========================================================
+    */
+
+    .footer-icons {
+        padding: 15rem 0rem 1rem; 
     }
 
     /* 
@@ -1964,11 +2026,15 @@ MOBILE - NAV (768px and below)
         height: 25px;
     }
 
+    .experience-click-indicator {
+        top: 34rem;
+    }
+
     .click-line {
         height: 25px;
     }
 
     .projects-click-indicator {
-        top: 52rem;  /* TODO: Will need to adjust value as needed; need to fix tiles */
+        top: 47rem;  /* TODO: Will need to adjust value as needed; need to fix tiles */
     }
 }
