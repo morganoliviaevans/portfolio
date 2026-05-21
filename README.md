@@ -37,6 +37,7 @@ Single-page portfolio built with vanilla HTML, CSS, and JavaScript. No framework
 ├── favicon.ico
 └── media/
     ├── avatar.png / avatar.gif
+    ├── resume-mevans-redacted.png
     ├── about/
     │   ├── affiliations/
     │   └── tools/
