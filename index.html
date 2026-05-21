@@ -118,7 +118,7 @@
                         -->
 
                         <div class="link-wrapper">
-                            <a href="media/resume-mevans-redacted.png" class="glightbox">
+                            <a href="media/resume-mevans-redacted.png" class="glightbox" data-gallery="resume">
                                 <span class="outgoing-link-bubble">Resume</span>
                             </a>
                         </div>
@@ -144,9 +144,6 @@
                             <div class="tool-bubble" data-tooltip="Bash">
                                 <img src="media/about/tools/bash.svg" alt="Bash" />
                             </div>
-                            <div class="tool-bubble" data-tooltip="Slurm">
-                                <img src="media/about/tools/slurm.svg" alt="Slurm" />
-                            </div>
                             <div class="tool-bubble" data-tooltip="Java">
                                 <img src="media/about/tools/java.svg" alt="Java" />
                             </div>
@@ -156,8 +153,8 @@
                             <div class="tool-bubble" data-tooltip="Arduino">
                                 <img src="media/about/tools/arduino.svg" alt="Arduino" />
                             </div>
-                            <div class="tool-bubble" data-tooltip="Arduino">
-                                <img src="media/about/tools/raspberrypi.svg" alt="Arduino" />
+                            <div class="tool-bubble" data-tooltip="Raspberry Pi">
+                                <img src="media/about/tools/raspberrypi.svg" alt="Raspberry Pi" />
                             </div>
                             <div class="tool-bubble" data-tooltip="ESP32">
                                 <img src="media/about/tools/esphome.svg" alt="ESP32" />
@@ -171,8 +168,11 @@
                             <div class="tool-bubble" data-tooltip="Javascript">
                                 <img src="media/about/tools/javascript.svg" alt="Javascript" />
                             </div>
-                            <div class="tool-bubble" data-tooltip="Javascript">
-                                <img src="media/about/tools/godot.svg" alt="Javascript" />
+                            <div class="tool-bubble" data-tooltip="Slurm">
+                                <img src="media/about/tools/slurm.svg" alt="Slurm" />
+                            </div>
+                            <div class="tool-bubble" data-tooltip="Godot">
+                                <img src="media/about/tools/godot.svg" alt="Godot" />
                             </div>
                             <div class="tool-bubble" data-tooltip="Linux">
                                 <img src="media/about/tools/linux.svg" alt="Linux" />
@@ -292,9 +292,9 @@
                             <div class="text-detail">
                                 <p>As part of UC Irvine's optional computer science senior capstone program, I led a team of six students through a multi-quarter project for 
                                 <a href="https://www.kpff.com/" target="_blank" class="outgoing-link">KPFF</a>, a global structural engineering firm. Our deliverable was 
-                                VISTA — Visualization Tools for Structural Analysis — a full-stack 3D visualization tool built in Godot Engine and GDScript, 
-                                integrating backend <a href="https://github.com/OpenSees/OpenSees" target="_blank" class="outgoing-link">OpenSees</a> TCL script 
-                                processing with an interactive front-end for structural model visualization and post-processing.</p>
+                                VISTA — Visualization Tools for Structural Analysis — a full-stack 3D visualization tool built in <a href="https://godotengine.org/" target="_blank" 
+                                class="outgoing-link">Godot Engine</a> and GDScript, integrating backend <a href="https://github.com/OpenSees/OpenSees" target="_blank" 
+                                class="outgoing-link">OpenSees</a> TCL script processing with an interactive front-end for structural model visualization and post-processing.</p>
 
                                 <p>I owned front-end design, feature testing, our technical roadmap, all client communication, version control, and sprint tracking in Jira 
                                 — guiding the team from prototyping through deployment in under six months. Our work earned 3rd place at the <a href="https://ics.uci.edu/expo" 
@@ -316,11 +316,11 @@
                                     </a>
                                 </div>
                                 <div class="detail-media">
-                                    <a href="media/experience/kpff/2025-expo-poster.jpg" class="glightbox media-item">
+                                    <a href="media/experience/kpff/2025-expo-poster.jpg" class="glightbox media-item" data-gallery="expo-cover">
                                         <img src="media/experience/kpff/expo-cover.png" alt="ICS Expo Poster" />
                                     </a>
                                     <div class="media-item-video">
-                                        <a href="https://www.youtube.com/watch?v=B4MYKNuLST8" class="glightbox">
+                                        <a href="https://www.youtube.com/watch?v=B4MYKNuLST8" class="glightbox" data-gallery="vista">
                                             <img src="media/experience/kpff/vista.gif" alt="VISTA Demo" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
@@ -329,7 +329,7 @@
                                         </a>
                                     </div>
                                     <div class="media-item-video">
-                                        <a href="https://www.youtube.com/watch?v=FZ0ihAW0lcM" class="glightbox">
+                                        <a href="https://www.youtube.com/watch?v=FZ0ihAW0lcM" class="glightbox" data-gallery="ics-expo">
                                             <img src="https://img.youtube.com/vi/FZ0ihAW0lcM/maxresdefault.jpg" alt="ICS Expo 2025" />
                                             <div class="media-play"><i class="fa-solid fa-play"></i></div>
                                         </a>
@@ -416,11 +416,12 @@
                             <div class="text-detail">
                                 <p>Throughout the 2023-2024 schoolyear, I worked as a remote Computational Research Intern through the <a href="https://support.access-ci.org/match/overview" 
                                 target="_blank" class="outgoing-link">ACCESS MATCH Program</a>. My work focused on optimizing GPU-accelerated ice-sheet flow modeling 
-                                software using NVIDIA profiling tools to analyze performance bottlenecks within CUDA kernels. Through targeted optimizations — 
-                                removing redundancies, establishing kernel concurrency, and eliminating expensive operations — I reduced overall runtime by approximately 10%. 
-                                I utilized two Slurm-managed supercomputing clusters to compare runtime, grid points, scale, and error values between test cases. I also 
-                                began a codebase conversion toward a performance-portable, architecture-agnostic implementation using OpenACC. My research findings 
-                                contribute to narrowing uncertainty in sea level rise prediction to better understand the effects of climate change.</p>
+                                software using NVIDIA profiling tools to analyze performance bottlenecks within <a href="https://developer.nvidia.com/cuda" target="_blank" 
+                                class="outgoing-link">CUDA</a> kernels. Through targeted optimizations — removing redundancies, establishing kernel concurrency, and eliminating 
+                                expensive operations — I reduced overall runtime by approximately 10%. I utilized two Slurm-managed supercomputing clusters to compare runtime, 
+                                grid points, scale, and error values between test cases. I also began a codebase conversion toward a performance-portable, architecture-agnostic 
+                                implementation using <a href="https://www.openacc.org/" target="_blank" class="outgoing-link">OpenACC</a>. My research findings contribute to 
+                                narrowing uncertainty in sea level rise prediction to better understand the effects of climate change.</p>
 
                                 <p>Note: The performance-portable branch I developed remains active and is maintained in a private fork of the public repository.</p>
                             </div>
@@ -441,7 +442,7 @@
                                     </a>
                                 </div>
                                 <div class="detail-media detail-media-access">
-                                    <a href="media/experience/access/access.png" class="glightbox media-item">
+                                    <a href="media/experience/access/access.png" class="glightbox media-item" data-gallery="access">
                                         <img src="media/experience/access/access-cover.png" alt="Ice sheet model visualization" />
                                     </a>
                                     <!-- Before/after slider -->
@@ -470,14 +471,16 @@
                         </div>
                         <div class="detail-body">
                             <div class="text-detail">
-                                <p>At SCEC, I worked as a Computational Research Intern through the SCEC SOURCES Program. Working one-on-one with my research mentor <a href="https://www.louie.pub" 
-                                target="_blank" class="outgoing-link">Dr. John Louie</a>, Professor of Geophysics, Emeritus at the University of Nevada, Reno, 
-                                I developed and ran low-frequency, physics-based 3D seismic wave propagation models using SW4 software for the Wellington, 
-                                New Zealand region — the highest-resolution simulations ever performed for the area.</p>
+                                <p>At <a href="https://central.scec.org/" target="_blank" class="outgoing-link">SCEC</a>, I worked as a Computational Research Intern through 
+                                the SCEC SOURCES Program. Working one-on-one with my research mentor <a href="https://www.louie.pub" target="_blank" class="outgoing-link">Dr. John Louie</a>, 
+                                Professor of Geophysics, Emeritus at the University of Nevada, Reno, I developed and ran low-frequency, physics-based 3D seismic wave propagation models 
+                                using <a href="https://github.com/geodynamics/sw4" target="_blank" class="outgoing-link">SW4</a> software for the Wellington, New Zealand region — 
+                                the highest-resolution simulations ever performed for the area.</p>
 
                                 <p>My work demonstrated basin amplifications of 2-3x and showed that basin trapped waves extend shaking duration by at least five seconds — 
                                 results with direct relevance to disaster preparedness in a major seismically active city. In January 2023, SCEC sponsored my travel to 
-                                Wellington to present a research seminar at Victoria University of Wellington, as well as a meeting with fellow researchers at the GNS Science Institute. 
+                                Wellington to present a research seminar at <a href="https://www.wgtn.ac.nz/sgees" target="_blank" class="outgoing-link">Victoria University of Wellington</a>, 
+                                as well as a meeting with fellow researchers at the <a href="https://www.gns.cri.nz/" target="_blank" class="outgoing-link">GNS Science Institute</a>. 
                                 This work has been published and presented four times, most recently in the New Zealand Journal of Geology and Geophysics in March 2026.
                                 Additionally, I authored a revised SW4 Quick Start Install Guide to address outdated official documentation.</p>
 
@@ -516,7 +519,7 @@
                                     <a href="media/experience/scec/eeri.png"  class="glightbox" data-gallery="scec-posters" style="display:none;"></a>
 
                                     <div class="media-item-video">
-                                        <a href="https://youtu.be/5OeCtDuIKwE?si=ZbYYvnLA-DzEK4D5" class="glightbox">
+                                        <a href="https://youtu.be/5OeCtDuIKwE?si=ZbYYvnLA-DzEK4D5" class="glightbox" data-gallery="scec-vis">
                                             <img src="media/experience/scec/rockfish.gif" alt="Wellington, New Zealand Hi-resolution 3D Shaking Model at 1.5 Hz Max Frequency" />
                                             <div class="media-play"><i class="fa-solid fa-play"></i></div>
                                         </a>
@@ -564,7 +567,7 @@
         </section>
 
         <!-- These classes need to be adjusted for projects landing or merged with experience -->
-        <!-- ===================== PROJECTS DETAIL - WORK IN PROGRESS ===================== -->
+        <!-- ===================== PROJECTS DETAIL ===================== -->
         <section id="projects-landing">
             <main class="grid-main">
                 <section id="projects-grid">
@@ -638,11 +641,11 @@
                                     </a>
                                 </div>
                                 <div class="detail-media">
-                                    <a href="media/projects/bithacks/self.png" class="glightbox media-item">
+                                    <a href="media/projects/bithacks/self.png" class="glightbox media-item" data-gallery="bithacks">
                                         <img src="media/projects/bithacks/self-cover.png" alt="Morgan with CON-E" />
                                     </a>
                                     <div class="media-item-video">
-                                        <a href="https://youtu.be/x9RpbLjtsWk" class="glightbox">
+                                        <a href="https://youtu.be/x9RpbLjtsWk" class="glightbox" data-gallery="bithacks-vid">
                                             <img src="media/projects/bithacks/bithacks.gif" alt="Bithacks" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
@@ -650,7 +653,7 @@
                                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                         </a>
                                     </div>
-                                    <a href="media/projects/bithacks/bithacks-team.png" class="glightbox media-item">
+                                    <a href="media/projects/bithacks/bithacks-team.png" class="glightbox media-item" data-gallery="bithacks">
                                         <img src="media/projects/bithacks/bithacks-team-cover.png" alt="Team with CON-E" />
                                     </a>
                                 </div>
@@ -696,11 +699,11 @@
                                     </a>
                                 </div>
                                 <div class="detail-media">
-                                    <a href="media/projects/atmega32/all-levels.png" class="glightbox media-item">
+                                    <a href="media/projects/atmega32/all-levels.png" class="glightbox media-item" data-gallery="atmega32">
                                         <img src="media/projects/atmega32/low-level-cover.png" alt="ATMega32" />
                                     </a>
                                     <div class="media-item-video">
-                                        <a href="https://www.youtube.com/watch?v=fyeoDqoIOzc" class="glightbox">
+                                        <a href="https://www.youtube.com/watch?v=fyeoDqoIOzc" class="glightbox" data-gallery="atmega32-vid">
                                             <img src="media/projects/atmega32/all-levels.gif" alt="ATMega32" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
@@ -747,7 +750,7 @@
                                     </a>
                                 </div>
                                 <div class="detail-media">
-                                    <a href="media/projects/esp32/esp32-design.png" class="glightbox media-item">
+                                    <a href="media/projects/esp32/esp32-design.png" class="glightbox media-item" data-gallery="esp32-media">
                                         <img src="media/projects/esp32/esp32-design-cover.png" alt="ESP32" />
                                     </a>
                                     <!-- Gallery 1 -->
@@ -762,7 +765,7 @@
                                     <a href="media/projects/esp32/stls.png"  class="glightbox" data-gallery="esp32-media" style="display:none;"></a>
 
                                     <div class="media-item-video">
-                                        <a href="https://youtu.be/WbrV01EbhwA" class="glightbox">
+                                        <a href="https://youtu.be/WbrV01EbhwA" class="glightbox" data-gallery="esp32-vid">
                                             <img src="media/projects/esp32/esp32.gif" alt="ESP32" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
@@ -795,8 +798,7 @@
                                 set of formal deliverables including a materials cost breakdown, Preliminary Design Review (PDR), final technical report, 
                                 and a championship presentation — providing early exposure to real engineering project workflows and documentation standards.</p>
 
-                                <p>Our team was awarded 2nd place for Best Technical Paper and 4th place overall for Championship 
-                                Design, Build & Demonstration.</p>
+                                <p>Our team was awarded 2nd place for Best Technical Paper and 4th place overall for Championship Design, Build & Demonstration.</p>
                             </div>
                             <!-- RIGHT: tags + links + media -->
                             <div class="detail-right">
@@ -822,27 +824,27 @@
                                     <!-- Gallery 2 -->
                                     <a href="media/projects/nasa-minds/technical-paper/page-1.png"
                                         class="glightbox media-item" 
-                                        data-gallery="technical-paper-media">
+                                        data-gallery="minds-technical-paper">
                                         <img src="media/projects/nasa-minds/technical-paper/technical-paper-cover.png" alt="PDR" />
                                     </a>
                                     <!-- Hidden gallery items — page 2 through 15 -->
-                                    <a href="media/projects/nasa-minds/technical-paper/page-2.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-3.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-4.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-5.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-6.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-7.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-8.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-9.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-10.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-11.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-12.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-13.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-14.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
-                                    <a href="media/projects/nasa-minds/technical-paper/page-15.png"  class="glightbox" data-gallery="technical-paper-media" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-2.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-3.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-4.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-5.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-6.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-7.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-8.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-9.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-10.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-11.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-12.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-13.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-14.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
+                                    <a href="media/projects/nasa-minds/technical-paper/page-15.png"  class="glightbox" data-gallery="minds-technical-paper" style="display:none;"></a>
 
                                     <div class="media-item-video">
-                                        <a href="https://youtu.be/UTvPs85IMsM" class="glightbox">
+                                        <a href="https://youtu.be/UTvPs85IMsM" class="glightbox" data-gallery="minds-vid">
                                             <img src="media/projects/nasa-minds/minds.gif" alt="MINDS" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
@@ -864,18 +866,16 @@
                         <div class="detail-body">
                             <!-- LEFT: text only -->
                             <div class="text-detail">
-                                <p>The <a href="https://www.glee2023.org/home" target="_blank" class="outgoing-link">NASA GLEE</a> 
-                                project is a student-led initiative run through NASA's Artemis mission, giving students worldwide the 
-                                opportunity to build, design, and program a LunaSat — a small spacecraft equipped with an integrated 
-                                sensor suite for gathering temperature, magnetic field, and inertial measurement data on the 
-                                lunar surface. Once deployed, each LunaSat operates on the Moon for approximately 56 Earth days, 
-                                transmitting sensor readings back to teams for processing and archival in NASA's research database.</p>
+                                <p>The <a href="https://www.glee2023.org/home" target="_blank" class="outgoing-link">NASA GLEE</a> project is a student-led initiative run 
+                                through NASA's Artemis mission, giving students worldwide the opportunity to build, design, and program a LunaSat — a small spacecraft 
+                                equipped with an integrated sensor suite for gathering temperature, magnetic field, and inertial measurement data on the lunar surface. 
+                                Once deployed, each LunaSat operates on the Moon for approximately 56 Earth days, transmitting sensor readings back to teams for processing 
+                                and archival in NASA's research database.</p>
 
-                                <p>As one of my earliest technical experiences, I worked as part of a small team to assemble, test, 
-                                and program our LunaSat using Arduino and C++. At the time, none of us had yet been introduced to 
-                                version control or collaborative development workflows — we were learning what it meant to work 
-                                on a technical project as a team entirely from scratch. Looking back, it was a foundational 
-                                experience that sparked my interest in both space systems and hands-on hardware development.</p>
+                                <p>As one of my earliest technical experiences, I worked as part of a small team to assemble, test, and program our LunaSat using Arduino and C++. 
+                                At the time, none of us had yet been introduced to version control or collaborative development workflows — we were learning what it meant to work 
+                                on a technical project as a team entirely from scratch. Looking back, it was a foundational experience that sparked my interest in both space systems 
+                                and hands-on hardware development.</p>
                             </div>
                             <!-- RIGHT: tags + links + media -->
                             <div class="detail-right">
@@ -897,7 +897,7 @@
                                     <a href="media/projects/nasa-glee/lunasat-1.jpg"  class="glightbox" data-gallery="lunasat-media" style="display:none;"></a>
 
                                     <div class="media-item-video">
-                                        <a href="https://www.youtube.com/watch?v=aHxeZxGVyVQ" class="glightbox">
+                                        <a href="https://www.youtube.com/watch?v=aHxeZxGVyVQ" class="glightbox" data-gallery="lunasat-vid">
                                             <img src="media/projects/nasa-glee/moon.gif" alt="Moon" />
                                             <div class="media-play"><i class="fa-sharp fa-solid fa-play"></i></div>
                                         </a>
@@ -912,36 +912,6 @@
                 </div>
             </main>
         </section>
-
-        <!-- ===================== PUBLICATIONS DETAIL - WORK IN PROGRESS ===================== -->
-
-        <!-- ===== CONTENT ===== -->
-        <!-- <section id="publications"> -->
-            <!-- <main class="detail-main"">
-                <div class="detail-container content-card">
-                    <div class="detail-pdf">
-                        <a href="media/2023EERIPoster.pdf" target="_blank">
-                            <img src="media/eeri-cover.png" alt="EERI Poster" class="pdf-cover" />
-                        </a>
-                    </div>
-                    <div class="text-detail">
-                        <p>Publications:</p>
-
-                        <ul class="text-list">
-                            <li>Stern, T.A., Louie, J., Evans, M., et al. (2026). "Subsurface Expression of the Lambton Fault and Potential for the Basin 
-                            Edge Effect in the Wellington Central Business District." New Zealand Journal of Geology and Geophysics, 69(1). DOI: 10.1002/jgo2.70034</li>
-                            <li>Louie, J.N., Lewright, L., Newton, M.O., Pancha, A., Stern, T. (2023). "Exploring Basin Amplification Within the Reno, Nevada 
-                            and Wellington, New Zealand Metropolitan Areas with Non-Ergodic Physics-Based 3D Scenarios." EERI Poster.</li>
-                            <li>Newton, M.O., Louie, J.N., Stern, T., Pancha, A. (2022). "Low Frequency Non-Ergodic Synthetic Modeling of Earthquake Basin 
-                            Effects in Wellington, New Zealand." SCEC Annual Meeting Poster.</li>
-                        </ul>
-
-                        <a href="https://drive.google.com/file/d/197jzIhMwKH6mfxXvNBxno3roQA9zJFe5/view?usp=sharing" target="_blank" 
-                        class="outgoing-link"> Add Links Here <i class="fa-solid fa-download"></i></a>
-                    </div>
-                </div>
-            </main> -->
-        <!-- </section> -->
 
         <!-- ===== CONTACT LIST (FOOTER) ===== -->
         <footer>

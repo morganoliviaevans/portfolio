@@ -22,7 +22,8 @@ CSS VARIABLES — DESIGN TOKENS
     --text-secondary: #d6dcd7;
     --text-paragraph: #a1a5a1;
     --text-muted:     #7d807e;
-    --gold:           #FAC658;
+    --gold:           #fcc140;
+    --gold-muted:     #d29001;
     --blue:           #0098d9;
     --blue-muted:     #25779a;
     --teal:           #00838F;
@@ -56,8 +57,8 @@ RESET & BASE
 */
 
 *, *::before, *::after {
-    margin:  0;
-    padding: 0;
+    margin:  0; /* Margin is space OUTSIDE the element, between it and neighboring elements */
+    padding: 0; /* Padding is space INSIDE the element, between its border and its content */
 }
 
 html {
@@ -174,7 +175,7 @@ h4 {
 /* Bubble wrapper around block of content */
 .content-card {
     padding:             2rem;
-    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);       /* Offset: horizontal, vertical, blur radius / rgba(0, 0, 0, 0.8) = color and opacity */
+    box-shadow:          0 8px 20px rgb(0, 0, 0); /* Offset: horizontal, vertical, blur radius / rgba(0, 0, 0) = color and opacity */
     border-top:          1px solid rgba(255, 255, 255, 0.103);
     border-left:         1px solid rgba(255, 255, 255, 0.04);
     border-right:        1px solid rgba(255, 255, 255, 0.04);
@@ -232,14 +233,14 @@ section { margin-bottom: var(--section-gap); }
     text-decoration: none;
 
     /* Visual */
-    background: var(--blue-muted);
-    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.8);
+    background: var(--gold-muted);
+    box-shadow: 0 8px 20px rgb(0, 0, 0);
 }
 
 .outgoing-link-bubble:hover {
     color:      var(--text-primary);
     transform:  translateY(2px);
-    background: var(--blue);
+    background: var(--gold);
 }
 
 .github-mobile { display: none; }
@@ -249,7 +250,7 @@ section { margin-bottom: var(--section-gap); }
     display:       block;
     position:      relative;
     overflow:      hidden;
-    box-shadow:    0 16px 20px rgba(0, 0, 0, 0.8);
+    box-shadow:    0 8px 20px rgb(0, 0, 0);
     border-top:    1px solid rgba(255, 255, 255, 0.103);
     border-left:   1px solid rgba(255, 255, 255, 0.04);
     border-right:  1px solid rgba(255, 255, 255, 0.04);
@@ -429,7 +430,7 @@ LANDING
 
 .landing-content-card {
     padding:             2rem;
-    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);
+    box-shadow:          0 8px 20px rgb(0, 0, 0);
     border-top:          1px solid rgba(255, 255, 255, 0.103);
     border-left:         1px solid rgba(255, 255, 255, 0.04);
     border-right:        1px solid rgba(255, 255, 255, 0.04);
@@ -532,7 +533,7 @@ ABOUT
     width:           280px;
     filter:          grayscale(100%);
     object-fit:      cover;
-    box-shadow:      0 16px 20px rgba(0, 0, 0, 0.8);
+    box-shadow:      0 8px 20px rgb(0, 0, 0);
     flex-shrink:     0; /* 0: the item refuses to shrink, it always keeps its defined size, 1: the item will shrink proportionally with other items when space is tight */
     border-radius:   20px;
     object-position: center top;
@@ -575,9 +576,10 @@ TOOLS
     border:          1px solid rgba(255, 255, 255, 0.07);
     display:         flex;
     padding:         8px;
+    position:        relative;
     transition:      transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-    background:      var(--teal-muted);
-    box-shadow:      0 16px 20px rgba(0, 0, 0, 0.8);
+    background:      var(--blue-muted);
+    box-shadow:      0 8px 20px rgb(0, 0, 0);
     align-items:     center;
     border-radius:   10px;
     justify-content: center;
@@ -593,12 +595,34 @@ TOOLS
 }
 
 .tool-bubble:hover {
-    transform:    translateY(2px);
-    background:   var(--teal);
-    border-color: rgba(255, 255, 255, 0.18);
+    transform:  translateY(2px);
+    background: var(--blue);
 }
 
 .tool-bubble:hover img { opacity: 1; }
+
+.tool-bubble::after {
+    left:           50%;
+    color:          var(--text-secondary);
+    bottom:         calc(100% + 4px);
+    border:         1px solid var(--text-muted);
+    content:        attr(data-tooltip);
+    padding:        0rem 0.3rem;
+    opacity:        0;
+    position:       absolute;
+    font-size:      0.85rem;
+    transform:      translateX(-50%);
+    transition:     opacity 0.2s ease;
+    background:     var(--bg-secondary);
+    line-height:    1.3rem;
+    font-family:    var(--font-lato);
+    white-space:    nowrap;
+    border-radius:  4px;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+}
+
+.tool-bubble:hover::after { opacity: 1; }
 
 /* 
 =========================================================
@@ -721,7 +745,7 @@ EXPERIENCE / PROJECTS - DETAIL MEDIA GRID
 
 .detail-content-card {
     padding:             2rem;
-    box-shadow:          0 16px 20px rgba(0, 0, 0, 0.8);
+    box-shadow:          0 8px 20px rgb(0, 0, 0);
     border-top:          1px solid rgba(255, 255, 255, 0.103);
     border-left:         1px solid rgba(255, 255, 255, 0.04);
     border-right:        1px solid rgba(255, 255, 255, 0.04);
@@ -737,7 +761,7 @@ EXPERIENCE / PROJECTS - DETAIL MEDIA GRID
     position:      relative;
     overflow:      hidden;
     background:    var(--bg-secondary);
-    box-shadow:    0 16px 20px rgba(0, 0, 0, 0.8);
+    box-shadow:    0 8px 20px rgb(0, 0, 0);
     border-top:    1px solid rgba(255, 255, 255, 0.103);
     border-left:   1px solid rgba(255, 255, 255, 0.04);
     border-right:  1px solid rgba(255, 255, 255, 0.04);
@@ -764,7 +788,7 @@ EXPERIENCE / PROJECTS - DETAIL MEDIA GRID
     position:      relative;
     overflow:      hidden;
     background:    var(--bg-secondary);
-    box-shadow:    0 16px 20px rgba(0, 0, 0, 0.8);
+    box-shadow:    0 8px 20px rgb(0, 0, 0);
     border-top:    1px solid rgba(255, 255, 255, 0.103);
     border-left:   1px solid rgba(255, 255, 255, 0.04);
     border-right:  1px solid rgba(255, 255, 255, 0.04);
@@ -926,17 +950,10 @@ flex-basis:  0 — the element starts with a base size of 0 before growing
     padding:        0.15rem 0.65rem;
     font-size:      1.1rem;
     background:     var(--bg-secondary);
-    box-shadow:     0 16px 20px rgba(0, 0, 0, 0.8);
+    box-shadow:     0 8px 20px rgb(0, 0, 0);
     font-family:    var(--font-lato);
     letter-spacing: 0.05em;
     text-transform: uppercase;
-}
-
-.detail-tag:hover {
-    color:       var(--text-primary);
-    border:      1px solid rgba(255, 255, 255, 0.345);
-    cursor:      default;
-    font-weight: var(--weight-light);
 }
 
 /* 
@@ -947,7 +964,7 @@ SCEC DETAIL - GRID
 
 .detail-right-scec {
     gap:            1rem;
-    width:          35%; /* A little less room here */
+    width:          32%; /* A little less room here */
     display:        flex;
     flex-shrink:    0;
     align-items:    flex-end;
@@ -1121,7 +1138,7 @@ CONTACT LIST (FOOTER)
 .footer-copyright {
     margin:          0 auto;
     display:         flex;
-    padding:         0rem 0rem 2rem; 
+    padding:         0rem 0rem 1rem; 
     align-items:     center;
     justify-content: center;
 }
@@ -1404,7 +1421,6 @@ MOBILE - NAV (768px and below)
     }
 
     .github-desktop { display: none; }
-
     .github-mobile { display: inline-block; }
 
     .outgoing-link-bubble.github-mobile {
@@ -1415,7 +1431,7 @@ MOBILE - NAV (768px and below)
         padding:          0;
         display:          flex;
         font-size:        1.5rem;
-        box-shadow:       0 16px 20px rgba(0, 0, 0, 0.8); /* */
+        box-shadow:       0 8px 20px rgb(0, 0, 0);
         align-items:      center;
         border-radius:    0%;
         letter-spacing:   0em;
@@ -1424,7 +1440,6 @@ MOBILE - NAV (768px and below)
     }
 
     .outgoing-link-bubble:hover { transform: none; }
-
     .content-card { padding: 1rem; }
 
     /* 
@@ -1465,17 +1480,20 @@ MOBILE - NAV (768px and below)
 
     #landing {
         width:           100dvw;
-        height: auto;
-        min-height:          100dvh;
+        height:          auto;
         margin:          0 auto;
         max-width:       var(--max-width-mobile);
+        min-height:      100dvh;
+        align-items:     center;
+        flex-direction:  column;
         justify-content: center;
     }
 
     /* Stack text and avatar vertically, centered */
     .landing-content {
         gap:            2rem;
-        width:          100dvw;
+        width:          100%;
+        padding:        2rem 1rem;
         max-width:      var(--max-width-mobile);
         text-align:     center;
         flex-direction: column;
@@ -1762,11 +1780,23 @@ MOBILE - NAV (768px and below)
     =========================================================
     */
 
-    /* TODO (later): Text animation */
+    /* TODO (later): Text animation on indicators? */
 
-    .landing-scroll-indicator { bottom: 0.5rem; }
+    /* .landing-scroll-indicator { bottom: 0.5rem; } */
+    .landing-scroll-indicator {
+        left:       auto;
+        bottom:     auto;
+        position:   relative;
+        transform:  none;
+        margin-top: 2rem;
+    }
+
     .scroll-line { height: 25px; }
     .experience-click-indicator { top: 34rem; }
     .click-line { height: 25px; }
-    .projects-click-indicator { top: 47rem; }
+
+    .projects-click-indicator { 
+        top: 47rem; 
+        margin-top: 1rem;
+    }
 }
