@@ -2,7 +2,7 @@
 
 Personal portfolio website for Morgan Olivia Evans, a new grad software engineer and scientific researcher with a background in high-performance computing, scientific research and embedded systems.
 
-**Live site:** [https://morganoliviaevans.com](https://morganoliviaevans.github.io/portfolio)
+**Live site:** [morganoliviaevans.com](https://morganoliviaevans.com/)
 
 ## Overview
 
