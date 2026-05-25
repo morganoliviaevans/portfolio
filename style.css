@@ -797,7 +797,8 @@ EXPERIENCE / PROJECTS - DETAIL MEDIA GRID
     aspect-ratio:  1 / 1;
 }
 
-.media-item-video img {
+.media-item-video img,
+.media-item-video video {
     width:      100%;
     height:     100%;
     object-fit: cover;
