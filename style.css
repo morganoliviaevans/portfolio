@@ -23,11 +23,9 @@ CSS VARIABLES — DESIGN TOKENS
     --text-paragraph: #a1a5a1;
     --text-muted:     #7d807e;
     --gold:           #fcc140;
-    --gold-muted:     #d29001;
+    --gold-muted:     #b97e00;
     --blue:           #0098d9;
     --blue-muted:     #25779a;
-    --teal:           #00838F;
-    --teal-muted:     #1b494d;
 
     /* Typography */
     --font-lato:      'Lato', sans-serif;
